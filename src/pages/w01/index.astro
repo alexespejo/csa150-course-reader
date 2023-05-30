@@ -1,14 +1,206 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.vue";
-import A from "./A/A.astro";
-import B from "./A/B.astro";
-import C from "./A/C.astro";
-import D from "./A/D.astro";
-import E from "./A/E.astro";
+import Header from "../../components/Header.astro";
 ---
 
-<div>Index</div>
-<!-- <Layout title="CSA150 Course Reader">
- <Breadcrumbs dir="w01/A" />
-</Layout> -->
+<Layout title="CSA150 Course Reader" dir="" next={null} prev={null}>
+ <Header>An Overview of C++</Header>
+ <p>
+  <strong
+   >This is the Course Reader for CS 150, C++ Programming I, at Orange Coast
+   College</strong
+  >. CS 150 is a <strong>second-semester</strong> course for majors who have already
+  taken a course covering variables, I/O, calculations, loops, decisions, functions
+  and arrays.
+ </p>
+ <p>
+  The reader is short and concise, in line with Leonard Elmore's advice: <i
+   >leave out the parts readers skip.</i
+  > It focuses on the parts you need to get your work done.
+ </p>
+ <p>To get more details, consult one of these highly recommended texts.</p>
+ <ul>
+  <li>
+   <strong>The C++ Primer, 5<sup>th</sup> Edition. Lippman</strong>, Lajoie and
+   Moo
+  </li>
+  <li>
+   <strong
+    >The C++ Programming Language, 4<sup>th</sup>
+    Edition</strong
+   >, Bjarne Stroustrup
+  </li>
+ </ul>
+ <p>
+  These are <strong>professional</strong> books to keep on your shelf after the course
+  is over. Throughout the text you'll also find links pointing to additional reading,
+  which is <mark>optional</mark>.
+ </p>
+ <Header>The C++ Programming Language</Header>
+ <section>
+  <div>
+   <p>
+    C++ is a <mark>compiled</mark>, high-level programming language. Compilers
+    produce <strong>native machine code</strong>
+    programs, which run directly on your hardware, without an
+    <a href="https://en.wikipedia.org/wiki/Interpreter_(computing)">
+     interpreter
+    </a>
+    (like Python) or intermediate software, such as the
+    <a href="https://en.wikipedia.org/wiki/Java_virtual_machine">
+     Java Virtual Machine</a
+    >. Even though C++ programs are often more efficient than their Java or
+    Python counterparts, certain kinds of errors cannot easily be detected, so
+    you will find that you must be more careful and detail-oriented when writing
+    programs in C++.
+   </p>
+   <p>
+    C++ is also a <mark>standardized</mark>
+    <b>language</b>, specified by the
+    <a
+     href="https://en.wikipedia.org/wiki/International_Organization_for_Standardization"
+     >ISO</a
+    >,
+   </p>
+   or International Standards Organization. Unlike <strong
+    >proprietary languages</strong
+   >, controlled by a single company, <strong>anyone</strong> may implement the C++
+   language without fear of lawsuits. There are several versions of C++ you should
+   know about.
+  </div>
+  <ul>
+   <li>
+    <strong>Pre-standard C++</strong>: 1980-98. Often incompatible versions,
+    vendor specific.
+   </li>
+   <li>
+    <strong>C++ 98</strong>: the first standard version; it was updated in 2003
+    ( <strong>C++03</strong>).
+   </li>
+   <li>
+    <mark>C++ 11</mark>: the second <strong>major</strong> standard; it was updated
+    in <strong> C++14</strong> and <strong>C++ 17</strong>.
+   </li>
+   <li>
+    <a href="https://isocpp.org/std/status">C++20</a>, the latest major
+    standard, is now <strong>complete</strong>. Most recent compilers offer a
+    sampling of some of its new features.
+   </li>
+  </ul>
+  <p>
+   In this class we will be using <strong>C++ 17</strong>. Compilers that
+   implement C++17 include <strong>Visual Studio 2019</strong>, GNU <strong
+    >g++ 7</strong
+   > (or later), and <strong>clang 6</strong>+.
+  </p>
+ </section>
+ <Header>Hello World</Header>
+ <div>
+  <p>
+   On the first page of Dennis Ritchie's seminal programming book, <strong
+    >The C Programming Language,
+   </strong> he writes:
+  </p>
+  <blockquote>
+   <p>
+    The only way to learn a new programming language is by writing programs in
+    it. The first program to write is the same for all languages:
+   </p>
+   <p>Print the words: <strong>hello, world</strong></p>
+   <p>
+    This is the big hurdle; to leap over it you have to be able to create the
+    program text somewhere, compile it successfully, load it, run it, and find
+    out where the output went. With these mechanical details mastered,
+    everything else is comparatively easy.
+   </p>
+  </blockquote>
+  <p>
+   <a class="plain" href="https://rextester.com/OBXDC7943" target="blank">
+    <img src="../../images/exercise.png" class="width-64 right" />
+   </a>
+   I'm sure his last sentence was <strong>somewhat</strong>
+   tongue-in-cheek, but let's follow his example and look at a C++ version of "Hello
+   World" by clicking the little "running-man" to your right to open the program
+   in an online IDE. Leave it open for the next few pages.
+  </p>
+ </div>
+ <Header>Source Code</Header>
+ <section>
+  <p>
+   When you click the link you'll find the human-readable
+   <strong>source code</strong> for this program, in the file which we would name
+   hello.cpp.
+  </p>
+  <img
+   src="../images/hello.png"
+   class="inlineCenter shadow round"
+   alt="The Hello World Program."
+  />
+  <p>Let's review each line:</p>
+  <ol>
+   <li>
+    A <mark>comment</mark>, designed for the reader, but ignored by the
+    compiler.
+   </li>
+   <li>
+    A <mark>preprocessor directive</mark> which makes the C++ library facilities
+    available.
+   </li>
+   <li>
+    A <mark>namespace directive</mark> makes standard names available without qualification.
+   </li>
+   <li>A <mark>blank line</mark>, used to make your code more readable.</li>
+   <li>
+    The <code>main</code> function or <mark>entry point</mark> to your program. Each
+    program has one
+    <code>main</code>.
+   </li>
+   <li>
+    The <strong>opening</strong> brace. How you say <mark>begin</mark> the actions
+    in C++.
+   </li>
+   <li>
+    Prints to the console, using the <mark>standard output</mark> object named <code
+     >cout</code
+    >.
+   </li>
+   <li>
+    Ends the main function, <mark>returning</mark> the value <code>0</code> back
+    to the operating system.
+   </li>
+   <li>
+    The <strong>closing</strong> brace marks the <mark>end</mark> of <code
+     >main</code
+    >, matching the opening brace.
+   </li>
+  </ol>
+ </section>
+ <Header>Program Mechanics</Header>
+ <section>
+  <p>
+   To create your own C++ programs, you follow a
+   <b>mechanical process</b>, a well-defined set of steps called the <mark
+    >edit-build-run</mark
+   > cycle. In short you:
+  </p>
+  <ol>
+   <li><mark>Create</mark> your source code using a <b>text editor</b>.</li>
+   <li>
+    <mark>Build</mark> your executable using a <mark>compiler toolchain</mark>
+   </li>
+   <li><b>Run</b> your program using your operating system facilities</li>
+  </ol>
+  <img
+   src="../images/build.png"
+   class="inlineCenter"
+   alt="The edit-build-run cycle."
+   title="The edit-build-run cycle."
+  />
+ </section>
+</Layout>
+
+<style>
+ header {
+  margin-top: 5rem;
+ }
+</style>
