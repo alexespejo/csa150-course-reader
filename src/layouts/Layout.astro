@@ -1,36 +1,61 @@
 ---
+import ChapterSideBar from "../utils/ChapterSideBar.astro";
+import SectionAside from "../utils/SectionAside.astro";
+import TopNavbar from "../utils/TopNavbar.astro";
+import NavigatorButtons from "../components/NavigatorButtons.vue";
+import Breadcrumbs from "../components/Breadcrumbs.vue";
+import "../styles/global.css";
 export interface Props {
-	title: string;
+ title: string;
+ dir: string;
+ prev: any;
+ next: any;
 }
-
-const { title } = Astro.props;
+const { title, dir, prev, next } = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description">
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+ <head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Astro description" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="generator" content={Astro.generator} />
+  <title>{title}</title>
+ </head>
+ <body>
+  <div class="flex w-screen h-screen">
+   <nav class="bg-blue-500 hidden md:flex md:w-1/4 lg:w-1/5">
+    <ChapterSideBar />
+   </nav>
+   <div class="h-full w-full md:w-3/4 lg:w-5/6 relative">
+    <nav class="w-100" id="top-navbar"><TopNavbar /></nav>
+    <div class="flex" id="main-content">
+     <main class="p-5 h-full w-full xl:w-5/6 overflow-auto">
+      <section>
+       <Breadcrumbs dir="w01/A" />
+       <slot />
+       <NavigatorButtons
+        next={next ? `/${dir}/${next}` : null}
+        prev={prev ? `/${dir}/${prev}` : null}
+       />
+      </section>
+     </main>
+     <aside class="bg-green-500 hidden xl:flex w-1/6 h-full">
+      <SectionAside />
+     </aside>
+    </div>
+   </div>
+  </div>
+ </body>
 </html>
-<style is:global>
-	:root {
-		--accent: 124, 58, 237;
-		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background-color: #F6F6F6;
-	}
-	code {
-		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-			Bitstream Vera Sans Mono, Courier New, monospace;
-	}
+
+<style scoped>
+ #main-content {
+  height: 90%;
+ }
+ #top-navbar {
+  height: 10%;
+ }
 </style>

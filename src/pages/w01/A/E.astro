@@ -1,0 +1,29 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+---
+
+<Layout title="Week 1" dir="w01/A" next={false} prev="D">
+ <Header>Program Mechanics</Header>
+ <section>
+  <p>
+   To create your own C++ programs, you follow a
+   <b>mechanical process</b>, a well-defined set of steps called the <mark
+    >edit-build-run</mark
+   > cycle. In short you:
+  </p>
+  <ol>
+   <li><mark>Create</mark> your source code using a <b>text editor</b>.</li>
+   <li>
+    <mark>Build</mark> your executable using a <mark>compiler toolchain</mark>
+   </li>
+   <li><b>Run</b> your program using your operating system facilities</li>
+  </ol>
+  <img
+   src="../images/build.png"
+   class="inlineCenter"
+   alt="The edit-build-run cycle."
+   title="The edit-build-run cycle."
+  />
+ </section>
+</Layout>
