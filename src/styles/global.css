@@ -9,7 +9,7 @@ tt.y {
  background: yellow;
 }
 section {
- @apply leading-7 flex flex-col space-y-3 min-w-fit;
+ @apply leading-8 flex flex-col space-y-5 min-w-fit;
 }
 ul,
 ol {

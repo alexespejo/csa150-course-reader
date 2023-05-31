@@ -1,9 +1,10 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import Header from "../../../components/Header.astro";
+const { no_layout } = Astro.props;
 ---
 
-<Layout title="Week 1" dir="w01/A" prev="B" next="D">
+<Layout title="Week 1" dir="w01/A" prev="B" next="D" uselayout={no_layout}>
  <Header>Hello World</Header>
  <div>
   <p>
