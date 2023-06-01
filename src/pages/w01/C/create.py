@@ -5,10 +5,11 @@ html_code = '''
 ---
 import Layout from "../../../layouts/Layout.astro";
 import Header from "../../../components/Header.astro";
+const { no_layout } = Astro.props;
 ---
 
-<Layout title="Week 1" dir="w01/E" prev="" next="">
-
+<Layout title="Week 1" dir="w01/B" prev="" next="" uselayout={no_layout}>
+    <Header id="w01/B"></Header>
 </Layout>'''
 
 for file_name in files:

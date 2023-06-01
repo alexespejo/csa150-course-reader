@@ -1,7 +1,7 @@
 ---
 import ChapterSideBar from "../utils/ChapterSideBar.astro";
 import SectionAside from "../utils/SectionAside.astro";
-import TopNavbar from "../utils/TopNavbar.astro";
+import TopNavbar from "../utils/TopNavbar.vue";
 import NavigatorButtons from "../components/NavigatorButtons.vue";
 import Breadcrumbs from "../components/Breadcrumbs.vue";
 import "../styles/global.css";
@@ -33,12 +33,12 @@ const { title, dir, prev, next, uselayout } = Astro.props;
       <ChapterSideBar />
      </nav>
      <div class="h-full w-full md:w-3/4 lg:w-5/6 relative">
-      <nav class="w-100" id="top-navbar">
+      <nav class="w-100 sticky top-0" id="top-navbar">
        <TopNavbar />
       </nav>
-      <div class="flex" id="main-content">
+      <div class="flex  relative" id="main-content">
        <main class="p-5 h-full w-full xl:w-5/6 overflow-auto">
-        <section class="flex flex-col space-y-7">
+        <section class="flex flex-col space-y-7" id="main-body">
          <slot />
          <NavigatorButtons
           next={next ? `/${dir}/${next}` : null}
@@ -46,7 +46,7 @@ const { title, dir, prev, next, uselayout } = Astro.props;
          />
         </section>
        </main>
-       <aside class="bg-green-500 hidden xl:flex w-1/6 h-full">
+       <aside class="hidden xl:flex w-1/6 h-full sticky top-0 border-l-2 border-slate-300">
         <SectionAside />
        </aside>
       </div>
@@ -61,9 +61,11 @@ const { title, dir, prev, next, uselayout } = Astro.props;
  </body>
 </html>
 
-<style scoped>
+<style lang="scss">
  #main-content {
   height: 90%;
+ }
+ #main-body {
  }
  #top-navbar {
   height: 10%;

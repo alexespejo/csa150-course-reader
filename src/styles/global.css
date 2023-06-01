@@ -32,3 +32,91 @@ blockquote {
  font-style: italic;
  @apply bg-stone-300 py-2;
 }
+img.width-64 {
+ width: 64px;
+}
+img.width-32 {
+ width: 32px;
+}
+img.width-25 {
+ width: 25%;
+}
+img.width-30 {
+ width: 30%;
+}
+img.width-40 {
+ width: 40%;
+}
+img.width-50 {
+ width: 50%;
+}
+img.width-60 {
+ width: 60%;
+}
+img.width-75 {
+ width: 75%;
+}
+img.width-80 {
+ width: 80%;
+}
+img.width-90 {
+ width: 90%;
+}
+img.width-100 {
+ width: 100%;
+}
+img.inline {
+ margin: 1em;
+ display: block;
+ clear: both;
+}
+/* img.left {
+ margin-top: 10px;
+ margin-bottom: 10px;
+ float: left;
+}
+
+img.leftCorner {
+ margin-left: -55px;
+ margin-right: 25px;
+ margin-top: -35px;
+ margin-bottom: 10px;
+ float: left;
+}
+
+img.right {
+ margin-left: 15px;
+ margin-right: -50px;
+ margin-top: 10px;
+ margin-bottom: 10px;
+ float: right;
+}
+
+
+img.left-125 {
+ margin-left: -125px;
+}
+img.left-150 {
+ margin-left: -150px;
+}
+img.left-175 {
+ margin-left: -175px;
+}
+img.left-200 {
+ margin-left: -200px;
+}
+img.left-225 {
+ margin-left: -225px;
+}
+img.left-235 {
+ margin-left: -235px;
+}
+img.left,
+img.left-125,
+img.left-150,
+img.left-175,
+img.left-200,
+img.left-225,
+img.left-235 {
+ float: left;
+} */

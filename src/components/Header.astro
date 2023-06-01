@@ -1,4 +1,7 @@
-<header class="font-bold text-blue-800 text-xl sm:text-3xl">
+---
+const {id} = Astro.props;
+---
+<header class="font-bold text-blue-800 text-xl sm:text-3xl" id={id}>
  <slot />
 </header>
 <style scoped>

@@ -5,7 +5,7 @@ const { no_layout } = Astro.props;
 ---
 
 <Layout title="Week 1" dir="w01/A" prev="B" next="D" uselayout={no_layout}>
- <Header>Hello World</Header>
+ <Header id="w01/A/C">Hello World</Header>
  <div>
   <p>
    On the first page of Dennis Ritchie's seminal programming book, <strong
@@ -27,7 +27,7 @@ const { no_layout } = Astro.props;
   </blockquote>
   <p>
    <a class="plain" href="https://rextester.com/OBXDC7943" target="blank">
-    <img src="../../images/exercise.png" class="width-64 right" />
+    <img src="/images/exercise.png" class="width-64 right" />
    </a>
    I'm sure his last sentence was <strong>somewhat</strong>
    tongue-in-cheek, but let's follow his example and look at a C++ version of "Hello

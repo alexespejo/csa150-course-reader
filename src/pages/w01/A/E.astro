@@ -1,12 +1,13 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import Header from "../../../components/Header.astro";
+import image from "../images/build.png";
 const { no_layout } = Astro.props;
 ---
 
 <Layout title="Week 1" dir="w01/A" next={false} prev="D" uselayout={no_layout}>
- <Header>Program Mechanics</Header>
- <section>
+ <Header id="w01/A/E">Program Mechanics</Header>
+ <section class="flex flex-col">
   <p>
    To create your own C++ programs, you follow a
    <b>mechanical process</b>, a well-defined set of steps called the <mark
@@ -21,8 +22,8 @@ const { no_layout } = Astro.props;
    <li><b>Run</b> your program using your operating system facilities</li>
   </ol>
   <img
-   src="../images/build.png"
-   class="inlineCenter"
+   src={image}
+   class="inlineCenter w-2/3 self-center"
    alt="The edit-build-run cycle."
    title="The edit-build-run cycle."
   />

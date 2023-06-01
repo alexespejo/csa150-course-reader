@@ -1,22 +1,20 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import Header from "../../../components/Header.astro";
+import image from "../images/hello.png";
 const { no_layout } = Astro.props;
 ---
 
 <Layout title="Week 1" dir="w01/A" prev="C" next="E" uselayout={no_layout}>
- <Header>Source Code</Header>
- <section>
+ <Header id="w01/A/D">Source Code</Header>
+ <section class="flex flex-col">
   <p>
    When you click the link you'll find the human-readable
    <strong>source code</strong> for this program, in the file which we would name
    hello.cpp.
   </p>
-  <img
-   src="../images/hello.png"
-   class="inlineCenter shadow round"
-   alt="The Hello World Program."
-  />
+  <img src={image} class="w-2/3 self-center" alt="The Hello World Program." />
+
   <p>Let's review each line:</p>
   <ol>
    <li>
