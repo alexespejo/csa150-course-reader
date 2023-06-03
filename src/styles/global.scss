@@ -1,15 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&&display=swap");
 body {
- @apply bg-slate-200 text-slate-800 text-base sm:text-lg;
+ @apply bg-slate-200 dark:bg-slate-900 dark:text-slate-300 text-black sm:text-lg;
 }
 mark {
  font-weight: bold;
+ @apply p-0.5;
 }
-tt.y {
- background: yellow;
+strong {
+ @apply dark:text-blue-300;
+}
+tt {
+ @apply bg-info;
 }
 section {
- @apply leading-8 flex flex-col space-y-5 min-w-fit;
+ @apply leading-9 flex flex-col min-w-fit;
 }
 ul,
 ol {
@@ -30,7 +34,13 @@ blockquote {
  padding-left: 1em;
  padding-right: 1em;
  font-style: italic;
- @apply bg-stone-300 py-2;
+ strong {
+  @apply bg-stone-300 dark:text-black;
+ }
+ @apply bg-stone-300 py-2 dark:text-black leading-6;
+}
+img {
+ @apply w-full;
 }
 img.width-64 {
  width: 64px;
@@ -70,6 +80,15 @@ img.inline {
  display: block;
  clear: both;
 }
+
+img.inlineCenter {
+ margin: 1em;
+ margin-left: auto;
+ margin-right: auto;
+ display: block;
+ clear: both;
+ @apply w-full sm:w-3/4 lg:w-2/3 rounded-md;
+}
 /* img.left {
  margin-top: 10px;
  margin-bottom: 10px;
@@ -91,7 +110,6 @@ img.right {
  margin-bottom: 10px;
  float: right;
 }
-
 
 img.left-125 {
  margin-left: -125px;

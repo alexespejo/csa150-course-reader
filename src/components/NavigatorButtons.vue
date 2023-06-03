@@ -3,6 +3,7 @@ const props = defineProps(["prev", "next"]);
 </script>
 <template>
  <div
+  v-if="prev || next"
   class="flex border-4 bg-blue-500 text-blue-100 border-slate-800 min-w-fit w-fit rounded-lg self-end"
  >
   <a
@@ -11,7 +12,7 @@ const props = defineProps(["prev", "next"]);
    :class="prev && next ? 'border-r-2 border-black' : ''"
    >Previous</a
   >
-  <a v-if="next" :href="next">Next</a>
+  <a v-else-if="next" :href="next">Next</a>
  </div>
 </template>
 

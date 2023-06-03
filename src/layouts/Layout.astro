@@ -1,21 +1,33 @@
 ---
 import ChapterSideBar from "../utils/ChapterSideBar.astro";
-import SectionAside from "../utils/SectionAside.astro";
+import SectionAside from "../utils/SectionAside.vue";
 import TopNavbar from "../utils/TopNavbar.vue";
-import NavigatorButtons from "../components/NavigatorButtons.vue";
-import Breadcrumbs from "../components/Breadcrumbs.vue";
-import "../styles/global.css";
+// import NavigatorButtons from "../components/NavigatorButtons.vue";
+// import Breadcrumbs from "../components/Breadcrumbs.vue";
+import "../styles/global.scss";
 export interface Props {
  title: string;
  dir: string;
- prev: any;
- next: any;
- uselayout: boolean;
+ displayLayout: boolean;
+ chapterSubSections: string[];
+ //  prev: any;
+ //  next: any;
 }
-const { title, dir, prev, next, uselayout } = Astro.props;
+// const { title, dir, prev, next, uselayout } = Astro.props;
+
+const { title, displayLayout, chapterSubSections } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<script>
+ const buttons = document.querySelectorAll("button.alert");
+
+ // Handle clicks on each button.
+ buttons.forEach((button) => {
+  button.addEventListener("click", () => {
+   alert("Button was clicked!");
+  });
+ });
+</script>
 <html lang="en">
  <head>
   <meta charset="UTF-8" />
@@ -27,9 +39,9 @@ const { title, dir, prev, next, uselayout } = Astro.props;
  </head>
  <body>
   {
-   !uselayout ? (
+   displayLayout ? (
     <div class="flex w-screen h-screen">
-     <nav class="bg-blue-500 hidden md:flex md:w-1/4 lg:w-1/5">
+     <nav class="bg-slate-300 hidden md:flex md:w-1/4 lg:w-1/5">
       <ChapterSideBar />
      </nav>
      <div class="h-full w-full md:w-3/4 lg:w-5/6 relative">
@@ -37,23 +49,19 @@ const { title, dir, prev, next, uselayout } = Astro.props;
        <TopNavbar />
       </nav>
       <div class="flex  relative" id="main-content">
-       <main class="p-5 h-full w-full xl:w-5/6 overflow-auto">
-        <section class="flex flex-col space-y-7" id="main-body">
-         <slot />
-         <NavigatorButtons
-          next={next ? `/${dir}/${next}` : null}
-          prev={prev ? `/${dir}/${prev}` : null}
-         />
+       <main class="px-3 sm:p-5 h-full w-full xl:w-5/6 xl:w-4/5 overflow-auto">
+        <section class="flex flex-col space-y-10" id="main-body">
+         <slot />{" "}
         </section>
        </main>
-       <aside class="hidden xl:flex w-1/6 h-full sticky top-0 border-l-2 border-slate-300">
-        <SectionAside />
+       <aside class="hidden xl:block w-1/6 xl:w-1/5 h-full sticky top-0 border-l-2 border-slate-300">
+        <SectionAside sections={chapterSubSections} />
        </aside>
       </div>
      </div>
     </div>
    ) : (
-    <div class="min-h-full">
+    <div class="border-b-2 border-b-slate-300 pb-28">
      <slot />
     </div>
    )

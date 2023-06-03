@@ -2,11 +2,16 @@
 import Layout from "../../../layouts/Layout.astro";
 import Header from "../../../components/Header.astro";
 import image from "../images/build.png";
-const { no_layout } = Astro.props;
+const { useLayout } = Astro.props;
 ---
 
-<Layout title="Week 1" dir="w01/A" next={false} prev="D" uselayout={no_layout}>
- <Header id="w01/A/E">Program Mechanics</Header>
+<Layout
+ title="Week 1"
+ dir="w01/A"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="E">Program Mechanics</Header>
  <section class="flex flex-col">
   <p>
    To create your own C++ programs, you follow a
@@ -23,7 +28,7 @@ const { no_layout } = Astro.props;
   </ol>
   <img
    src={image}
-   class="inlineCenter w-2/3 self-center"
+   class="inlineCenter self-center"
    alt="The edit-build-run cycle."
    title="The edit-build-run cycle."
   />

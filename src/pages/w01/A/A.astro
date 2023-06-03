@@ -2,11 +2,16 @@
 import Layout from "../../../layouts/Layout.astro";
 import Header from "../../../components/Header.astro";
 
-const { no_layout } = Astro.props;
+const { useLayout } = Astro.props;
 ---
 
-<Layout title="Week 1" dir="w01/A" prev={null} next="B" uselayout={no_layout}>
- <Header id="w01/A/A">An Overview of C++</Header>
+<Layout
+ title="Week 1"
+ dir="w01/A"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="A">An Overview of C++</Header>
  <p>
   <strong
    >This is the Course Reader for CS 150, C++ Programming I, at Orange Coast
