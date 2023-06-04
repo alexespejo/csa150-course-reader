@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from "vue";
-const props = defineProps(["sections"]);
 let letters = ref(["A", "B", "C", "D", "E", "F", "G", "H"]);
+const props = defineProps(["sections"]);
 </script>
 <template>
  <ul class="py-5">

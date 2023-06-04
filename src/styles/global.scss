@@ -89,6 +89,12 @@ img.inlineCenter {
  clear: both;
  @apply w-full sm:w-3/4 lg:w-2/3 rounded-md;
 }
+pre,
+tt,
+kbd,
+code {
+ font-family: code, consolas, monospace !important;
+}
 /* img.left {
  margin-top: 10px;
  margin-bottom: 10px;
