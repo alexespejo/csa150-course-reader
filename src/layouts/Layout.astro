@@ -1,10 +1,11 @@
 ---
-import ChapterSideBar from "../utils/ChapterSideBar.astro";
+import ChapterSideBar from "../utils/ChapterSideBar.vue";
 import SectionAside from "../utils/SectionAside.vue";
 import TopNavbar from "../utils/TopNavbar.vue";
-import DropDownNavigation from "../utils/DropDownNavigation.vue";
+import Drawer from "../components/Drawer.astro";
 // import NavigatorButtons from "../components/NavigatorButtons.vue";
 // import Breadcrumbs from "../components/Breadcrumbs.vue";
+import "../styles/prism.css";
 import "../styles/global.scss";
 export interface Props {
  title: string;
@@ -18,22 +19,21 @@ export interface Props {
 
 const { title, displayLayout, chapterSubSections } = Astro.props;
 ---
-
 <script>
- const buttons = document.querySelectorAll("button.alert");
-
- // Handle clicks on each button.
- buttons.forEach((button) => {
-  button.addEventListener("click", () => {
-   alert("Button was clicked!");
-  });
- });
+    // Get the button element
+let hamburger_menue :HTMLButtonElement | any = document.getElementById('hamburger_menue');
+let side_bar_mobile :HTMLElement | any = document.getElementById("side-bar-mobile")
+hamburger_menue.addEventListener('click', function() {
+   side_bar_mobile.classList.add("block") 
+});
 </script>
 <html lang="en">
  <head>
   <meta charset="UTF-8" />
   <meta name="description" content="Astro description" />
   <meta name="viewport" content="width=device-width" />
+  <link rel="stylesheet" href="../styles/prism.css" />
+  <script src="../utils/prisms"></script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <meta name="generator" content={Astro.generator} />
   <title>{title}</title>
@@ -42,27 +42,34 @@ const { title, displayLayout, chapterSubSections } = Astro.props;
   {
    displayLayout ? (
     <div class="flex w-screen h-screen">
-     <nav class="bg-slate-300 hidden md:flex md:w-1/4 lg:w-1/5">
+     <!--Side bar -->
+     <nav class="hidden lg:block bg-slate-200 dark:bg-slate-800 lg:w-2/6 xl:w-1/5 h-screen overflow-auto border-r-2 border-r-slate-300 " id="side-bar-mobile">
       <ChapterSideBar />
      </nav>
-     <div class="h-full w-full md:w-3/4 lg:w-5/6 relative">
-      <nav class="w-100" id="top-navbar">
-       <TopNavbar sections={chapterSubSections} />
+ 
+     <div class="h-full w-full lg:w-4/6 xl:w-4/5 relative ">
+    <!--Top bar navigation -->
+      <nav class="w-100  border-b-2 border-slate-300" id="top-navbar">
+       <TopNavbar sections={chapterSubSections} client:load />
+    
       </nav>
+     <!--Main content -->
+      <div class="absolute right-1/2 w-10 h-10 bg-white sm:bg-green-500 md:bg-blue-500 lg:bg-red-500 xl:bg-orange-500 2xl:bg-purple-500 hidden "></div>
+      
       <div class="flex relative" id="main-content">
-       <main class="px-3 sm:p-5 h-full w-full xl:w-4/5 overflow-auto">
-        <section class="flex flex-col space-y-10" id="main-body">
+       <main class="px-3 sm:p-5 h-full w-full  xl:w-4/5 overflow-auto">
+        <section class="flex flex-col space-y-10 relative" id="main-body">
          <slot />{" "}
         </section>
        </main>
-       <aside class="hidden xl:block w-1/6 2xl:w-1/5 h-full sticky top-0 border-l-2 border-slate-300">
+       <aside class="hidden xl:block  xl:w-1/5 h-full border-l-2 border-slate-300">
         <SectionAside sections={chapterSubSections} />
        </aside>
       </div>
      </div>
     </div>
    ) : (
-    <div class="border-b-2 border-b-slate-300 pb-28">
+    <div class="border-b-2 border-b-slate-300 pb-16 relative">
      <slot />
     </div>
    )
@@ -74,8 +81,7 @@ const { title, displayLayout, chapterSubSections } = Astro.props;
  #main-content {
   height: 90%;
  }
- #main-body {
- }
+
  #top-navbar {
   height: 10%;
  }

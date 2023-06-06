@@ -1,0 +1,125 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 2"
+ dir="w02/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="B">The f2c Program</Header>
+ <div>
+  <p class="firstLine">
+   Below you'll find the code for the <tt class="i">f2c</tt>
+   program. Use the arrow on the left to show and hide the code as we discuss its
+   various features.
+  </p>
+  <details>
+   <summary class="dark:bg-slate-800"
+    >The <tt class="i">f2c</tt> Source Code</summary
+   >
+   <pre
+    class="line-numbers language-cpp"><code>/**
+ * @file f2c.cpp
+ * @author Stephen Gilbert
+ * @version CS 150 Reader
+ * Converts Fahrenheit to Celsius.
+ */
+#include &lt;iostream&gt;
+#include &lt;iomanip&gt;
+using namespace std;
+
+double convert(double temp);
+
+int main()
+&#123;
+    cout &lt;&lt; "Enter a temperature in Fahrenheit: ";
+    double fahr;
+    cin &gt;&gt; fahr;
+    double celsius = convert(fahr);
+    cout &lt;&lt; "Converted: " &lt;&lt; fahr &lt;&lt; "F -&gt; "
+        &lt;&lt; celsius &lt;&lt; "C" &lt;&lt; endl;
+    return 0;
+&#65116;
+
+/**
+ * Converts a temperature from Fahrenheit to Celsius.
+ * @param temp the Fahrenheit temperature to convert.
+ * @return the Celsius temperature.
+ */
+double convert(double temp)
+&#123;
+    return (temp - 32) * 5.0 / 9.0;
+&#65116;
+</code>
+</pre>
+  </details>
+  <h2 class="text-blue-400 font-bold text-3xl">Comments</h2>
+  <p>
+   A <mark>comment</mark> is text provided for readers of your code; comments are
+   ignored by the compiler. C++ has two kinds of comments:
+  </p>
+  <ul>
+   <li>
+    <strong>Single-line</strong> (<tt>//</tt>) are comments that end when the
+    line ends.
+   </li>
+   <li>
+    <strong>Paired</strong> (<tt>/* … */</tt>) are comments which can enclose
+    several lines.
+   </li>
+  </ul>
+  <p>
+   <mark>Documentation comments</mark>(<tt>/** … */</tt>) are paired comments,
+   which start with <tt>/**</tt> instead of <tt>/*</tt>. The are processed using
+   a tool called <strong>Doxygen</strong>. The <tt class="i">f2c</tt>
+   program begins with a documentation <mark>file comment</mark> (lines 1-6), which
+   describes the program as a whole, and uses three
+   <strong>Doxygen</strong>
+   <mark>tags</mark>:
+  </p>
+  <ul>
+   <li>
+    <tt class="t">@file</tt> contains the name of the program file and allows <b
+     >Doxygen</b
+    > to locate and identify the functions which it needs to document.
+   </li>
+   <li>
+    <tt class="t">@author</tt> should your CS 150 login id (such as <strong
+     >sgilbert</strong
+    >).
+   </li>
+   <li>
+    <tt class="t">@version</tt> should contain your CS 150 section (such as <strong
+     >Spring '24 MWAM</strong
+    >)
+   </li>
+  </ul>
+  <p>
+   Functions also have documentation comments appearing <mark>before</mark>
+   each one. Such comments start with a line describing the purpose of the functions,
+   and then contain tags which describe the function <mark
+    >inputs and outputs</mark
+   >:
+  </p>
+  <ul>
+   <li>
+    <tt class="t">@param</tt> is the name and description of each input, or <strong
+     >parameter</strong
+    >.
+   </li>
+   <li>
+    <tt class="t">@return</tt> describes the meaning of the output produced by the
+    function.
+   </li>
+  </ul>
+  <p>
+   Lines 24-28 in the sample code contain the documentation comment for the <tt
+    class="i">convert</tt
+   > function. You'll learn more about documentation comments in the homework.
+  </p>
+ </div>
+</Layout>

@@ -1,0 +1,48 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import imageDahl from "../images/dahl-nygard.jpg";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 2"
+ dir="w02/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="E">Object-Oriented Programming</Header>
+ <div>
+  <p>
+   <tt>C</tt> and <tt>Pascal</tt> are <mark>imperative</mark>
+   languages, where the emphasis is on the <strong>actions</strong>
+   that the computer should do. In the <mark>procedural</mark>
+   <strong>paradigm</strong>, (or programming style), programs consist of a
+   hierarchy of subprograms (<strong>procedures</strong>
+   or <strong>functions</strong>) which process external data.
+  </p>
+  <p>
+   <mark>Object-oriented</mark>
+   programming, or <tt>OOP</tt>, is a different style of programming. In the <tt
+    >OOP</tt
+   > paradigm, programs are communities of somewhat self-contained components (called
+   <strong>objects</strong>) in which <mark>data</mark> and <strong
+    >actions</strong
+   >
+   are combined.
+  </p>
+  <img
+   src={imageDahl}
+   class="inlineCenter round shadow"
+   alt="Ole-Johan Dahl and Kristen Nygaard, the inventors of SIMULA."
+   title="Ole-Johan Dahl and Kristen Nygaard, the inventors of SIMULA."
+  />
+  <p>
+   The first object-oriented language was <tt>SIMULA</tt>, a
+   <mark>simulation</mark> language designed by the Scandinavian computer scientists
+   <strong>Ole-Johan Dahl</strong>
+   and <b>Kristen Nygaard</b> in 1967. Much of the terminology we use today to describe
+   object-oriented languages comes from their original 1967 report.
+  </p>
+ </div>
+</Layout>

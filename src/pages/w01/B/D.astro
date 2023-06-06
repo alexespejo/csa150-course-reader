@@ -1,0 +1,63 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import imageThomas from "../images/thompson-ritchie.jpg";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 2"
+ dir="w02/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="D">The C Languagee</Header>
+ <div>
+  <p>
+   <strong>In 1970</strong>, two researchers at Bell Labs in New Jersey (<strong
+    >Ken Thompson</strong
+   > and <strong>Dennis Ritchie</strong>) developed a <strong
+    >portable operating system</strong
+   > for the new wave of <strong>mini-computers</strong>
+   just coming on the market. They named their operating system
+   <a target="_blank" href="https://www.bell-labs.com/usr/dmr/www/hist.html"
+    >Unix</a
+   >
+   (or <tt>UNIX</tt> if you like).
+  </p>
+  <img
+   src={imageThomas}
+   class="width-60 inlineCenter round shadow"
+   alt="Dennis Ritchie (standing) and Ken Thompson (sitting) working on Unix."
+   alt="Dennis Ritchie (standing) and Ken Thompson (sitting) working on Unix."
+  />
+  <p>
+   <strong>Unix</strong> was originally written in assembly language. Later was converted,
+   (or ported), to a high-level language named <strong>B</strong>. Then, to
+   simplify the development of Unix, Dennis Ritchie modified the
+   <strong>B</strong> language and created the
+   <a target="_blank" href="https://www.bell-labs.com/usr/dmr/www/chist.html">
+    programming language named C</a
+   >.
+  </p>
+  <p>
+   Both Unix and C have had enormous impacts on the field of computing. Many of
+   today's most important language are based on C, including C++, Java and C#,
+   which still use much of the original syntax designed by Ritchie.
+  </p>
+
+  <div class="highlight width-80">
+   Unlike the other technologies we have discussed, UNIX is not acronymic (like
+   FORTRAN). The original 1974 CACM paper— The UNIX Time-Sharing System
+  </div>—used all caps because, in Ritchie's words, “
+  <em>
+   we had a new typesetter and troff had just been invented and we were
+   intoxicated by being able to produce small caps.
+  </em>
+  ” Later Ritchie tried to change the spelling to 'Unix' in a few of his papers.
+  He failed and eventually gave up. See
+  <a target="blank" href="http://catb.org/jargon/html/U/Unix.html"
+   >the Jargon file</a
+  >.
+ </div>
+</Layout>

@@ -1,27 +1,37 @@
+@import "./prism.css";
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&&display=swap");
 body {
- @apply bg-slate-200 dark:bg-slate-900 dark:text-slate-300 text-black sm:text-lg;
+ @apply bg-slate-200 dark:bg-slate-900 dark:text-slate-300 text-black sm:text-xl;
+}
+a {
+ @apply underline;
 }
 mark {
  font-weight: bold;
- @apply p-0.5;
+ @apply p-0.5 bg-slate-500/50 rounded-sm text-slate-300;
+ tt {
+  @apply text-black;
+ }
 }
 strong {
  @apply dark:text-blue-300;
 }
 tt {
- @apply bg-info;
+ @apply font-bold dark:text-blue-300;
 }
 section {
- @apply leading-9 flex flex-col min-w-fit;
+ @apply leading-6 flex flex-col min-w-fit text-sm sm:text-lg;
+}
+p {
+ @apply pb-6 pt-2;
 }
 ul,
 ol {
  font-family: Arial, Helvetica, sans-serif;
- @apply leading-6 flex flex-col space-y-2;
+ @apply flex flex-col space-y-4;
 }
 li {
- @apply list-disc ml-5;
+ @apply list-disc ml-5 leading-6;
 }
 strong {
  @apply font-bold p-0;
@@ -87,7 +97,7 @@ img.inlineCenter {
  margin-right: auto;
  display: block;
  clear: both;
- @apply w-full sm:w-3/4 lg:w-2/3 rounded-md;
+ @apply w-full md:w-4/5 lg:w-3/4 rounded-md;
 }
 pre,
 tt,
@@ -95,52 +105,128 @@ kbd,
 code {
  font-family: code, consolas, monospace !important;
 }
-/* img.left {
- margin-top: 10px;
- margin-bottom: 10px;
- float: left;
+
+.pullquote {
+ font-family: handwriting;
+ font-style: italic;
+ font-size: 1.5em;
+ text-align: center;
+ color: navy;
+ border: solid 1px silver;
+ padding: 1em;
+ margin: 1em;
+ background-image: url(images/bg.gif);
 }
 
-img.leftCorner {
- margin-left: -55px;
- margin-right: 25px;
- margin-top: -35px;
- margin-bottom: 10px;
- float: left;
+.info {
+ background-image: url(images/info.png);
+ background-repeat: no-repeat;
+ background-position: 0px 10px;
+ width: 95%;
+ margin-left: -45px;
+ padding-left: 45px;
 }
 
-img.right {
- margin-left: 15px;
- margin-right: -50px;
- margin-top: 10px;
- margin-bottom: 10px;
- float: right;
+.info p {
+ font-family: body;
+ border: solid 1px silver;
+ color: navy;
+ padding: 1em;
+ margin-top: 1em;
+ margin-bottom: 1em;
+ background-image: url(images/bg.gif);
 }
 
-img.left-125 {
- margin-left: -125px;
+div.bug {
+ background-image: url(images/bug-icon.png);
+ background-repeat: no-repeat;
+ background-size: 64px;
+ background-position: 0px 10px;
+ z-index: 200;
+ width: 95%;
+ margin-left: -65px;
+ padding-left: 65px;
 }
-img.left-150 {
- margin-left: -150px;
+
+div.bug p {
+ font-family: body;
+ font-style: italic;
+ border: solid 1px red;
+ padding: 1em;
+ padding-left: 2em;
+ margin-top: 1em;
+ margin-bottom: 1em;
+ border-radius: 5px;
+ box-shadow: 3px 3px 6px #666;
 }
-img.left-175 {
- margin-left: -175px;
+
+div.syntaxbox {
+ font-size: 1.5em;
+ font-weight: bold;
+ text-align: center;
+ width: 85%;
+ padding: 0.5em 0 0.5em 0;
+ margin: auto;
+ border: 1px solid forestgreen;
+ border-radius: 7px;
+ box-shadow: 7px 7px 15px #ccc;
 }
-img.left-200 {
- margin-left: -200px;
+
+span.small-ref {
+ font-size: 0.6em;
+ font-style: italic;
+ color: #666;
 }
-img.left-225 {
- margin-left: -225px;
+
+div.pcode li {
+ font-family: pcode;
+ font-size: 1.1em;
+ line-height: 0.9em;
 }
-img.left-235 {
- margin-left: -235px;
+
+div.redbox {
+ width: 90%;
+ margin: auto;
+ padding: 1.5em;
+ padding-top: 0.5em;
+ background-color: ivory;
+ border: 1px dashed red;
+ border-radius: 7px;
+ box-shadow: 7px 7px 15px #ccc;
 }
-img.left,
-img.left-125,
-img.left-150,
-img.left-175,
-img.left-200,
-img.left-225,
-img.left-235 {
- float: left;
-} */
+
+details summary {
+ font-style: italic;
+ @apply bg-slate-100 dark:bg-slate-800 overflow-auto;
+}
+
+pre.pcode {
+ background-image: url(images/chalkboard.jpg);
+ background-repeat: no-repeat;
+ width: 90%;
+ font-family: "Pangolin" !important;
+ font-weight: normal;
+ font-style: italic;
+ color: white;
+ font-size: 1.2em;
+ margin-left: 0;
+ padding: 1em;
+ padding-left: 2em;
+ overflow: hidden;
+ box-shadow: 3px 3px 6px 3px #ccc;
+ border-radius: 5px;
+ line-height: 123%;
+}
+
+pre.pcode em {
+ color: lightgreen;
+ border-bottom: 1px dotted silver;
+ margin-bottom: 1em;
+}
+
+pre.pcode i {
+ color: yellow;
+}
+code {
+ @apply text-xs;
+}

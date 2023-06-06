@@ -7,12 +7,12 @@ const props = defineProps(["sections"]);
  <div class="dropdown dropdown-bottom dropdown-end xl:hidden">
   <label
    tabindex="0"
-   class="btn bg-orange-400 text-white m-1 hover:border-orange-400"
+   class="btn bg-blue-700 dark:bg-orange-400 text-white m-1 hover:border-blue-400 dark:hover:border-orange-400"
    >Index</label
   >
   <ul
    tabindex="0"
-   class="dropdown-content menu shadow bg-slate-300 dark:bg-base-100 rounded-box w-72"
+   class="dropdown-content menu shadow bg-slate-300 dark:bg-base-100 rounded-box w-40 sm:w-72"
   >
    <a
     v-for="(sec, index) in props.sections"
