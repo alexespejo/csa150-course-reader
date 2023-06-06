@@ -15,7 +15,9 @@ const props = defineProps(["sections"]);
   class="z-50 w-screen h-screen absolute top-0 lg:hidden bg-slate-700/50"
   v-if="showNavbar"
  >
-  <div class="w-full h-full md:w-1/2 overflow-auto bg-slate-900">
+  <div
+   class="w-full h-full md:w-1/2 overflow-auto bg-slate-200 dark:bg-slate-900"
+  >
    <div class="flex flex-row-reverse pr-5 py-2">
     <button
      class="btn text-white bg-blue-400 hover:bg-blue-400"
@@ -33,9 +35,8 @@ const props = defineProps(["sections"]);
    id="hamburger_menue"
    @click="changeShowNavbar"
   >
-   <div class="bg-white w-10 h-1 rounded-xl"></div>
-   <div class="bg-white w-10 h-1 rounded-xl"></div>
-   <div class="bg-white w-10 h-1 rounded-xl"></div>
+   <div class="bg-black dark:bg-white w-10 h-1 rounded-xl"></div>
+   <div class="bg-black dark:bg-white w-10 h-1 rounded-xl"></div>
   </button>
 
   <div class="flex items-center ml-auto">

@@ -2,9 +2,6 @@
 import ChapterSideBar from "../utils/ChapterSideBar.vue";
 import SectionAside from "../utils/SectionAside.vue";
 import TopNavbar from "../utils/TopNavbar.vue";
-import Drawer from "../components/Drawer.astro";
-// import NavigatorButtons from "../components/NavigatorButtons.vue";
-// import Breadcrumbs from "../components/Breadcrumbs.vue";
 import "../styles/prism.css";
 import "../styles/global.scss";
 export interface Props {
@@ -54,12 +51,12 @@ hamburger_menue.addEventListener('click', function() {
     
       </nav>
      <!--Main content -->
-      <div class="absolute right-1/2 w-10 h-10 bg-white sm:bg-green-500 md:bg-blue-500 lg:bg-red-500 xl:bg-orange-500 2xl:bg-purple-500 hidden "></div>
+      <div class="absolute right-1/2 w-10 h-10 bg-white sm:bg-green-500 md:bg-blue-500 lg:bg-red-500 xl:bg-orange-500 2xl:bg-purple-500 hidden"></div>
       
       <div class="flex relative" id="main-content">
        <main class="px-3 sm:p-5 h-full w-full  xl:w-4/5 overflow-auto">
         <section class="flex flex-col space-y-10 relative" id="main-body">
-         <slot />{" "}
+         <slot />
         </section>
        </main>
        <aside class="hidden xl:block  xl:w-1/5 h-full border-l-2 border-slate-300">

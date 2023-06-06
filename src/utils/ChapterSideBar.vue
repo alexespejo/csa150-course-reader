@@ -56,7 +56,7 @@ h2 {
  div {
   @apply text-sm px-0.5 py-1 ml-2;
   a {
-   @apply hover:underline hover:text-blue-300;
+   @apply hover:underline hover:text-blue-500 hover:dark:text-blue-300;
   }
  }
 }

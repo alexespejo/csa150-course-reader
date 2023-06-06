@@ -3,9 +3,54 @@ import Layout from "../../../layouts/Layout.astro";
 import Header from "../../../components/Header.astro";
 const { useLayout } = Astro.props;
 ---
+
 <Layout
-title="Week 2"
-dir="w02/"
-displayLayout={useLayout}
-chapterSubSections={[]}
-><Header id="D"></Header></Layout>
+ title="Week 2"
+ dir="w02/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="D">Floating-point Numbers</Header>
+ <div>
+  <p class="firstLine">
+   Numbers with a decimal fraction are called
+   <strong>floating-point numbers</strong>. They are used to
+   <mark>model real numbers</mark> from mathematics. C++ has three different floating-point
+   types: <tt>float</tt>, <tt>double</tt>, and <tt>long</tt>
+   <tt>double</tt>.
+  </p>
+  <p>Floating-point literals in C++ are written in two ways:</p>
+  <ul>
+   <li>
+    Using <strong>fixed-point notation</strong> (<tt>2.0</tt>). The value is
+    stored as a <tt>double</tt>.
+   </li>
+   <li>
+    Using scientific or exponential notation. For instance, you can write (<tt
+     >2.9979E+8</tt
+    > to represent the speed of light, instead of writing it as <tt
+     >299790000</tt
+    >.) The exponent can be positive (for large numbers) or negative (for very
+    small numbers), and you can use an uppercase or lowercase "E".
+   </li>
+   <p>
+    You can change the <strong>storage</strong> of your literals by appending an
+    <tt>F</tt> for type <tt>float</tt> and an <tt>L</tt> for a type <tt>long</tt
+    >
+    <tt>double</tt>.
+   </p>
+   <p>Here are some examples of floating-point literals:</p>
+   <pre
+    class="language-cpp"><code>auto a = 3.14159;       // fixed notation, type double
+auto b = 2.997E8;       // scientific notation, type double
+auto c = 299'792'458L;  // fixed notation, type long double
+auto d = 3.5F;          // fixed notation, type float</code></pre>
+   <div class="highlight">
+    <p>
+     Generally, use <tt>double</tt>, not <tt>float</tt> or <tt>long</tt>
+     <tt>double</tt>.
+    </p>
+   </div>
+  </ul>
+ </div>
+</Layout>

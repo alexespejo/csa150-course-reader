@@ -3,9 +3,65 @@ import Layout from "../../../layouts/Layout.astro";
 import Header from "../../../components/Header.astro";
 const { useLayout } = Astro.props;
 ---
+
 <Layout
-title="Week 2"
-dir="w02/"
-displayLayout={useLayout}
-chapterSubSections={[]}
-><Header id="E"></Header></Layout>
+ title="Week 2"
+ dir="w02/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="E">Floating-point Output</Header>
+ <div>
+  <p class="firstLine">
+   The C++ output objects display floating-point numbers by choosing the
+   representation that is most compact, limiting the default number of digits to <tt
+    >6</tt
+   >.
+  </p>
+  <p>
+   Often, this is not what you want. To <mark>explicitly</mark>
+   set the output format involves 3 steps, but you only need to do it once in your
+   program:
+  </p>
+  <ol>
+   <li>
+    Add <tt>#include &lt;iomanip&gt;</tt> to the list of libraries you are using.
+   </li>
+   <li>Send the <tt>fixed</tt> manipulator to the stream before printing.</li>
+   <li>
+    <strong>Specify the number of decimal places</strong> to be displayed, using
+    the <tt>setprecision(n)</tt> manipulator.
+   </li>
+  </ol>
+  <p>
+   Here's an example, displaying the <code>double</code>
+   variable <tt>cost</tt> with <strong>two digits</strong> of precision:
+  </p>
+  <pre
+   class="language-cpp"><code>cout &lt;&lt; fixed &lt;&lt; setprecision(2) &lt;&lt; cost;</code></pre>
+  <p>
+   When printing numbers, you may want to line up the decimal points correctly,
+   so that the output is easier to read.
+  </p>
+  <ul>
+   <li>
+    Use
+    <tt>setw(width)</tt> where <tt>width</tt> is the width of the column that you
+    want to display.
+   </li>
+   <li>
+    Unlike <tt>setprecision()</tt>, <tt>setw()</tt> only applies to
+    <strong>one output object</strong>.
+   </li>
+  </ul>
+  <p>
+   <a target="_blank" href="https://rextester.com/XGHY39126"
+    >Here's an example</a
+   >:
+   <pre
+    class="language-cpp"><code>cout &lt;&lt; fixed &lt;&lt; setprecision(2); // once (persistent)
+cout &lt;&lt; "Widget cost: " &lt;&lt; setw(10) &lt;&lt; cost &lt;&lt; endl;
+cout &lt;&lt; "Sales price: " &lt;&lt; setw(10) &lt;&lt; price &lt;&lt; endl;</code></pre>
+  </p>
+ </div>
+</Layout>

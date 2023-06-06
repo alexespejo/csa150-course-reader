@@ -3,12 +3,9 @@
 body {
  @apply bg-slate-200 dark:bg-slate-900 dark:text-slate-300 text-black sm:text-xl;
 }
-a {
- @apply underline;
-}
 mark {
  font-weight: bold;
- @apply p-0.5 bg-slate-500/50 rounded-sm text-slate-300;
+ @apply p-0.5 dark:bg-slate-500/50 rounded-md dark:text-slate-300;
  tt {
   @apply text-black;
  }
