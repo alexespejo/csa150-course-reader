@@ -3,9 +3,65 @@ import Layout from "../../../layouts/Layout.astro";
 import Header from "../../../components/Header.astro";
 const { useLayout } = Astro.props;
 ---
+
 <Layout
-title="Week 2"
-dir="w02/"
-displayLayout={useLayout}
-chapterSubSections={[]}
-><Header id="B"></Header></Layout>
+ title="Week 2"
+ dir="w02/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="B">Function Syntax</Header>
+ <div>
+  <h1>Function Syntax</h1>
+  <p class="firstLine">
+   Here are the <strong>syntax rules</strong>
+   for <mark>defining</mark>
+   functions.
+  </p>
+  <div class="consoleDisplay" style="padding-left:1.5em;font-style:italic;">
+   type name(parameters)<br />
+   &lbrace;<br />
+   &nbsp;&nbsp;&nbsp;... body ...<br />
+   &rbrace;<br />
+  </div>
+  <ul>
+   <li><mark>type</mark> is the kind of value returned by the function</li>
+   <li><mark>name</mark> is the function name used when calling it</li>
+   <li>
+    <mark>parameters</mark>
+    are a list of variable declarations separated by commas, giving the type and
+    name of each input to the function.
+   </li>
+  </ul>
+  <p>
+   Here is an example function convert, from the <tt class="i">f2c</tt>
+   program which you saw earlier:
+  </p>
+  <pre
+   class="language-cpp line-numbers"><code>double convert(double temp)
+&lbrace;
+  return (temp - 32) * 5.0 / 9.0;
+&rbrace;</code></pre>
+  <ol>
+   <li>The <mark>type</mark> of this function is <tt>double</tt>.</li>
+   <li>The <mark>name</mark> of the function is <tt>convert</tt>.</li>
+   <li>The function has <mark>one parameter</mark> of type <tt>double</tt>.</li>
+  </ol>
+  <p>
+   A <mark>parameter</mark> (<em>aka</em>
+   <strong>formal</strong>
+   <strong>parameter</strong>) is a placeholder for one of the
+   <mark>arguments</mark> (<em>aka</em>
+   <strong>actual parameters</strong>), supplied in the function <mark
+    >call</mark
+   >. It acts like a local variable.
+  </p>
+  <p>
+   Each parameter is initialized at the time the function is called, using a
+   copy of the value of its corresponding argument. Matching is done <mark
+    >by position</mark
+   >, and not by name. If a function has no parameters, the parameter list in
+   the header is empty.
+  </p>
+ </div>
+</Layout>

@@ -6,6 +6,7 @@ const props = defineProps(["sections"]);
 <template>
  <ul class="py-5">
   <a
+   class="no-underline"
    v-for="(sec, index) in props.sections"
    :key="index"
    :href="`#${letters[index]}`"

@@ -3,9 +3,93 @@ import Layout from "../../../layouts/Layout.astro";
 import Header from "../../../components/Header.astro";
 const { useLayout } = Astro.props;
 ---
+
 <Layout
-title="Week 2"
-dir="w02/"
-displayLayout={useLayout}
-chapterSubSections={[]}
-><Header id="E"></Header></Layout>
+ title="Week 2"
+ dir="w02/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="E">Searching a String</Header>
+ <div>
+  <h1>Searching a String</h1>
+  <p class="firstLine">
+   To search for both characters and substrings, the <tt>string</tt> class contains
+   a member function <tt>find()</tt>, which comes in several forms. The simplest
+   form looks like this:
+  </p>
+  <pre class="language-cpp"><code>auto index = str.find(target)</code></pre>
+  <p>The argument <tt>target</tt> is what you’re looking for.</p>
+  <ul>
+   <li>
+    <tt>target</tt> may be a <tt>string</tt>, a <tt>char</tt> or a C-string <b
+     >literal</b
+    >.
+   </li>
+   <li>
+    The function searches through <tt>str</tt>
+    looking for the <mark>first occurrence</mark> of <tt>target</tt>.
+   </li>
+   <li>
+    If <tt>target</tt>
+    <mark>is</mark> found, <tt>find()</tt> returns the index at which the match begins.
+    Use <tt>auto</tt> or <tt>size_t</tt>
+    to store this.
+   </li>
+  </ul>
+  <p>
+   If you want to find the
+   <mark>last occurrence</mark> of target, use <tt>rfind()</tt> instead.
+  </p>
+  <h2>Not Found</h2>
+  <p>
+   If <tt>target</tt>
+   <mark>is not found</mark>, then <tt>find()</tt>
+   returns the constant named <mark><tt>string::npos</tt></mark>. This constant
+   is defined as part of the string class and therefore requires the <tt
+    >string::</tt
+   > qualifier. This is a good candidate for a <strong>named constant</strong> in
+   your code:
+  </p>
+  &nbsp;&nbsp;&nbsp;<code class="language-cpp"
+   >const auto kNotFound = string::npos;</code
+  >
+  <p>
+   The <tt>find()</tt> member function takes an optional second argument to indicate
+   the index at which to start the search. Both styles of the <tt>find()</tt> member
+   function are illustrated here:
+  </p>
+  <pre
+   class="language-cpp"><code>string str{"hello, world"};
+auto a = str.find('o');         // char, 4
+auto b = str.rfind("o");        // C-string, 8
+auto c = str.find('l', 4);      // 10
+auto d = str.find("waldo");     // string::npos</code></pre>
+  <p>
+   The <tt>find()</tt> member functions consider uppercase and lowercase characters
+   to be different. Unlike Java, there is no built-in
+   <tt>toUpperCase()</tt> or <tt>toLowerCase()</tt> member function in the <tt
+    >string</tt
+   > class.
+  </p>
+  <h2>Variations</h2>
+  <p>
+   In addition to <tt>find()</tt> and <tt>rfind()</tt>, you can find the
+   position of the first (or last) occurrence of a character that <strong
+    >appears in a set
+   </strong>
+   or that <strong>doesn't</strong> appear in a set. Here are <a
+    target="_blank"
+    href="https://rextester.com/LFFK45617">some examples</a
+   >:
+  </p>
+  <pre
+   class="language-cpp"><code>string s{"\"Hooray\", the crowd cheered!"};
+// first lower-case vowel
+auto a = s.find_first_of("aeiou");      
+// last punctuation
+auto b = s.find_last_of("\",.!:;");     
+// first non-whitespace
+auto c = s.find_first_not_of(" \t\n");  </code></pre>
+ </div>
+</Layout>

@@ -46,6 +46,47 @@ import SidebarChapters from "./SidebarChapters.vue";
    <a href="/w01/E#G"><div>Expression Evaluation</div></a>
   </SidebarChapters>
  </SidebarChapters>
+ <SidebarChapters heading="Functions, Decisions & Strings">
+  <SidebarChapters heading="A-Side-Effect Operators" :opened="true">
+   <a href="/w02/A#A"><div>Integer Division & Remainders</div></a>
+   <a href="/w02/A#B"><div>Assignment Operators</div></a>
+   <a href="/w02/A#C"><div>Increment and Decrement</div></a>
+   <a href="/w02/A#D"><div>Mixed-type Expressions</div></a>
+   <a href="/w02/A#E"><div>Type Casts</div></a>
+   <a href="/w02/A#F"><div>Functions</div></a>
+   <a href="/w02/A#G"><div>The &lt;cmath &gt; Header</div></a>
+  </SidebarChapters>
+  <SidebarChapters heading="B-Functions & Decomposition" :opened="true">
+   <a href="/w02/B#A"><div>Writing Functions</div></a>
+   <a href="/w02/B#B"><div>Function Syntax</div></a>
+   <a href="/w02/B#C"><div>The Function Body</div></a>
+   <a href="/w02/B#D"><div>Functional Decomposition</div></a>
+   <a href="/w02/B#E"><div>Declaring & Defining</div></a>
+  </SidebarChapters>
+  <SidebarChapters heading="C-Making Decisions" :opened="true">
+   <a href="/w02/C#A"><div>Making Decisions</div></a>
+   <a href="/w02/C#B"><div>Blocks, Style & Indentation</div></a>
+   <a href="/w02/C#C"><div>The bool Data Type</div></a>
+   <a href="/w02/C#D"><div>The Relational Operatorrs</div></a>
+   <a href="/w02/C#E"><div>The Logical Operators</div></a>
+   <a href="/w02/C#F"><div>Multi-way Branching</div></a>
+   <a href="/w02/C#G"><div>Nested if Statements</div></a>
+  </SidebarChapters>
+  <SidebarChapters heading="D-C++ Strings" :opened="true">
+   <a href="/w02/D#A"><div>Creating String Object</div></a>
+   <a href="/w02/D#B"><div>String Input and Output</div></a>
+   <a href="/w02/D#C"><div>Concatenation & Comparison</div></a>
+   <a href="/w02/D#D"><div>Mutability & Value Assignment</div></a>
+   <a href="/w02/D#E"><div>Member Functions</div></a>
+  </SidebarChapters>
+  <SidebarChapters heading="E-Processing Strings" :opened="true">
+   <a href="/w02/E#A"><div>String Members</div></a>
+   <a href="/w02/E#B"><div>Characters</div></a>
+   <a href="/w02/E#C"><div>Selecting Characters</div></a>
+   <a href="/w02/E#D"><div>Substrings</div></a>
+   <a href="/w02/E#E"><div>Searching a String</div></a>
+  </SidebarChapters>
+ </SidebarChapters>
 </template>
 
 <style lang="scss" scoped>
@@ -56,7 +97,7 @@ h2 {
  div {
   @apply text-sm px-0.5 py-1 ml-2;
   a {
-   @apply hover:underline hover:text-blue-500 hover:dark:text-blue-300;
+   @apply no-underline hover:underline hover:text-blue-500 hover:dark:text-blue-300;
   }
  }
 }

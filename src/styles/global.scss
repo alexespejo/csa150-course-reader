@@ -1,13 +1,18 @@
 @import "./prism.css";
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&&display=swap");
 body {
- @apply bg-slate-200 dark:bg-slate-900 dark:text-slate-300 text-black sm:text-xl;
+ @apply bg-slate-200 dark:bg-slate-900 dark:text-slate-300 text-black text-xs md:text-xl;
 }
 mark {
- font-weight: bold;
- @apply p-0.5 dark:bg-slate-500/50 rounded-md dark:text-slate-300;
+ //  font-weight: bold;
+ @apply py-0.5 px-1 bg-blue-300/50 text-slate-700 dark:bg-slate-500/50 rounded-md dark:text-slate-300 font-semibold;
  tt {
-  @apply text-black;
+  @apply text-black dark:text-blue-300 font-bold;
+ }
+}
+div {
+ a {
+  @apply underline-offset-2 underline hover:text-blue-500 max-w-xl;
  }
 }
 strong {
@@ -21,6 +26,9 @@ section {
 }
 p {
  @apply pb-6 pt-2;
+ tt {
+  @apply inline;
+ }
 }
 ul,
 ol {
@@ -96,6 +104,45 @@ img.inlineCenter {
  clear: both;
  @apply w-full md:w-4/5 lg:w-3/4 rounded-md;
 }
+div.caption {
+ font-style: italic;
+ font-size: 85%;
+ margin: auto;
+ line-height: 115%;
+}
+div.highlight {
+ padding: 0.05em 1.5em 0.05em 1.5em;
+ border-radius: 5px;
+ box-shadow: 5px 5px 10px 5px #ccc;
+ background-color: honeydew;
+ font-style: italic;
+ font-size: 90%;
+}
+
+div.highlight.alert,
+div.highlight.info {
+ @apply shadow-none bg-orange-300 text-black not-italic flex p-2;
+ svg {
+  @apply self-start mt-5;
+ }
+ p {
+  @apply inline-block;
+  tt {
+   @apply text-black;
+  }
+ }
+}
+div.highlight.info {
+ @apply bg-blue-300;
+ p {
+  tt {
+   @apply text-black;
+  }
+  strong {
+   @apply text-black;
+  }
+ }
+}
 pre,
 tt,
 kbd,
@@ -115,24 +162,24 @@ code {
  background-image: url(images/bg.gif);
 }
 
-.info {
- background-image: url(images/info.png);
- background-repeat: no-repeat;
- background-position: 0px 10px;
- width: 95%;
- margin-left: -45px;
- padding-left: 45px;
-}
-
-.info p {
- font-family: body;
- border: solid 1px silver;
- color: navy;
- padding: 1em;
- margin-top: 1em;
- margin-bottom: 1em;
- background-image: url(images/bg.gif);
-}
+// .info {
+//  background-image: url(images/info.png);
+//  background-repeat: no-repeat;
+//  background-position: 0px 10px;
+//  width: 95%;
+//  margin-left: -45px;
+//  padding-left: 45px;
+// }
+//
+// .info p {
+//  font-family: body;
+//  border: solid 1px silver;
+//  color: navy;
+//  padding: 1em;
+//  margin-top: 1em;
+//  margin-bottom: 1em;
+//  background-image: url(images/bg.gif);
+// }
 
 div.bug {
  background-image: url(images/bug-icon.png);
@@ -226,4 +273,87 @@ pre.pcode i {
 }
 code {
  @apply text-xs;
+}
+
+table.options {
+ text-align: center;
+ width: 75%;
+ border: 1px solid gray;
+ border-radius: 5px;
+}
+
+table[class="options"] td {
+ text-align: center;
+ @apply p-1;
+ border-right: 1px solid gray;
+ border-bottom: 1px solid gray;
+ font-size: 1.25em;
+ font-family: monospace;
+}
+table[class="options"]icons td {
+ text-align: left !important;
+ font-family: body !important;
+}
+table[class="options"] td.desc {
+ font-size: 1em;
+}
+
+table[class="options"] th {
+ font-size: 115%;
+ font-family: Consolas, monospace;
+ font-weight: bold;
+ border-bottom: 1px dashed navy;
+}
+
+table[class="trace"] th,
+table[class="trace"] td {
+ border-right: 1px solid gray;
+ border-bottom: 1px solid gray;
+ color: navy;
+ font-family: Consolas, "Courier New", Courier, monospace;
+}
+
+table.trace {
+ width: 500px;
+ border: 1px silver dashed;
+}
+
+table[class="traceace"] td > input {
+ border: 1px dashed silver;
+ background-color: lightyellow;
+ font-family: Consolas, "Courier New", Courier, monospace;
+ font-size: 1em;
+ font-weight: bold;
+ text-align: center;
+ color: forestgreen;
+}
+
+table[class="icons"] th,
+table[class="icons"] td {
+ border-right: 1px solid gray;
+ border-bottom: 1px solid gray;
+ font-size: 105%;
+ color: indigo;
+ font-family: body;
+}
+
+table.icons {
+ width: 500px;
+ border: 1px silver dashed;
+}
+
+table.keywords {
+ width: 100%;
+ border: 1px navy dashed;
+}
+table[class="keywords"] td {
+ border-right: 1px solid gray;
+ border-bottom: 1px solid gray;
+ font-size: 80%;
+ color: navy;
+ font-family: Consolas, "Courier New", Courier, monospace;
+ padding: 2px;
+ padding-left: 1em;
+ vertical-align: top;
+ width: 25%;
 }

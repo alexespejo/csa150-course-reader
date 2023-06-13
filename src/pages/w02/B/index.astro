@@ -1,4 +1,3 @@
-
 ---
 import Layout from "../../../layouts/Layout.astro";
 import A from "./A.astro";
@@ -8,11 +7,18 @@ import D from "./D.astro";
 import E from "./E.astro";
 import F from "./F.astro";
 ---
+
 <Layout
  title="CSA150 Course Reader"
  dir=""
  displayLayout={true}
- chapterSubSections={[]}
+ chapterSubSections={[
+  "Writing Functions",
+  "Function Syntax",
+  "The Function Body",
+  "Functional Decomposition",
+  "Declaring & Defining",
+ ]}
 >
  <A displayLayout={false} />
  <B displayLayout={false} />

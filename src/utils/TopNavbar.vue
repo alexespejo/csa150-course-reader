@@ -12,7 +12,7 @@ const props = defineProps(["sections"]);
 
 <template>
  <div
-  class="z-50 w-screen h-screen absolute top-0 lg:hidden bg-slate-700/50"
+  class="z-50 w-screen h-screen absolute top-0 lg:hidden flex"
   v-if="showNavbar"
  >
   <div
@@ -23,11 +23,15 @@ const props = defineProps(["sections"]);
      class="btn text-white bg-blue-400 hover:bg-blue-400"
      @click="changeShowNavbar"
     >
-     Close
+     Close X
     </button>
    </div>
    <ChapterSidebar />
   </div>
+  <button
+   class="hidden md:block w-1/2 h-screen bg-slate-700/50"
+   @click="changeShowNavbar"
+  ></button>
  </div>
  <nav id="navbar" class="h-full flex items-center px-3">
   <button

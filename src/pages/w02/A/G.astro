@@ -3,9 +3,46 @@ import Layout from "../../../layouts/Layout.astro";
 import Header from "../../../components/Header.astro";
 const { useLayout } = Astro.props;
 ---
+
 <Layout
-title="Week 2"
-dir="w02/"
-displayLayout={useLayout}
-chapterSubSections={[]}
-><Header id="G"></Header></Layout>
+ title="Week 2"
+ dir="w02/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="G">The <tt class="i">&lt;cmath&gt;</tt> Header</Header>
+ <div>
+  <h1>The <tt class="i">&lt;cmath&gt;</tt> Header</h1>
+  <p class="firstLine">
+   C++ has an extensive standard
+   <a
+    target="_blank"
+    href="http://en.cppreference.com/w/cpp/numeric/math"
+    title="Online reference to the cmath library."
+   >
+    mathematical library
+   </a>
+   called &lt;cmath&gt; that includes many of the pre-built functions you are likely
+   to use. After including the
+   <tt>&lt;cmath&gt;</tt> header, you can use the functions just like this:
+  </p>
+  <pre
+   class="language-cpp line-numbers"><code>double root = sqrt(value);</code></pre>
+  <p>
+   In this case, <tt>sqrt</tt> is the function, <tt>value</tt> is the argument <mark
+    >passed</mark
+   > (or copied) into the function, and <tt>root</tt> is where the answer, returned
+   from the function, will be stored.
+  </p>
+  <p>
+   Notice, that unlike Java, we <mark>don't</mark> use method call syntax, like <tt
+    >Math.sqrt()</tt
+   > to call the math functions in the standard library.
+  </p>
+  <p>
+   Normally, you'll just look up the math functions online online when you need
+   them. However, you should be able to use <tt>sqrt()</tt>, <tt>abs()</tt> and
+   <tt>pow()</tt> without refering to the documentation.
+  </p>
+ </div>
+</Layout>

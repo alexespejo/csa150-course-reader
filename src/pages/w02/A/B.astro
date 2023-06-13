@@ -3,9 +3,48 @@ import Layout from "../../../layouts/Layout.astro";
 import Header from "../../../components/Header.astro";
 const { useLayout } = Astro.props;
 ---
+
 <Layout
-title="Week 2"
-dir="w02/"
-displayLayout={useLayout}
-chapterSubSections={[]}
-><Header id="B"></Header></Layout>
+ title="Week 2"
+ dir="w02/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="B">Assignment Operators</Header>
+ <div>
+  <h1>Assignment Operators</h1>
+  <p class="firstLine">
+   With the expression <tt>cout</tt>
+   <tt>&lt;&lt;</tt>
+   <tt>11</tt>, the <tt>cout</tt> object is changed and the character pair
+   <tt>11</tt> appears on the screen. Both the change to <tt>cout</tt>
+   and the printing on the screen are called <mark>side effects</mark>. Here are
+   some other side-effect operators.
+  </p>
+  <h2>Chained Assignment</h2>
+  <p>
+   When using the assignment operator, the <strong>result or value</strong> of the
+   expression is the value that is copied. Because <strong
+    >assignment is right associative</strong
+   >, we can "chain" assignment statements together like this:
+  </p>
+  <pre
+   class="language-cpp"><code>int x, y, z;
+x = y = z = 10;       // chained assignment, which means...
+x = y = (z = 10);     // right associative, which means...
+x = (y = 10);
+x = 10;</code></pre>
+  <h2>Shorthand Assignment</h2>
+  <p>
+   To <strong>modify an existing variable</strong>, use the <mark
+    >shorthand-assignment operators</mark
+   >:
+  </p>
+  <pre
+   class="language-cpp"><code>x += 5;     // means x = x + 5
+x -= 5;     // means x = x - 5
+x *= 5;     // means x = x * 5
+x /= 5;     // means x = x / 5
+x %= 5;     // means x = x % 5</code></pre>
+ </div>
+</Layout>

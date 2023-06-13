@@ -1,6 +1,6 @@
 import os
 
-folders = ['B', 'C', 'D', 'E']
+folders = ['A', 'B', 'C', 'D', 'E']
 files = [
     "A.astro", "B.astro", "C.astro", "D.astro", "E.astro", "F.astro",
     "G.astro", "H.astro", "I.astro"
@@ -39,10 +39,10 @@ const { useLayout } = Astro.props;
 ---
 <Layout
 title="Week 2"
-dir="w02/"
+dir="w03/"
 displayLayout={useLayout}
 chapterSubSections={[]}
->''' + f'<Header id="{fn[0]}"></Header></Layout>'
+>''' + f'<Header id="{fn[0]}">text</Header></Layout>'
 
 
 # Get the directory of the Python script

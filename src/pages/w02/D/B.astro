@@ -3,9 +3,64 @@ import Layout from "../../../layouts/Layout.astro";
 import Header from "../../../components/Header.astro";
 const { useLayout } = Astro.props;
 ---
+
 <Layout
-title="Week 2"
-dir="w02/"
-displayLayout={useLayout}
-chapterSubSections={[]}
-><Header id="B"></Header></Layout>
+ title="Week 2"
+ dir="w02/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="B">String Input and Output</Header>
+ <div>
+  <h1>String Input and Output</h1>
+  <p class="firstLine">
+   You may use <tt>&gt;&gt;</tt> and <tt>&lt;&lt;</tt> to read and write <tt
+    >string</tt
+   > objects, like this:
+  </p>
+  <pre
+   class="language-cpp line-numbers"><code>cout &lt;&lt; "Enter your name: ";
+string name;
+cin &gt;&gt; name;
+cout &lt;&lt; "Hello, " &lt;&lt; name &lt;&lt; "!" &lt;&lt; endl;</code></pre>
+  <p>
+   This version of the program reads a <tt>string</tt> input by the user into the
+   variable <tt>name</tt> and then includes
+   <tt>name</tt> as part of the greeting, as shown in the screenshots below:
+   <img
+    src="../images/string-input.png"
+    class="inlineCenter width-90"
+    alt="Three sample runs of the program."
+   />
+  </p>
+  <ol>
+   <li>If the user enters only a first name, then all goes as you'd expect.</li>
+   <li>
+    However, the user enters a <strong>full name</strong> instead of just the first,
+    only the first is read.
+    <p>
+     Even though the program contains no code to split the name apart, it
+     somehow still uses <strong>only</strong> the first name when it prints its greeting.
+     <p>
+      Why? Because <tt>&gt;&gt;</tt>
+      <strong>stops reading</strong> as soon as it sees the first <mark
+       >whitespace character</mark
+      >. A whitespace character is any character that appears as blank space on
+      the screen, and includes the tab and newline characters.
+     </p>
+     <li>
+      To read <strong>an entire line of text,</strong> use the
+      <tt>string</tt> function <tt>getline()</tt> like this, in place of line 3:
+      <pre
+       data-start="3"
+       class="language-cpp line-numbers"><code>getline(cin, name);</code></pre>
+      <br />
+      This <strong>reads an entire line</strong> from <tt>cin</tt> into the variable
+      <tt>name</tt>. When run, the program allows you to display the full name
+      of the user instead of just the first name.
+     </li>
+    </p>
+   </li>
+  </ol>
+ </div>
+</Layout>

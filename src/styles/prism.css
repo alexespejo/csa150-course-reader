@@ -192,7 +192,7 @@ pre[class*="language-"].line-numbers > code {
  top: 0;
  font-size: 100%;
  left: -3.8em;
- width: 3em;
+ width: 1em;
  letter-spacing: -1px;
  border-right: 1px solid #999;
  -webkit-user-select: none;
