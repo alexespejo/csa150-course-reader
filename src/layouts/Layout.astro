@@ -40,9 +40,9 @@ hamburger_menue.addEventListener('click', function() {
    displayLayout ? (
     <div class="flex w-screen h-screen">
      <!--Side bar -->
-     <nav class="hidden lg:block bg-slate-200 dark:bg-slate-800 lg:w-2/6 xl:w-1/5 h-screen overflow-auto border-r-2 border-r-slate-300 " id="side-bar-mobile">
+    <nav class="hidden lg:block bg-slate-200 dark:bg-slate-800 lg:w-2/6 xl:w-1/5 h-screen overflow-auto border-r-2 border-r-slate-300 " id="side-bar-mobile">
       <ChapterSideBar />
-     </nav>
+     </nav> 
  
      <div class="h-full w-full lg:w-4/6 xl:w-4/5 relative ">
     <!--Top bar navigation -->
@@ -55,11 +55,10 @@ hamburger_menue.addEventListener('click', function() {
       
       <div class="flex relative" id="main-content">
        <main class="px-3 sm:p-5 h-full w-full  xl:w-4/5 overflow-auto">
-        <section class="flex flex-col space-y-10 relative" id="main-body">
+       
          <slot />
-        </section>
        </main>
-       <aside class="hidden xl:block  xl:w-1/5 h-full border-l-2 border-slate-300">
+      <aside class="hidden xl:block  xl:w-1/5 h-full border-l-2 border-slate-300">
         <SectionAside sections={chapterSubSections} />
        </aside>
       </div>
