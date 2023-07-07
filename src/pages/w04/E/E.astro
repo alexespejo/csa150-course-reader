@@ -1,6 +1,8 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import Header from "../../../components/Header.astro";
+import imageDilbert from "../images/dilbert.jpg";
+import imageDiver from "../images/diver.png";
 const { useLayout } = Astro.props;
 ---
 
@@ -13,11 +15,7 @@ const { useLayout } = Astro.props;
  <Header id="E">
   <h1>A Hasty Loop</h1>
  </Header><div>
-  <img
-   src="../images/diver.png"
-   class="right"
-   alt="A decorative image of a diver."
-  />
+  <img src={imageDiver} class="right" alt="A decorative image of a diver." />
   <p class="firstLine">
    In addition to <tt class="i">for</tt> and
    <tt class="i">while</tt>, C++ has a loop that tests its condition
@@ -51,11 +49,7 @@ while (condition);</code></pre>
    99% of the time, a <tt class="i">while</tt> loop or a <tt class="i">for</tt> loop
    is a better choice than a <tt class="i">do-while</tt>. In fact, except for
    salting your food...
-   <img
-    src="../images/dilbert.jpg"
-    class="inlineCenter"
-    alt="A Dilbert comic strip."
-   />
+   <img src={imageDilbert} class="inlineCenter" alt="A Dilbert comic strip." />
    which should <strong>always be done before tasting</strong>, there are
    relatively few other situations where a test-at-the-bottom strategy is
    superior to "looking before you leap."
