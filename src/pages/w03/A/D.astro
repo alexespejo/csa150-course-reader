@@ -3,9 +3,57 @@ import Layout from "../../../layouts/Layout.astro";
 import Header from "../../../components/Header.astro";
 const { useLayout } = Astro.props;
 ---
+
 <Layout
-title="Week 2"
-dir="w03/"
-displayLayout={useLayout}
-chapterSubSections={[]}
-><Header id="D">text</Header></Layout>
+ title="Week 2"
+ dir="w03/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="D">String Value Parameters</Header>
+ <div>
+  <h1>String Value Parameters</h1>
+  <p class="firstLine">
+   Imagine you want to write a function named
+   <tt>count_vowels()</tt>, which counts the number of vowels in a <tt
+    >string</tt
+   >. Here's a first attempt:
+  </p>
+  <pre
+   class="language-cpp"><code>int count_vowels(string str) &lbrace;
+  int vowels = 0;
+  for (char c : str) &lbrace;
+    switch (c) &lbrace;
+      case 'a': case 'A': case 'e': case 'E': case 'i': 
+      case 'I': case 'o': case 'O': case 'u': case 'U':
+      vowels++;
+  &rbrace; 
+&rbrace; 
+  return vowels;
+&rbrace;</code></pre>
+  <p>
+   The code in this function is correct, readable, and quite efficient. However,
+   it has <mark>one flaw</mark>. Imagine calling the function with a long <tt
+    >string</tt
+   >, say the text of <i>War and Peace</i>. Because the parameter variable <tt
+    >str</tt
+   > is a <mark>value</mark>
+   parameter, your code will make a copy of the whole text of the book and store
+   that in <tt>str</tt>.
+   <img
+    src="../images/war-and-peace.png"
+    class="inlineCenter width-60"
+    alt="Passing War and Peace to count_vowels."
+   />
+  </p>
+  <p>
+   Thus, using pass-by-value with <tt>string</tt>
+   arguments is <mark>very inefficient</mark>.
+  </p>
+  <div class="highlight alert-info alert">
+   <p>
+    Never pass class types, such as <tt>string</tt> and <tt>vector</tt> by value.
+   </p>
+  </div>
+ </div>
+</Layout>

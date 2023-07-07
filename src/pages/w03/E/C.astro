@@ -3,9 +3,61 @@ import Layout from "../../../layouts/Layout.astro";
 import Header from "../../../components/Header.astro";
 const { useLayout } = Astro.props;
 ---
+
 <Layout
-title="Week 2"
-dir="w03/"
-displayLayout={useLayout}
-chapterSubSections={[]}
-><Header id="C">text</Header></Layout>
+ title="Week 2"
+ dir="w03/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="C">The Loop-and-a-half Pattern</Header><div>
+  <h1>The Loop-and-a-half Pattern</h1>
+  <p class="firstLine">
+   The <b>loop-and-a-half</b> is a kind of loop that is available in some language
+   (like Ada's <tt>Exit When</tt>), but which must be simulated in C and C++, by
+   using <tt class="i">if</tt>
+   and <tt>break</tt>. This is another way to write a sentinel loop.
+  </p>
+  <ul>
+   <li>
+    Write an endless loop (or a <tt>while</tt> loop with a necessary condition).
+   </li>
+   <li>
+    Add in <tt class="i">if</tt> statement inside the loop which checks the <b
+     >sentinel</b
+    >.
+   </li>
+   <li>
+    If you find the sentinel, use <tt>break</tt>, which has the effect of
+    immediately terminating the nearest enclosing loop.
+   </li>
+  </ul>
+  <p>
+   The loop-and-a-half pattern has the advantage that it
+   <strong>follows the natural structure</strong>: the <mark
+    >read-until-sentinel</mark
+   > pattern:
+  </p>
+  <pre
+   class="pcode">While True
+    Prompt user and read value
+    If value is the sentinel then
+        break out of the loop
+    Process the value</pre>
+  <p>
+   Note that this is an endless loop, where the only way to exit is by executing
+   the <tt>break</tt> statement. Here's the same problem as on the previous page,
+   using the
+   <mark>loop-an-a-half pattern</mark>. You may want to look back and compare
+   them.
+  </p>
+  <pre
+   class="language-cpp"><code>while (true)                    // Endless loop
+&lbrace;
+    cout &lt;&lt; "&gt; ";               // Prompt and read item
+    cin {'>>'} value;
+    if (value == 0) &lbrace; break; &rbrace;  // Sentinel? Leave loop
+    total += value;             // No sentinel? Process
+&rbrace;</code></pre>
+ </div>
+</Layout>

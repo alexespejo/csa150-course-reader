@@ -1,11 +1,101 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import Header from "../../../components/Header.astro";
+import imageSequence from "../images/sequence.png";
 const { useLayout } = Astro.props;
 ---
+
 <Layout
-title="Week 2"
-dir="w03/"
-displayLayout={useLayout}
-chapterSubSections={[]}
-><Header id="B">text</Header></Layout>
+ title="Week 2"
+ dir="w03/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="B">
+  <h1>Sequences &amp; Symmetric Bounds</h1>
+ </Header><div>
+  <p class="firstLine">
+   A second idiomatic variation of the <tt class="i">for</tt> loop is used to
+   <mark>generate sequential data</mark>, such as counting from
+   <tt>start</tt> to <tt>finish</tt>:
+  </p>
+  <pre
+   class="language-cpp"><code>for (int var = start; var &lt; finish; update-var)...</code></pre>
+  <p>
+   In this <tt class="i">for</tt> loop the actions in the body are executed with
+   the variable <tt>var</tt> set to each value between
+   <tt>start</tt> and <tt>finish</tt>, <mark>inclusive</mark>.
+  </p>
+  <p>
+   Because we include both ends, we say that the bounds used in this loop are
+   <mark>symmetric</mark>. Use this loop to count from <tt>1</tt> to <tt>100</tt
+   > like this:
+  </p>
+  <pre class="language-cpp"><code>for (int i = 1; i &lt;= 100; ++i)</code></pre>
+  <p>
+   Here's another example. In this pattern, the loop variable is used to
+   <mark>produce a sequence of data</mark>.
+  </p>
+  <pre
+   class="language-cpp"><code>int factorial(int n)
+&lbrace;
+    int result = 1;
+    for (int i = 1; i &lt;= n; ++i) &lbrace; 
+      result *= i; 
+    &rbrace; 
+    return result;
+&rbrace;</code></pre>
+  <p>
+   As you can see, this example uses the loop to implement the
+   <mark>factorial function</mark>, the product of the integers between <tt
+    >1</tt
+   > and <tt>n</tt>. The <tt class="i">for</tt>
+   <mark>loop variable</mark>
+   <tt>i</tt> goes from <tt>1</tt>
+   to <tt>n</tt> (inclusive). The body of the loop updates <tt>result</tt>
+   by multiplying it by <tt>i</tt>.
+  </p>
+  <h2>Counting Down</h2>
+  <p>
+   As the <i>factorial</i> example shows, the update update expression need only
+   move the loop variable closer to the loop bounds. It must
+   <mark>advance</mark> the loop; it doesn't need to increment. Here's and example:
+   <img
+    src={imageSequence}
+    class="inlineCenter width-40"
+    alt="A sequence of data."
+   />
+  </p>
+  <p>
+   Here we want to <b>start the loop at a large number</b>, and <b
+    >decrease the index by four</b
+   > on each iteration. In other words, we want to
+   <mark>count down</mark> rather than counting up. Here's what this looks like in
+   code:
+  </p>
+  <pre
+   class="language-cpp"><code>for (int i = 19; i &gt;= 0; i -= 4)
+    cout &lt;&lt; i &lt;&lt; " ";
+cout &lt;&lt; endl;</code></pre>
+  <div class="highlight alert alert-info">
+   <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    class="stroke-current shrink-0 w-6 h-6"
+    ><path
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     stroke-width="2"
+     d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg
+   >
+   <p>
+    <span class="block">New software update available.</span>
+    Don't use conditions like <tt>i != 0</tt>, unless you are certain that the
+    condition will be met. Because we are decrementing by four, we will never
+    set <tt>i</tt> to <tt>0</tt> and so we would have an <mark>infinite</mark> or
+    <mark>endless</mark> loop.
+   </p>
+  </div>
+ </div>
+</Layout>

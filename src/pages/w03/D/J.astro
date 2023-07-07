@@ -1,0 +1,64 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 2"
+ dir="w04/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="J">
+  <h1>Necessary &amp; Intentional Bounds</h1>
+ </Header>
+ <div>
+  <p class="firstLine">
+   If we <strong>change the problem</strong> so that it <mark>doesn't</mark> include
+   the guarantee that every input string that contains characters will have a period,
+   things are more complicated.
+  </p>
+  <p>
+   Here is what you need to ask yourself: "<mark
+    >Can my loop reach its bounds?</mark
+   >"
+  </p>
+  <p>
+   If there <strong>is no period</strong> in <tt>str</tt> then
+   <mark>obviously it cannot</mark>. It will continue consuming any memory that
+   appears after the string, <strong>or</strong>, it will crash. Neither are
+   desirable.
+  </p>
+  <p>
+   A secondary condition designed for such eventualities is called a
+   <mark>necessary bound</mark>. When we run out of characters, we must stop,
+   even if our <mark>intentional bound</mark> is not reached. Here's our code modified
+   to handle this complication.
+  </p>
+  <pre
+   class="pcode"><em>// Adding a necessary bounds</em>
+counter &lt;- -1
+<i>len &lt;- str.size()</i>
+If  str != ""
+&lbrace;
+    counter &lt;- 0
+    pos &lt;- 0
+    letter &lt;- str.at(0)
+    While <i>pos &lt; len</i> and letter is not a period
+    &lbrace; 
+      . . .
+    &rbrace; 
+    if letter is a '.' then counter &lt;- counter + 1
+    else counter &lt;- -2
+&rbrace;
+If counter is -1 the string was empty
+<i>Else if counter is -2 there was no period</i>
+Else counter contains the goal</pre>
+
+  <p>
+   The post-condition <strong>now handles three cases</strong>: a string with a
+   period, the empty string, and a string with no period.
+  </p>
+ </div>
+</Layout>

@@ -1,11 +1,48 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import Header from "../../../components/Header.astro";
+import imageLoopTests from "../images/loop-tests.png";
 const { useLayout } = Astro.props;
 ---
+
 <Layout
-title="Week 2"
-dir="w03/"
-displayLayout={useLayout}
-chapterSubSections={[]}
-><Header id="B">text</Header></Layout>
+ title="Week 2"
+ dir="w03/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="B"><h1>Guarded &amp; Unguarded Loops</h1></Header><div>
+  <p class="firstLine">C++ has four loops:</p>
+  <pre
+   class="language-cpp line-numbers"><code>while (condition)&lbrace; statements; &rbrace;
+do&lbrace; statements;&rbrace; while (condition);
+for (initializer; condition; update)&lbrace; statements&rbrace;;
+for (element : collection)&lbrace; statements;&rbrace;</code></pre>
+  <p>
+   Each loop is <strong>designed for a particular purpose</strong>, and each has
+   a place where it is most effective. One difference is <strong>where</strong> the
+   test takes place.
+  </p>
+  <img
+   src={imageLoopTests}
+   class="inlineCenter"
+   alt="Test at the top and test at the bottom loops."
+  />
+
+  <p>
+   The <tt>do-while</tt> loop, illustrated on the right loop, tests its condition
+   <strong>after</strong> it has performed the actions in the loop body <strong
+    >at least once</strong
+   >. This "test at the bottom" loop is also called an <mark>unguarded</mark>
+   loop, because it "leaps before it looks".
+  </p>
+  <p>
+   The others three loop types check the test condtion <mark>before</mark>
+   performing the actions in the loop body. These are called
+   <mark>guarded</mark> loops, because when the test condition is <tt>false</tt
+   >, then the actions inside the loop body are <strong
+    >never performed at all</strong
+   >.
+  </p>
+ </div>
+</Layout>

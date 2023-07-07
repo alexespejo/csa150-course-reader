@@ -1,0 +1,89 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 2"
+ dir="w04/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="E">
+  <h1>Data Flow Checklists</h1>
+ </Header><div>
+  <p class="firstLine">
+   Consider the <tt>string::getline(in,</tt>
+   <tt>str)</tt> function:
+  </p>
+  <ul>
+   <li>
+    <tt>in</tt> is an <mark>input-output</mark> parameter. The function depends on
+    the stream's initial state (formatting, etc.) and it is changed by calling the
+    function (setting the error value).
+   </li>
+   <li>
+    <tt>str</tt> is an <mark>output only</mark> parameter; it makes no difference
+    what is inside <tt>str</tt>
+    when you call the function—data <mark>only flows out</mark>.
+   </li>
+  </ul>
+  <p>
+   The Java concept of data flow&mdash;parameters are input, return statements
+   are output&mdash;is too simplistic for C++. In C++ (as in many other
+   languages), parameters can be used as input, as output, or as a combination
+   of both.
+  </p>
+  <p>
+   <strong>Use this checklist</strong> to determine the direction of data flow:
+  </p>
+  <ul style="list-style-type:none;">
+   <li style="margin-left:-1em;">
+    <input type="checkbox" /> Argument not modified by function: <mark
+     >input parameter</mark
+    >
+   </li>
+   <li style="margin-left:-1em;">
+    <input type="checkbox" /> Argument modified, input value not used: <mark
+     >output</mark
+    >
+    parameter
+   </li>
+   <li style="margin-left:-1em;">
+    <input type="checkbox" /> Argument used and changed by function: <mark
+     >input-output</mark
+    >
+    parameter
+   </li>
+  </ul>
+  <p>
+   Use this checklist to determine <strong>how to declare</strong> the parameter
+   variable:
+  </p>
+  <ul style="list-style-type:none;">
+   <li style="margin-left:-1em;">
+    <input type="checkbox" /> Output and Input-Output parameters: <mark
+     >by reference</mark
+    >
+   </li>
+   <li style="margin-left:-1em;">
+    <input type="checkbox" /> Input primitive (built-in and enumerated) types: <mark
+     >by value</mark
+    >
+   </li>
+   <li style="margin-left:-1em;">
+    <input type="checkbox" /> Input library and class types: by <mark
+     >const reference</mark
+    >
+   </li>
+  </ul>
+
+  <div class="highlight alert alert-info">
+   <p>
+    <mark>Never</mark>
+    pass by value for class or library types.
+   </p>
+  </div>
+ </div>
+</Layout>

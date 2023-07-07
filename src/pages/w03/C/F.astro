@@ -3,9 +3,65 @@ import Layout from "../../../layouts/Layout.astro";
 import Header from "../../../components/Header.astro";
 const { useLayout } = Astro.props;
 ---
+
 <Layout
-title="Week 2"
-dir="w03/"
-displayLayout={useLayout}
-chapterSubSections={[]}
-><Header id="F">text</Header></Layout>
+ title="Week 2"
+ dir="w03/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="F">
+  <h1>Hands On: Counting Substrings</h1>
+ </Header><div>
+  <!-- https://codecheck.io/files/2107071824am5o6ix9z0rbjxreo3xmd84sj -->
+  <p class="firstLine">
+   <mark>Processing substrings</mark>
+   requires a little more work than processing individual characters. On the next
+   page you'll find a function,
+   <tt>countSubs()</tt>, which counts the number of times that one string, <tt
+    >s2</tt
+   >, appears inside another, <tt>s1</tt>.
+  </p>
+  <details>
+   <summary>Watch the solution video</summary>
+   <iframe
+    src="https://cccd.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=f3f85b3b-e01d-4e06-9284-af5d01442bf1&autoplay=false&offerviewer=false&showtitle=false&showbrand=false&captions=false&interactivity=all"
+    height="470"
+    width="800"
+    style="border: 1px solid #464646;"
+    allowfullscreen
+    allow="autoplay"
+   >
+   </iframe>
+  </details>
+
+  <p>
+   Complete the <strong>stub</strong> by adding a variable to hold the
+   <strong>count</strong>, and then <strong>return</strong> it. Your code should
+   now compile and run. You might even get a few correct.
+  </p>
+  <pre
+   class="language-cpp"><code>int countSubs(const string&amp; s1, const string&amp; s2)
+&lbrace;
+    int count&lbrace;0&rbrace;;
+    . . .
+    return count;
+&rbrace;</code></pre>
+  <p>
+   Next, to extract a <mark>substring</mark>from <tt>str</tt>, you use the code:
+  </p>
+  <pre
+   class="language-cpp"><code>string subs = s1.substr(index, count);</code></pre>
+  <p>
+   The variable <tt>index</tt> is the position you want to start extracting from,
+   and <tt>count</tt> is the number of characters to extract. Compare the substring
+   to <tt>s2</tt>, and, if it matches, count it.
+  </p>
+  <pre
+   class="language-cpp"><code>if (subs == s2) &lbrace; ++count; &rbrace;</code></pre>
+  <p>
+   Go ahead and complete the exercise on the next page, and then come back here
+   and check your work with the solution below.
+  </p>
+ </div>
+</Layout>

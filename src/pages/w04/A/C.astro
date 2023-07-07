@@ -1,0 +1,62 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 2"
+ dir="w04/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="C">
+  <h1>The Client or Test Program</h1>
+ </Header><div>
+  <p class="firstLine">
+   Open your CodeSpace IDE, (or, you can do this in Replit if you like), and
+   create a folder. Add a file named
+   <tt>client.cpp</tt>. Add the usual <tt>#include</tt> statements and an empty <tt
+    >main()</tt
+   >. In the <tt>main()</tt> function you need to:
+  </p>
+  <ol>
+   <li><strong>Call</strong> each of your functions with some known input.</li>
+   <li>
+    Compare the value returned (this is called the<strong>actual value</strong
+    >), with the value that<strong>should have been returned</strong> (this is called
+    the <strong>expected value</strong>).
+   </li>
+   <li>Print a message indicating whether you got it right or wrong.</li>
+  </ol>
+  <p>
+   Here's some code, which calls each function, compares it to the expected
+   value, and then uses the <b>conditional operator</b>
+   to print <tt>PASS</tt> or <tt>FAIL</tt>. Note that each expression needs to
+   be enclosed in parentheses:
+  </p>
+  <pre
+   class="line-numbers language-cpp"><code>cout &lt;&lt; "Testing digits library" &lt;&lt; endl;
+cout &lt;&lt; ((firstDigit(1729) == 1) ? "PASS" : "FAIL") &lt;&lt; endl;
+cout &lt;&lt; ((lastDigit(1729) == 9) ? "PASS" : "FAIL") &lt;&lt; endl;
+cout &lt;&lt; ((numDigits(1729) == 4) ? "PASS" : "FAIL") &lt;&lt; endl;</code></pre>
+ </div>
+ <p>
+  When you compile with <tt>make</tt>
+  <tt>client</tt>, you'll get the error message:
+ </p>
+ <div class="consoleDisplay">
+  client.cpp:7:14: <b class="r">error:</b> ‘firstDigit’ was not declared in this
+  scope
+ </div>
+ <p>
+  An <b class="r">undeclared</b> error message is a
+  <mark>compiler</mark> syntax error whic means you are missing a prototype or you
+  are calling a function incorrectly.
+ </p>
+ <p>
+  Basically, the compiler is saying "I don't know what the word
+  <b>firstDigit</b> means. It's up to us to tell it what that means. Which leads
+  us to the interface file.
+ </p>
+</Layout>

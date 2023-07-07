@@ -1,0 +1,72 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 2"
+ dir="w04/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="B">
+  <h1>The <em>switch</em> Statement</h1>
+ </Header><div>
+  <p class="firstLine">
+   The <tt class="i">switch</tt> statement
+   <mark>implicitly compares</mark> an integral expression (called the <strong
+    >selector</strong
+   >) to a series of constants (called the <strong>case labels</strong>). Here's
+   the syntax:
+  </p>
+  <pre
+   class="language-cpp"><code>switch (selector)
+&lbrace;
+    case constexpr1:
+        statement;
+        break;
+    case constexpr2:
+        statement;
+        break;
+    default:
+        statement;
+&rbrace;</code></pre>
+  <p>Here's how the <tt>switch</tt> statement works:</p>
+  <ol>
+   <li>
+    The <tt>switch</tt>
+    <mark>selector</mark> is an
+    <strong>integral expression</strong>.
+   </li>
+   <li>
+    It is evaluated and compared against the <tt>case</tt> label <tt
+     >constexpr1</tt
+    >, then <tt>constexpr2</tt>, and so forth. As indicated, each label <mark
+     >must be a constant</mark
+    > integer expression.
+   </li>
+   <li>
+    If a match is found for the selector, then
+    <mark>control jumps</mark> to the first statement in the <tt>case</tt> block.
+   </li>
+   <li>
+    When control reaches the <tt>break</tt> at the end of the clause, it <mark
+     >jumps</mark
+    > to the statement that follows the entire <tt>switch</tt> statement.
+   </li>
+   <li>
+    The optional <tt>default</tt> specifies an action to be taken if <mark
+     >none of the constants</mark
+    > match the selector. If there is no <tt>default</tt> clause, the program simply
+    continues on the line after the <tt>switch</tt>.
+   </li>
+  </ol>
+  <p>
+   The constants in each <tt>case</tt> label statement must be <strong
+    >of integral type</strong
+   >. That means <tt>char</tt> and enumerated types are fine;
+   <mark><tt>string</tt> or <tt>double</tt> are not</mark>.
+  </p>
+ </div>
+</Layout>

@@ -1,11 +1,63 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import Header from "../../../components/Header.astro";
+import imageReferences from "../images/reference.png";
+import imageValueTypes from "../images/value-types.png";
 const { useLayout } = Astro.props;
 ---
+
 <Layout
-title="Week 2"
-dir="w03/"
-displayLayout={useLayout}
-chapterSubSections={[]}
-><Header id="A">text</Header></Layout>
+ title="Week 2"
+ dir="w03/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="A">References</Header>
+ <div>
+  <img
+   src={imageValueTypes}
+   class="right width-25"
+   alt="string, int and double in memory."
+  />
+  <h1>References</h1>
+  <p class="firstLine">
+   In C++, both library types, like <tt>string</tt>, and the built-in primitive
+   types, like <tt>int</tt> and
+   <tt>double</tt>, are called <mark>value types</mark>. In C++ such variables
+   are "boxes" that <mark>contain</mark> data.
+  </p>
+  <p>
+   C++ also has several <mark>derived types</mark>:
+  </p>
+  <ul>
+   <li><strong>pointers</strong>, which contain the address of a variable,</li>
+   <li><strong>arrays</strong>, which contain a sequence of variables</li>
+   <li>
+    <strong>references</strong>, which provide an
+    <mark>alias</mark> or alternate name for an existing variable
+   </li>
+  </ul>
+  <p>
+   A reference name is an alternate name or <mark>alias</mark> for an existing object.
+   Here’s an example of a variable <tt>n</tt> and its alias <tt>r</tt>. You
+   create a reference by putting an ampersand (<tt>&amp;</tt>) after the type
+   name. The type of <tt>r</tt> is usually pronounced <i>"int-ref"</i>.
+  </p>
+  <pre
+   class="language-cpp"><code>int n = 3;
+int&amp; r = n;     // r is now an alias for n
+r = 42;         // n is also now 42</code></pre>
+  <p class="relative">
+   Here, <tt>r</tt> is simply an alternate name for <tt>n</tt>. It <mark
+    >is not</mark
+   > a new variable. Under the hood, the compiler often uses pointers to implement
+   references (although that's not required). Even if you understand how pointers
+   work, however, you should try not to get the two concepts confused.
+   <img
+    src={imageReferences}
+    class="right"
+    alt="The logical representation of a reference."
+   />
+  </p>
+ </div>
+</Layout>

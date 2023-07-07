@@ -3,9 +3,45 @@ import Layout from "../../../layouts/Layout.astro";
 import Header from "../../../components/Header.astro";
 const { useLayout } = Astro.props;
 ---
+
 <Layout
-title="Week 2"
-dir="w03/"
-displayLayout={useLayout}
-chapterSubSections={[]}
-><Header id="G">text</Header></Layout>
+ title="Week 2"
+ dir="w03/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="G">
+  <h1>Loop Operations</h1>
+ </Header><div>
+  <p class="firstLine">
+   A loop can have many different goals, so it is hard to generalize about this
+   step. A good start is to look at the variables you created in the last step
+   and ask: "<mark>How are these variables processed</mark> to produce the desired
+   output?"
+  </p>
+  <p>
+   Are you calculating a <strong>sum</strong>, <strong>counting</strong>
+   different occurrences, or <strong>transforming</strong> existing values into new
+   values? The statements inside the loop body will almost always
+   <strong>update the variables created in the goal precondition</strong> in some
+   way.
+  </p>
+  <p>
+   In our case, we need to increment our counter every time through the loop,
+   since each time we read a character (that isn't a period), we want to count
+   it.
+  </p>
+  <pre
+   class="pcode">str &lt;- string supplied to the problem
+counter &lt;- 0
+pos &lt;- 0
+letter &lt;- str.at(pos)
+while letter is not a period
+&lbrace;
+    <em>Step 5: The Goal Operation or Action</em>
+    <i>counter &lt;- counter + 1</i>
+    pos &lt;- pos + 1
+    letter &lt;-&gt; str.at(pos)
+&rbrace;</pre>
+ </div>
+</Layout>

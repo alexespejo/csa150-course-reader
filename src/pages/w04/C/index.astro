@@ -1,0 +1,24 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import A from "./A.astro";
+import B from "./B.astro";
+import C from "./C.astro";
+import D from "./D.astro";
+---
+
+<Layout
+ title="CSA150 Course Reader"
+ dir=""
+ displayLayout={true}
+ chapterSubSections={[
+  "Overloaded Functions",
+  "Overload Resolution",
+  "Default Arguments",
+  "Default Argument Rules",
+ ]}
+>
+ <A displayLayout={false} />
+ <B displayLayout={false} />
+ <C displayLayout={false} />
+ <D displayLayout={false} />
+</Layout>

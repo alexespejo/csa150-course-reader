@@ -1,0 +1,59 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 2"
+ dir="w04/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="C">
+  <h1>The <em>while</em> Loop</h1>
+ </Header><div>
+  <p class="firstLine">
+   The other two functions in our library are more difficult. Both of them
+   require you to learn about a new kind of loop bounds, called <mark
+    >limit bounds</mark
+   >. Loops that do some processing and then check the results against a
+   boundary condition are <mark>limit loops</mark>.
+  </p>
+  <p>
+   To write a limit loop, use the <tt>while</tt> loop, which executes a statement
+   repeatedly <mark>while its condition remains true</mark>. The general form of
+   the while loop looks like this:
+  </p>
+  <pre
+   class="language-cpp"><code>while (condition)
+&lbrace;
+    statements;
+&rbrace;</code></pre>
+  <p>
+   A <tt>while</tt> loop first evaluates the condition. If <tt>false</tt>, the
+   loop terminates and the program continues with the next statement after the
+   loop body. If <tt>true</tt>, the actions in the body are run, after which
+   control <mark>returns to the loop condition</mark>. One pass through the body
+   constitutes a <strong>cycle or iteration of the loop</strong>.
+  </p>
+  <ol>
+   <li>
+    The test is performed <strong>before every cycle of the loop</strong>,
+    including the first. If the test is <tt>false</tt> initially, the body of the
+    loop is <strong>not executed at all</strong>. That's why this is known as a <b
+     >guarded</b
+    > loop.
+   </li>
+   <li>
+    The test is performed <strong>only</strong> at the beginning of a loop cycle.
+    If the condition <strong>becomes</strong>
+    <tt>false</tt> at some point during the loop, the
+    <mark>program won’t notice</mark> that fact until it completes the entire cycle.
+    When the program evaluates the test condition again, if it is still <tt
+     >false</tt
+    >, only then does the loop terminate.
+   </li>
+  </ol>
+ </div>
+</Layout>

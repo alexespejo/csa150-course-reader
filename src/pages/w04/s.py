@@ -39,7 +39,7 @@ const { useLayout } = Astro.props;
 ---
 <Layout
 title="Week 2"
-dir="w03/"
+dir="w04/"
 displayLayout={useLayout}
 chapterSubSections={[]}
 >''' + f'<Header id="{fn[0]}">text</Header></Layout>'

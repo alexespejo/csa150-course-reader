@@ -87,6 +87,92 @@ import SidebarChapters from "./SidebarChapters.vue";
    <a href="/w02/E#E"><div>Searching a String</div></a>
   </SidebarChapters>
  </SidebarChapters>
+ <SidebarChapters heading="Programming with Loops">
+  <SidebarChapters heading="A-Reference Types" :opened="true">
+   <a href="/w03/A#A"><div>References</div></a>
+   <a href="/w03/A#B"><div>Conversions & Const-ref</div></a>
+   <a href="/w03/A#C"><div>Reference Parameters</div></a>
+   <a href="/w03/A#D"><div>String Value Parameters</div></a>
+   <a href="/w03/A#E"><div>String Reference Parameters</div></a>
+  </SidebarChapters>
+  <SidebarChapters heading="B-Introducing Loops" :opened="true">
+   <a href="/w03/B#A"><div>Introducing Loops</div></a>
+   <a href="/w03/B#B"><div>Guarded & Unguarded Loops</div></a>
+   <a href="/w03/B#C"><div>Classifying Loops</div></a>
+   <a href="/w03/B#D"><div>Indefinite Loop Categories</div></a>
+   <a href="/w03/B#E"><div>Range-based Loops</div></a>
+  </SidebarChapters>
+  <SidebarChapters heading="C-Definite Loops with For" :opened="true">
+   <a href="/w03/C#A"><div>Definite Loops with for</div></a>
+   <a href="/w03/C#B"><div>Sequences & Symmetric Bounds</div></a>
+   <a href="/w03/C#C"><div>Processing Strings</div></a>
+   <a href="/w03/C#D"><div>Some Bad Habits</div></a>
+   <a href="/w03/C#E"><div>Hands On: Counting Vowels</div></a>
+   <a href="/w03/C#F"><div>Hands On: Counting Substrings</div></a>
+   <a href="/w03/C#G"><div>More Efficient Substrings</div></a>
+   <a href="/w03/C#H"><div>Substrings Redux</div></a>
+  </SidebarChapters>
+  <SidebarChapters heading="D-How to Write Loops" :opened="true">
+   <a href="/w03/D#A"><div>Goal, Bounds & Plan</div></a>
+   <a href="/w03/D#B"><div>Implement the Plan</div></a>
+   <a href="/w03/D#C"><div>The Loop Bounds</div></a>
+   <a href="/w03/D#D"><div>The Bounds Precondition</div></a>
+   <a href="/w03/D#E"><div>Advancing the Loop</div></a>
+   <a href="/w03/D#F"><div>The Loop Goal</div></a>
+   <a href="/w03/D#G"><div>Loop Operations</div></a>
+   <a href="/w03/D#H"><div>The Loop Postcondition</div></a>
+   <a href="/w03/D#I"><div>Loop Guards</div></a>
+   <a href="/w03/D#J"><div>Necessary & Intentional</div></a>
+  </SidebarChapters>
+  <SidebarChapters heading="E-Sentinel Loop Patterns" :opened="true">
+   <a href="/w03/E#A"><div>Sentinel Loop Patters</div></a>
+   <a href="/w03/E#B"><div>The Primed Loop Pattern</div></a>
+   <a href="/w03/E#C"><div>The Loop-and-a-half Pattern</div></a>
+   <a href="/w03/E#D"><div>The Flag-controlled Pattern</div></a>
+   <a href="/w03/E#E"><div>Validating Data</div></a>
+  </SidebarChapters>
+ </SidebarChapters>
+ <SidebarChapters heading="Functions, Decisions & Strings">
+  <SidebarChapters heading="A-Library Mechanics" :opened="true">
+   <a href="/w04/A#A"><div>Library Mechanics</div></a>
+   <a href="/w04/A#B"><div>Separate Compilation</div></a>
+   <a href="/w04/A#C"><div>The Client or Test Program</div></a>
+   <a href="/w04/A#D"><div>The Interface or Header File</div></a>
+   <a href="/w04/A#E"><div>Adding the Prototypes</div></a>
+   <a href="/w04/A#F"><div>Library Types in Interfaces</div></a>
+   <a href="/w04/A#G"><div>The Implementation File</div></a>
+   <a href="/w04/A#H"><div>Stubbing the Implementation</div></a>
+   <a href="/w04/A#I"><div>The Make File</div></a>
+  </SidebarChapters>
+  <SidebarChapters heading="B-Documentation & Implementation" :opened="true">
+   <a href="/w04/B#A"><div>Documenting the Interface</div></a>
+   <a href="/w04/B#B"><div>Planning & Implementation</div></a>
+   <a href="/w04/B#C"><div>The while Loop</div></a>
+   <a href="/w04/B#D"><div>Limit Bounds</div></a>
+   <a href="/w04/B#E"><div>Running Doxygen</div></a>
+  </SidebarChapters>
+  <SidebarChapters heading="C-Overloading & Default Arguments" :opened="true">
+   <a href="/w04/C#A"><div>Overloaded Functions</div></a>
+   <a href="/w04/C#B"><div>Overload Resolution</div></a>
+   <a href="/w04/C#C"><div>Default Arguments</div></a>
+   <a href="/w04/C#D"><div>Default Argument Rules</div></a>
+  </SidebarChapters>
+  <SidebarChapters heading="D-Data Flows" :opened="true">
+   <a href="/w04/D#A"><div>Data Flows</div></a>
+   <a href="/w04/D#B"><div>Output Parameters</div></a>
+   <a href="/w04/D#C"><div>Input and Output Parameters</div></a>
+   <a href="/w04/D#D"><div>Input-Output Parameters</div></a>
+   <a href="/w04/D#E"><div>Data Flow Checklists</div></a>
+  </SidebarChapters>
+  <SidebarChapters heading="E-More Selections & Iteration" :opened="true">
+   <a href="/w04/E#A"><div>More Selections & Iteration</div></a>
+   <a href="/w04/E#B"><div>The switch Statement</div></a>
+   <a href="/w04/E#C"><div>More on switch</div></a>
+   <a href="/w04/E#D"><div>The Conditional Operator</div></a>
+   <a href="/w04/E#E"><div>A Hasty Loop</div></a>
+   <a href="/w04/E#F"><div>Confirmation Loops</div></a>
+  </SidebarChapters>
+ </SidebarChapters>
 </template>
 
 <style lang="scss" scoped>

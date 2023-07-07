@@ -3,9 +3,76 @@ import Layout from "../../../layouts/Layout.astro";
 import Header from "../../../components/Header.astro";
 const { useLayout } = Astro.props;
 ---
+
 <Layout
-title="Week 2"
-dir="w03/"
-displayLayout={useLayout}
-chapterSubSections={[]}
-><Header id="E">text</Header></Layout>
+ title="Week 2"
+ dir="w03/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="E">String Reference Parameters</Header>
+ <div>
+  <h1>String Reference Parameters</h1>
+  <p class="firstLine">
+   Since reference parameters <mark>don't</mark> make a copy of the argument, they
+   are much more efficient when passing a class-type argument such as <tt
+    >string</tt
+   > or
+   <tt>vector</tt>. What if you were to change the heading of
+   <tt>count_vowels</tt> like this. Would that work?
+  </p>
+  <pre class="language-cpp"><code>int count_vowels(string&amp; str)</code></pre>
+  <p>Well, yes and no!</p>
+  <ul>
+   <li>
+    Because the parameter <tt>str</tt> is now a <b>reference</b>, there is no
+    copy made, so it is <mark>much more efficient</mark>.
+   </li>
+   <li>
+    However, because it is a reference, you can now only call the <tt
+     >count_vowels</tt
+    > function with an <i><b>lvalue</b></i>. You could no longer write:<code
+     class="language-cpp">count_vowels("hello");</code
+    >. Your function is much less <mark>usable</mark>.
+   </li>
+   <li>
+    Finally, since <tt>str</tt> is a reference, there is nothing to <mark
+     >prevent</mark
+    > the <code>count_vowels</code> function from <mark
+     >inadvertently modifying</mark
+    > the parameter, and, thus by extension, the argument. The function is not as
+    <mark>safe</mark> as it could be.
+   </li>
+  </ul>
+  <p>
+   The solution is simple, however. <mark>Whenever</mark> you pass a
+   <tt>string</tt> as an argument to a function, use
+   <tt>const</tt>
+   <tt>string&amp;</tt> for the parameter if the function
+   <mark>will not</mark> modify the calling argument, and <tt>string&amp;</tt>
+   if it will.
+  </p>
+  <p>
+   Here is the improved header for <tt>count_vowels</tt>, which is correct,
+   efficient and safe.
+  </p>
+  <pre
+   class="language-cpp"><code>int count_vowels(const string&amp; str)</code></pre>
+  <div class="highlight alert alert-info">
+   <p>
+    If the <tt>string</tt>
+    <mark>should</mark> be modified use a regular reference. If the string <mark
+     >should not</mark
+    > be modified, use a <tt>const</tt>
+    reference as your parameter type.
+   </p>
+  </div>
+  <p>
+   You can add these C++11 <mark>type alias declarations</mark> to your programs
+   to make this easier if you like:
+  </p>
+  <pre
+   class="language-cpp"><code>using stringIn = const string&amp;;   // input string not modified
+using stringRef = string&amp;         // output string, modified</code></pre>
+ </div>
+</Layout>

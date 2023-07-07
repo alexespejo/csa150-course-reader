@@ -1,11 +1,41 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import Header from "../../../components/Header.astro";
+import imageSentinels from "../images/sentinels.png";
 const { useLayout } = Astro.props;
 ---
+
 <Layout
-title="Week 2"
-dir="w03/"
-displayLayout={useLayout}
-chapterSubSections={[]}
-><Header id="A">text</Header></Layout>
+ title="Week 2"
+ dir="w03/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="A">Sentinel Loop Patterns</Header>
+ <div>
+  <p class="firstLine">
+   How do you handle problems where the loop
+   <mark>reads data from the user</mark> until some special value, or <strong
+    >sentinel</strong
+   >, is found to signal the end of the input? This is called a <mark
+    >sentinel loop</mark
+   > and its logical structure is:
+  </p>
+  <pre
+   class="pcode">Read a value
+If the value is equal to the sentinel then
+    Exit the loop
+Process the value</pre>
+  <p>
+   There is no easy test at the beginning of the loop; you don't know when the
+   sentinel is encountered <mark>until you've read a value</mark>. There are
+   three ways to <strong>rearrange</strong>
+   the statements to handle this situation.
+  </p>
+  <img
+   src={imageSentinels}
+   class="inlineCenter shadow round"
+   alt="The sentinels of Numenor"
+  />
+ </div>
+</Layout>

@@ -3,9 +3,45 @@ import Layout from "../../../layouts/Layout.astro";
 import Header from "../../../components/Header.astro";
 const { useLayout } = Astro.props;
 ---
+
 <Layout
-title="Week 2"
-dir="w03/"
-displayLayout={useLayout}
-chapterSubSections={[]}
-><Header id="I">text</Header></Layout>
+ title="Week 2"
+ dir="w03/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="I">
+  <h1>Loop Guards</h1>
+ </Header>
+ <div>
+  <p class="firstLine">
+   The problem statement said that the input would have a period if characters
+   were entered. But, what should we do if the input string is empty? We should
+   skip the loop altogether.
+  </p>
+  <p>
+   You can modify the loop to handle this case by
+   <mark>guarding</mark>
+   the loop with an <tt class="i">if</tt> statement.
+  </p>
+  <pre
+   class="pcode"><em>Guarding the loop for an empty string</em>
+<i>counter &lt;- -1
+If str is not empty then
+&lbrace;</i>
+    counter &lt;- 0
+    . . .
+<i>&rbrace;
+If counter is -1 then the goal is not reached
+Otherwise counter contains the goal</i></pre>
+
+  <p>
+   The <tt>counter</tt> is set to <tt>-1</tt>
+   <mark>before</mark>
+   the loop guard. After the loop guard, if it still <tt>-1</tt>
+   it means that the loop was <mark>never entered</mark>; you'll have to handle
+   that in the
+   <strong>post-condition</strong> processing.
+  </p>
+ </div>
+</Layout>

@@ -1,7 +1,10 @@
 @import "./prism.css";
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&&display=swap");
+html {
+ scroll-behavior: smooth;
+}
 body {
- @apply bg-slate-200 dark:bg-slate-900 dark:text-slate-300 text-black text-xs md:text-xl;
+ @apply bg-slate-200 dark:bg-slate-900 dark:text-slate-300 text-black text-xs md:text-base;
 }
 mark {
  //  font-weight: bold;
@@ -25,7 +28,7 @@ section {
  @apply leading-6 flex flex-col min-w-fit text-sm sm:text-lg;
 }
 p {
- @apply pb-6 pt-2;
+ @apply p-2 pb-6;
  tt {
   @apply inline;
  }
@@ -54,8 +57,11 @@ blockquote {
  }
  @apply bg-stone-300 py-2 dark:text-black leading-6;
 }
-img {
- @apply w-full;
+// img {
+//  @apply w-full;
+// }
+img.right {
+ float: right;
 }
 img.width-64 {
  width: 64px;
@@ -111,15 +117,23 @@ div.caption {
  line-height: 115%;
 }
 div.highlight {
- padding: 0.05em 1.5em 0.05em 1.5em;
+ padding: 1em 1.5em 0.05em 1.5em;
  border-radius: 5px;
  box-shadow: 5px 5px 10px 5px #ccc;
  background-color: honeydew;
  font-style: italic;
  font-size: 90%;
 }
-
+.alert.alert-error,
+.alert.alert-success,
+.alert.alert-info {
+ @apply w-fit justify-center self-center;
+ //  code {
+ //   @apply bg-red-400 drop-shadow-none;
+ //  }
+}
 div.highlight.alert,
+div.highlight.alert-success,
 div.highlight.info {
  @apply shadow-none bg-orange-300 text-black not-italic flex p-2;
  svg {
@@ -132,7 +146,10 @@ div.highlight.info {
   }
  }
 }
-div.highlight.info {
+div.highlight.alert-success {
+ @apply bg-teal-500;
+}
+div.highlight.alert-info {
  @apply bg-blue-300;
  p {
   tt {
@@ -257,9 +274,9 @@ pre.pcode {
  padding: 1em;
  padding-left: 2em;
  overflow: hidden;
- box-shadow: 3px 3px 6px 3px #ccc;
  border-radius: 5px;
  line-height: 123%;
+ border: 1px solid white;
 }
 
 pre.pcode em {
@@ -356,4 +373,11 @@ table[class="keywords"] td {
  padding-left: 1em;
  vertical-align: top;
  width: 25%;
+}
+code,
+pre {
+ @apply overflow-x-auto;
+}
+i {
+ @apply shadow-none;
 }

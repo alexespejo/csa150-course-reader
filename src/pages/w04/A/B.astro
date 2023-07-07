@@ -1,0 +1,62 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 2"
+ dir="w04/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="B">
+  <h1>Separate Compilation</h1>
+ </Header><div>
+  <p class="firstLine">
+   To <mark>define a library</mark> in C++, you'll supply four parts:
+  </p>
+  <ul>
+   <li>
+    the <mark>client</mark> or <mark>test</mark> program, which
+    <strong>uses</strong> the functions in the library.
+   </li>
+   <li>
+    the <mark>interface</mark>, which provides information needed to use the
+    library. The interface consists of
+    <strong>declarations</strong> or <strong>prototypes</strong>, and will go
+    into a <b>header</b> file.
+   </li>
+   <li>
+    the <mark>implementation</mark>, which provides the details. The
+    implementation consists of <strong>function definitions</strong>.
+   </li>
+   <li>
+    the <mark>makefile</mark> which puts the parts together to produce the executable.
+   </li>
+  </ul>
+  <p>To try this out, we'll write a library containing three functions:</p>
+  <ul>
+   <li>
+    <code class="language-cpp">int firstDigit(int n)</code>, returning the <strong
+     >ﬁrst</strong
+    > digit of its argument
+   </li>
+   <li>
+    <code class="language-cpp">int lastDigit(int n)</code>, returning the <strong
+     >last</strong
+    > digit of its argument
+   </li>
+   <li>
+    <code class="language-cpp">int numDigits(int n)</code>
+    returning the <strong>number of digits</strong> in its argument
+   </li>
+  </ul>
+  <p>
+   Calling <code class="language-cpp">firstDigit(1729)</code>
+   will return <tt>1</tt>; calling
+   <code class="language-cpp">lastDigit(1729)</code> will return <tt>9</tt>;
+   calling <code class="language-cpp">numDigits(1729)</code> returns <tt>4</tt>.
+  </p>
+ </div>
+</Layout>

@@ -3,9 +3,43 @@ import Layout from "../../../layouts/Layout.astro";
 import Header from "../../../components/Header.astro";
 const { useLayout } = Astro.props;
 ---
+
 <Layout
-title="Week 2"
-dir="w03/"
-displayLayout={useLayout}
-chapterSubSections={[]}
-><Header id="C">text</Header></Layout>
+ title="Week 2"
+ dir="w03/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="C">
+  <h1>The Loop Bounds</h1>
+ </Header>
+
+ <div>
+  <img
+   src="../images/beaver.png"
+   class="right width-128"
+   alt="A beaver with a chain saw."
+  />
+  <p class="firstLine">
+   If you've ever bought a new appliance (like a chain-saw, maybe), the first
+   thing you need to learn is <mark>how to turn it off</mark>. That's where you
+   should <strong>always start writing your loops</strong>; ask yourself: <mark
+    >What will make this loop quit?</mark
+   >
+  </p>
+  <p>
+   Making sure your loops quit at the right point is the <mark
+    >single most important</mark
+   > thing that you can do. Let's take our example with the loop bounds written in
+   <strong>pseudocode</strong>.
+  </p>
+  <pre
+   class="pcode"><em>// Step 1: Establish the loop bounds</em>
+// Before the loop
+<i>while letter is not a period</i>
+&lbrace;
+    // inside the loop
+&rbrace;
+// After the loop</pre>
+ </div>
+</Layout>
