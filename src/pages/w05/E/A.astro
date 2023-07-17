@@ -1,0 +1,59 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import imageProcessFilter from "../images/process-filter.png";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 5"
+ dir="w05/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="A">
+  <h1>Process Filters</h1>
+ </Header><div>
+  <p class="firstLine">
+   Filters, you recall, are programs that read from standard input, and which
+   write to standard output. Filters may change, use, or learn about the
+   characters flowing through your program. Two kinds of filter programs are <mark
+    >process</mark
+   >
+   filters and <mark>state</mark> filters.
+  </p>
+  <img
+   src={imageProcessFilter}
+   class="inlineCenter width-80"
+   style="margin-left: 0;"
+   alt="Illustrating a process filter."
+  />
+  <ul>
+   <li>
+    A process filter <strong>does something to</strong> the characters it encounters.
+   </li>
+   <li>
+    A state filter <strong>learns something about</strong> the stream by examining
+    characters.
+   </li>
+  </ul>
+ </div>
+ <p>
+  Process filters <mark>apply some basic rule</mark>—the process—to the values
+  in the stream. The simplest process filter is:
+  <strong><em>read and echo</em></strong>
+  (although I suppose that read and ignore would actually be simpler). That's what
+  the <tt>cat</tt> filter does.
+ </p>
+ <p>Process filters typically solve problems like this:</p>
+ <ul>
+  <li>
+   Copy files or search for a particular value in a stream (<tt>cp</tt> and <tt
+    >grep</tt
+   >)
+  </li>
+  <li>Case modification or changing character order in a stream.</li>
+  <li>Stream editing using a sequence of editing commands (<tt>sed</tt>)</li>
+  <li>Translating data from one form to another (decimal to binary)</li>
+ </ul>
+</Layout>

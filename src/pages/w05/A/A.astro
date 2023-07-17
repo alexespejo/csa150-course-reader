@@ -1,0 +1,50 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import imageRecursion from "../images/recursion.jpg";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 5"
+ dir="w05/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="A">
+  <h1>Introducing Recursion</h1>
+ </Header><div>
+  <p class="firstLine">
+   Performing a task repeatedly is <b>iteration</b>. Selecting different
+   alternatives is <b>selection</b>. Most of us learn to use the control
+   statements
+   <tt class="i">for</tt>, <tt class="i">while</tt>, and <tt class="i">if</tt> easily,
+   because they are familiar. In this lesson, you'll look at a different, more abstract
+   problem-solving strategy called <mark>recursion</mark>.
+   <img
+    src={imageRecursion}
+    class="inlineCenter round shadow"
+    alt="A picture illustrating recursion."
+   />
+  </p>
+  <p>
+   <strong>Recursion is</strong>
+   a technique where large problems are solved by reducing them to
+   <mark>smaller problems of the same form</mark>. This is similar to functional
+   decomposition, yet different as well. In functional decomposition, the
+   smaller problems have a <strong>different structure</strong>. In recursion,
+   the sub-problems <mark>have the same form</mark>
+   as the original.
+  </p>
+  <p>
+   To most of us, this does not make much sense when we first hear it. Since it
+   is unfamiliar, <strong> learning how to use recursion</strong>
+   <mark>can be difficult</mark>. As a problem-solving tool, recursion is so
+   powerful that it at times seems almost magical.
+  </p>
+  <p>
+   Recursion makes it possible to write complex programs in
+   <mark>simple and elegant</mark> ways.
+  </p>
+ </div>
+</Layout>

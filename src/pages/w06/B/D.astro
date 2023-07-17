@@ -1,0 +1,106 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import imageRunningMan from "../images/running-man.png";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 6"
+ dir="w06/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="D">
+  <h1>Validating Data</h1>
+ </Header><div>
+  <a
+   target="_blank"
+   href="https://codecheck.io/files/22111521189bndwun7875i306uouxyrjsj5"
+  >
+   <img
+    src={imageRunningMan}
+    class="right width-64 bg-white"
+    alt="Decorative running-man icon used for links"
+   /></a
+  >
+
+  <details>
+   <summary>You can check your work here, or peek if you get stuck.</summary>
+   <pre
+    class="language-cpp"><code>double sum = 0.0;
+double number;
+while (in)
+&lbrace; 
+   if (in &gt;&gt; number)  &lbrace; sum += number;&rbrace;
+   else if (! in.eof())&lbrace;  
+      in.clear();
+      string bad_data;
+      in &gt;&gt; bad_data;
+      cerr &lt;&lt; "Bad data: " &lt;&lt; bad_data &lt;&lt; endl;
+  &rbrace;
+&rbrace;</code></pre>
+  </details>
+  <p class="firstLine">
+   With raw, line-by-line or string-based token-oriented input, a data loop <mark
+    >only</mark
+   > fails when it reaches end-of file. However, consider the <tt>sumNumbers</tt
+   >
+   filter, which you can open by clicking the little "running man" on the right.
+  </p>
+  <p>
+   This function reads and processes <tt>doubles</tt>, returning the sum. This
+   function works fine when provided with a stream that contains nothing but
+   <tt>double</tt>s. It <mark>fails</mark> when in cannot read a
+   <tt>double</tt>; it also fails, of course, when it reaches end-of-file. Let's
+   fix the function so that it processes <b>all</b> of the valid data in the file.
+  </p>
+  <h2>Stream Flags</h2>
+  <p>
+   All stream objects contain a set of <em>Boolean</em> variables, known as the <mark
+    >state flags</mark
+   >. You can check the value of these flags by calling one of the stream's
+   member functions:
+  </p>
+  <ul>
+   <li>
+    <tt>fail()</tt> mean the stream is in the failed state. It will not accept any
+    more input.
+   </li>
+   <li><tt>good()</tt> means the stream is ready to read more input</li>
+   <li><tt>eof()</tt> means there is no more input for the stream to read.</li>
+  </ul>
+  <p>
+   When the stream object is placed in a <mark>failed state</mark>,
+   <strong>no error message is printed</strong>; the rest of the input is simply
+   not processed and the input stream stops working. To fix:
+  </p>
+  <ol>
+   <li>
+    Read the stream while it is good. The easiest way is simply
+    <code class="language-cpp">while (in)</code>.
+   </li>
+   <li>
+    Only sum the number <code class="language-cpp">if (in &gt;&gt; number)</code
+    >
+   </li>
+   <li>Otherwise, if you <mark>haven't</mark> reached <tt>in.eof()</tt></li>
+   <ol>
+    <li>
+     <mark>Reset</mark> the <strong>error state</strong>, by calling the member
+     function: <tt>cin.clear()</tt>
+    </li>
+    <li>
+     <mark>Remove</mark> the offending token from the stream with
+     <tt>in &gt;&gt; bad_data</tt> where <tt>bad_data</tt>
+     is a
+    </li>string
+   </ol>.
+  </ol>
+  <li>You may <mark>print an error message</mark> to <tt>cerr</tt>.</li>
+ </div>
+ <p>
+  See if you can get it to work. You can check your work with the solution
+  above, (or peek if you get stuck).
+ </p>
+</Layout>

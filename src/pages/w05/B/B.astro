@@ -1,0 +1,72 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 5"
+ dir="w05/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="B">
+  <h1>Wrappers &amp; Helpers</h1>
+ </Header><div>
+  <p class="firstLine">
+   We can instantly calculate
+   <tt>fib(n)</tt> when we know the values of <tt>fib(n-1)</tt> and
+   <tt>fib(n-2)</tt>. When you don’t know those values, the calculation takes a
+   lot of time, but when you do, then it’s really fast.
+  </p>
+  <p>
+   Are there values for <tt>fib(n-1)</tt> and
+   <tt>fib(n-2)</tt> that we <mark>do know</mark>? Let’s write out the sequence
+   and see:
+  </p>
+  <table class="array" align="center" style="border:1px dotted gray;">
+   <tr class="b">
+    <td>n</td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
+    <td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>...</td>
+   </tr>
+   <tr>
+    <td>fib(n)</td><td>0</td><td>1</td><td>1</td><td>2</td><td>3</td><td>5</td>
+    <td>8</td><td>13</td><td>21</td><td>34</td><td>55</td><td>...</td>
+   </tr>
+  </table>
+  <p>
+   Since <tt>fib(0)</tt> is <tt>0</tt> and <tt>fib(1)</tt>
+   is <tt>1</tt>, we can start there. For our <strong>recursive helper</strong>,
+   just write a function that accepts <tt>n</tt>
+   and the two terms: <tt>t0</tt> and <tt>t1</tt>. If <tt>n</tt> is <tt>0</tt> return
+   <tt>t0</tt>
+   and if it is <tt>1</tt>, return <tt>t1</tt>. Otherwise call the function
+   recursively with <tt>n - 1</tt>.
+  </p>
+  <p>
+   When calling the function recursively, however, instead of passing the <tt
+    >t0</tt
+   > and<tt>t1</tt>, calculate the
+   <mark>next two terms</mark> and pass those instead. Here’s what the helper should
+   look like:
+  </p>
+  <pre
+   class="language-cpp"><code>int helper(int n, int t0, int t1)
+&lbrace;
+    if (n == 0) return t0;
+    if (n == 1) return t1;
+    return helper(n - 1, t1, t0 + t1);
+&rbrace;</code></pre>
+  <p>
+   For the <tt>fib()</tt>
+   <mark>wrapper function</mark>, just call the helper, kick-starting it with
+   the first two terms,
+   <tt>0</tt> and <tt>1</tt>. Here’s what the function looks like:
+  </p>
+  <pre
+   class="language-cpp"><code>int fib(int n)
+&lbrace;
+    return helper(n, 0, 1);
+&rbrace;</code></pre>
+ </div>
+</Layout>

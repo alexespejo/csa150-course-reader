@@ -38,8 +38,8 @@ import Header from "../../../components/Header.astro";
 const { useLayout } = Astro.props;
 ---
 <Layout
-title="Week 2"
-dir="w04/"
+title="Week 7"
+dir="w07/"
 displayLayout={useLayout}
 chapterSubSections={[]}
 >''' + f'<Header id="{fn[0]}">text</Header></Layout>'

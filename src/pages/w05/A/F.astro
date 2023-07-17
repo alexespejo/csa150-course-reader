@@ -1,0 +1,47 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import imageEfficency from "../images/efficiency.png";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 5"
+ dir="w05/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="F">
+  <h1>Recursive Efficiency</h1>
+ </Header><div>
+  <p class="firstLine">
+   So, how <mark>efficient</mark> is the
+   <tt>fib()</tt> function? What we mean by that is, how much memory does it use
+   and how fast does it run? (Those are called the
+   <mark>space and time</mark> measures of efficiency.) You can get a quick idea
+   by simply calling <tt>fib(42)</tt>. It seems to take forever! <mark
+    >Why?</mark
+   >
+  </p>
+  <p>
+   This particular recursive implementation of
+   <tt>fib()</tt> is <mark>extremely inefficient</mark>, because the function
+   makes many <strong>redundant calls</strong>, calculating
+   <mark>exactly the same term in the sequence</mark> several times. Given that the
+   Fibonacci sequence can be implemented quickly and efficiently using iteration,
+   this is more than a little disturbing.
+   <img
+    src={imageEfficency}
+    class="inlineCenter"
+    alt="Visual function-call tree for the fib() function."
+   />
+  </p>
+  <p>
+   The problem here is <mark>not recursion</mark>, but the naïve way in which is
+   implemented. In this case, we are repeatedly calculating the same value. By
+   using a different strategy, we can write a recursive version of
+   <tt>fib()</tt> where all of these redundant calls disappear. You’ll learn how
+   to do that in the next lesson.
+  </p>
+ </div>
+</Layout>

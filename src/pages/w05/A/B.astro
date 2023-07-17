@@ -1,0 +1,36 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 5"
+ dir="w05/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="B">
+  <h1>The Factorial Function</h1>
+ </Header><div>
+  <p class="firstLine">
+   You may be familiar with the notation <em>n!</em>, pronounced "<strong
+    >n factorial</strong
+   >", the
+   <strong>product</strong> of all of the positive integers less-than, or equal to
+   <em>n</em>. In mathematical notation it is written like this.
+  </p>
+  <p>Using <b>a loop</b>, we can implement the function in C++ like this:</p>
+  <pre
+   class="language-cpp"><code>int factorial(n)
+&lbrace;
+    int result = 1;
+    for (int i = 1; i &lt;= n; ++i) &lbrace; result *= i; &rbrace;
+    return result;
+&rbrace;</code></pre>
+  <p>
+   Algorithms that use loops like this are <mark>iterative</mark>. Let's see how
+   to write the function <mark>recursively</mark>.
+  </p>
+ </div>
+</Layout>

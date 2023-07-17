@@ -1,0 +1,53 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import imageStateFilter from "../images/state-filter.png";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 5"
+ dir="w05/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="B">
+  <h1>State Filters</h1>
+ </Header><div>
+  <p class="firstLine">
+   State filters <mark>produce information</mark>
+   by learning something <strong>about the data in a stream</strong>. State is
+   shorthand for saying "what is the current status of this data". Characters,
+   for instance, have values, but also belong to groups, like digit characters,
+   alpha characters and so on.
+   <img
+    src={imageStateFilter}
+    class="inlineCenter width-80"
+    alt="An illustration of a state filter."
+   />
+  </p>
+  <p>
+   <mark>State transitions</mark> are changes from one state to another. Most state
+   filters work by finding the state transitions and then performing some action.
+   Here are some uses:
+  </p>
+  <ul>
+   <li>
+    Counting the number of words in input (counting word transitions) (<tt
+     >wc</tt
+    >)
+   </li>
+   <li>
+    Printing one sentence per line (looking for a period, question or
+    exclamation mark)
+   </li>
+   <li>Compressing input (turn off echo when in blank-spaces state)</li>
+  </ul>
+  <p>
+   Often programs will contain both process-filter and state-filter portions.
+   For one homework this week you'll write a state filter that removes comments
+   in C++ source code, while in Lecture you'll write a process filter which
+   encrypts and decrypts text.
+  </p>
+ </div>
+</Layout>

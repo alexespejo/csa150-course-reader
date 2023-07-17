@@ -1,0 +1,63 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import imageUml from "../images/uml.png";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 6"
+ dir="w06/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="B">
+  <h1>UML Diagrams</h1>
+ </Header><div>
+  <p class="firstLine">
+   Simple diagrams that show the relationships among classes are useful, but
+   often we want to expand them to <strong>include the member functions</strong>
+   exposed at each level. This diagram is a standard way of displaying a class hierarchy
+   called the <strong>Unified Modeling Language</strong>, or
+   <strong>UML.</strong> In UML, each class appears as a rectangular box whose upper
+   portion contains the name of the class.
+   <img
+    src={imageUml}
+    class="inlineCenter width-75"
+    alt="A UML diagram of the stream classes."
+   />
+  </p>
+  <p>
+   In a UML class diagram, the <strong>public member functions</strong> of the class
+   appear in the lower portion. In UML, derived classes use open arrowheads to <mark
+    >point to</mark
+   > their base classes.
+  </p>
+  <p>
+   UML diagrams make it easy to determine which
+   <strong>inherited member functions</strong> are available to each of the classes
+   in the diagram. Because each class inherits all of the members of
+   <mark>every class</mark> in its ancestor chain, an object of a particular class
+   can call <strong>any member function</strong> defined in any of those classes.
+  </p>
+  <p>
+   For example, the diagram above shows that <mark>any</mark>
+   <tt>ifstream</tt>
+   object can call these member functions:
+  </p>
+  <ul>
+   <li>
+    The <tt>open()</tt> and <tt>close()</tt> functions from the
+    <tt>ifstream</tt> class itself
+   </li>
+   <li>
+    The <tt>get()</tt> and <tt>unget()</tt> member functions, as well as the
+    <tt>&gt;&gt;</tt> operator from the <tt>istream</tt> class
+   </li>
+   <li>
+    The <tt>clear()</tt>, <tt>fail()</tt>, and <tt>eof()</tt> functions from the
+    <tt>ios</tt> class
+   </li>
+  </ul>
+ </div>
+</Layout>

@@ -1,0 +1,62 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 6"
+ dir="w06/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="B">
+  <h1>Stub the Function</h1>
+ </Header><div>
+  <details>
+   <summary>You can check your work here, or peek if you get stuck.</summary>
+   <pre
+    class="language-cpp"><code>void searchFile(const string&amp; filename, const string&amp; word)
+&rbrace;
+    ifstream in(filename);    // open the file
+    if (in.fail())            // or, if (!in)
+&rbrace;
+        cerr &lt;&lt; "Cannot open " &lt;&lt; filename &lt;&lt; endl;
+        return;
+   &lbrace; 
+    
+    string line;
+    while (getline(in, line))
+   &rbrace; 
+        // next part here
+&lbrace;
+&lbrace;</code></pre>
+  </details>
+  <p class="firstLine">
+   You should be able to <mark>stub out the function</mark> on your own. You shouldn't
+   have to think about this part; you should memorize and practice each of these
+   steps until they become second nature.
+  </p>
+
+  <ol>
+   <li><strong>Open the file using the supplied filename</strong>.</li>
+   <li>
+    If it can't be opened, then print the error message using <tt>cerr</tt>. To
+    check if the file was opened, <strong>explicitly</strong> use the
+    <tt>fail()</tt> function or, <strong>implicitly</strong> check using the stream
+    variable itself. If you use the second method, don't forget the
+    <strong>not operator</strong>.
+   </li>
+   <li>
+    Instead of adding an <tt class="i">else</tt> to the
+    <tt class="i">if</tt> statement, add a <tt class="i">return</tt> statement to
+    end the function if nothing else can be done.
+   </li>
+   <li>
+    Add the <mark>line-oriented I/O pattern</mark>. You will have read and
+    printed every line, and so you'll be ready to go on to the next step, where
+    you actually solve the problem.
+   </li>
+  </ol>
+ </div>
+</Layout>

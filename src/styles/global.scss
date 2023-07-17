@@ -28,7 +28,7 @@ section {
  @apply leading-6 flex flex-col min-w-fit text-sm sm:text-lg;
 }
 p {
- @apply p-2 pb-6;
+ @apply p-2 pb-4;
  tt {
   @apply inline;
  }
@@ -380,4 +380,10 @@ pre {
 }
 i {
  @apply shadow-none;
+}
+
+h3.i {
+ @apply text-sm text-blue-300;
+ margin-bottom: 0;
+ border-bottom: 1px dotted silver;
 }

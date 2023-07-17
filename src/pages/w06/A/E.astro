@@ -1,0 +1,43 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 6"
+ dir="w06/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="E">
+  <h1>Processing Tokens</h1>
+ </Header><div>
+  <p class="firstLine">
+   We can also process input <mark>token by token</mark> or word by word. The word
+   <strong>token</strong> means "a chunk of meaningful data". A token may be an integer,
+   a number, a string, or a custom type, like stars or points.
+  </p>
+  <p>
+   As you've already seen, you read a token using the
+   <mark>extraction operator</mark>
+   <tt>&gt;&gt; var</tt>. If <tt>var</tt>
+   is a <tt>string</tt>, this reads a single word. When <tt>var</tt> is an <tt
+    >int</tt
+   >, it reads an integer, and so on.
+  </p>
+  <p>
+   The input operation <strong>returns the stream</strong>, just as with raw
+   input and line-oriented input. We could process input
+   <strong>word-by-word</strong>, like this:
+  </p>
+  <pre
+   class="language-cpp"><code>string word;
+while (in {'>>'} word) // process the word</code></pre>
+  <p>
+   Of course, the phrase "word-by-word" is not exactly correct, since a "word"
+   may include punctuation, or be a number, and so on. Technically, it is
+   <strong>token-by-token</strong>.
+  </p>
+ </div>
+</Layout>

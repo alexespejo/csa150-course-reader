@@ -18,12 +18,12 @@ const props = defineProps(["sections"]);
   <div
    class="w-full h-full md:w-1/2 overflow-auto bg-slate-200 dark:bg-slate-900"
   >
-   <div class="flex flex-row-reverse pr-5 py-2">
+   <div class="flex p-2">
     <button
      class="btn text-white bg-blue-400 hover:bg-blue-400"
      @click="changeShowNavbar"
     >
-     Close X
+     &#8676; Close
     </button>
    </div>
    <ChapterSidebar />

@@ -1,0 +1,58 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import imageStreamClasses from "../images/stream-classes.png";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 6"
+ dir="w06/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="A">
+  <h1>The Stream Classes</h1>
+ </Header><div>
+  <p class="firstLine">
+   The C++ standard library stream headers contain several different classes
+   that form a <mark>class hierarchy</mark>, designed using the object-oriented
+   facility known as
+   <strong>inheritance</strong>.
+   <img
+    src={imageStreamClasses}
+    class="inlineCenter width-80"
+    alt="The C++ stream class hierarchy."
+   />
+  </p>
+  <p>
+   Note <mark>headers</mark>, not header. Until now, have one stream header: <tt
+    >&lt;iostream&gt;</tt
+   >. To read and write to files (instead of the standard streams, we'll use the <mark
+    >file stream</mark
+   >
+   classes—<tt>ifstream</tt> and <tt>ofstream</tt>—found in the <tt
+    >&lt;fstream&gt;</tt
+   >
+   header. The name <tt>ifstream</tt> stands for <mark>input-file-stream,</mark>
+   while the name <tt>ofstream</tt> stands for <mark>output-file-stream</mark>.
+  </p>
+  <p>
+   In the diagram above, each class is a <mark>derived class</mark>(or
+   <strong> subclass</strong>), of the class above it. Thus, <tt>istream</tt>
+   and <tt>ostream</tt> are both <mark>derived from</mark>
+   <tt>ios</tt>, and are <mark>specialized</mark> kinds of <tt>ios</tt> objects.
+   In the opposite direction, <tt>ios</tt> is a <mark>base class</mark> (or
+   <strong>superclass</strong>) of both <tt>istream</tt> and <tt>ostream</tt>.
+   Similarly, <tt>ifstream</tt> is derived from <tt>istream</tt> and
+   <tt>ostream</tt> is the base class of <tt>ofstream</tt>.
+  </p>
+  <p>
+   This relationship—between base and derived classes—is conveyed by the words
+   <mark>is a</mark>. Every <tt>ifstream</tt> object <mark>is a</mark>
+   <tt>istream and</tt>, by continuing up the hierarchy, an <tt>ios</tt>. This
+   means that characteristics of any class are <mark>inherited</mark>
+   by its derived classes.
+  </p>
+ </div>
+</Layout>
