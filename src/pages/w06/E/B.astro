@@ -1,11 +1,50 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import Header from "../../../components/Header.astro";
+import imageTerminator from "../images/terminator.jpg";
 const { useLayout } = Astro.props;
 ---
+
 <Layout
-title="Week 6"
-dir="w06/"
-displayLayout={useLayout}
-chapterSubSections={[]}
-><Header id="B">text</Header></Layout>
+ title="Week 6"
+ dir="w06/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="B">
+  <h1>The Terminator</h1>
+ </Header><div>
+  <p class="firstLine">
+   One option is to write a function like
+   <tt>die()</tt>, which you saw in earlier lessons, and which prints an error
+   message and then terminates. This is not really a good solution for runtime
+   errors unless they are very severe, since it
+   <strong>doesn't give the user a chance to recover</strong>. Imagine if your
+   Web browser <strong>shut down</strong> every time you typed a URL incorrectly
+   or clicked on a dead link.
+   <img
+    src={imageTerminator}
+    class="inlineCenter width-80"
+    alt="6502 machine code in the Terminator movie."
+   />
+  </p>
+  <p>
+   Using a function like <tt>die()</tt> does prevent the program from continuing
+   with garbage values, (which is good!), but it is simply too drastic and <mark
+    >too inflexible</mark
+   > to be a good universal approach.
+  </p>
+  <p>
+   However, there is one time when a "terminator" <mark>is the correct way</mark
+   > to handle errors:
+  </p>
+  <ul>
+   <li>When you are developing your code and …</li>
+   <li>When the error is a programming problem that you can fix.</li>
+  </ul>
+  <p>
+   In fact, the C++ library has a <strong>built-in macro</strong> which does this,
+   called <tt>assert()</tt>.
+  </p>
+ </div>
+</Layout>

@@ -1,11 +1,63 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import Header from "../../../components/Header.astro";
+import imageRunningMan from "../images/running-man.png";
+import imageRepl1 from "../images/replit-1.png";
+import imageReplit2 from "../images/replit-2.png";
 const { useLayout } = Astro.props;
 ---
+
 <Layout
-title="Week 6"
-dir="w06/"
-displayLayout={useLayout}
-chapterSubSections={[]}
-><Header id="B">text</Header></Layout>
+ title="Week 6"
+ dir="w06/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="B">
+  <h1>Using the Conversion Functions</h1>
+ </Header><div>
+  <a target="_blank" href="https://replit.com/@stephengilbert/Conversions?v=1">
+   <img
+    src={imageRunningMan}
+    class="right dark:bg-white"
+    alt="Decorative running man for link to Replit."
+   />
+  </a>
+  <p class="firstLine">
+   Your goal is to be able to compile
+   <mark>exactly the same file</mark> in C++98, C++11, C++14 and C++17, and to <mark
+    >get the same results each time</mark
+   >. Click the "running-man" icon on the right to find our test program in <strong
+    >Replit</strong
+   >. Click the <strong>Fork Repl</strong> button so you have your own copy.
+  </p>
+  <p>
+   Switch to <strong>Shell</strong> window on the right and type
+   <tt class="y">make 17</tt>. You'll see that the program compiles and runs
+   (although it terminates with an error when trying to convert "UB-40".)
+   <img
+    src={imageRepl1}
+    class="inlineCenter round shadow width-90"
+    alt="Running the program in the Replit shell."
+   />
+  </p>
+  <p>
+   Now, type <tt class="y">make 98</tt> in the Shell. This will compile your program
+   with <mark> C++98</mark>.
+   <img
+    src={imageReplit2}
+    class="inlineCenter round shadow width-90"
+    alt="Running the program in the Replit shell."
+   />
+  </p>
+  <p align="center" style="font-size:larger;color:red;">
+   <strong>OOPS! That doesn't look encouraging! What's wrong???</strong>
+  </p>
+  <p>
+   C++98 does not have those functions, so you get an
+   <mark>undeclared identifier</mark>. You can fix that by
+   <mark>implementing these two functions</mark>
+   yourself, using the string stream classes.
+  </p>
+ </div>
+</Layout>

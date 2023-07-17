@@ -1,11 +1,69 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import Header from "../../../components/Header.astro";
+import imageRunningMan from "../images/running-man.png";
 const { useLayout } = Astro.props;
 ---
+
 <Layout
-title="Week 6"
-dir="w06/"
-displayLayout={useLayout}
-chapterSubSections={[]}
-><Header id="D">text</Header></Layout>
+ title="Week 6"
+ dir="w06/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="D">
+  <h1>An Input String Stream Exercise</h1>
+ </Header><div>
+  <a
+   target="_blank"
+   href="https://codecheck.it/files/20120124298yek3b9888pv4zmwl0lyb394n"
+  >
+   <img
+    src={imageRunningMan}
+    class="left width-64 dark:bg-white"
+    style="margin-right:1em;"
+    alt="Decorative running-man icon used for links"
+   /></a
+  >
+  <p class="firstLine">
+   Using an input string stream is the easiest way to <strong>parse</strong> the
+   individual parts of a line of text. Let's solve a problem which puts this to work.
+   Click on the "running man" to open the starter code in <strong
+    >CodeCheck</strong
+   >.
+  </p>
+  <div class="highlight alert alert-info">
+   <p>
+    Write a function <tt>inputStats</tt>
+    which takes an input stream and an output stream as arguments. Report the number
+    of lines in the file, the longest line, the number of tokens on each line, and
+    the length of the longest token on each line. Assume at least one line of input
+    and that each line has at least one token.
+   </p>
+  </div>
+  <p>For example, if input contains the following text:</p>
+  <blockquote>
+   "Beware the Jabberwock, my son,<br />
+   the jaws that bite, the claws that catch,<br />
+   Beware the JubJub bird and shun<br />
+   the frumious bandersnatch."
+  </blockquote>
+  <p>Then the output should be:</p>
+  <blockquote>
+   Line 1 has 5 tokens (longest = 11)<br />
+   Line 2 has 8 tokens (longest = 6)<br />
+   Line 3 has 6 tokens (longest = 6)<br />
+   Line 4 has 3 tokens (longest = 14)<br />
+   Longest line: the jaws that bite, the claws that catch,
+  </blockquote>
+  <p>
+   When you tackle a complex problem like this, you should always tackle it one
+   piece at a time. Let's start with this:
+  </p>
+  <ol>
+   <li>Reading the entire input file, line-by-line</li>
+   <li>Finding the longest line</li>
+   <li>Printing the longest line to the output file</li>
+  </ol>
+ </div>
+</Layout>

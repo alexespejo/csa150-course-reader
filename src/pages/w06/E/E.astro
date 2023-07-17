@@ -1,11 +1,47 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import Header from "../../../components/Header.astro";
+import imageTradition from "../images/tradition.jpg";
 const { useLayout } = Astro.props;
 ---
+
 <Layout
-title="Week 6"
-dir="w06/"
-displayLayout={useLayout}
-chapterSubSections={[]}
-><Header id="E">text</Header></Layout>
+ title="Week 6"
+ dir="w06/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="E">
+  <h1>Completion Codes</h1>
+ </Header><div>
+  <img
+   src={imageTradition}
+   class="right width-128"
+   alt="Decorative tradition scroll."
+  />
+  <p class="firstLine">
+   A second error-reporting option is the "tried-and-true" traditional <mark
+    >completion code technique</mark
+   > used for years in C, Pascal and FORTRAN. Have your function <strong
+    >return a special value</strong
+   > meaning that “the function failed to execute correctly.”
+  </p>
+  <p>
+   In a way, this is what <tt>sqrt()</tt> does; it returns the "special" not-a-number
+   value when its answer cannot be converted to a valid <tt>double</tt>. You can
+   test for this value using the <tt>isnan()</tt> function in the header
+   <tt>&lt;cmath&gt;</tt>. You could use the "error code" like this:
+  </p>
+  <pre
+   class="language-cpp"><code>if (isnan(answer = sqrt(-1))) &lbrace; /* error */&rbrace;</code></pre>
+  <p>
+   The <tt>isnan()</tt> function was added to C++ 11. Before that,
+   <tt>sqrt()</tt> set the global variable <tt>errno</tt>, defined in <tt
+    >&lt;cerrno&gt;</tt
+   >, which was used like this.
+  </p>
+  <pre
+   class="language-cpp"><code>double answer = sqrt(-1.0); // invalid
+if (errno == EDOM) &lbrace; /* invalid DOMain */&rbrace;</code></pre>
+ </div>
+</Layout>

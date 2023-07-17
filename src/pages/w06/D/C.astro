@@ -1,11 +1,64 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import Header from "../../../components/Header.astro";
+import imageClashofSymbols from "../images/clash-of-symbols.jpg";
+import imageReplit3 from "../images/replit-3.png";
 const { useLayout } = Astro.props;
 ---
+
 <Layout
-title="Week 6"
-dir="w06/"
-displayLayout={useLayout}
-chapterSubSections={[]}
-><Header id="C">text</Header></Layout>
+ title="Week 6"
+ dir="w06/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="C">
+  <h1>Stub the Replacements</h1>
+ </Header><div>
+  <p class="firstLine">
+   Place these <strong>definitions</strong>
+   for the functions right above <tt>main</tt>.
+  </p>
+  <pre
+   class="language-cpp"><code>int stoi(const string&amp; str) &lbrace; return 0; &rbrace;
+double stod(const string&amp; str) &lbrace; return 0.0; &rbrace;</code></pre>
+ </div>
+
+ <p>
+  Now, type <tt class="y">make 98</tt> once again. You'll see that the code compiles
+  and "runs" (although your stubs don't produce the correct value, of course).
+ </p>
+ <img
+  src={imageClashofSymbols}
+  class="right round shadow width-128"
+  style="margin-top:-1em;"
+  alt='Decorative image from "Clash of Symbols" album.'
+ />
+ <p>
+  <mark>What happens when you upgrade to Visual Studio 19</mark>? Will the code
+  still compile? <mark>Nope!</mark> Your version of
+  <tt>stoi()</tt>
+  <mark>conflicts with</mark> the one already defined inside the new C++ standard
+  library; we get a
+  <mark>clash of symbols</mark>.
+  <img
+   src={imageReplit3}
+   class="inlineCenter round shadow width-90"
+   alt="Compiling the new stubs with make 17."
+  />
+ </p>
+ <p>
+  At link time, there can be <mark>only one copy</mark> of the
+  <tt>stoi()</tt> function in the executable; if the library already has one, <strong
+   >your program <mark>won't</mark> link</strong
+  >. This is called the <b>ODR</b> or <b>One Definition Rule</b>.
+ </p>
+ <p>
+  What you would like to say is:
+  <i
+   >"if I'm using C++11 or later use the library version, and, if I'm using an
+   older version of C++, then use the version which I've written".</i
+  >
+  You can do that with <mark>conditional compilation</mark>.
+ </p>
+</Layout>

@@ -3,9 +3,60 @@ import Layout from "../../../layouts/Layout.astro";
 import Header from "../../../components/Header.astro";
 const { useLayout } = Astro.props;
 ---
+
 <Layout
-title="Week 6"
-dir="w06/"
-displayLayout={useLayout}
-chapterSubSections={[]}
-><Header id="F">text</Header></Layout>
+ title="Week 6"
+ dir="w06/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="F">
+  <h1>Error Flags</h1>
+ </Header><div>
+  <p class="firstLine">
+   With the advent of object-oriented programming, a variation on completion
+   codes was birthed—<mark>error state</mark>
+   which is encapsulated in objects. Of course, you've already encountered this with
+   the input stream classes.
+  </p>
+  <p>
+   Here's an example. What happens if the user enters <i>twelve</i>?
+  </p>
+  <pre
+   class="language-cpp"><code>cout &lt;&lt; "Enter an integer: ";
+int n;
+cin &gt;&gt; n;    // Error state is set here</code></pre>
+  <p>
+   Each stream object has an <strong>internal data member</strong> that contains
+   an individual error code, or <mark>error flag</mark>. These flags are given
+   names like <tt>badbit</tt>, <tt>goodbit</tt>
+   and <tt>failbit</tt>. If the user enters
+   <i>twelve</i>, then the <tt>failbit</tt> is "set". If the keyboard isn't working,
+   the <tt>badbit</tt> is set.
+  </p>
+  <p>
+   In the C-style of programming, you use <strong
+    >bitwise logical operators</strong
+   > (something we won't cover in this class, but you'll probably encounter in Computer
+   Architecture) to read or set each of these error codes. In C++, however, you have
+   <strong>member functions</strong>:
+  </p>
+  <pre
+   class="language-cpp"><code>cin &gt;&gt; n;    // Error state may be set here 
+if (cin.fail()) // Check if failbit is set
+&lbrace;
+    cin.clear(); // clear all of the error flags
+    // empty the input stream and try again
+&rbrace;</code></pre>
+
+  <p>
+   The big problem with completion codes and with error states, is that
+   <mark>you can ignore the return value without encountering any warnings</mark
+   >. Research has shown that programmers almost <mark>never</mark> check them. To
+   better handle these kinds of problems, C++ introduced
+   <mark>exception handling</mark>. If an error occurs inside a function, rather
+   than returning a value, you report the problem and
+   <mark>jump to the proper error-handling code</mark>.
+  </p>
+ </div>
+</Layout>

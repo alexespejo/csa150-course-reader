@@ -1,11 +1,49 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import Header from "../../../components/Header.astro";
+import imageInputStats from "../images/input-stats.png";
+import imageErrors from "../images/error.png";
 const { useLayout } = Astro.props;
 ---
+
 <Layout
-title="Week 6"
-dir="w06/"
-displayLayout={useLayout}
-chapterSubSections={[]}
-><Header id="E">text</Header></Layout>
+ title="Week 6"
+ dir="w06/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="E">
+  <h1>The Arguments</h1>
+ </Header><div>
+  <p class="firstLine">
+   Take a look at the starter code for the <tt>inputStats</tt> function. Reading
+   the documentation comment, you can see that the two arguments it expects are an
+   <strong>input stream</strong> and an <strong>output stream</strong>.
+   <img
+    src={imageInputStats}
+    class="inlineCenter shadow round width-80"
+    alt="The inputStats problem"
+   />
+  </p>The first question is "What kind of streams should you pass?" You should
+  be able to <mark>call</mark> the function in any of these ways:
+ </div>
+ <pre
+  class="line-numbers language-cpp"><code>inputStats(cin, cout);
+inputStats(inFile, outFile);  // ifstream, ofstream
+inputStats(inStr, outStr);    // istringstream, ostringstream</code></pre>
+ <p>
+  To make sure it will work with <mark>all</mark> of these stream types, you must
+  use the <mark>most general</mark> types for your parameters:
+  <tt>istream</tt> and <tt>ostream</tt>.
+ </p>
+ <p>
+  In addition, <strong>all</strong> stream types must be passed
+  <mark>by reference</mark>, not by value. If you forget this, your code will
+  not compile, and the error message will not be helpful at all.
+  <img
+   src={imageErrors}
+   class="inlineCenter width-75"
+   alt="Error message when passing streams by value."
+  />
+ </p>
+</Layout>

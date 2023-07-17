@@ -3,9 +3,40 @@ import Layout from "../../../layouts/Layout.astro";
 import Header from "../../../components/Header.astro";
 const { useLayout } = Astro.props;
 ---
+
 <Layout
-title="Week 6"
-dir="w06/"
-displayLayout={useLayout}
-chapterSubSections={[]}
-><Header id="B">text</Header></Layout>
+ title="Week 6"
+ dir="w06/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="B">
+  <h1>The format Function</h1>
+ </Header><div>
+  <p class="firstLine">
+   Let's look at an example, where string strings can be very useful. The
+   standard library has a <tt>to_string()</tt> function (starting in C++11) which
+   works for all types of numbers. Unfortunately, for floating-point numbers, you
+   have <mark>no control over the output format</mark>, which isn't very useful.
+   Let's fix that.
+  </p>
+  <p>
+   Here's a short function with two arguments: a <tt>double</tt> for the value, and
+   the number of decimal digits to display The function returns the value as a formatted
+   string. (Note the default argument, which makes the function easier to use.)
+  </p>
+  <pre
+   class="line-numbers language-cpp"><code>string format(double value, int digits=2)
+&lbrace;
+    ostringstream out;
+    out &lt;&lt; fixed &lt;&lt; setprecision(digits) &lt;&lt; value;
+    return out.str();
+&rbrace;</code></pre>
+  <p>You can use the <tt>format()</tt> function like this:</p>
+  <pre
+   class="language-cpp"><code>cout &lt;&lt; format(2.456) &lt;&lt; endl;      // 2.46
+cout &lt;&lt; format(1.0 / 3.0, 5) &lt;&lt; endl<strong>;     // .33333</strong></code>
+    
+</pre>
+ </div>
+</Layout>
