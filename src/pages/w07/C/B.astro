@@ -1,0 +1,74 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 7"
+ dir="w07/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="B">
+  <h1>Structure Definitions</h1>
+ </Header><div>
+  <p class="firstLine">
+   Here is the C++ <mark>definition</mark> for a <tt>Date</tt> user-defined structure
+   type:
+  </p>
+  <pre
+   class="language-cpp"><code>#include &lt;string&gt;
+struct Date
+&lbrace;
+    std::string month;
+    int day;
+    int year;
+&rbrace;;</code></pre>
+  <p>
+   Unlike a variable definition, a structure definition does not create an
+   object in memory. Instead, it <strong>defines or specifies a new type</strong
+   > which contains <mark>three data members</mark>. (You should not call them
+   fields&mdash;ala Java&mdash; since the term <i>field</i> has a slightly different
+   meaning in C++).
+  </p>
+  <p>
+   The structure name (<tt>Date</tt>) is formally known as the <mark
+    >structure tag</mark
+   >. As mentioned earlier, structure members <strong>do not</strong> all <strong
+    >need</strong
+   > to be of the same type. In <tt>Date</tt>, <tt>month</tt> is of type <tt
+    >string</tt
+   >, while <tt>day</tt> and <tt>year</tt>
+   are of type <tt>int</tt>.
+  </p>
+  <h2>Nested Structures</h2>
+  <p>
+   A structure member may be another type of structure. This is called a <mark
+    >nested structure</mark
+   >. For instance, a person has a name and a birthday. We have a <tt>Date</tt> type,
+   so we can use it as part of a <tt>Person</tt> definition.
+  </p>
+  <pre
+   class="language-cpp"><code>struct Person
+&lbrace;
+    std::string name;
+    Date birthday;
+&rbrace;;</code></pre>
+  <p>
+   Structure definitions are normally found <strong>inside header files</strong
+   >. Thus, all library members (such as the <tt>std::string month</tt>), must
+   be <mark>fully qualified</mark>. It is <mark>illegal</mark> to include the same
+   type definition multiple times, even if the definitions are exactly the same.
+   Protect against this by using <mark>header guards</mark>
+   (which are not shown here).
+  </p>
+  <div class="highlight alert alert-info">
+   <p>
+    Don't forget the semicolon appearing after the final brace. If you leave it
+    off, you're likely to see a misleading error message pointing to a different
+    area of your code.
+   </p>
+  </div>
+ </div>
+</Layout>

@@ -1,0 +1,69 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import imageVectorLayout from "../images/vector-layout.png";
+import imageDate1 from "../images/date1.png";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 7"
+ dir="w07/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="A">
+  <h1>Structured Types</h1>
+ </Header><div>
+  <p class="firstLine">
+   Primitive types are fine for creating simple programs. But, for most tasks,
+   you need more complex <mark>user-defined data types</mark>, such as <tt
+    >string</tt
+   >
+   and <tt>vector</tt>. When we combine multiple data items into a larger unit,
+   it is called a <mark>structured</mark> type. The types in the standard library,
+   such as <tt>string</tt>
+   and <tt>vector</tt>, are <strong>structured</strong> types.
+  </p>
+  <p>
+   The C++ <strong>language</strong> has two derived structured data types. The built-in
+   linear <strong>list-type</strong> collection is called an <strong
+    >array</strong
+   >. In an array, all of the
+   <b>elements</b> must be of the same type, so we say that an array is a <mark
+    >homogeneous</mark
+   > structured type. With an array, the elements are accessed by using their <b
+    >index</b
+   >, just like the <tt>string</tt> type.
+   <img
+    src={imageVectorLayout}
+    class="inlineCenter width-75"
+    alt="An illustration of an array."
+   />
+  </p>
+  <p>
+   In addition to arrays, programs often <strong>combine</strong>
+   <strong>related pieces of information</strong> into a composite object which can
+   be manipulated as a unit, such as an <strong>employee record</strong>. Each
+   worker has an employee number, a name, an address, job title and so on. Such
+   types are called <strong>records</strong> (which is a generic Computer Science
+   term) or <strong>structures</strong>
+   (which is the C/C++ specific term)
+  </p>
+ </div>
+ <img
+  src={imageDate1}
+  style="margin-top:-1em;"
+  class="right"
+  alt="The Date structure."
+ />
+
+ <p>
+  The <b>data members</b> which make up a structure do <mark>not</mark> all need
+  to be of the same type, so we say that a structure is a <mark
+   >heterogenous</mark
+  > data type. The <tt>Date</tt> type shown here is a <strong>structure</strong>
+  type, consisting of a month, day and year. C++ also has more advanced record types,
+  called <b>classes</b>, which you'll study later in the semester.
+ </p>
+</Layout>

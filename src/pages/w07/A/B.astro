@@ -1,0 +1,69 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import imageRunningMan from "../images/running-man.png";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 7"
+ dir="w07/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="B">
+  <h1>Throwing Exceptions</h1>
+ </Header><div>
+  <p class="firstLine">
+   The C++ <mark>exception handling</mark> feature allows programs to deal with real
+   life circumstances. The system is broken into three parts:
+  </p>
+  <ul>
+   <li>
+    <tt>try</tt> blocks
+   </li>
+   <li>
+    <tt>catch</tt> blocks
+   </li>
+   <li>
+    <tt>throw</tt> statements
+   </li>
+   <a target="_blank" href="https://replit.com/@stephengilbert/Exceptions?v=1">
+    <img
+     src={imageRunningMan}
+     class="right dark:bg-white"
+     alt="The running man icon."
+    /></a
+   >
+  </ul>
+  <p>
+   Let's start by looking at <tt>throw</tt> statements, so we can finish up our functions.
+   Click on the running man to open the sample program we've been working on in <strong
+    >Replit</strong
+   >, <strong>Fork it</strong>, and we'll continue by learning how to apply
+   exception handling.
+  </p>
+  <p>
+   When a function encounters a situation from which it cannot recover–for
+   example, a call to <tt>stoi("twelve")</tt>&mdash;you can
+   <mark>report the error</mark> by using the <tt>throw</tt>
+   keyword to notify the nearest appropriate error-handling code that something has
+   gone wrong.
+  </p>
+  <pre
+   class="language-cpp"><code>istringstream in(str);
+int result = 0;
+if (in &gt;&gt; result) return result;
+throw … // signal error at this point using throw</code></pre>
+  <p>
+   Inside <tt>stoi()</tt>, if the read succeeds, return the result. If the read <mark
+    >fails</mark
+   >, <strong>jump out of the function</strong>, looking for the closest error
+   handler. You do that with <tt>throw</tt>.
+  </p>
+  <p>
+   Like <tt>return</tt>, <tt>throw</tt> accepts a single parameter, an object which
+   provides information about the error which occurred.
+  </p>
+ </div>
+</Layout>

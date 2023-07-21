@@ -1,0 +1,65 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import imageQuadradic from "../images/quadratic.png";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 7"
+ dir="w07/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="D">
+  <h1>Returning Structures</h1>
+ </Header><div>
+  <p class="firstLine">
+   Let's look at a variation on one of the problems given earlier on a
+   Programming Exam. In the original exam, the two roots of the quadratic
+   equation were returned via a pair of
+   <mark>output parameters</mark>. Now that we have structured types, we can
+   write the function a little more naturally, by returning structure.
+  </p>
+  <blockquote>
+   <p>
+    Write a function <code><strong>quadratic()</strong></code> which computes roots
+    of quadratic equations. A quadratic equation is one of the form: <code
+     ><strong>ax<sup>2</sup> + bx + c = 0</strong></code
+    >.
+   </p>
+   <p>
+    Your function has three <strong>input</strong> parameters, the integer coefficients
+    <code><strong>a</strong></code>, <code><strong>b</strong></code>, and <code
+     ><strong>c</strong></code
+    >. The function returns a <code><strong>struct</strong></code> containing two
+    <code><strong>double</strong></code> members:<code
+     ><strong>root1</strong></code
+    > and <code><strong>root2</strong></code>. Assume that the function has two
+    real roots. The quadratic formula is:
+    <img
+     src={imageQuadradic}
+     class="inlineCenter"
+     alt="The quadratic formula."
+    />
+   </p>
+  </blockquote>
+  <p>
+   Using structures, you could <strong>write the function</strong> like this:
+  </p>
+  <pre
+   class="language-cpp"><code>struct Roots &lbrace; double root1, root2; &rbrace;;
+Roots quadratic(int a, int b, int c)
+&lbrace;
+    double determinant = b * b - 4 * a * c;
+    Roots result;
+    result.root1 = (-b + sqrt(determinant)) / (2 * a);
+    result.root2 = (-b - sqrt(determinant)) / (2 * a);
+    return result;
+&rbrace;</code></pre>
+  <p>Then, you could <strong>call the function</strong> like this:</p>
+  <pre
+   class="language-cpp"><code>Roots r = quadratic(1, -3, -4);
+cout &lt;&lt; "roots-&gt;" &lt;&lt; r.root1 &lt;&lt; ", " &lt;&lt; r.root2 &lt;&lt; endl;</code></pre>
+ </div>
+</Layout>

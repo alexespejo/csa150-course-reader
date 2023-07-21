@@ -1,0 +1,62 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import imageScott from "../images/scott-meyers.jpg";
+import imagePolarBear from "../images/polar-bear.png";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 7"
+ dir="w07/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="A">
+  <h1>Exception Handling</h1>
+ </Header><div>
+  <img
+   src={imageScott}
+   class="right shadow round"
+   alt="Scott Meyers headshot."
+  />
+  <p class="firstLine">
+   One of the most influential authors in the C++ world is Scott Meyers. His <strong
+    >Effective C++</strong
+   > series is the gold standard for learning how to use C++ correctly. He wrote:
+  </p>
+  <blockquote>
+   <p>
+    "Forty years ago, goto-laden code was considered perfectly good practice.
+    Now we strive to write structured control flows. Twenty years ago, globally
+    accessible data was considered perfectly good practice. Now we strive to
+    encapsulate data. Ten years ago, writing functions without thinking about
+    the impact of exceptions was considered good practice. Now we strive to
+    write exception-safe code.
+   </p>
+   <p>
+    <em>Time goes on. We live. We learn."</em>
+   </p>
+   <p style="font-size:smaller;">
+    – Scott Meyers, author of Effective C++ and one of the leading experts on
+    C++. [Mey05]
+   </p>
+  </blockquote>
+  <p>
+   In a perfect world, users would never mistype a URL, programs would have no
+   bugs, disks would never fill up, and your Wi-Fi would never go down. We,
+   however, don't live in a perfect world. You may wake up, planning to head off
+   for school just like any other day, but sometimes,
+   <mark>something unexpected appears at your front door</mark>.
+   <img
+    src={imagePolarBear}
+    class="inlineCenter"
+    alt="A Polar bear at the door of an igloo."
+   />
+  </p>
+  <p>
+   <mark>Fragile</mark>
+   code ignores that possibility, but <mark>robust</mark> code plans for any eventuality.
+  </p>
+ </div>
+</Layout>

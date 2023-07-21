@@ -1,0 +1,58 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 7"
+ dir="w07/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="D">
+  <h1>Initialization</h1>
+ </Header><div>
+  <p class="firstLine">
+   Starting with C++11 you can provide
+   <mark>in-definition initializers</mark> for each of your data members, just like
+   Java. You should definitely take advantage of this as it will eliminate unininitialized
+   data members.
+  </p>
+  <pre
+   class="language-cpp"><code>struct Date
+&lbrace;
+    std::string month;    // no initializer required
+    int day = 0;          // legacy initialization
+    int year&lbrace;0&rbrace;;          // uniform initialization
+&rbrace;;</code></pre>
+  <p>
+   Use legacy ("assignment") initialization (<tt>day</tt>), or uniform
+   initialization (<tt>year</tt>). You
+   <strong>may not use direct initialization</strong> with parentheses instead of
+   braces. Note that <tt>month</tt> does not need an initializer, since it is a library
+   type, and it will automatically be initialized by its constructor. However, you
+   <mark>may</mark>
+   explicitly initialize it as well, if you like.
+  </p>
+  <h2>Aggregate Initialization</h2>
+  <p>
+   You may <b>explicitly initialize</b> a structure variable by supplying <mark
+    >a list of values</mark
+   >, one for every data member, inside curly braces, separated by commas and
+   ending with a semicolon. This is called <mark>aggregate initialization</mark
+   >.
+  </p>
+  <pre
+   class="language-cpp"><code>Date birthday = &lbrace;"February", 2, 1950&rbrace;;
+Date empty = &lbrace;&rbrace;;</code></pre>
+  <p>
+   If you supply no initializers, as with the <tt>Date</tt>
+   <tt>empty</tt>, then all members are <strong>default initialized</strong>. In
+   this case, that means that <tt>day</tt> and
+   <tt>year</tt> are set to <tt>0</tt> instead of a random number. If the members
+   already have default initializers (from the structure definition), then those
+   default initializers are used instead.
+  </p>
+ </div>
+</Layout>

@@ -1,0 +1,49 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 7"
+ dir="w07/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="D">
+  <h1>Template Argument Deduction</h1>
+ </Header><div>
+  <p class="firstLine">
+   The process used to determine the
+   <strong>type of each function parameter</strong> from the
+   <strong>arguments</strong> used in the <strong>function call</strong> is called
+   <mark>template argument deduction</mark>.
+  </p>
+  <p>
+   <strong>None</strong>
+   of the automatic arithmetic conversions that happen with normal functions take
+   place, <mark>except</mark>:
+  </p>
+  <ul>
+   <li>
+    You may call a template having a <tt>const</tt> parameter with a non-const argument.
+    Calling <tt>print(str)</tt> in the preceding section is an example of this.
+   </li>
+   <li>
+    If the function parameter is a <strong>pointer</strong>, you <strong
+     >may</strong
+    > pass an <mark>array</mark>. For instance, this template will be used if
+    you call it with an array as the first argument:
+   </li>
+  </ul>
+  <pre
+   class="language-cpp"><code>template &lt;typename T&gt;
+T sum_array(const T* a, size_t len)
+&lbrace;
+    T result&lbrace;&rbrace;;
+    for (size_t i = 0; i &lt; len; ++i)
+        result += a[i];
+    return result;
+&rbrace;</code></pre>
+ </div>
+</Layout>

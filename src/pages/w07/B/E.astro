@@ -1,0 +1,54 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 7"
+ dir="w07/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="E">
+  <h1>Multiple Template Arguments</h1>
+ </Header><div>
+  <p class="firstLine">Suppose you have a template function like this:</p>
+  <pre
+   class="language-cpp"><code>template &lt;typename T&gt;
+T addem(const T&amp; a, const T&amp; b)
+&lbrace;
+    return a + b;
+&rbrace;</code></pre>
+  <p>You can <mark>call</mark> the function in any of these ways:</p>
+  <pre
+   class="language-cpp"><code>string a&lbrace;"hello"&rbrace;, b&lbrace;" world"&rbrace;;
+cout &lt;&lt; addem(3, 5) &lt;&lt; endl;
+cout &lt;&lt; addem(4.5, 2.5) &lt;&lt; endl;
+cout &lt;&lt; addem(a, b) &lt;&lt; endl;</code></pre>
+  <p>But, you <mark>cannot</mark> call the function like this:</p>
+  <pre
+   class="language-cpp"><code>cout &lt;&lt; addem(3.5, 2) &lt;&lt; endl;</code></pre>
+  <p>
+   The compiler does not know <strong>what type to substitute</strong>
+   for <tt>T</tt> in the template. You could, however, write the template with <strong
+    >two template parameters</strong
+   >, like this:
+  </p>
+  <pre
+   class="language-cpp"><code>template &lt;typename T, typename U&gt;
+T addem(const T&amp; a, const U&amp; b)
+&lbrace;
+    return a + b;
+&rbrace;</code></pre>
+  <p>
+   Now the call <tt>addem(3.5,</tt>
+   <tt>2)</tt> uses <tt>double</tt>
+   for type <tt>T</tt>, <tt>int</tt> for type <tt>U</tt>, and the function
+   returns a <tt>double</tt>, (<tt>5.5</tt>) as you'd expect. However, what
+   about that call <tt>addem(2,</tt>
+   <tt>3.5);</tt>? Now the function returns an <tt>int</tt>, (5) which is
+   <mark>not what you'd expect</mark>. You can fix this in two ways.
+  </p>
+ </div>
+</Layout>

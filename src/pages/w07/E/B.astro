@@ -1,0 +1,66 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 7"
+ dir="w07/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="B">
+  <h1>Defining Enumerated Types</h1>
+ </Header>
+ <div>
+  <p class="firstLine">
+   Here is the definition of the <tt>Weekday</tt>
+   type mentioned at the beginning of the lesson. The C++ compiler assigns values
+   to the names. <tt>sunday</tt> is assigned <tt>0</tt>, <tt>monday</tt> is assigned
+   <tt>1</tt>, and so on.
+  </p>
+  <pre
+   class="language-cpp"><code>enum class Weekday
+&lbrace;    
+    sunday, monday, tuesday, wednesday, thursday, 
+    friday, saturday
+&rbrace;;</code></pre>
+  <p>
+   You may also <mark>explicitly specify</mark> the underlying integer value used
+   to represent any or all of the literals of an enumerated type. For example, the
+   <tt>Coin</tt> type represents U.S. coins where each literal is equal to the monetary
+   value of that coin.
+  </p>
+  <pre
+   class="language-cpp"><code>enum class Coin
+&lbrace;
+    penny = 1, nickel = 5, dime = 10,
+    quarter = 25, halfDollar = 50, dollar = 100
+&rbrace;;</code></pre>
+  <p>
+   If you supply initializers for some values but not others, the compiler will
+   automatically number the remaining literals consecutively after the last.
+  </p>
+  <pre
+   class="language-cpp"><code>enum class Month
+&lbrace;
+    jan = 1, feb, mar, apr, may, jun, jul, aug,
+    sep, oct, nov, dec
+&rbrace;;</code></pre>
+  <p>
+   Here, <tt>jan</tt> has the value <tt>1</tt>, <tt>feb</tt>
+   has the value <tt>2</tt>, and so forth up to <tt>dec</tt>, which is <tt
+    >12</tt
+   >.
+  </p>
+  <div class="highlight alert alert-info">
+   <p>
+    In previous semesters, the Course Reader used <tt>UPPER_CASE</tt>
+    for the enumerated elements, since that is the convention in Java. Looking at
+    several style guides (both Google and the Core Guidelines), we've switched to
+    lower-camelCase in this edition.
+   </p>
+  </div>
+ </div>
+</Layout>

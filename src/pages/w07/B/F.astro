@@ -1,0 +1,47 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 7"
+ dir="w07/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="F">
+  <h1>Explicit Template Arguments</h1>
+ </Header><div>
+  <p class="firstLine">
+   Suppose you wish to pass <tt>3.5</tt> to the <tt>print(int)</tt> version of the
+   template. You may <mark>explicitly instantiate</mark> the function by specifying
+   the type of template parameter inside angle brackets, when calling the function,
+   like this:
+  </p>
+  <pre class="language-cpp"><code>print&lt;int&gt;(3.5);</code></pre>
+  <p>
+   Even though you pass a <tt>double</tt> as the function argument, the function
+   is <mark>instantiated</mark> with the generic parameter
+   <tt>T</tt> replaced by type <tt>int</tt>. So, this call truncates the
+   fractional part of the argument before it prints the number, rather than
+   generating an overloaded <tt>print(double)</tt> function.
+  </p>
+  <p>
+   To fix your <tt>addem()</tt> problem, you can just add an extra
+   <strong>template parameter</strong> for the return type:
+  </p>
+  <pre
+   class="language-cpp"><code>template &lt;typename RET, typename T, typename U&gt;
+RET addem(const T&amp; a, const U&amp; b)
+&lbrace;
+    return a + b;
+&rbrace;</code></pre>
+  <p>
+   Call the function by providing an explicit template argument:
+   <code class="language-cpp">addem&lt;double&gt;(2, 3.5);</code>. Here, the
+   template parameter <tt>RET</tt> is replaced with <tt>double</tt>. That's a
+   little awkward, but is the only way to handle this problem prior to C++11.
+  </p>
+ </div>
+</Layout>

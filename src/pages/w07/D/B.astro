@@ -1,0 +1,66 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 7"
+ dir="w07/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="B">
+  <h1>By-Value or By-Reference</h1>
+ </Header><div>
+  <p class="firstLine">Let's look at that last example again:</p>
+  <pre
+   class="language-cpp"><code>if (equals(d1, d2)) cout &lt;&lt; "equal" &lt;&lt; endl;</code></pre>
+  <p>
+   Here, the two arguments,
+   <tt>d1</tt> and <tt>d2</tt>, are <mark>passed by value</mark>, which means
+   that the parameter variables <tt>lhs</tt> and
+   <tt>rhs</tt> are initialized by <strong>making a copy</strong>
+   of the entire <tt>Date</tt> structure when calling the function.
+  </p>
+  <p>
+   In this particular case, the <strong>cost</strong> (time and memory) of making
+   that copy is not very high; but, if the structure had more data members, calling
+   this function <mark>could be very expensive</mark>. For structure, class and
+   library types, we can <strong>avoid that cost</strong> by:
+  </p>
+  <ul>
+   <li>
+    Using <tt>const</tt>
+    <strong>reference</strong> if the function
+    <mark>should not</mark> modify the argument.
+   </li>
+   <li>
+    Use <strong>non-</strong>const<strong> reference</strong> if the
+    <mark>intent is to modify</mark> the actual argument.
+   </li>
+  </ul>
+  <p>
+   Given these guidelines, a <mark>more correct</mark> version of
+   <tt>equals()</tt> would look like this:
+  </p>
+  <pre
+   class="language-cpp"><code>bool equals(const Date&amp; lhs, const Date&amp; rhs)
+&lbrace;
+    return lhs.month == rhs.month &amp;&amp;
+        lhs.day == rhs.day &amp;&amp; lhs.year == rhs.year;
+&rbrace;</code></pre>
+  <p>
+   <mark>In general, never</mark> pass a class or structure type by value to a function.
+  </p>
+  <div class="highlight alert alert-info">
+   <p>
+    This is a fundamental difference in the way that Java and C++ object types
+    work. In Java and C#, objects have <strong>reference semantics</strong>—the
+    object variables do not contain the actual object members. In C++, objects
+    have <strong>value semantics</strong>; the actual data members are stored
+    inside the object variables.
+   </p>
+  </div>
+ </div>
+</Layout>

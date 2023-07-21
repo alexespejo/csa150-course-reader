@@ -1,0 +1,47 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 7"
+ dir="w07/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="C">
+  <h1>Template Instantiation</h1>
+ </Header><div>
+  <p class="firstLine">
+   <mark>Instantiating a template</mark>
+   means using the template to <mark>create a function</mark>
+   using specific types for its template parameters. There are two ways to do this,
+   <mark>implicitly</mark> and <mark>explicitly</mark>. The functions generated
+   by a pararticular instantiation are called <mark>template functions</mark> (which
+   is, unfortunately, easily confused with function template).
+  </p>
+  <p>Let's look at another example:</p>
+  <pre
+   class="language-cpp"><code>template &lt;typename T&gt;
+void print(const T&amp; val) 
+&lbrace; 
+    cout &lt;&lt; val; 
+&rbrace;</code></pre>
+  <p>
+   When you <mark>call the function</mark>, the compiler will
+   <mark>implicitly deduce</mark> the types of arguments you pass and then generate
+   and call a <mark>version of the function</mark> with those parameters.
+  </p>
+  <pre
+   class="language-cpp"><code>string s = "hello";
+print(23);        // generates print(const int&amp;)
+print(str);       // generates print(const string&amp;)</code></pre>
+  <p>
+   The first call <mark>implicitly</mark> instantiates (and calls) a <tt
+    >print(int)</tt
+   > function, while the second generates and calls a <tt>print(string)</tt> template
+   function.
+  </p>
+ </div>
+</Layout>

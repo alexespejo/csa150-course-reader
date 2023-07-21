@@ -1,0 +1,63 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 7"
+ dir="w07/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="D">
+  <h1>Enumerated Output</h1>
+ </Header><div>
+  <p class="firstLine">
+   The <strong>names</strong> of the enumerated values
+   <mark>are not</mark> strings; you cannot print them:
+  </p>
+  <pre
+   class="language-cpp"><code>Month m1&lbrace;Month::jan&rbrace;;
+cout &lt;&lt; m1 &lt;&lt; endl; // does not compile</code></pre>
+
+  <p>
+   Since enumerations are constant integral scalar values, you <strong
+    >can</strong
+   > use <tt>enum</tt> variables as
+   <tt>switch</tt> selectors. Thus you could write a
+   <tt>to_string()</tt> function like this:
+  </p>
+  <pre
+   class="language-cpp"><code>string to_string(Month m)
+&lbrace;
+    switch (m)
+   &lbrace; 
+        case Month::jan: return "January";
+        case Month::feb: return "February";
+        case Month::mar: return "March";
+        . . .
+        default: return "INVALID MONTH";
+   &rbrace; 
+&rbrace;</code></pre>
+  <p>
+   This function converts a <tt>Month</tt> variable to a <tt>string</tt>
+   so you can print it or concatenated it.
+  </p>
+  <ul>
+   <li>
+    Enumerated types are internally just integers:
+    <strong>pass them by value</strong>.
+   </li>
+   <li>
+    Each <tt>case</tt> label must use the
+    <mark>fully qualified enumeration literal</mark>.
+   </li>
+   <li>
+    The <tt>default</tt> case returns an error if <tt>m</tt>
+    does not match any <tt>Month</tt>. You may want to use an assertion instead,
+    since it is definitely a programming error if the <tt>default</tt> is ever reached.
+   </li>
+  </ul>
+ </div>
+</Layout>

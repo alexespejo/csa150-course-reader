@@ -1,0 +1,66 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import imageException from "../images/exceptions.png";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 7"
+ dir="w07/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="C">
+  <h1>What Should You Throw?</h1>
+ </Header><div>
+  <p class="firstLine">
+   Unlike Java, in C++, it is legal to
+   <mark>throw any kind of object</mark>, not just members of an exception class
+   hierarchy. So, in C++, all of these are legal:
+  </p>
+  <pre
+   class="language-cpp"><code>if (len &lt; 3) throw "Too short"s; // throw a string
+if (a &gt; b) throw 42;    // throw an integer error code
+if (b &lt; c) throw 3.5;   // throw a double</code></pre>
+  <a target="_blank" href="../images/exceptions.png">
+   <img
+    src={imageException}
+    class="right width-30 round shadow"
+    alt="The C++ standard library exception classes."
+   /></a
+  >
+  <p>
+   The question is, though, what <mark>should</mark>
+   <tt>stoi()</tt>
+   throw when an error occurs? The
+   <a
+    target="_blank"
+    href="https://en.cppreference.com/w/cpp/string/basic_string/stol"
+   >
+    library documentation
+   </a>says that the function throws an <tt>invalid_argument</tt>
+   exception.
+  </p><p>
+   The header file, <tt>&lt;stdexcept&gt;</tt> defines this and several other classes
+   that let us specify what specific error triggered the exception, similar to the
+   <tt>Exception</tt> class hierarchy from the Java Class Libraries. (Click the image
+   to enlarge it.)
+  </p>
+  <p>The <tt>invalid_argument</tt> exception is ideal because</p>
+  <ul>
+   <li>
+    its constructor takes a <tt>string</tt> argument, useful for error messages.
+    <li>
+     it has a member function <tt>what()</tt> that returns what the error was
+    </li>
+   </li>
+   <p>
+    Include <tt>&lt;stdexcept&gt;</tt>, and rewrite the <tt>throw</tt> statement
+    like this:
+   </p>
+   <pre
+    class="language-cpp"><code>throw invalid_argument(str + " not an int.");</code></pre>
+  </ul>
+ </div>
+</Layout>
