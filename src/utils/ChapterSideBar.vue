@@ -398,6 +398,54 @@ import SidebarChapterHeading from "./SidebarChapterHeading.vue";
    <a href="/w09/E#H"><span>A Reverse Fencepost</span></a>
   </SidebarChapterHeading>
  </SidebarChapters>
+ <SidebarChapters heading="C-Strings, Partially-Filled & 2D Arrays">
+  <SidebarChapterHeading heading="A-Searching Algorithms" :opened="true">
+   <a href="/w10/A#A"><span>Searching Algorithms</span></a>
+   <a href="/w10/A#B"><span>The Starter Code</span></a>
+   <a href="/w10/A#C"><span>The find() Function</span></a>
+   <a href="/w10/A#D"><span>Linear Search</span></a>
+   <a href="/w10/A#E"><span>Linear Search Efficiency</span></a>
+   <a href="/w10/A#F"><span>Improving Linear Search</span></a>
+   <a href="/w10/A#G"><span>Binary Search</span></a>
+   <a href="/w10/A#H"><span>Implementing Binary Search</span></a>
+  </SidebarChapterHeading>
+  <SidebarChapterHeading heading="B-Partially-Filled Arrays" :opened="true">
+   <a href="/w10/B#A"><span>An Array Example</span></a>
+   <a href="/w10/B#B"><span>Appending Elements</span></a>
+   <a href="/w10/B#C"><span>Traversing the Array</span></a>
+   <a href="/w10/B#D"><span>Inserting Elements</span></a>
+   <a href="/w10/B#E"><span>Applying the Algorithm</span></a>
+   <a href="/w10/B#F"><span>Removing Elements</span></a>
+   <a href="/w10/B#G"><span>Removing Multiple Elements</span></a>
+  </SidebarChapterHeading>
+  <SidebarChapterHeading heading="C-2D Arrays" :opened="true">
+   <a href="/w10/C#A"><span>2D Arrays</span></a>
+   <a href="/w10/C#B"><span>Row Major Order</span></a>
+   <a href="/w10/C#C"><span>2D Array Initialization</span></a>
+   <a href="/w10/C#D"><span>2D Arrays & Functions</span></a>
+  </SidebarChapterHeading>
+  <SidebarChapterHeading heading="D-C-Style Strings" :opened="true">
+   <a href="/w10/D#A"><span>C-Style Strings</span></a>
+   <a href="/w10/D#B"><span>C-String Basics</span></a>
+   <a href="/w10/D#C"><span>Array-based C-Strings</span></a>
+   <a href="/w10/D#D"><span>Pointer-based C-Strings</span></a>
+   <a href="/w10/D#E"><span>C++ Strings vs. C-Strings</span></a>
+   <a href="/w10/D#F"><span>C-String Assignment</span></a>
+   <a href="/w10/D#G"><span>The strncpy Function</span></a>
+   <a href="/w10/D#H"><span>The strcat Functions</span></a>
+   <a href="/w10/D#I"><span>Comparing C-Strings</span></a>
+  </SidebarChapterHeading>
+  <SidebarChapterHeading heading="E-Writing C-String Functions" :opened="true">
+   <a href="/w10/E#A"><span>The strlen Function</span></a>
+   <a href="/w10/E#B"><span>The strcpy Function</span></a>
+   <a href="/w10/E#C"><span>The strcmp Function</span></a>
+   <a href="/w10/E#D"><span>Writing Your Own Functions</span></a>
+   <a href="/w10/E#E"><span>Find First</span></a>
+   <a href="/w10/E#F"><span>Find Last</span></a>
+   <a href="/w10/E#G"><span>Find First of Any</span></a>
+   <a href="/w10/E#H"><span>Finding Substrings</span></a>
+  </SidebarChapterHeading>
+ </SidebarChapters>
 </template>
 
 <style lang="scss" scoped>

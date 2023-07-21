@@ -12,13 +12,13 @@ const props = defineProps(["sections"]);
   >
   <ul
    tabindex="0"
-   class="dropdown-content menu shadow bg-slate-300 dark:bg-base-100 rounded-box w-40 sm:w-72"
+   class="dropdown-content menu shadow bg-slate-300 dark:bg-base-100 dark:border-2 dark:border-slate-200 w-56 sm:w-72"
   >
    <a
     v-for="(sec, index) in props.sections"
     :key="index"
     :href="`#${letters[index]}`"
-    class="p-0.5 dark:hover:underline py-3"
+    class="p-0.5 no-underline dark:hover:bg-slate-500 py-3 hover:dark:text-blue-300 hover:no-underline"
    >
     <li>{{ sec }}</li>
    </a>
