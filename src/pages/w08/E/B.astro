@@ -1,0 +1,50 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 8"
+ dir="w08/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="B">
+  <h1>RGB Colors</h1>
+ </Header><div>
+  <p class="firstLine">
+   If every pixel is a single color, then how do we represent that color in
+   memory? We use a scheme called <b>RGB</b>, or red, green blue. By combining
+   different quantities of pure red, green and blue light, we can create any
+   color at all.
+  </p>
+  <p>
+   Each of the red, green and blue light levels is encoded as a number in the
+   range <tt>0..255</tt>, with <tt>0</tt> meaning zero light and <tt>255</tt> meaning
+   maximum light.
+  </p>
+  <p>
+   So for example (<tt>red=255</tt>, <tt>green=100</tt>,
+   <tt>blue=0</tt>) is a color where red is maximum, green is medium, and blue
+   is not present at all, resulting in a shade of orange. In this way,
+   specifying the brightness <tt>0..255</tt> for the red, blue, and green color components
+   of the pixel, any color can be formed.
+  </p>
+  <div class="highlight alert alert-info">
+   <p>
+    Pigment Note -- you may have mixed color paints, such as adding red and
+    green paint together. That sort of "pigment" color mixing works totally
+    differently from the "light" mixing we have here. Light mixing is easier to
+    follow, and in any case, is the most common way that computers store and
+    manipulate images.
+   </p>
+  </div>
+  <p>
+   It's not required that you have an intuition about, say, what
+   <tt>blue=137</tt>
+   looks like. You just need to understand that any color can be made by combining
+   the three color values.
+  </p>
+ </div>
+</Layout>

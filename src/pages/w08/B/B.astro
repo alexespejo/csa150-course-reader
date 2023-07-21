@@ -1,0 +1,76 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 8"
+ dir="w08/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="B">
+  <h1>Vectors &amp; Loops</h1>
+ </Header><div>
+  <p class="firstLine">
+   The modern C++ <strong>range-based</strong>loops work with <tt>vector</tt> as
+   well as with <tt>string</tt>. This loop automatically visits every element in
+   the <tt>vector</tt>:
+  </p>
+  <pre
+   class="language-cpp line-numbers"><code>for (auto e : v) {'{...}'}         // e is a copy
+for (auto&amp; e : v) {'{...}'}        // no copy; may modify
+for (const auto&amp; e : v) {'{...}'}  // no copy; cannot modify</code></pre>
+  <ol>
+   <li>
+    The <strong>local variable</strong>
+    <tt>e</tt> is initialized with
+    <mark>a copy</mark> of the next value in <tt>vector</tt>
+    <tt>v</tt>.
+   </li>
+   <li>
+    Here, <tt>e</tt> is a <mark>reference</mark> to the next element in <tt
+     >v</tt
+    >. When you modify <tt>e</tt> you are actually modifying the element inside the
+    <tt>vector</tt>
+    <tt>v</tt>.
+   </li>
+   <li>
+    If <tt>v</tt> is a <tt>vector&lt;string&gt;</tt>, for example, you <mark
+     >don't want to make a copy</mark
+    > of each of the elements. And, if <mark
+     >you want to prevent any changes</mark
+    >, then use this version of the range-based <tt class="i">for</tt> loop.
+   </li>
+  </ol>
+  <h2>Counter-controlled Loops</h2>
+  <p>
+   The <mark>general pattern</mark> for <strong>manually</strong>
+   iterating through a vector looks like this:
+  </p>
+  <pre
+   class="language-cpp"><code>for (size_t i = 0, len = v.size(); i &lt; len; ++i)
+&lbrace;
+    // Process the vector elements here
+&rbrace;</code></pre>
+  <p>Some notes about this loop:</p>
+  <ul>
+   <li>
+    Instead of calling <tt>v.size()</tt> each time in the loop, call it once and
+    <mark>save the value in a variable</mark>; your loop initializer will thus
+    have <strong>two</strong> variables.
+   </li>
+   <li>
+    Use <tt>size_t</tt> to avoid the lengthy declaration of
+    <tt>vector::size_type</tt>.
+   </li>
+   <li>
+    <mark>At all costs</mark> avoid comparing an
+    <tt>int</tt> to the value returned from <tt>v.size()</tt>.
+    <mark>Mixing signed and unsigned numbers is error prone</mark>.
+   </li>
+  </ul>
+  <p>Next, let's look at a few common vector algorithms.</p>
+ </div>
+</Layout>

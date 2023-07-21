@@ -1,0 +1,54 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import imageBox from "../images/box.png";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 8"
+ dir="w08/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="A">
+  <h1>Why Vectors</h1>
+ </Header><div>
+  <img src={imageBox} class="right" alt="Decorative image of a box" />
+  <p>
+   <strong>
+    Variables are named 'boxes' that hold a value. But, when you want to
+   </strong>
+   manage <strong>a <mark>collection</mark></strong> of similar and
+   <strong><mark>closely related</mark></strong> values, using individual, named
+   variables is unwieldy. Imagine using named variables to track the scores for each
+   student in this section of CS150; it would be nigh-on impossible.
+  </p>
+  <p>
+   For instance, to print the statistics for one exam, for one section, you'll
+   need to write a function like this:
+  </p>
+  <pre
+   class="language-cpp"><code>void printClassStatistics(istream&amp; grades)
+&lbrace;
+    // Grade for each student
+    double student01, student02, student03, student04, 
+        student05, student06, student07, student08, student09, 
+        student10, student11; // And so on . . . to student45
+    // Read grades from stream
+    grades &gt;&gt; student01 &gt;&gt; student02 &gt;&gt; student03 &gt;&gt; student04 
+        &gt;&gt; student05 &gt;&gt; student06 &gt;&gt; student07 &gt;&gt; student08 
+        &gt;&gt; student09 &gt;&gt; student10 &gt;&gt; student11; // and so on
+&rbrace;</code></pre>
+  <p>
+   Now, imagine how <strong><mark>long and unwieldy</mark></strong> it would become
+   when it came time to add the scores for a quiz. You'd need a separate statement
+   for each student variable.
+  </p>
+  <p>
+   If you think "<strong>There must be a better way!</strong>" you're right; <strong
+    >there is</strong
+   >.
+  </p>
+ </div>
+</Layout>

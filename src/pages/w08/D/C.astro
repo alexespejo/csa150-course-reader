@@ -1,0 +1,70 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 8"
+ dir="w08/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="C">
+  <h1>Initializing Pointers</h1>
+ </Header><div>
+  <p class="firstLine">
+   A pointer can be in one of four states:<a href="#footnote"><sup>1</sup></a>
+  </p>
+  <ol>
+   <li>It can point to a <strong>valid object</strong>.</li>
+   <li>
+    It can point <strong>one-past</strong> a valid object (in an array or <tt
+     >vector</tt
+    > for instance.
+   </li>
+   <li>
+    It can contain the value <tt>nullptr</tt> to indicate it points to "nothing",
+    or is unused.
+   </li>
+   <li>
+    It can <strong>be invalid</strong>, such as an uninitialized pointer.
+   </li>
+  </ol>
+  <p>You can <strong>initialize a pointer</strong>in several ways.</p>
+  <ul>
+   <li>
+    With the address of another object obtained from the
+    <strong>address operator.</strong>
+   </li>
+   <li>
+    With the address of an object <strong>created on the heap</strong> with the <tt
+     >new</tt
+    > operator.
+   </li>
+   <li>With the <strong>name of a previously defined array</strong>.</li>
+   <li>
+    By using <strong>pointer assignment</strong> to copy the address from another
+    pointer
+   </li>
+  </ul>
+  <p>
+   If you don't initialize a pointer, <mark>it is invalid</mark>. Here are
+   examples of each of these:
+  </p>
+  <pre
+   class="language-cpp"><code>int x&lbrace;42&rbrace;, y&lbrace;0&rbrace;, a[10]; // x-{'>'}int, y-{'>'}int, a-{'>'}array
+
+int *p1&lbrace;&amp;y&rbrace;;         // points to y
+int *p2&lbrace;&amp;x&rbrace;;         // points to x
+int *p3&lbrace;new int&lbrace;3&rbrace;&rbrace;; // points to int on heap
+int *p4&lbrace;a&rbrace;;          // points to first element of a
+int *p5&lbrace;a+10&rbrace;;       // points "one past" the array a
+int *p6&lbrace;nullptr&rbrace;;    // points to "nothing"
+int *p7;             // uninitialzed (invalid)</code></pre>
+
+  <div id="footnote">
+   <p><sup>1</sup> Lippmann, C++ Primer, 5th Edition, Page 52, Section 3.3.2</p>
+  </div>
+ </div>
+</Layout>

@@ -1,0 +1,72 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import imageRunningMan from "../images/running-man.png";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 8"
+ dir="w08/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="D">
+  <h1>Digital Images in C++</h1>
+ </Header><div>
+  <a
+   target="_blank"
+   href="https://replit.com/@stephengilbert/Image-Starter#main.cpp"
+  >
+   <img
+    src={imageRunningMan}
+    class="right dark:bg-white"
+    alt="Icon for links to Replit project."
+   /></a
+  >
+  <p class="firstLine">
+   C++ itself doesn't have any built-in support for images, graphics or
+   user-interfaces. All of those capabilities are added using libraries. Click
+   on the little Running-Man in the right to open the
+   <strong>Replit</strong>
+   project for this lesson. Make sure you
+   <strong>Fork the Repl</strong> to get your own copy to work on.
+  </p>
+  <p>
+   We're going to use the <b><em>stb_image</em></b> and
+   <b><em>stb_image_write</em></b>
+   libraries, written by <a target="_blank" href="https://nothings.org/"
+    >Sean T. Barret</a
+   > (stb) and placed into the public domain. These libraries provide the ability
+   to read and write several different image formats, in several different ways.
+   Both are
+   <mark>C libraries</mark> instead of C++ libraries.
+  </p>
+  <p>
+   The STB libraries are <strong>header only</strong> libraries. That means you only
+   need to include the header file; there is no separate library to compile and link
+   to. <mark
+    >I've already added the header files to the Repl you are working with in
+    this lesson.</mark
+   >
+  </p>
+  <p>
+   In your own programs,
+   <a href="https://github.com/nothings/stb" target="_blank">
+    https://github.com/nothings/stb
+   </a>download the latest version of the <tt>stb_image.h</tt> and
+   <tt>stb_image_write.h</tt> from the GitHub site
+  </p> and place both files in your project folder. To make sure that the implementation
+  is included,
+  <mark>in one file</mark>, you need the
+  <strong>following preprocessor directives</strong> before you include them:
+ </div>
+ <pre
+  class="language-cpp"><code>#define STB_IMAGE_IMPLEMENTATION        // REQUIRED (loading)
+#define STB_IMAGE_WRITE_IMPLEMENTATION  // writing
+#include "stb_image.h"                  // "header-only" C libraries
+#include "stb_image_write.h"</code></pre>
+ <p>
+  I've already added these to <tt>main.cpp</tt> in the Repl you are working with.
+ </p>
+</Layout>

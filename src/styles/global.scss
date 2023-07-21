@@ -8,7 +8,7 @@ body {
 }
 mark {
  //  font-weight: bold;
- @apply py-0.5 px-1 bg-blue-300/50 text-slate-700 dark:bg-slate-500/50 rounded-md dark:text-slate-300 font-semibold;
+ @apply py-0.5 px-1 bg-blue-300/50 text-slate-700 dark:bg-slate-500/50 rounded-sm dark:text-slate-300 font-semibold;
  tt {
   @apply text-black dark:text-blue-300 font-bold;
  }
@@ -28,7 +28,7 @@ section {
  @apply leading-6 flex flex-col min-w-fit text-sm sm:text-lg;
 }
 p {
- @apply p-2 pb-4;
+ @apply p-2 pb-3;
  tt {
   @apply inline;
  }
@@ -36,10 +36,10 @@ p {
 ul,
 ol {
  font-family: Arial, Helvetica, sans-serif;
- @apply flex flex-col space-y-4;
+ @apply flex flex-col space-y-3 pb-5;
 }
 li {
- @apply list-disc ml-5 leading-6;
+ @apply list-disc ml-5;
 }
 strong {
  @apply font-bold p-0;
@@ -125,6 +125,7 @@ div.highlight {
  font-size: 90%;
 }
 .alert.alert-error,
+.alert.alert-warning,
 .alert.alert-success,
 .alert.alert-info {
  @apply w-fit justify-center self-center;
@@ -132,33 +133,38 @@ div.highlight {
  //   @apply bg-red-400 drop-shadow-none;
  //  }
 }
+div.alert.alert-warning,
 div.highlight.alert,
 div.highlight.alert-success,
 div.highlight.info {
- @apply shadow-none bg-orange-300 text-black not-italic flex p-2;
+ @apply shadow-none text-black not-italic flex p-2 flex-col mx-2;
  svg {
   @apply self-start mt-5;
  }
  p {
-  @apply inline-block;
+  @apply inline-block p-0;
   tt {
    @apply text-black;
   }
  }
+ mark {
+  @apply text-black bg-yellow-300;
+ }
+ strong {
+  @apply text-black;
+ }
+}
+div.highlight.alert.alert-warning {
+ @apply bg-orange-300;
 }
 div.highlight.alert-success {
  @apply bg-teal-500;
 }
 div.highlight.alert-info {
  @apply bg-blue-300;
- p {
-  tt {
-   @apply text-black;
-  }
-  strong {
-   @apply text-black;
-  }
- }
+}
+div.highlight.alert-error {
+ @apply bg-rose-400;
 }
 pre,
 tt,
@@ -262,10 +268,10 @@ details summary {
 }
 
 pre.pcode {
- background-image: url(images/chalkboard.jpg);
+ background-image: url(../../public/images/chalkboard.jpg);
  background-repeat: no-repeat;
  width: 90%;
- font-family: "Pangolin" !important;
+ font-family: "Courier New", Courier, monospace;
  font-weight: normal;
  font-style: italic;
  color: white;
@@ -386,4 +392,35 @@ h3.i {
  @apply text-sm text-blue-300;
  margin-bottom: 0;
  border-bottom: 1px dotted silver;
+}
+table[class="array"] td {
+ font-family: consolas;
+ font-size: 150%;
+ text-align: center;
+ color: white;
+ background: black;
+ padding: 5px;
+}
+
+table[class="array"] tr.b > td {
+ background: aliceblue;
+ color: navy;
+}
+table[class="array"] td.e {
+ background: white;
+}
+table[class="array"] tfoot td {
+ background: white;
+ color: black;
+}
+table[class="array"] th {
+ font-family: consolas;
+ font-size: 80%;
+ text-align: center;
+ color: black;
+ background: white;
+ padding: 0;
+}
+iframe {
+ @apply overflow-auto w-full;
 }

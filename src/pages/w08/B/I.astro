@@ -1,0 +1,35 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 8"
+ dir="w08/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="I">
+  <h1>Vectors &amp; Functions</h1>
+ </Header><div>
+  <p class="firstLine">
+   A <tt>vector</tt> is a <mark>library type</mark>, which means you should
+   follow the same rules for passing parameters as you learned for the <tt
+    >string</tt
+   > library type:
+  </p>
+  <pre
+   class="language-cpp"><code>int count(const vector&lt;int&gt;&amp; v) ... // input parameter 
+void mod(vector&lt;int&gt;&amp; v) ... // output or input-output
+int bad(vector&lt;int&gt; bad) ... // By value. DON'T DO THIS</code></pre>
+  <p>
+   Pass <mark>by reference</mark> for output parameters or <mark
+    ><tt>const</tt>
+    reference</mark
+   > for input parameters. <mark>Never pass by value</mark>, since that makes a
+   copy of each element in the <tt>vector</tt> when you call the function, and that
+   is very inefficient.
+  </p>
+ </div>
+</Layout>

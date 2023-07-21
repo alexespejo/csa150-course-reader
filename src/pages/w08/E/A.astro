@@ -1,0 +1,48 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import imagePixels from "../images/pixels.png";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 8"
+ dir="w08/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="A">
+  <h1>Digital Images</h1>
+ </Header><div>
+  <p class="firstLine">
+   In this lesson we'll look at <mark>processing digital images</mark>. Here,
+   for instance, is a picture that my wife took on vacation in Madrid, of me
+   standing in front of the statue of Don Quixote and Sancho Panza.
+   <img
+    src={imagePixels}
+    class="inlineCenter"
+    alt="Stephen Gilbert in Madrid with image enlarged."
+   />
+  </p>
+  <p>
+   Zooming in on my face, we can see that the image is actually made up of many
+   square "<b>pixels</b>", each showing one color.
+  </p>
+  <ul>
+   <li>Each pixel is a small square that shows a single color</li>
+   <li>
+    An 800 x 600 image is 800 pixels wide by 600 pixels high, which is 480,000
+    pixels in all (0.5 megapixels).
+   </li>
+   <li>
+    The digital camera in your phone produces images with several megapixels per
+    image. For instance, a 8000 x 6000 pixel image would be about 5 megapixels.
+    The iPhone 13 camera is 12 megapixels
+   </li>
+  </ul>
+  <p>
+   Every pixel has an <tt>x,y</tt> coordinate that identifies its location within
+   the image grid.
+  </p>
+ </div>
+</Layout>

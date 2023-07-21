@@ -1,0 +1,31 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import A from "./A.astro";
+import B from "./B.astro";
+import C from "./C.astro";
+import D from "./D.astro";
+import E from "./E.astro";
+import F from "./F.astro";
+---
+
+<Layout
+ title="CSA150 Course Reader"
+ dir=""
+ displayLayout={true}
+ chapterSubSections={[
+  "Memory & Addresses",
+  "Naming Concepts",
+  "Global Variables",
+  "Local Variables",
+  "Characteristics of Variables",
+  "The sizeof Operator",
+  "The Address Operator",
+ ]}
+>
+ <A displayLayout={false} />
+ <B displayLayout={false} />
+ <C displayLayout={false} />
+ <D displayLayout={false} />
+ <E displayLayout={false} />
+ <F displayLayout={false} />
+</Layout>

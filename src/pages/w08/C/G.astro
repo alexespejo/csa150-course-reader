@@ -1,0 +1,51 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 8"
+ dir="w08/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="G">
+  <h1>The Address Operator</h1>
+ </Header><div>
+  <p class="firstLine">
+   The <mark>address operator</mark>,
+   <tt>&amp;</tt>, when placed in front of a variable, returns the <strong
+    >address where</strong
+   >
+   the variable is stored in memory.
+  </p>
+  <pre
+   class="language-cpp"><code>cout &lt;&lt; "&amp;a-&gt;" &lt;&lt; &amp;a &lt;&lt; endl;
+cout &lt;&lt; "&amp;b-&gt;" &lt;&lt; &amp;b &lt;&lt; endl;</code></pre>
+  <p>
+   Addresses are normally printed in hexadecimal, and depend on the size of the
+   pointer. Here's the output from this fragment of code when run on two
+   platforms:
+  </p>
+  <div class="consoleDisplay">
+   &amp;a-&gt;009CF808 - Visual C++ 19 (Windows)<br />
+   &amp;b-&gt;009CF7F8<br />
+   &amp;a-&gt;0x7fff448e448c - G++ &amp; Clang (Unix)<br />
+   &amp;b-&gt;0x7fff448e4490
+  </div>
+  <p>
+   Notice that Visual Studio has 32-bit addresses, while Unix uses 64-bit. Of
+   course, the actual values of the addresses printed on your machine will be
+   entirely different. You can take the address of a variable, such as <tt
+    >&amp;a</tt
+   >
+   or <tt>&amp;b</tt>, <mark>but not a type</mark>. Writing
+   <tt>&amp;int</tt> is nonsensical and illegal.
+  </p>
+  <p>
+   You also cannot take the address of a literal or expression: <tt>&amp;12</tt>
+   is meaningless.
+  </p>
+ </div>
+</Layout>

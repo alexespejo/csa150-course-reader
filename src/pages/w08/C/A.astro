@@ -1,0 +1,79 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import imageMemory from "../images/memory.png";
+import imageRunningMan from "../images/running-man.png";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 8"
+ dir="w08/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="A">
+  <h1>Memory &amp; Addresses</h1>
+ </Header><div>
+  <img
+   src={imageMemory}
+   class="right"
+   alt="Illustration of the areas of memory."
+  />
+  <p class="firstLine">
+   <strong>One of the principles behind the design of C++</strong>
+   <strong> is that programmers</strong>
+   should have <mark>as much access as possible</mark>
+   to the underlying hardware. For this reason, C++ makes <mark
+    >memory addresses</mark
+   >
+   explicitly visible to the programmer. An object whose value is an address in memory
+   is called
+   <mark>a pointer</mark>.
+  </p>
+  <p>
+   The illustration on the right provides a rough sketch as to how memory is
+   organized in a typical C++ program when it is loaded from disk and run. The <strong
+    >machine instructions</strong
+   >
+   are put into the <strong>text</strong> or (<strong>code</strong>) section.
+   This section of memory is read-only and protected by the operating system.
+  </p>
+  <p>
+   <mark>Global variables</mark>
+   and <tt>static</tt> variables are stored in
+   <mark>the static area</mark> (which, in the illustration is marked as Initialized
+   Data and Uninitialized Data). You can read and write data to this area of memory,
+   but variables stored here
+   <strong>don't move around</strong>. They are stored when the <strong
+    >program loads</strong
+   >
+   and before it starts executing.
+  </p>
+  <p>
+   At the opposite end of memory is <mark>the stack</mark>. Each time your
+   program calls a function the computer creates a new <strong
+    >stack frame</strong
+   > in this memory region, containing parameters, local variables and the return
+   address. When that function returns, the stack frame is discarded leaving the
+   memory free to be used for the subsequent calls.
+  </p>
+  <p>
+   The region between the end of the program data and the stack is called <mark
+    >the heap</mark
+   > which is used for dynamically allocated memory. We'll study dynamic memory allocation
+   a little later in this course. It will be a big part of CS 250.
+  </p>
+  <a target="_blank" href="https://goo.gl/gNH7p5">
+   <img
+    src={imageRunningMan}
+    class="left width-32 dark:bg-white"
+    alt="Running-man icon used for links."
+   /></a
+  >
+  <mark>Where</mark> a variable is stored depends on
+  <mark>how</mark>
+  the variable is defined. Click the "Running Man" on the left to visualize three
+  variables.
+ </div>
+</Layout>

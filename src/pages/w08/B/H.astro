@@ -1,0 +1,66 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 8"
+ dir="w08/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="H">
+  <h1>Filling &amp; Shuffling</h1>
+ </Header><div>
+  <p class="firstLine">
+   You can automatically <strong
+    >fill a <tt>vector</tt>
+    with any value</strong
+   > you like when you create it by using one of the constructors. To fill a <tt
+    >vector</tt
+   > with a sequence of <strong>different values</strong> when that sequence is dependent
+   on the loop counter, use a counter-controlled loop like this:
+  </p>
+  <pre
+   class="language-cpp"><code>const int kNumbers = 50;
+vector&lt;int&gt; lotter(kNumbers);     // sized vector
+for (int i = 0; i &lt; kNumbers; ++i)
+&lbrace;
+    v.at(i) = (i + 1);
+&rbrace;</code></pre>
+  <p>
+   Once you have the <tt>vector</tt> filled, its time to randomly rearrange the elements,
+   a process called <mark>shuffling</mark>. The best algorithm, known as the <strong
+    >Fisher-Yates</strong
+   >
+   or <strong>Knuth</strong> shuffle, works like this:
+  </p>
+  <ol>
+   <li>
+    Take the <strong>last</strong> ball in the <tt>vector</tt>
+    (or card in the deck), and exchange it with any other ball. After this exchange,
+    this ball will never be swapped again. It will also be guaranteed <strong
+     >not</strong
+    > to be itself.
+   </li>
+   <li>
+    Then, take the next-to-last ball, and exchange it with any of the remaining
+    balls.
+   </li>
+  </ol>
+  <p>
+   Continue on until the first ball has been swapped. Here's the shuffle
+   algorithm in code:
+  </p>
+  <pre
+   class="language-cpp"><code>for (size_t i = lottery.size(); i &gt; 0; --i)
+&lbrace;
+    size_t j = rand() % i;
+
+    int temp = lottery.at(j);
+    lottery.at(j) = lottery.at(i);
+    lottery.at(i) = temp;
+&rbrace;</code></pre>
+ </div>
+</Layout>

@@ -1,0 +1,63 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 8"
+ dir="w08/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="C">
+  <h1>The RGB Explorer</h1>
+ </Header>
+ <div class="flex flex-col">
+  <a
+   href="http://www.cknuckles.com/rgbsliders.html"
+   class="btn btn-info self-center my-2 hover:text-white">Try it here!</a
+  >
+  <p class="firstLine">
+   This pages lets you play with the RGB scheme, combining red, green, and blue
+   light to make any color. The sliders control the red green and blue lights,
+   each ranging from <tt>0</tt> (off) to <tt>255</tt> (maximum). The intersecting
+   rectangles show the result of adding the red, green, and blue light together&mdash;any
+   color can be created in this way.
+  </p>
+  <p>
+   To make pure red, green, or blue light, just turn up that color, leaving the
+   other two at <tt>0</tt>. A few other common combinations:
+   <ul>
+    <li>
+     All at max (<tt>255</tt>) &rarr; white
+     <li>
+      All at min (<tt>0</tt>) &rarr; black
+      <li>
+       red + green &rarr; yellow
+       <li>
+        red + blue &rarr; purple
+        <li>
+         green + blue &rarr; turquoise
+         <li>
+          Dark yellow&mdash;make yellow, then reduce both red and green
+          <li>
+           Orange&mdash;make yellow, but more red, less green
+           <li>
+            Light, pastel green&mdash;make pure green, then turn up both red and
+            blue some equally (going towards white)
+            <li>
+             Light gray&mdash;make white, then turn all three down a bit equally
+            </li>
+           </li>
+          </li>
+         </li>
+        </li>
+       </li>
+      </li>
+     </li>
+    </li>
+   </ul>
+  </p>
+ </div>
+</Layout>

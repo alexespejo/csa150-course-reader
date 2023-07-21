@@ -260,7 +260,146 @@ import SidebarChapterHeading from "./SidebarChapterHeading.vue";
    <a href="/w06/E#F"><span>Error Flags</span></a>
   </SidebarChapterHeading>
  </SidebarChapters>
+ <SidebarChapters heading="Exceptions, Templates & Structures">
+  <SidebarChapterHeading heading="A-Exception Handling" :opened="true">
+   <a href="/w07/A#A"><span>Exception Handling</span></a>
+   <a href="/w07/A#B"><span>Throwing Exceptions</span></a>
+   <a href="/w07/A#C"><span>What Should You Throw?</span></a>
+   <a href="/w07/A#D"><span>The try and catch Blocks</span></a>
+   <a href="/w07/A#E"><span>Other catch Blocks</span></a>
+  </SidebarChapterHeading>
+  <SidebarChapterHeading heading="B-Templates" :opened="true">
+   <a href="/w07/B#A"><span>The to_string Functions</span></a>
+   <a href="/w07/B#B"><span>Function Templates</span></a>
+   <a href="/w07/B#C"><span>Template Instantiation</span></a>
+   <a href="/w07/B#D"><span>Template Argument Deduction</span></a>
+   <a href="/w07/B#E"><span>Multiple Template Arguments</span></a>
+   <a href="/w07/B#F"><span>Explicit Template Arguments</span></a>
+   <a href="/w07/B#G"><span>Inferred Return Types</span></a>
+   <a href="/w07/B#H"><span>Templates & Overloading</span></a>
+  </SidebarChapterHeading>
+  <SidebarChapterHeading heading="C-Structured Types" :opened="true">
+   <a href="/w07/C#A"><span>Structured Types</span></a>
+   <a href="/w07/C#B"><span>Structure Definitions</span></a>
+   <a href="/w07/C#C"><span>Structure Variables</span></a>
+   <a href="/w07/C#D"><span>Initialization</span></a>
+   <a href="/w07/C#E"><span>Member Access</span></a>
+   <a href="/w07/C#F"><span>Aggregate Operations</span></a>
+  </SidebarChapterHeading>
+  <SidebarChapterHeading heading="D-Structures & Functions" :opened="true">
+   <a href="/w07/D#A"><span>Structure Arguments</span></a>
+   <a href="/w07/D#B"><span>By-Value or By-Reference</span></a>
+   <a href="/w07/D#C"><span>A Compare Function</span></a>
+   <a href="/w07/D#D"><span>Returning Structures</span></a>
+   <a href="/w07/D#E"><span>Structured Bindings</span></a>
+  </SidebarChapterHeading>
+  <SidebarChapterHeading heading="E-Enumerated Types" :opened="true">
+   <a href="/w07/E#A"><span>Enumerated Types</span></a>
+   <a href="/w07/E#B"><span>Defining Enumerated Types</span></a>
+   <a href="/w07/E#C"><span>Enumerated Variables</span></a>
+   <a href="/w07/E#D"><span>Enumerated Output</span></a>
+   <a href="/w07/E#E"><span>Enumerated Input</span></a>
+  </SidebarChapterHeading>
+ </SidebarChapters>
+ <SidebarChapters heading="Vectors, Memory, Pointers & Graphics">
+  <SidebarChapterHeading heading="A-The vector Type" :opened="true">
+   <a href="/w08/A#A"><span>Why Vectors?</span></a>
+   <a href="/w08/A#B"><span>Meet the vector</span></a>
+   <a href="/w08/A#C"><span>Vector Variables</span></a>
+   <a href="/w08/A#D"><span>Vector Initialization</span></a>
+   <a href="/w08/A#E"><span>Element Access</span></a>
+   <a href="/w08/A#F"><span>Range Checking</span></a>
+  </SidebarChapterHeading>
+  <SidebarChapterHeading heading="B-Processing Vectors" :opened="true">
+   <a href="/w08/B#A"><span>Growing & Shrinking</span></a>
+   <a href="/w08/B#B"><span>Vectors & Loops</span></a>
+   <a href="/w08/B#C"><span>Common Algorithms</span></a>
+   <a href="/w08/B#D"><span>Counting Algorithms</span></a>
+   <a href="/w08/B#E"><span>Cumulative Algorithms</span></a>
+   <a href="/w08/B#F"><span>Extreme Values</span></a>
+   <a href="/w08/B#G"><span>Modifying Algorithms</span></a>
+   <a href="/w08/B#H"><span>Filling & Shuffling</span></a>
+   <a href="/w08/B#I"><span>Vectors & Functions</span></a>
+  </SidebarChapterHeading>
+  <SidebarChapterHeading heading="C-Memory & Addresses" :opened="true">
+   <a href="/w08/C#A"><span>Memory & Addresses</span></a>
+   <a href="/w08/C#B"><span>Naming Concepts</span></a>
+   <a href="/w08/C#C"><span>Global Variables</span></a>
+   <a href="/w08/C#D"><span>Local Variables</span></a>
+   <a href="/w08/C#E"><span>Characteristics of Variables</span></a>
+   <a href="/w08/C#F"><span>The sizeof Operator</span></a>
+   <a href="/w08/C#G"><span>The Address Operator</span></a>
+  </SidebarChapterHeading>
+  <SidebarChapterHeading heading="D-Pointers" :opened="true">
+   <a href="/w08/D#A"><span>Pointers</span></a>
+   <a href="/w08/D#B"><span>Defining Pointers</span></a>
+   <a href="/w08/D#C"><span>Initializing Pointers</span></a>
+   <a href="/w08/D#D"><span>Dereferencing Pointers</span></a>
+   <a href="/w08/D#E"><span>Pointer Assignment</span></a>
+   <a href="/w08/D#F"><span>The "null" Pointer</span></a>
+  </SidebarChapterHeading>
+  <SidebarChapterHeading heading="E-Pointers & Graphics" :opened="true">
+   <a href="/w08/E#A"><span>Digital Images</span></a>
+   <a href="/w08/E#B"><span>RGB Colors</span></a>
+   <a href="/w08/E#C"><span>The RGB Explorer</span></a>
+   <a href="/w08/E#D"><span>Digital Images in C++</span></a>
+   <a href="/w08/E#E"><span>Loading an Image</span></a>
+   <a href="/w08/E#F"><span>More on Loading an Image</span></a>
+   <a href="/w08/E#G"><span>Saving an Image</span></a>
+   <a href="/w08/E#H"><span>Changing the Format</span></a>
+  </SidebarChapterHeading>
+ </SidebarChapters>
+ <SidebarChapters heading="Pointers, Arrays & Algorithms">
+  <SidebarChapterHeading heading="A-Image Filters" :opened="true">
+   <a href="/w09/A#A"><span>Digital Filters</span></a>
+   <a href="/w09/A#B"><span>Address Arithmetic</span></a>
+   <a href="/w09/A#C"><span>Iterator Loops</span></a>
+   <a href="/w09/A#D"><span>The Darken Filter</span></a>
+   <a href="/w09/A#E"><span>Dealing with Channels</span></a>
+   <a href="/w09/A#F"><span>State Filters</span></a>
+   <a href="/w09/A#G"><span>Pointers & Structures</span></a>
+   <a href="/w09/A#H"><span>Using reinterpret_cast</span></a>
+  </SidebarChapterHeading>
+  <SidebarChapterHeading heading="B-Introducing Arrays" :opened="true">
+   <a href="/w09/B#A"><span>Introducing Arrays</span></a>
+   <a href="/w09/B#B"><span>Array vs. vector</span></a>
+   <a href="/w09/B#C"><span>Defining Arrays</span></a>
+   <a href="/w09/B#D"><span>Array Initialization</span></a>
+   <a href="/w09/B#E"><span>The Allocated Size</span></a>
+   <a href="/w09/B#F"><span>Array Selection</span></a>
+   <a href="/w09/B#G"><span>Characteristics of Arrays</span></a>
+  </SidebarChapterHeading>
+  <SidebarChapterHeading
+   heading="C-Pointers, Arrays & Functions"
+   :opened="true"
+  >
+   <a href="/w09/C#A"><span>Pointers & Arrays</span></a>
+   <a href="/w09/C#B"><span>Pointer Arithmetic & Arrays</span></a>
+   <a href="/w09/C#C"><span>Dereferencing Arrays</span></a>
+   <a href="/w09/C#D"><span>Arrays & Functions</span></a>
+   <a href="/w09/C#E"><span>Decaying Arrays</span></a>
+   <a href="/w09/C#F"><span>Arrays & Const</span></a>
+  </SidebarChapterHeading>
+  <SidebarChapterHeading heading="D-Arrays & Loops" :opened="true">
+   <a href="/w09/D#A"><span>Arrays and Loops</span></a>
+   <a href="/w09/D#B"><span>Counter-Controlled Loops</span></a>
+   <a href="/w09/D#C"><span>Sentinel Loops</span></a>
+   <a href="/w09/D#D"><span>Iterator Loops</span></a>
+   <a href="/w09/D#E"><span>A C++ Idiom</span></a>
+  </SidebarChapterHeading>
+  <SidebarChapterHeading heading="E-Arrays & Algorithms" :opened="true">
+   <a href="/w09/E#A"><span>Arrays and Algorithms</span></a>
+   <a href="/w09/E#B"><span>Counting Algorithms</span></a>
+   <a href="/w09/E#C"><span>Cumulative Algorithms</span></a>
+   <a href="/w09/E#D"><span>Extreme Values</span></a>
+   <a href="/w09/E#E"><span>Returning a Pointer</span></a>
+   <a href="/w09/E#F"><span>Returning an Index</span></a>
+   <a href="/w09/E#G"><span>The Fencepost Algorithm</span></a>
+   <a href="/w09/E#H"><span>A Reverse Fencepost</span></a>
+  </SidebarChapterHeading>
+ </SidebarChapters>
 </template>
+
 <style lang="scss" scoped>
 h2 {
  @apply text-blue-400 pt-3 ml-3 pb-2 text-xs;

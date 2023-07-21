@@ -1,0 +1,49 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import imageGlobalVar from "../images/global-var.png";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 8"
+ dir="w08/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="C">
+  <h1>Global Variables</h1>
+ </Header><div>
+  <p class="firstLine">
+   Global variables—usually constants in this class—are allocated in the <strong
+    >static storage area</strong
+   >. Thus, if the compiler sees the definition below (outside of any function),
+   it reserves eight bytes in the static area, and stores the literal value when
+   the <strong>program is compiled.</strong>
+  </p>
+  <pre class="language-cpp"><code>const double kPi = 3.14159;</code></pre>
+  <p>
+   <img
+    src={imageGlobalVar}
+    class="right"
+    alt="A picture of a global variable in memory."
+   />
+   As a programmer, you have no idea <strong>what</strong> address the compiler will
+   choose, but it often helps you to visualize what is happening if you make up an
+   address and use that in a diagram. Here you might imagine that the constant <tt
+    >kPi</tt
+   >
+   is stored in the address <tt>0200</tt>.
+  </p>
+  <p>
+   Most platforms support a much more accurate value for <tt>PI</tt>. We can
+   calculate that value using the expression <tt>acos(-1.0)</tt>
+   <strong>at run-time</strong>.
+  </p>
+  <pre class="language-cpp"><code>const auto kPi = acos(-1.0);</code></pre>
+  <p>
+   This produces the following output when printed with 16 digits of precision:
+  </p>
+  <div class="consoleDisplay">kPI-&gt;3.1415926535897931</div>
+ </div>
+</Layout>

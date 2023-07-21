@@ -1,0 +1,41 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 8"
+ dir="w08/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="D">
+  <h1>Counting Algorithms</h1>
+ </Header><div>
+  <p class="firstLine">
+   Often, you'll need to <strong>count the number of elements</strong> which meet
+   a <strong>particular condition</strong>. How many negative numbers are in the <tt
+    >vector</tt
+   >? How many numbers between one and a hundred? How many short words? All
+   those are <mark>counting</mark> algorithms. Here's some pseudocode that explains
+   the algorithm:
+  </p>
+  <pre
+   class="pcode">counter &lt;- 0
+examine each item in the collection
+    if the item meets the condition then
+        count the item</pre>
+  <p>
+   It takes longer to describe this in English than it does to write it in C++.
+   Here's a loop that <strong>counts the positive numbers</strong>
+   in a <tt>vector</tt> named <tt>v</tt>:
+  </p>
+  <pre
+   class="language-cpp"><code>int positive&lbrace;0&rbrace;;
+for (auto e : v) 
+&lbrace; 
+   if (e {'>'} 0) ++positive; 
+&rbrace;</code></pre>
+ </div>
+</Layout>
