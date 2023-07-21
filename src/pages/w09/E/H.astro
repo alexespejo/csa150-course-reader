@@ -1,0 +1,56 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 9"
+ dir="w09/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="H">
+  <h1>A Reverse Fencepost</h1>
+ </Header><div>
+  <p class="firstLine">
+   What if you want to use the same algorithm, but print the elements in reverse
+   order? That's a little more difficult. Here is an "obvious" algorithm
+   <mark>which does not work correctly:</mark>
+  </p>
+  <div class="bug">
+   <pre
+    class="language-cpp"><code>cout &lt;&lt; a[len - 1];
+for (size_t i = len - 2; i {'>'}= 0; --i)
+&lbrace;
+    cout &lt;&lt; separator &lt;&lt; a[i];
+&rbrace;</code></pre>
+  </div>
+
+  <p>
+   The loop variable type is <tt>size_t</tt>, so as soon as you print <tt
+    >a[0]</tt
+   > and decrement the control variable <tt>i</tt>, instead of becoming <tt
+    >-1</tt
+   >, it "wraps around" and becomes the <mark
+    >largest possible unsigned number</mark
+   >. Since array subscripts are
+   <strong>not range checked</strong>, the loop prints at larger and larger
+   indexes until the program crashes.
+  </p>
+  <p>
+   This example below <strong>works correctly</strong>. Notice the extra <tt
+    >if</tt
+   > statement:
+  </p>
+  <pre
+   class="language-cpp"><code>if (len &gt; 0)
+&lbrace;
+    cout &lt;&lt; a[len - 1];
+    for (size_t i = len - 1; i &gt; 0; --i)
+   &lbrace; 
+        cout &lt;&lt; separator &lt;&lt; a[i - 1];
+   &rbrace; 
+&rbrace;</code></pre>
+ </div>
+</Layout>

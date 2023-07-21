@@ -1,0 +1,47 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 9"
+ dir="w09/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="A">
+  <h1>Arrays and Algorithms</h1>
+ </Header><div>
+  <p class="firstLine">
+   When working with arrays, there are a number of fundamental algorithms that
+   you should memorize. You want these to become "second nature" so that you can
+   pull them out of your toolbox when needed. These are:
+  </p>
+  <ul>
+   <li>
+    <strong>Counting</strong>
+    for a match
+   </li>
+   <li>
+    <strong>Cumulative</strong>
+    algorithms
+   </li>
+   <li>
+    <strong>Extreme</strong>
+    values
+   </li>
+   <li>
+    <strong>Linear and binary search</strong>
+   </li>
+   <li>
+    <strong>Adjacent elements</strong>
+    and the <strong>fencepost</strong> algorithm
+   </li>
+  </ul>
+  <p>
+   You met most of these when working with <tt>vector</tt>, so this section will
+   be mostly review.
+  </p>
+ </div>
+</Layout>

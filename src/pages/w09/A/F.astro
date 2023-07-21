@@ -1,0 +1,52 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 9"
+ dir="w09/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="F">
+  <h1>State Filters</h1>
+ </Header><div>
+  <p class="firstLine">
+   The darken and blue filters were both
+   <mark>process</mark> filters: they applied the same rule to all of the pixels
+   that they encountered. A <mark>state</mark>
+   filter is one that looks for changes in the state of a pixel, such as it's location.
+  </p>
+  <p>
+   If we want to keep track of <mark>where a pixel is located</mark> in the image,
+   you need to keep track of its position and perform an action when the state changes.
+   Here's a filter that puts a white stripe on all of the even-numbered columns in
+   a picture.
+  </p>
+  <pre
+   class="language-cpp"><code>int x = 0;
+while (beg != end)
+&lbrace;
+   x++;              // go to the next column
+   if (x % 2) &lbrace;      // on odd columns
+      *beg = 255;    // turn on red
+      beg++;         // go to next color
+      *beg = 255;    // turn on green
+      beg++;         // go to next color
+      *beg = 255;    // turn on blue
+      beg++;         
+  &rbrace; 
+   else  &lbrace;  beg += 3; &rbrace;  // don't do anything
+&rbrace;</code></pre>
+  <p>
+   Here's what the vertical-stripes filter looks like:
+   <img
+    src="../images/vertical-stripes.png"
+    class="inlineCenter width-60"
+    alt="The vertical-stripes filter."
+   />
+  </p>
+ </div>
+</Layout>

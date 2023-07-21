@@ -1,0 +1,52 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 9"
+ dir="w09/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="C">
+  <h1>Sentinel Loops</h1>
+ </Header><div>
+  <p class="firstLine">
+   If an array contains a special value marking the end of the data, then you
+   can use a <mark>sentinel loop</mark> to process the array. In the long-ago data-processing
+   days, for instance, an array of positive values would contain a <tt>-1</tt> as
+   a terminator or sentinel.
+  </p>
+  <p>
+   One <strong>advantage</strong> of the sentinel technique, is that it allows you
+   to write functions that process variable amounts of data. (Later, we'll look at
+   <strong>partially-filled arrays</strong>, which are a more general solution
+   to this problem.)
+  </p>
+  <p>
+   Here's an example using a sentinel loop, which calculates the average grade
+   on a test:
+  </p>
+  <pre
+   class="language-cpp"><code>double average(const double grades[]) 
+&lbrace;
+   double sum = 0;
+   int count = 0;
+   for (size_t i = 0; grades[i] &gt;= 0; ++i)
+   &lbrace;
+      sum += grades[i];
+      count++;
+   &rbrace;  
+   return sum / count;
+&rbrace;</code></pre>
+  <p>
+   The <mark>disadvantage of this technique</mark> is that your function needs to
+   trust that the array has been properly terminated, which is really a security
+   hole. This technique is not used that widely for numeric arrays. However, C-style
+   strings use a special sentinel (called the NUL byte) to mark the end of the string,
+   and all C-string functions employ sentinel loops.
+  </p>
+ </div>
+</Layout>

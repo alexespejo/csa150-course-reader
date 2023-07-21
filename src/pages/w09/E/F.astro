@@ -1,0 +1,44 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 9"
+ dir="w09/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="F">
+  <h1>Returning an Index</h1>
+ </Header><div>
+  <p class="firstLine">
+   Returning an index works almost the same as returning a pointer. Instead of
+   the pointer, you need to keep track of the index. Here is the <tt
+    >smaller()</tt
+   > function which does that:
+  </p>
+  <pre
+   class="language-cpp"><code>// Returns the index of the smallest value
+// -1 if not found
+int smallest(const double a[], size_t len)
+&lbrace;
+    int result = -1; // not found
+    if (len {'>'} 0)
+   &lbrace; 
+        int smallest = a[0];
+        result = 0;
+        for (size_t i = 1; i &lt; len; ++i)
+       &lbrace; 
+            if (a[i] &lt; smallest)
+           &lbrace; 
+                result = i;
+                smallest = a[i];
+           &rbrace; 
+       &rbrace; 
+   &rbrace; 
+    return result;
+&rbrace;</code></pre>
+ </div>
+</Layout>

@@ -1,0 +1,66 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import imageArrayPointer from "../images/array-pointer.png";
+import imageBart from "../images/bart.png";
+import imageArrayPointer2 from "../images/array-pointer2.png";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 9"
+ dir="w09/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="A">
+  <h1>Pointers &amp; Arrays</h1>
+ </Header><div>
+  <p class="firstLine">
+   Because an array name is the same as the address of its first element, you
+   can use
+  </p>
+  it as <strong>a pointer value</strong>. The crucial <strong
+   >difference between arrays and pointers</strong
+  > in C++ comes into play when variables are declared.
+ </div>
+ <pre
+  class="language-cpp"><code>int array[5] = &lbrace;0&rbrace;;
+int *p;</code></pre>
+ <p>
+  <img
+   src={imageArrayPointer}
+   class="right"
+   alt="A memory picture of an array and a pointer."
+  />
+
+  The distinction between these is <strong>memory allocation</strong>. The first
+  reserves five <tt>int</tt> values (on the stack or in the static storage area);
+  the second <strong>reserves space for a pointer</strong>. The name array is an <tt
+   >address</tt
+  >, not a pointer.
+ </p>
+ <img
+  src={imageBart}
+  class="inlineCenter width-75"
+  alt="Bart Simpson at the board again!"
+ />
+ <p>
+  <img
+   src={imageArrayPointer2}
+   class="right"
+   alt="A memory picture of an array and a pointer."
+  />
+  If you define an array, <strong>you have storage to work with</strong>; if you
+  declare a pointer variable, that variable <mark
+   >is not associated with any storage</mark
+  > until you initialize it. The simplest way to initialize a pointer to an array
+  is to <strong>assign the array name to the pointer variable</strong>:
+ </p>
+ <pre
+  class="language-cpp"><code>int array[5] = &lbrace;0&rbrace;;
+int *p = array;</code></pre>
+ <p>
+  Now, the pointer <tt>p</tt> contains the same address used for <tt>array</tt>.
+ </p>
+</Layout>

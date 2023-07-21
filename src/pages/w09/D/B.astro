@@ -1,0 +1,60 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 9"
+ dir="w09/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="B">
+  <h1>Counter-Controlled Loops</h1>
+ </Header><div>
+  <p class="firstLine">
+   <mark>Inside a function</mark>, most commonly, you'll calculate the size of
+   an array <strong>at the point where it is declared</strong>, and then <mark
+    >pass that size as an additional argument</mark
+   >
+   when you <mark>call</mark> the function.
+  </p>
+  <p>
+   For instance, here is a function which sums the elements in a <tt>vector</tt
+   >:
+  </p>
+  <pre
+   class="language-cpp"><code>int sum(const vector&lt;int&gt;&amp; v) 
+&lbrace;
+   int sum = 0;
+   for (size_t i = 0, len = v.size(); i &lt; len; ++i)
+      sum += v.at(i);
+   return sum;
+&rbrace;</code></pre>
+  <p>
+   Notice that the function only requires one argument, since the <tt>vector</tt
+   >
+   "carries" its size along with it. With an array, you'd need to write the same
+   function like this:
+  </p>
+  <pre
+   class="language-cpp"><code>int sum(const int array[], size_t len)
+&lbrace;
+   int sum = 0;
+   for (size_t i = 0; i &lt; len; ++i)
+      sum += array[i];
+   return sum;
+&rbrace;</code></pre>
+  <p>
+   Unlike <tt>string</tt> and <tt>vector</tt>, arrays have no built-in <tt
+    >size()</tt
+   > member function. And, because <tt>array</tt> is really a pointer, you can't
+   use the <tt>sizeof</tt> "trick" inside the function. You must pass the length
+   as an argument
+   <mark>when calling</mark> the function. Note, also, that unlike
+   <tt>vector</tt> you have no range-checked <tt>at()</tt>
+   function. You must use the built-in subscript operator.
+  </p>
+ </div>
+</Layout>

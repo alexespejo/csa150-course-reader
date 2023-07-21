@@ -1,0 +1,56 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import imageDecay from "../images/decay.png";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 9"
+ dir="w09/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="E">
+  <h1>Decaying Arrays</h1>
+ </Header><div>
+  <img src={imageDecay} class="right" alt="A decaying mansion." />
+  <p class="firstLine">
+   When you pass an array to a function, we say that the array "<strong
+    >decays to a pointer</strong
+   >". This is similar to what happens with primitive types in this case:
+  </p>
+  <pre class="language-cpp"><code>int n = 3.14;</code></pre>
+  <p>
+   The <tt>int</tt> variable <tt>n</tt> cannot store the fractional portion of <tt
+    >3.14</tt
+   >, so it <strong>truncates the number</strong> and stores <tt>3</tt>.
+  </p>
+  <p>
+   When you pass an array name to a function, and it is <mark
+    >converted into a pointer</mark
+   >, it also <strong>loses certain information</strong>; specifically, it <mark
+    >loses the ability to determine the allocated size of the array</mark
+   > inside the function.
+  </p>
+  <p>
+   When you <b>declare</b> the array, the compiler "knows" the allocated size of
+   the array:
+  </p>
+  <pre
+   class="language-cpp"><code>int array[] = &lbrace;...&rbrace;;
+size_t kLen = sizeof(array) / sizeof(array[0]);   // OK;</code></pre>
+  <p>
+   However, you pass that array to a function, you <mark>cannot</mark> use the same
+   code.
+  </p>
+  <pre
+   class="language-cpp"><code>void f(const int a[])&lbrace; 
+  size_t kBug = sizeof(a) / sizeof(a[0]);   // ERROR
+&rbrace;</code></pre>
+ </div>That means we <mark>must</mark>
+ <strong> calculate an array size when the array is created</strong>, and then<strong
+ >
+  supply it when calling the function</strong
+ >.
+</Layout>

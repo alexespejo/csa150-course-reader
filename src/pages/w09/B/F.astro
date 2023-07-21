@@ -1,0 +1,54 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 9"
+ dir="w09/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="F">
+  <h1>Array Selection</h1>
+ </Header><div>
+  <p class="firstLine">
+   Array selection uses the <mark>subscript operator</mark> as in Java. The result
+   of selection expression is an <strong><em>lvalue</em>,</strong>
+   which means that you can assign new values to it, like this:
+  </p>
+  <pre
+   class="language-cpp"><code>const int kLen = 6;
+int a[klen];
+for (size_t i = 0; i &lt; kLen; ++i) &lbrace;
+    a[i] = 10 * i;
+&rbrace;</code></pre>
+
+  <table class="array" align="center">
+   <thead>
+    <th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th>
+   </thead>
+   <tbody>
+    <td>0</td><td>10</td><td>20</td><td>30</td><td>40</td><td>50</td>
+   </tbody>
+  </table>
+  <p>
+   <mark>C++ performs no bounds checking</mark>
+   on array selection. Unlike <tt>vector</tt>,
+   <strong>there is no safe, range-checked alternative</strong>, such as <tt
+    >at()</tt
+   >. If the array index is out of range, your compiler decides where the
+   element <mark>would be</mark>
+   in memory, and performs the requested operation, leading to <mark
+    >undefined results</mark
+   >.
+  </p>
+  <p>
+   Worse still, if you assign a value to that index position, you
+   <mark>can overwrite</mark> the contents of memory used by some other part of the
+   program. Writing beyond the end of an array is one of the primary vulnerabilities
+   used to attack computer systems.
+  </p>
+ </div>
+</Layout>

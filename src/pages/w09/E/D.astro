@@ -1,0 +1,42 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 9"
+ dir="w09/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="D">
+  <h1>Extreme Values</h1>
+ </Header><div>
+  <p class="firstLine">
+   The largest (or smallest) value in a collection is called an
+   <mark> extreme value</mark>. Here is the algorithm for finding the largest in
+   an array:
+  </p>
+  <pre
+   class="pcode">largest &lt;- first
+For each remaining element 
+   If element {'>'} largest Then
+      largest &lt;- element
+Return largest</pre>
+  <p>
+   The algorithm for finding the <b>smallest</b> is similar. What if there is no
+   first element? Then there is no largest or smallest element; <mark
+    >it is an error condition</mark
+   >.
+  </p>
+  <p>
+   For many algorithms, you not only want to know the largest (or smallest)
+   value, but <strong>where it is located</strong>, either as an index or as a
+   pointer.
+   <a target="_blank" href="https://rextester.com/YVILI42887">
+    Click this link to look at both</a
+   >. We'll discuss the two functions in this example in the next section.
+  </p>
+ </div>
+</Layout>

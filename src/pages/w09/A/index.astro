@@ -1,0 +1,36 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import A from "./A.astro";
+import B from "./B.astro";
+import C from "./C.astro";
+import D from "./D.astro";
+import E from "./E.astro";
+import F from "./F.astro";
+import G from "./G.astro";
+import H from "./H.astro";
+---
+
+<Layout
+ title="CSA150 Course Reader"
+ dir=""
+ displayLayout={true}
+ chapterSubSections={[
+  "Digital Filters",
+  "Address Arithmetic",
+  "Iterator Loops",
+  "The Darken Filter",
+  "Dealing with Channels",
+  "State Filters",
+  "Pointers & Structures",
+  "Using reinterpret_cast",
+ ]}
+>
+ <A displayLayout={false} />
+ <B displayLayout={false} />
+ <C displayLayout={false} />
+ <D displayLayout={false} />
+ <E displayLayout={false} />
+ <F displayLayout={false} />
+ <G displayLayout={false} />
+ <H displayLayout={false} />
+</Layout>

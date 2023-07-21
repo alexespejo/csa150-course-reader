@@ -1,0 +1,64 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 9"
+ dir="w09/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="A">
+  <h1>Arrays and Loops</h1>
+ </Header><div>
+  <p class="firstLine">
+   Just as with <tt>vector</tt>, the real advantage of arrays is that you can
+   automate the processing of a collection of related elements, like the grades
+   for all the students in a class.
+  </p>
+  <p>
+   However, because arrays are lower-level structures, processing them is not
+   quite as convenient. There are several ways to use loops to traverse an
+   array.
+  </p>
+  <ol>
+   <li>
+    Calculate the <mark>number of elements in the array</mark> and use that as a
+    limit on a traditional counter-controlled
+    <tt class="i">for</tt> or <tt class="i">while</tt> loop.
+   </li>
+   <li>
+    Use a <mark>sentinel value</mark> stored in the array to mark its end.
+   </li>
+   <li>
+    Use a pair of pointers: one to the first element in the array, and one to
+    the address right past the end of the array. These are called
+    <mark>iterator-based</mark> loops.
+   </li>
+   <li>
+    Use the C++ 11 <strong>range-based</strong>
+    <tt class="i">for</tt> loop.
+   </li>
+  </ol>
+  <p>
+   Inside a function, <mark>only the first three are meaningful</mark>. You <strong
+    >cannot</strong
+   > use the range-based for loop on an array name after it has decayed to a pointer.
+  </p>
+  <h2>The range-based for Loop</h2>
+  <p>
+   You may, however, use the <mark>range-based</mark>
+   <tt class="i">for</tt> loop on arrays, provided that the array definition is <mark
+    >in scope</mark
+   >. Here's an example:
+  </p>
+  <pre
+   class="language-cpp"><code>int a[] = &lbrace;...&rbrace;;
+for (int e : a) 
+&lbrace;
+  cout &lt;&Lt; e &lt;&lt; " ";
+&rbrace;</code></pre>
+ </div>
+</Layout>

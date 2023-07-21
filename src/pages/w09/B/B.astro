@@ -1,0 +1,52 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 9"
+ dir="w09/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="B">
+  <h1>Arrays vs. vector</h1>
+ </Header><div>
+  <p class="firstLine">
+   Why use an array if <tt>vector</tt> is so much more convenient? Why bother learning
+   about arrays at all? Here's why.
+  </p>
+  <ul>
+   <li>
+    <tt>vector</tt>
+    <strong>elements</strong> are always
+    <mark>allocated on the heap</mark>
+   </li>
+   <li>
+    Arrays may be <mark>allocated on the stack</mark>,
+    <mark>static area</mark>, <mark>or the heap</mark>. This avoids performance
+    issues that arise with dynamic memory.
+   </li>
+   <li>
+    Arrays often have <mark>higher performance</mark> and
+    <mark>take less memory</mark>.
+   </li>
+   <li>
+    Arrays are generally used for low-level <strong>systems programming</strong>
+    (operating systems)
+   </li>
+   <li>
+    Array performance is <mark>deterministic</mark>; for this reason, arrays are
+    normally used for <strong>embedded programs</strong>
+    that must run for long periods of time.
+   </li>
+  </ul>
+  <p>
+   In short, arrays are usually faster and may take less memory than dynamic
+   library types like <tt>string</tt>
+   and <tt>vector</tt>. Using arrays in C++ is programming
+   <mark>as the CPU sees it</mark>.
+  </p>
+ </div>
+</Layout>

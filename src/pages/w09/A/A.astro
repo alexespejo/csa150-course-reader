@@ -1,0 +1,53 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 9"
+ dir="w09/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="A">
+  <h1>Digital Filters</h1>
+ </Header><div>
+  <img
+   src="../images/filters.png"
+   class="right width-25"
+   alt="Some Photoshop image filters."
+  />
+  <p class="firstLine">
+   Last week you learned how to load and save digital images, using the
+   functions in the <b>stb image libraries</b>. Now, let's make some changes to
+   those images before you save them. Programs that do this are called <mark
+    >image filters</mark
+   >. You may have seen them in programs like Photoshop, or in the camera app on
+   your phone.
+  </p>
+  <p>
+   Although the programs we'll write won't be as sophisticated or as fast as the
+   commercial filters you can purchase, it will give you an idea about how such
+   programs are written. (Plus, you'll get some exercise using pointers!)
+  </p>
+  <a
+   target="_blank"
+   href="https://replit.com/@stephengilbert/Image-Filter-Starter#main.cpp"
+  >
+   <img
+    src="../images/running-man.png"
+    class="left width-32"
+    alt="The running-man icon."
+   /></a
+  >
+  <p>
+   Click the "running-man" to open the starter files in
+   <strong>ReplIt</strong>. You'll have to Fork the
+   <strong>Repl</strong>
+   to get your own copy. When you open <tt>main.cpp</tt> you'll see some code similar
+   to that you used last week. This time, we're going to load our picture of "Pete
+   the Pirate" and modify it.
+  </p>
+ </div>
+</Layout>

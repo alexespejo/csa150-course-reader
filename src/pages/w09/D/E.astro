@@ -1,0 +1,67 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 9"
+ dir="w09/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="E">
+  <h1>A C++ Idiom</h1>
+ </Header><div>
+  <p class="firstLine">
+   Knowing pointer arithmetic helps you understand one of the <mark
+    >most common idiomatic constructions</mark
+   >
+   in C++, which you'll find on line 4 of the previous example:
+  </p>
+  <pre
+   class="language-cpp"><code>while (beg != end) &lbrace; result += *beg++; &rbrace;</code></pre>
+  <p>
+   <p>Here's how to decode the expression <tt>*beg++</tt>:</p>
+   <ul>
+    <li>
+     The <tt>*</tt> operator and the <tt>++</tt> operator
+     <mark>compete</mark> for the operand <tt>beg</tt>. Because unary operators
+     in C++ are <strong>right-associative</strong>, the <tt>++</tt> takes precedence
+     over the <tt>*</tt>. The compiler interprets this as: <tt>*(beg++)</tt>.
+    </li>
+    <li>
+     The <strong>postfix</strong>
+     <tt>++</tt> operator increments the value of <tt>beg</tt> so that it points
+     to the next element,
+     <mark>but</mark> returns the address that <tt>beg</tt>
+     <mark>was pointing to prior to the increment operation</mark>. Since <tt
+      >beg</tt
+     > is a pointer, the increment operation uses pointer arithmetic; adding <tt
+      >1</tt
+     > to the address inside of <tt>beg</tt> creates a pointer to the next element
+     in the array.
+    </li>
+    <li>
+     If <tt>beg</tt> originally pointed to <tt>a[0]</tt>, the increment causes
+     it to point to <tt>a[1]</tt>. The address that is used for dereferencing <tt
+      >*</tt
+     >, is the address value it contained <mark>before</mark>
+     the increment.
+    </li>
+   </ul>
+   <p>
+    Thus, the expression <tt>*beg++</tt> has the following meaning in English:
+   </p>
+   <div class="highlight alert alert-info">
+    <p>
+     Dereference the pointer <tt>beg</tt> and return as an
+     <b>lvalue</b> the object to which it currently points. As a side effect, increment
+     the value of <tt>beg</tt> so that, if the original <b>lvalue</b> was an element
+     in an array, the new value of <tt>beg</tt> points to the next element in that
+     array.
+    </p>
+   </div>
+  </p>
+ </div>
+</Layout>

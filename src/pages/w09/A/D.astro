@@ -1,0 +1,44 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 9"
+ dir="w09/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="D">
+  <h1>The Darken Filter</h1>
+ </Header><div>
+  <p class="firstLine">
+   The first filter we'll write is "darken". Here's the algorithm:
+  </p>
+  <pre
+   class="pcode">
+For every byte 
+  if it is greater than 64 then
+    subtract 64 from it
+    rewrite the byte</pre>
+  <p>Here's what the processing code looks like:</p>
+  <pre
+   class="language-cpp"><code>while (beg != end)
+&lbrace;
+    if (*beg &gt; 64)&lbrace; 
+        *beg = *beg - 64;
+   &rbrace; 
+    beg++;
+&rbrace;</code></pre>
+  <p>
+   In the <strong>Repl</strong>, you can click on the two images to see the
+   effect of applying the filter:
+   <img
+    src="../images/darker.png"
+    class="inlineCenter width-60"
+    alt="The original and the darkened images together."
+   />
+  </p>
+ </div>
+</Layout>

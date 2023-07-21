@@ -1,0 +1,61 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 9"
+ dir="w09/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="D">
+  <h1>Iterator Loops</h1>
+ </Header><div>
+  <p class="firstLine">
+   Another iteration approach is to pass the address of the <strong
+    >first element you want to process</strong
+   >, and the address of an imaginary element that is <strong
+    >just past the last element you want to process</strong
+   >. This is known as the <strong>range-based</strong> or
+   <strong>iterator</strong> approach to passing array parameters.
+   <a target="_blank" href="https://rextester.com/SVA95889">
+    Click this link to run the function shown below</a
+   >.
+  </p>
+  <pre
+   class="language-cpp line-numbers"><code>double sum(const double* beg, const double* end)
+&lbrace;
+    double result = 0.0;
+    while (beg != end) &lbrace; result += *beg++;&rbrace; 
+    return result;
+&rbrace;</code></pre>
+  <p>
+   In the <strong>iterator-based</strong> approach the <strong>caller</strong>
+   passes the array (the address of the element at index zero) and, the address of
+   the imaginary element <strong>just past the end</strong> of the range which you
+   want to process.
+  </p>
+  <p>
+   When you <mark>call a function</mark>, such as <tt>sum()</tt>, which uses an
+   iterator loop, you can calculate the pointers by using address arithmetic,
+   like this:
+  </p>
+  <pre
+   class="language-cpp"><code>int main()
+&lbrace;
+    double a[] = &lbrace;1.5, 2.5, 3.5, 2.75, 1.75&rbrace;;
+    cout &lt;&lt; "sum-{'>'}" &lt;&lt; sum(a, a + 5) &lt;&lt; endl; // 5 elements
+    return 0;
+&rbrace;</code></pre>
+  <p>
+   Starting in C++11 you can <mark
+    >automatically calculate these two pointers</mark
+   > by using the functions <tt>begin()</tt> and <tt>end()</tt> like this:
+  </p>
+  <pre
+   class="language-cpp"><code>double array[] = &lbrace;.....&rbrace;;
+cout &lt;&lt; sum(begin(array), end(array)) &lt;&lt; endl;</code></pre>
+ </div>
+</Layout>

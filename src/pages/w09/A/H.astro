@@ -1,0 +1,68 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 9"
+ dir="w09/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="H">
+  <h1>Using reinterpret_cast</h1>
+ </Header><div>
+  <p class="firstLine">
+   The function <tt>stbi_load()</tt> always returns a pointer to the <mark
+    >first byte</mark
+   > of the digital image in memory, <mark>not the first pixel</mark>. That
+   makes some code more complex than it needs to be. However, if you like, you
+   can process your images
+   <b>pixel-by-pixel</b> instead of <b>byte-by-byte</b> by following these instructions:
+  </p>
+  <ul>
+   <li>
+    Create a <tt>Pixel</tt> structure type with 3 <tt>unsigned</tt>
+    <tt>char</tt> data members (since our image only uses 3 channels).
+   </li>
+   <li>
+    When creating your <tt>beg</tt> pointer, change it to a
+    <tt>Pixel*</tt>, not an <tt>unsigned</tt>
+    <tt>char</tt>
+    <tt>*</tt>, and then use <tt>reinterpret_cast&lt;Pixel*&gt;</tt> to cause <tt
+     >beg</tt
+    > to look at your image data pixel-by-pixel.
+   </li>
+   <li>
+    When creating your <tt>end</tt> pointer, use <tt>beg</tt> as the base pointer.
+    You no longer need to use <tt>channels</tt> as part of the calculation.
+   </li>
+  </ul>
+  <p>
+   Here's a horizontal-stripes filter that does this, using <mark
+    >nested for loops</mark
+   >
+   instead of an iterator loop, to change all the pixels in each odd numbered row
+   to white stripe.
+  </p>
+  <pre
+   class="language-cpp"><code>struct Pixel &lbracel; unsigned char red, green, blue; &rbrace;;
+Pixel * beg = reinterpret_cast&lt;Pixel*&gt;(pete);
+Pixel * end = beg + width * height;
+
+for (int y = 0;  y &lt; height; ++y)
+&lbracel;
+   for (int x = 0; x &lt; width; ++x, ++beg)
+  &lbracel; 
+      if (y % 2 == 1) &lbracel; // odd rows
+          *beg = Pixel&lbracel;255, 255, 255&rbrace;;
+     &rbrace; 
+  &rbrace; 
+&rbrace;</code></pre>
+  <p>
+   Here's what the horizontal-stripes filter looks like when it runs:
+   <img src="../images/horizontal-stripes.png" class="inlineCenter width-60" />
+  </p>
+ </div>
+</Layout>

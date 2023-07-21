@@ -1,0 +1,54 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 9"
+ dir="w09/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="B">
+  <h1>Counting</h1>
+ </Header><div>
+  <p class="firstLine">
+   Let's start with counting. To count all of the elements that <strong
+    >match a condition</strong
+   >:
+  </p>
+  <pre
+   class="pcode">
+counter &lt;- 0
+for each element in the array
+    if the element matches the condition then
+        counter &lt;- counter + 1</pre>
+  <p>
+   Here's a <strong>traditional implementation</strong> of this that counts for exact
+   matches to a value:
+  </p>
+  <pre
+   class="language-cpp"><code>int aCount(const int a[], size_t len, int value)
+&lbrace;
+    int counter = 0;
+    for (size_t i = 0; i &lt; len; ++i)
+        if (a[i] == value) 
+            counter++;
+    return counter;
+&rbrace;</code></pre>
+  <p>
+   The <mark>iterator-based</mark> version of this algorithm, named <tt
+    >count()</tt
+   > is actually included in the standard library, in the header called <tt
+    >&lt;algorithm&gt;</tt
+   >. After including the header, you can call it like this:
+  </p>
+  <pre
+   class="language-cpp"><code>#include &lt;algorithm&gt;
+. . .
+int a[] = &lbrace;...&rbrace;;
+. . .
+cout &lt;&lt; count(begin(a), end(a), value) &lt;&lt; endl;</code></pre>
+ </div>
+</Layout>

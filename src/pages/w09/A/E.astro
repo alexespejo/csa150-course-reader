@@ -1,0 +1,47 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 9"
+ dir="w09/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="E">
+  <h1>Dealing with Channels</h1>
+ </Header><div>
+  <p class="firstLine">
+   Each individual pixel in our image consist of <mark>3 bytes</mark>, each
+   representing an individual red, green, or blue channel in that image. So, if
+   you want to only modify one color, or two colors, you have to keep track of
+   which byte you are working on, by processing <mark
+    >all three bytes every time through the loop</mark
+   >.
+  </p>
+  <p>
+   Here, for instance is a filter that only keeps the
+   <strong>blue</strong> channel, and eliminates the
+   <strong>red</strong> and <strong>green</strong> channels in the image:
+  </p>
+  <pre
+   class="language-cpp"><code>while (beg != end)
+&lbrace;
+   *beg = 0;   // turn off red
+   beg++;      // go to next color
+   *beg = 0;   // turn off green
+   beg++;      // go to next color
+   beg++;      // leave blue alone
+&rbrace;</code></pre>
+  <p>
+   Here's the result of running the blue filter:
+   <img
+    src="../images/blue-filter.png"
+    class="inlineCenter width-60"
+    alt="Running the blue filter."
+   />
+  </p>
+ </div>
+</Layout>

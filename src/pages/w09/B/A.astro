@@ -1,0 +1,67 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 9"
+ dir="w09/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="A">
+  <h1>Introducing Arrays</h1>
+ </Header><div>
+  <p class="firstLine">
+   C++ has a <mark>built-in array type</mark>, inherited from the C programming
+   language. The array builds upon the pointer concepts you covered in the last
+   few lessons. Arrays (unlike the <tt>vector</tt> type) are directly supported by
+   your hardware.
+  </p>
+  <table class="array" align="center">
+   <thead>
+    <th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th>
+   </thead>
+   <tbody>
+    <td>37</td><td>-15</td><td>125</td><td>12</td><td>7</td><td>42</td>
+   </tbody>
+   <tfoot>
+    <th>0x505290</th><th>0x505294</th><th>0x505298</th><th>0x50529c</th><th
+     >0x5052a0</th
+    ><th>0x5052a4</th>
+   </tfoot>
+  </table>
+  <p>
+   Arrays are similar to the <tt>vector</tt> library type, except that they are much
+   simpler, and have many fewer features:
+  </p>
+  <ul>
+   <li>
+    Arrays are <mark>allocated with a fixed size</mark> when created, which cannot
+    change.
+   </li>
+   <li>
+    The array size <mark>is not stored along with the array</mark> data elements.
+   </li>
+   <li>
+    Arrays have <mark>no built-in functions</mark>, such as support for
+    <strong>inserting</strong> or <strong>deleting</strong>.
+   </li>
+   <li>C++ performs <mark>no bounds-checking</mark> on arrays.</li>
+   <li>
+    Array elements may be allocated on the stack or static area so they are <mark
+     >more efficient</mark
+    > than <tt>vector</tt>, whose elements are always allocated on the heap,
+    even if the <tt>vector</tt>
+    itself is on the stack.
+   </li>
+  </ul>
+  <p>
+   Arrays are the <mark>low-level plumbing</mark>
+   <strong>from which the more powerful collection classes are built</strong>.
+   To understand the implementation of those classes, you need to have some
+   familiarity with the mechanics of arrays.
+  </p>
+ </div>
+</Layout>

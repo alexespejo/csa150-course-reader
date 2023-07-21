@@ -1,0 +1,54 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 9"
+ dir="w09/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="C">
+  <h1>Cumulative Algorithms</h1>
+ </Header><div>
+  <p class="firstLine">
+   Cumulative algorithms such as sum, average, standard deviation, and so on,
+   visit each element in the array and then add, multiply or otherwise process
+   it.
+  </p>
+  <p>
+   Here is an example which adds all of the <strong>even numbers</strong> in an array
+   named <tt>a</tt>:
+  </p>
+  <ul>
+   <li>
+    The array <tt>a</tt> is <tt>const</tt>, since the elements won't be changed.
+   </li>
+   <li>
+    The <mark>accumulator</mark>
+    <tt>sum</tt> is <tt>double</tt>
+    so it doesn't overflow.
+   </li>
+   <li>
+    Only the <mark>even</mark> elements (those where
+    <tt>n</tt>
+    <tt>%</tt>
+    <tt>2</tt>
+    <tt>==</tt>
+    <tt>0</tt>) are added.
+   </li>
+  </ul>
+  <pre
+   class="language-cpp"><code>double addEvens(const int a[], size_t len)
+&lbrace;
+    double sum&lbrace;0&rbrace;;
+    for (size_t i = 0; i &lt; len; ++i)
+   &lbrace; 
+        if (a[i] % 2 == 0) &lbrace; sum += a[i];&rbrace; 
+   &rbrace; 
+    return sum;
+&rbrace;</code></pre>
+ </div>
+</Layout>

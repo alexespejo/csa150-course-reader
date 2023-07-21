@@ -1,0 +1,57 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 9"
+ dir="w09/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="E">
+  <h1>The Allocated Size</h1>
+ </Header><div>
+  <p class="firstLine">
+   Suppose that you have an array containing the names of all U.S. cities with
+   populations of over 1,000,000. Taking data from the 2010 census, you would
+   write:
+  </p>
+  <pre
+   class="language-cpp"><code>const string cities[] = &lbrace; 
+    "New York", "Los Angeles", "Chicago",
+    "Houston", "Philadelphia", "Phoenix",
+    "San Antonio", "San Diego", "Dallas",
+&rbrace;;</code></pre>
+  <p>
+   However, the size of the cities <mark>changes over time</mark>. In 2020, both
+   San Jose and Austin Texas joined the list. Fortunately, you <mark>may</mark> simply
+   <strong>add new names to the list</strong>, or delete them, and then <strong
+    >let the compiler count how many there are</strong
+   >. This is so common, <mark>you are allowed to leave a trailing comma</mark>
+   (such as the one after Dallas) and <strong
+    >it doesn't create a syntax error</strong
+   >.
+  </p>
+  <p>
+   So, <strong>how do you know how many cities there are?</strong>
+   You don't want <strong>to have to count</strong> them! After all, <mark
+    >the compiler knows</mark
+   > how many there are. C++ has a <strong>standard idiom</strong> for determining
+   the
+   <mark>allocated size</mark> of an array
+   <mark>at compile time</mark>, provided
+   <mark>the array definition is in scope</mark>.
+  </p>
+  <pre
+   class="language-cpp"><code>constexpr size_t kCitiesSize = sizeof(cities) / sizeof(cities[0]);</code></pre>
+  <p>
+   This compile-time expression takes the size of the entire array (returned
+   from the <tt>sizeof</tt> operator, and thus of type
+   <tt>size_t</tt>), and divides it by the size of the initial element in the
+   array. Because all elements of an array are the same size, the result is the
+   number of elements in the array, regardless of the element type.
+  </p>
+ </div>
+</Layout>
