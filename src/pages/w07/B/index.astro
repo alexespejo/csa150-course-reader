@@ -1,4 +1,3 @@
-
 ---
 import Layout from "../../../layouts/Layout.astro";
 import A from "./A.astro";
@@ -7,12 +6,24 @@ import C from "./C.astro";
 import D from "./D.astro";
 import E from "./E.astro";
 import F from "./F.astro";
+import G from "./G.astro";
+import H from "./H.astro";
 ---
+
 <Layout
  title="CSA150 Course Reader"
  dir=""
  displayLayout={true}
- chapterSubSections={[]}
+ chapterSubSections={[
+  "The to_string Functions",
+  "Function Templates",
+  "Template Instantiation",
+  "Template Argument Deduction",
+  "Multiple Template Arguments",
+  "Explicit Template Arguments",
+  "Inferred Return Types",
+  "Templates & Overloading",
+ ]}
 >
  <A displayLayout={false} />
  <B displayLayout={false} />
@@ -20,4 +31,6 @@ import F from "./F.astro";
  <D displayLayout={false} />
  <E displayLayout={false} />
  <F displayLayout={false} />
+ <G displayLayout={false} />
+ <H displayLayout={false} />
 </Layout>
