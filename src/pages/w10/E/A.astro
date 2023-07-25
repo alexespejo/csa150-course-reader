@@ -1,0 +1,68 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 10"
+ dir="w10/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="A">
+  <h1>The strlen Function</h1>
+ </Header><div>
+  <p class="firstLine">
+   In this lesson we're going to look at several implementations of the standard
+   library functions beginning with <tt>strlen()</tt>. We'll finish by learning
+   to write your own C-String functions.
+  </p>
+  <p>
+   To find the length of a string, you <mark>count characters</mark>
+   until you reach the <tt>'\0'</tt>. Here is an implementation that uses array
+   notation.
+  </p>
+  <pre
+   class="language-cpp"><code>size_t strlen(const char str[])
+&lbrace;
+    size_t len = 0;
+    while (str[len] != '\0') len++;
+    return len;
+&rbrace;</code></pre>
+  <div class="highlight alert alert-info">
+   <p>
+    Note that the return type <strong>must be</strong>
+    <tt>size_t</tt> (not <tt>int</tt>), because we can't have a negative length
+    on a string. The array must be <tt>const</tt>, otherwise it
+    <strong>would be illegal</strong> to call the function using a C-string literal.
+   </p>
+  </div>
+  <p>
+   Another alternative is to advance the pointer until it reaches the end of the
+   string, and then to
+   <mark>use pointer subtraction</mark> (or <mark>pointer difference</mark>) to
+   determine the number of characters. Here's a version that does that:
+  </p>
+  <pre
+   class="language-cpp"><code>size_t strlen(const char *str)
+&lbrace;
+    const char *cp = str;
+    while (*cp != '\0') cp++;
+    return cp - str;
+&rbrace;</code></pre>
+  <p>
+   We can actually write this in an even more cryptic style. I <mark
+    >don't encourage you to write code like this</mark
+   >, since it is quite a bit more error prone, but it
+   <mark>is a common C idiom</mark> so you should recognize it when you see it.
+  </p>
+  <pre
+   class="language-cpp"><code>size_t strlen(const char *str)
+&lbrace;
+    const char *cp = str;
+    while (*cp++) /* do nothing */;
+    return cp - str - 1; // cp points to 1 past the NUL
+&rbrace;</code></pre>
+ </div>
+</Layout>

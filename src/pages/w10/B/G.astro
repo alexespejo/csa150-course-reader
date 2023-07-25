@@ -1,0 +1,57 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import imageDeleting from "../images/deleting.png";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 10"
+ dir="w10/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="G">
+  <h1>Removing Multiple Elements</h1>
+ </Header><div>
+  <p class="firstLine">
+   Since, when you remove an element, the following elements are moved into the
+   position of the deleted value, you have to be especially careful when
+   removing multiple values from the same array.
+   <a target="_blank" href="https://onlinegdb.com/Ev1oH5jJo"
+    >Here's an example</a
+   >:
+  </p>
+  <pre
+   class="language-cpp"><code>for (size_t i = 0; i &lt; size; ++i)
+&lbrace;
+    if (a[i] == 7)
+   &lbrace; 
+        --size;
+        for (size_t j = i; j &lt; size; ++j) 
+        &lbrace; 
+            a[j] = a[j + 1]; 
+       &rbrace; 
+   &rbrace; 
+&rbrace;</code></pre>
+  <p>
+   If you run it, you'll see that it doesn't quite work. It <mark>should</mark> remove
+   all of the sevens from the partially-filled array, but removes only some of them.
+   <img
+    src={imageDeleting}
+    class="inlineCenter"
+    alt="Trying to delete all sevens from an array"
+   />
+  </p>
+  <p>
+   As you can see, when you remove the first seven, you skip over the seven
+   immediately following it. To fix this, make sure that you adjust the loop
+   index, so that it
+   <mark>revisits the current index</mark> whenever you remove an element.
+   <a target="_blank" href="https://onlinegdb.com/gKMdQZ-Bt">
+    Here's the fixed version of this problem
+   </a>
+   .
+  </p>
+ </div>
+</Layout>

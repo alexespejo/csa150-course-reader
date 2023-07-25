@@ -1,0 +1,57 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import imagePartiallyFilled from "../images/partially-filled-2.png"
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 10"
+ dir="w10/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="D">
+  <h1>Inserting Elements</h1>
+ </Header><div>
+  <p class="firstLine">
+   Instead of adding items to the end of the "unoccupied" section of numbers in
+   an array, suppose you placed each number <strong
+    >into its correct (ordered) position</strong
+   > instead, like this:
+   <img
+    src={imagePartiallyFilled}
+    class="inlineCenter"
+    alt="Inserting a value into a partially-filled array."
+   />
+  </p>
+  <p>
+   The array shown here is partially filled, and the next number, <tt>3.25</tt>,
+   has been input by the user. To put the number in its correct location you
+   need to:
+  </p>
+  <ol>
+   <li>
+    Locate the <strong>first number</strong> that is
+    <mark>larger</mark> than the number you're going to insert into the array. Here,
+    that's the number <tt>7.1</tt>.
+   </li>
+   <li>
+    Before you can store <tt>3.25</tt>, the <tt>7.1</tt>
+    needs to be moved to the right. But first, the number occupying that spot must
+    be moved, and so on.
+   </li>
+   <li>
+    After all of the existing numbers have been moved to the right, come back
+    and <strong>store the new number</strong>
+    in the spot that's been opened up.
+   </li>
+   <p>
+    This only makes sense <mark>when used with partially filled arrays</mark>;
+    if you try to insert an element into a completely filled array, then the
+    last element in the array will be lost when the previous items are moved to
+    make room for the inserted item.
+   </p>
+  </ol>
+ </div>
+</Layout>

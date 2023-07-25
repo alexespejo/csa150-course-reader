@@ -1,0 +1,36 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 10"
+ dir="w10/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="D">
+  <h1>Writing Your Own Functions</h1>
+ </Header>
+ <div>
+  <p class="firstLine">
+   To write your own C-String functions you can use <strong>either</strong> array
+   notation or pointer notation, whichever you find more convenient;
+   <strong>neither</strong> is more efficient than the other. The things you need
+   to remember are:
+  </p>
+  <ul>
+   <li>
+    <mark>Find</mark>
+    the <tt>NUL</tt> character in the string. All C-String functions rely on this.
+   </li>
+   <li>
+    <mark>Preserve</mark>
+    the <tt>NUL</tt> character in the string. It is up to you to make sure that any
+    destination strings are correctly terminated.
+   </li>
+  </ul>
+  <p>To make this more concrete, let's look at a couple of examples.</p>
+ </div>
+</Layout>

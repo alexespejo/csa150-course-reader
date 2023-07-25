@@ -1,0 +1,48 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 10"
+ dir="w10/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="G">
+  <h1>Find First of Any</h1>
+ </Header><div>
+  <p class="firstLine">
+   Suppose you want to find the position of the first digit inside a C-string.
+   You can't just use <tt>find()</tt>
+   since you want to look for <mark>any</mark> digit. You'd want a function you could
+   call like this:
+  </p>
+  <pre
+   class="language-cpp"><code>int pos = first_of_any(cstr, "0123456789");</code></pre>
+  <p>Here's the algorithm you use:</p>
+  <pre
+   class="pcode">Look through every character in str
+    Compare the character to every character in target
+      If found return the index (in str)
+return error code</pre>
+  <p>Here's an implementation of this algorithm:</p>
+  <pre
+   class="language-cpp"><code>int first_of_any(const char *str, const char* target)
+&lbrace;
+    const char * p1 = str;
+    while (*p1 != '\0')
+   &lbrace; 
+        const char * p2 = target;
+        while (*p2 != '\0')
+       &lbrace; 
+            if (*p2 == *p1) return p1 - str;  // found it
+            p2++;
+       &rbrace; 
+        p1++;
+   &rbrace; 
+    return -1;
+&rbrace;</code></pre>
+ </div>
+</Layout>

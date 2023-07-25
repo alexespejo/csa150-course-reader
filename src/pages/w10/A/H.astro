@@ -1,0 +1,49 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import imageBinary from "../images/binary.png";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 10"
+ dir="w10/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="H">
+  <h1>Implementing Binary Search</h1>
+ </Header><div>
+  <p class="firstLine">
+   Here’s an implementation of binary search, named <tt>bfind()</tt>:
+  </p>
+  <pre
+   class="language-cpp line-numbers"><code>int bfind(const Person data[], int first, int last, 
+          const string&amp; key)  
+&lbrace;
+  cout &lt;&lt; ".";                         // display comparisons
+  if (last &lt; first) &lbrace;return -1; &rbrace;      // not found
+  int mid = (first + last) / 2;       // mid point
+    
+  if (key == data[mid].name.substr(0, key.size())) return mid;
+  if (key &lt; data[mid])             
+    return bfind(a, first, mid - 1, key); // look in left
+  else
+    return bfind(a, mid + 1, last, key);  // look in right
+&rbrace;
+</code></pre>
+
+  <p>
+   Add this code <mark>before</mark> your <tt>find()</tt> function, and then comment
+   out the body of <tt>find()</tt>, and add a call to bfind() in its place, like
+   this:
+  </p>
+  <pre
+   class="language-cpp"><code>return bfind(contacts, 0, size - 1, key);</code></pre>
+  <p>
+   Now, when you run the program, you'll see that even the worst case will take
+   only about 10 or 11 comparisons, instead of 500 or 1000.
+   <img src={imageBinary} class="inlineCenter" alt="Running binary search." />
+  </p>
+ </div>
+</Layout>

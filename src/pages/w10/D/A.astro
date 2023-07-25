@@ -1,0 +1,66 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import imageStrings from "../images/strings.png";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 10"
+ dir="w10/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="A">
+  <h1>C-Style Strings</h1>
+ </Header><div>
+  <img
+   src={imageStrings}
+   class="right"
+   alt="Decorative image of a string sculpture."
+  />
+  <p class="firstLine">
+   C++ has two different "string" types; the
+   <tt>string</tt> class from the standard library makes string manipulation easy,
+   but is complex, since it uses dynamic memory. The original "string" type, inherited
+   from the C language, is much simpler.
+  </p>
+  <p>
+   Though simpler, older C-strings are more
+   <strong>difficult to work with</strong>. Sometimes more efficient, they are
+   also <strong>more error prone</strong>, even
+   <mark>somewhat dangerous</mark>. However, as C++ programmers, you can't
+   ignore them.
+  </p>
+  <p>
+   Why should you dedicate <strong>any</strong> time to studying C-strings? There
+   are several reasons:
+  </p>
+  <ul>
+   <li>
+    <mark>Efficiency</mark>. Library string objects use dynamic memory and the
+    heap. C-strings are
+    <strong>built into the language</strong>, so you don't need to link library
+    code.
+   </li>
+   <li>
+    <mark>Legacy Code</mark>. To <mark>interoperate</mark>
+    with pure C code or older C++ code that predates the C++ <tt>string</tt> type.
+   </li>
+   <li>
+    <mark>Library Implementation</mark>. You may want to
+    <mark>implement</mark> your own <tt>string</tt> type. Knowing how to manipulate
+    C-strings can greatly simplify this task.
+   </li>
+   <li>
+    <mark>Embedded Programming</mark>. Programs written for embedded devices
+    like those in your automobile or toaster, frequently use C-strings.
+   </li>
+   <li>
+    <mark>Platform O/S Programming</mark>. For native Linux or Windows
+    programming, you will need to use C-strings.
+   </li>
+  </ul>
+  <p>We will encounter many of these cases in the remainder of this course.</p>
+ </div>
+</Layout>

@@ -1,0 +1,41 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 10"
+ dir="w10/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="C">
+  <h1>Traversing the Array</h1>
+ </Header><div>
+  <p class="firstLine">
+   When you <mark>traverse</mark> a partially-filled array, your algorithms must
+   <mark>use the effective size</mark>
+   as your loop bounds. Here's an example which <strong
+    >computes the highest salary</strong
+   > in the array.
+  </p>
+  <pre
+   class="language-cpp"><code>double highest&lbrace;0.0&rbrace;;
+if (size &gt; 0)
+&lbrace;
+    highest = salaries[0];
+    for (size_t i = 1; i &lt; size; ++i)&lbrace; 
+        if (salaries[i] &gt; highest)&lbrace; 
+            highest = salaries[i];
+       &rbrace; 
+   &rbrace; 
+&rbrace;</code></pre>
+
+  <p>
+   Note that you can <strong>only</strong> inspect the elements with an index less
+   than <tt>size</tt>, because the remaining elements have never been set, so
+   their contents are undefined.
+  </p>
+ </div>
+</Layout>

@@ -1,0 +1,59 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 10"
+ dir="w10/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="E">
+  <h1>C++ strings vs C-Strings</h1>
+ </Header><div>
+  <p class="firstLine">
+   C-strings are <mark>not first-class types</mark>
+   like the C++ <tt>string</tt> type. They <strong>do not</strong>
+   work like the built-in types. Look at this example, which tries to <strong
+    >assign</strong
+   >, <strong>compare</strong> and
+   <strong>concatenate</strong> two strings:
+  </p>
+  <pre
+   class="language-cpp"><code>string str1 = "Hello", str2 = "World";
+char cstr1[] = "Hello", cstr2[] = "World";
+
+str1 = "Goodbye";           // assignment OK
+cstr1 = "Goodbye";          // ILLEGAL
+if (str1 &lt; str2) ...        // comparison OK
+if (cstr1 &lt; cstr2) ...      // INCORRECT
+str1 += ", ";         		 // OK
+cstr1 += ", ";       		 // ILLEGAL</code></pre>
+
+  <p>
+   For the C++ <tt>string</tt> class, assignment, comparison and concatenation work
+   in the same manner as the built-in types. Use the <strong
+    >assignment operator</strong
+   >, the
+   <strong>relational operators</strong>, and the <tt>+=</tt>.
+   <mark>Not so</mark>
+   for C-strings, where you must use functions from the
+   <tt>&lt;cstring&gt;</tt> header to perform the same functionality.
+  </p>
+  <ul>
+   <li><tt>strcpy(dest,</tt> <tt>src)</tt> is used instead of assignment</li>
+   <li><tt>strcat(dest,</tt> <tt>src)</tt> is used instead of <tt>+=</tt></li>
+   <li>
+    <tt>strcmp(cstr1,</tt>
+    <tt>cstr2)</tt> is used instead of the relational operators
+   </li>
+  </ul>
+  <p>
+   In addition, in place of the member function <tt>size()</tt>, you use the
+   <tt>strlen(cstr)</tt> function which counts the number of characters before the
+   <tt>'\0'</tt>.
+  </p>
+ </div>
+</Layout>

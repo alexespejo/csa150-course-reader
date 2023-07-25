@@ -1,0 +1,41 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 10"
+ dir="w10/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="D">
+  <h1>Pointer-based C-Strings</h1>
+ </Header><div>
+  <p class="firstLine">
+   Pointers to <tt>NUL</tt>-terminated character array literals can be used as
+   C-strings, <mark>provided you don't attempt to modify them</mark>:
+  </p>
+  <pre class="language-cpp"><code>const char *s3 = "String #3";</code></pre>
+  <p>
+   <mark>The character array itself is not copied into your user space</mark>.
+   The characters are stored in the
+   <strong>static storage area</strong>
+   when the <strong>program loads</strong>. Attempting to change a character in <tt
+    >s3</tt
+   > is a <mark>compiler error</mark>, because of the <tt>const</tt>.
+  </p>
+  <p>In C and in some older C++ code, you may see this declaration:</p>
+  <pre class="language-cpp"><code>char *s4 = "String #4"</code></pre>
+  <p>
+   The declaration for <tt>s4</tt> is obsolete in modern C++, but may be found in
+   older code (and is legal in C). The compiler will probably compile your code (<mark
+    >with warnings</mark
+   >), but
+   <mark>your program will probably crash</mark> if you attempt to modify the string
+   in any way. The portion of the static storage where string literals are stored
+   is <mark>effectively read-only</mark>.
+  </p>
+ </div>
+</Layout>

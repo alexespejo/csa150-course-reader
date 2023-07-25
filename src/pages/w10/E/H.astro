@@ -1,0 +1,35 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 10"
+ dir="w10/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="H">
+  <h1>Finding Substrings</h1>
+ </Header><div>
+  <p class="firstLine">
+   Searching for a C-style substring inside another C-string is a little bit of
+   work. Similar to
+   <tt>first_of_any()</tt> this is most easily done by using three temporary pointers.
+   Here's the algorithm:
+  </p>
+  <pre
+   class="pcode">String str, string target
+Pointer p set to str
+While *p != 0
+    Pointer p1&lt;-p
+    Pointer p2&lt;-target
+    While *p1 &amp;&amp; *p2 &amp;&amp; *p1 == *p2
+        p1++, p2++
+    If *p2 == '\0' return p - str
+    p++
+Return the error code</pre>
+ </div>
+ <p>You can implement it yourself on the next page.</p>
+</Layout>

@@ -1,0 +1,24 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import A from "./A.astro";
+import B from "./B.astro";
+import C from "./C.astro";
+import D from "./D.astro";
+---
+
+<Layout
+ title="CSA150 Course Reader"
+ dir=""
+ displayLayout={true}
+ chapterSubSections={[
+  "2D Arrays",
+  "Row Major Order",
+  "2D Array Initialization",
+  "2D Arrays & Functions",
+ ]}
+>
+ <A displayLayout={false} />
+ <B displayLayout={false} />
+ <C displayLayout={false} />
+ <D displayLayout={false} />
+</Layout>

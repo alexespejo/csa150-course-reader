@@ -1,0 +1,65 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 10"
+ dir="w10/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="B">
+  <h1>The strcpy Function</h1>
+ </Header><div>
+  <p class="firstLine">
+   The <tt>strcpy()</tt> function is often
+   <mark>even more cryptic</mark> than <tt>strlen()</tt>.
+  </p>
+  <pre
+   class="language-cpp"><code>char * strcpy(char *dest, const char *src)
+&lbrace;
+    char *result = dest;
+    while (*dest++ = *src++) /* do nothing */;
+    return result;
+&rbrace;</code></pre>
+  <p>
+   This <mark>very, very common idiom</mark> has so many potential pitfalls, that
+   it is likely that your IDE will mark it with a warning. Although technically not
+   incorrect, it is intrinsically dangerous code, since a small mistake can break
+   the loop entirely.
+  </p>
+  <ul>
+   <li>
+    The <mark>body of the <tt>while</tt> loop is empty</mark>; all of the work
+    occurs in the extremely streamlined test expression:
+    <tt>*dest++</tt>
+    <tt>=</tt>
+    <tt>*src++</tt>
+   </li>
+   <li>
+    This expression is <mark>not a comparison</mark>, but an <mark
+     >embedded assignment</mark
+    >. If you accidently use a comparison, the loop will not work.
+   </li>
+   <li>
+    The expression copies the character addressed by <tt>src</tt>
+    into the address indicated by <tt>dest</tt>, incrementing each pointer after
+    the character is copied.
+    <mark>
+     If you use prefix increment instead of postfix, this does not work
+    </mark>.
+   </li>
+   <li>
+    The result is zero—and therefore <tt>false</tt>—only when the code copies
+    the
+    <tt>NUL</tt> character at the end of the string.
+   </li>
+  </ul>
+  <p>
+   Note that this leaves both pointers pointing one-past the <tt>NUL</tt> characters
+   in their respective strings.
+  </p>
+ </div>
+</Layout>
