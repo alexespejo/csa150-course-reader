@@ -1,0 +1,48 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 11"
+ dir="w11/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="E">
+  <h1>Smart Pointers</h1>
+ </Header><div>
+  <p class="firstLine">
+   C++ manages memory with two operators:
+   <tt>new</tt>, which allocates an object in dynamic memory and returns a <mark
+    >raw pointer</mark
+   > to the object; and <tt>delete</tt>, which takes a raw pointer to a dynamic
+   object, destroys that object, and frees the associated memory (without
+   changing the pointer at all).
+  </p>
+  <p>
+   To make this easier (and safer) to use, the new C++ library provides two <mark
+    >smart pointer types</mark
+   >, defined in the <tt>&lt;memory&gt;</tt> header, that <mark
+    >manage dynamic objects</mark
+   >. A smart pointer <mark>automatically deletes</mark> the object to which it points,
+   when the smart pointer is destroyed.
+  </p>
+  <p>The two smart pointers are:</p>
+  <ul>
+   <li>
+    <tt>shared_ptr</tt>, which allows multiple pointers to refer to the same
+    object (much like raw pointers do).
+   </li>
+   <li><tt>unique_ptr</tt>, which “owns” the object to which it points</li>
+  </ul>
+  <div class="highlight">
+   <p>
+    Smart pointers <mark>do not replace</mark> raw pointers, except when dealing
+    with objects on the heap. For stack-based variables, and for by-address functions,
+    you will continue to use raw pointers.
+   </p>
+  </div>
+ </div>
+</Layout>

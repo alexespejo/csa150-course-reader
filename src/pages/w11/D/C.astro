@@ -1,0 +1,55 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import imageStroustrup from "../images/stroustrup.jpg";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 11"
+ dir="w11/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="C">
+  <h1>Object-Based Programming</h1>
+ </Header><div>
+  <p class="firstLine">
+   Bjarne Stroustrup, the inventor of C++ explains that C++ is not an
+   Object-Oriented language in the spirit of Smalltalk or Simula. C++ is a
+   <mark>multi-paradigm language</mark>; a language that supports different
+   styles of programming, but doesn't require you to subscribe to any particular
+   orthodoxy.
+   <img
+    src={imageStroustrup}
+    class="inlineCenter round shadow"
+    alt="Bjarne Stroustrup at his desk."
+   />
+
+   <p>Here's what Stroustrup has to say:</p>
+   <blockquote>
+    <p>
+     Languages such as Ada, Clu, and C++ allow users to define types that behave
+     in (nearly) the same way as the built-in types. Such a type is often called
+     an abstract data type, but I prefer the term <strong
+      >user-defined type</strong
+     >. The programming paradigm supported by user-defined types (often called <strong
+      >object-based programming</strong
+     >) can be summarized as:
+    </p>
+    <div class="highlight">
+     <p>
+      Decide which types you want; provide a set of operations for each type.
+     </p>
+    </div>
+    <p>
+     Arithmetic types such as rational and complex numbers, as well as simple
+     concepts like dates, times, pairs, points, lines, colors, bcd characters,
+     error messages and currencies are all excellent candidates for user-defined
+     types, as opposed to representing them as plain data structures or as part
+     of a larger hierarchy.
+    </p>
+   </blockquote>
+  </p>
+ </div>
+</Layout>

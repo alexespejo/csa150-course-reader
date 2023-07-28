@@ -1,0 +1,61 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 11"
+ dir="w11/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="D">
+  <h1>Proving the Interface</h1>
+ </Header><div>
+  <p class="firstLine">
+   When designing an interface, its often useful to write a client program, just
+   to try it out. This is called
+   <mark>proving your interface</mark>. You may find that you need additional
+   member functions. Or, you might find that the prototypes for the functions
+   are not exactly what you need to complete your task, and you can change them
+   at this stage.
+  </p>
+  <p>
+   Here's the <tt>run()</tt> function which will act as the client for your new <tt
+    >Time</tt
+   >
+   type. This is a revision of <tt>H01</tt>, using member functions.
+  </p>
+  <pre
+   class="language-cpp"><code>int run()
+&lbrace;
+    printHeading(); // already written
+
+    Time startTime;
+    Time duration;
+
+    // Prompt and read the input
+    cout &lt;&lt; "    Time: ";
+    if (! startTime.read(cin)) &lbrace; return die();&rbrace; 
+    cout &lt;&lt; "    Duration: ";
+    if (! duration.read(cin))  &lbrace; return die();&rbrace; 
+
+    // Processing section
+    Time after = startTime.sum(duration);
+    Time before = startTime.difference(duration);
+
+    // Output section
+    duration.write(cout) &lt;&lt; " hours after, and before, ";
+    startTime.write(cout) &lt;&lt; " is [";
+    after.write(cout) &lt;&lt; ", ";
+    before.write(cout) &lt;&lt; "]" &lt;&lt; endl;
+
+    return 0;
+&rbrace;</code></pre>
+  <p>
+   The interface looks OK, so let's go ahead and
+   <mark>implement</mark> the member functions.
+  </p>
+ </div>
+</Layout>

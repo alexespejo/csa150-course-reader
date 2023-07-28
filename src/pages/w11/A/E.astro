@@ -1,0 +1,41 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 11"
+ dir="w11/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="E">
+  <h1>Traversing the Arguments</h1>
+ </Header><div>
+  <p class="firstLine">
+   <a target="_blank" href="https://onlinegdb.com/6vZLXgDRf">This program</a>
+   prints out the command-line by stepping through the array.
+  </p>
+  <pre
+   class="language-cpp"><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main(int argc, char *argv[])
+&lbrace;
+    cout &lt;&lt; "The program name is " &lt;&lt; argv[0] &lt;&lt; endl;
+    for (int i = 1; i &lt; argc; ++i)
+   &lbrace; 
+        cout &lt;&lt; "Argument " &lt;&lt; i &lt;&lt; " is " &lt;&lt; argv[i] &lt;&lt; endl;
+   &rbrace; 
+    return 0;
+&rbrace;</code></pre>
+  <p>
+   Each whitespace-delimited cluster of characters on the command line is turned
+   into a separate array argument. However, the rules for deciding what makes up
+   a "cluster" are up to the operating system. Placing quotes around a pair of
+   words works in any operating system; other features, like back-ticks, work
+   only under some. Try some.
+  </p>
+ </div>
+</Layout>

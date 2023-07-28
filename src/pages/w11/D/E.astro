@@ -1,0 +1,42 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 11"
+ dir="w11/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="E">
+  <h1>Type Invariants</h1>
+ </Header><div>
+  <p class="firstLine">
+   The definition of <tt>Time</tt> is straightforward, but, it will cause problems.
+   There are <mark>certain restrictions</mark> on what values members of a <tt
+    >Time</tt
+   > object may and may not have. Given our specification, for instance, <tt
+    >hours</tt
+   > must be between
+   <tt>0..23</tt> and <tt>minutes</tt> must be between <tt>0..59</tt>. We call
+   these the type's <mark>invariants</mark>.
+  </p>
+  <p>
+   But, with structures, we have <mark
+    >no means of enforcing those restrictions</mark
+   >. There is <strong>nothing to prevent</strong> someone, (most likely you, if
+   you aren't careful), from constructing a bogus
+   <tt>Time</tt> object like this:
+  </p>
+  <pre
+   class="language-cpp"><code>Time bed_time = &lbrace;27, 95&rbrace;;</code></pre>
+  <p>
+   Both values supplied here makes the <tt>Time</tt> object,
+   <tt>bed_time</tt>, <mark>invalid</mark>. But, the code compiles fine;
+   everything is perfectly legal C++, and the compiler has no idea that
+   something bad might happen in the future.
+  </p>
+ </div>
+</Layout>

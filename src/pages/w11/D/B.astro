@@ -1,0 +1,47 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import imageGoldberg from "../images/goldberg.png";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 11"
+ dir="w11/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="B">
+  <h1>User-Defined Types</h1>
+ </Header><div>
+  <p class="firstLine">
+   Each high-level language, from
+   <tt>FORTRAN</tt> and <tt>COBOL</tt> in the 1950s, to Java and C++ today, comes
+   equipped with a pre-defined, <mark>built-in set of data types</mark>. In C++,
+   these are the <strong>primitive</strong> types like <tt>int</tt>,
+   <tt>float</tt> and <tt>char</tt>. These types are defined in the language
+   itself, and not as part of the standard library.
+  </p>
+  <p>
+   However, programmers <strong>want more</strong>. Financial programmers want <strong
+    >real numbers</strong
+   >, scientific programmers can't live without <strong
+    >imaginary numbers</strong
+   >, business programmers want <strong>dates</strong> and <strong>times</strong
+   >, while graphics programmers really need <strong>points</strong> and
+   <strong>shapes</strong>.
+   <img
+    src={imageGoldberg}
+    class="inlineCenter w-1/3"
+    alt="A Rube Goldberg invention."
+   />
+  </p>
+  <p>
+   Rather than adding all of these extensions as built-in types, creating
+   complex, "Rube-Goldberg-like languages", designers found it better to <strong
+    >give programmers the ability to define their own data types</strong
+   >. That's really at the <strong>heart</strong> of modern,
+   <mark>object-based programming.</mark>
+  </p>
+ </div>
+</Layout>

@@ -1,0 +1,47 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 11"
+ dir="w11/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="A">
+  <h1>Memory Management</h1>
+ </Header><div>
+  <p class="firstLine">
+   Although Java uses the <tt>new</tt> operator, just like C++, it has no corresponding
+   <tt>delete</tt> operator. That's because in Java, when you run your program, a
+   set of smaller programs <b>run at the same time</b>, scouring the heap,
+   looking for unused objects, and <b>automatically</b>
+   freeing them. This automatic memory management in Java is called <mark
+    >garbage collection</mark
+   >.
+   <img
+    src="../images/java-garbage-collector-types.png"
+    class="inlineCenter width-60"
+    alt="Different types of Java garbage collectors."
+   />
+  </p>
+  <p>
+   In contrast, C++ manual memory management, using
+   <b>raw pointers</b> with <tt>new</tt> and <tt>delete</tt>, requires an almost
+   superhuman attention to detail. Mistakes will cause your program to leak
+   memory, or, to corrupt the memory manager itself.
+  </p>
+  <p>
+   Let's look at the three most common pitfalls that accompany manual memory
+   management: the <mark>memory leak</mark>, the <mark>dangling pointer</mark>,
+   and the <mark
+    >double
+    <tt>delete</tt></mark
+   >. Then, you'll meet C++11's new
+   <mark>smart pointers</mark>, which ameliorate many of the failings of pure
+   manual memory management.
+  </p>
+ </div>
+</Layout>

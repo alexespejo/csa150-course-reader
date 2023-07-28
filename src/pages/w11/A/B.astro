@@ -1,0 +1,76 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import imageLs from "../images/ls.png";
+import imageNotepad from "../images/notepad.png";
+import imageNotFound from "../images/not-found.png";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 11"
+ dir="w11/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="B">
+  <h1>The Command Line</h1>
+ </Header><div>
+  <p class="firstLine">
+   The command processor <strong>accepts an instruction</strong> (in text form),
+   <strong>interprets it</strong>, and then converts the request into the <strong
+    >internal system calls</strong
+   > needed to carry out the action. Shell commands <strong>list</strong> the files
+   in a directory or <strong>copy</strong>, <strong>move</strong>
+   and <strong>delete</strong> files.
+   <img
+    src={imageLs}
+    class="inlineCenter"
+    alt="Listing a directory on a Mac."
+   />
+  </p>
+  <p>
+   The commands are often different for different shells. In Windows, you list
+   files in the directory with the <tt>dir</tt>
+   command, while in Linux and on the Mac, you use the
+   <tt>ls</tt> command.
+  </p>
+  <img
+   src={imageNotepad}
+   class="right"
+   alt="Running Notepad from the command line."
+  />
+
+  <p>
+   The most common shell command is to <mark>launch a program</mark>. Simply to <strong
+    >type the name of the program</strong
+   > into the shell, at the command prompt, like the picture shown here.
+  </p>
+  <p>
+   On Windows, when you type this and press <tt>ENTER</tt>
+   the command-processor first searches a special area of memory (called the <mark
+    >executable path</mark
+   >), looking for an executable program that matches this pattern. When it
+   finds one (<tt>notepad.exe</tt>) it launches the program.
+  </p>
+  <p>
+   If it <mark>cannot find the program</mark> (because it has not been added to the
+   executable path or because it hasn't been installed on the machine you are running
+   on), the command processor prints an error message. Here is one on Windows and
+   here is one on Unix.
+   <img
+    src={imageNotFound}
+    class="inlineCenter"
+    alt="Error messages from the shell."
+   />
+  </p>
+  <div class="highlight alert alert-info">
+   <p>
+    On Windows, the current working directory <strong>is always</strong>
+    placed in the executable path; on Linux and the Mac <b>it is not</b>; on
+    those platforms, you have to type the current directory (<tt>./</tt>) before
+    the name of the executable to launch it.
+   </p>
+  </div>
+ </div>
+</Layout>

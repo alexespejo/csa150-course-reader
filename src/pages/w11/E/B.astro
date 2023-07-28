@@ -1,0 +1,56 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+<Layout
+title="Week 11"
+dir="w11/"
+displayLayout={useLayout}
+chapterSubSections={[]}
+><Header id="B">
+  <h1>The Public Interface</h1>
+</Header><div>
+  <p class='firstLine'>The goal of information hiding is to make 
+    it possible for <strong>clients</strong> to <mark>use</mark> 
+    <tt>Time</tt> objects <strong>without</strong> ever directly 
+    accessing the data members themselves. 
+  </p>
+  <p>To do that, you create 
+    a collection of <strong>functions</strong>, which provides    
+    <mark>a public interface</mark> for your type. 
+    These functions are specially dedicated to an individual class, 
+    so they are called <mark>member functions</mark>.
+  </p>
+  <p>Your interface should be as <strong>small as possible</strong>, yet
+      comprehensive enough to meet all of your client's needs. 
+      What features might those be? (Let's consider <tt>H01</tt>).
+  </p>
+  <ul>
+      <li>
+          <strong>Arithmetic</strong>: calculate the <strong>difference</strong> and <strong>sum</strong> of
+          two <tt>Time</tt> objects
+      </li>
+      <li><strong>Input and Output</strong>: read into and write out a 
+        <tt>Time</tt> object
+      </li>
+  </ul>
+  <p>
+      Here is your <tt>Time</tt> structure, including the above interface:
+  </p>
+<pre class='language-cpp'><code>struct Time
+&lbrace;
+    int hours;
+    int minutes;
+
+    Time sum(const Time&amp; rhs);
+    Time difference(const Time&amp; rhs);
+
+    std::istream&amp; read(std::istream&amp; in);
+    std::ostream&amp; write(std::ostream&amp; out);
+&rbrace;;</code></pre>
+
+
+
+  
+</div></Layout>

@@ -1,0 +1,60 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 11"
+ dir="w11/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="B">
+  <h1>Memory Leaks</h1>
+ </Header><div>
+  <p class="firstLine">
+   The <tt>delete</tt> operator frees the allocated memory on the heap, but it <mark
+    >does not physically change the pointer</mark
+   > in any way. This leads to three possible errors. Here is one:
+  </p>
+  <pre
+   class="language-cpp"><code>bool validDate(int yr, int mo, int da)
+&lbrace;
+    Date *pd = new Date(yr, mo, da);
+    if (! pd-{'>'}isValid()) &lbrace; return false;&rbrace; 
+    cout &lt;&lt; "Date " &lt;&lt; (*pd) &lt;&lt; " OK" &lt;&lt; endl;
+    delete pd;  // free heap memory
+    return true;
+&rbrace;</code></pre>
+  <p>
+   This function constructs a new <tt>Date</tt> object
+   <strong>on the heap</strong>, and then calls the <tt>isValid()</tt> member function
+   to see if the resulting combination is legal. If it is <mark>not valid</mark
+   >, the function returns <tt>false</tt>. If it is valid, then the function
+   prints the <tt>Date</tt> object, deletes the object on the heap and returns true.
+  </p>
+  <img
+   src="../images/leak.jpg"
+   class="right width-128"
+   alt="Illustrating a leak."
+  />
+
+  <p>
+   This code has <strong>one</strong>
+   <tt>new</tt> and
+   <strong>one matching</strong>
+   <tt>delete</tt>, but it still <mark>has a memory leak</mark>
+   whenever an invalid data is entered. That's because there are two <tt
+    >return</tt
+   > statements in the function. If the <tt>Date</tt>
+   is invalid, the function returns <mark>without</mark>
+   <strong> deleting the data on the heap</strong>.
+  </p>
+  <p>
+   <a target="_blank" href="https://onlinegdb.com/T_qMdPL74"
+    >Try running the program oneline</a
+   >.
+  </p>
+ </div>
+</Layout>

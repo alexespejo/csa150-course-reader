@@ -446,6 +446,53 @@ import SidebarChapterHeading from "./SidebarChapterHeading.vue";
    <a href="/w10/E#H"><span>Finding Substrings</span></a>
   </SidebarChapterHeading>
  </SidebarChapters>
+ <SidebarChapters heading="Dynamic Memory & Smart Pointers">
+  <SidebarChapterHeading heading="A-The Command Line" :opened="true">
+   <a href="/w11/A#A"><span>The Shell</span></a>
+   <a href="/w11/A#B"><span>The Command Line</span></a>
+   <a href="/w11/A#C"><span>Command-Line Arguments</span></a>
+   <a href="/w11/A#D"><span>Using Command-Line Arguments</span></a>
+   <a href="/w11/A#E"><span>Traversing the Arguments</span></a>
+   <a href="/w11/A#F"><span>Converting Arguments</span></a>
+  </SidebarChapterHeading>
+  <SidebarChapterHeading heading="B-Dynamic Memory" :opened="true">
+   <a href="/w11/B#A"><span>Introducing the Heap</span></a>
+   <a href="/w11/B#B"><span>Stack vs. Heap</span></a>
+   <a href="/w11/B#C"><span>The new Operator</span></a>
+   <a href="/w11/B#D"><span>Dyanmic Arrays</span></a>
+   <a href="/w11/B#E"><span>Dynamic Objects</span></a>
+   <a href="/w11/B#F"><span>Freeing Memory</span></a>
+  </SidebarChapterHeading>
+  <SidebarChapterHeading heading="C-Smart Pointers" :opened="true">
+   <a href="/w11/C#A"><span>Memory Management</span></a>
+   <a href="/w11/C#B"><span>Memory Leaks</span></a>
+   <a href="/w11/C#C"><span>Dangling Pointers</span></a>
+   <a href="/w11/C#D"><span>Double Deletes</span></a>
+   <a href="/w11/C#E"><span>Smart Pointers</span></a>
+   <a href="/w11/C#F"><span>Shared Pointers</span></a>
+   <a href="/w11/C#G"><span>Unique Pointers</span></a>
+   <a href="/w11/C#H"><span>Smart Pointers & Functions</span></a>
+   <a href="/w11/C#I"><span>Unique Pointers and Containers</span></a>
+   <a href="/w11/C#J"><span>Unique Pointers and Dynamic Arrays</span></a>
+  </SidebarChapterHeading>
+  <SidebarChapterHeading heading="D-The Problem with Structures" :opened="true">
+   <a href="/w11/D#A"><span>The Iron Age</span></a>
+   <a href="/w11/D#B"><span>User-Defined Types</span></a>
+   <a href="/w11/D#C"><span>Object-Based Programming</span></a>
+   <a href="/w11/D#D"><span>Time as a Structure</span></a>
+   <a href="/w11/D#E"><span>Type Invariants</span></a>
+   <a href="/w11/D#F"><span>A Scenario</span></a>
+   <a href="/w11/D#G"><span>The Problem</span></a>
+  </SidebarChapterHeading>
+  <SidebarChapterHeading heading="E-Member Functions" :opened="true">
+   <a href="/w11/E#A"><span>Information Hiding</span></a>
+   <a href="/w11/E#B"><span>The Public Interface</span></a>
+   <a href="/w11/E#C"><span>Member Functions</span></a>
+   <a href="/w11/E#D"><span>Proving the Interface</span></a>
+   <a href="/w11/E#E"><span>The Implementation File</span></a>
+   <a href="/w11/E#F"><span>Implementing Member Functions</span></a>
+  </SidebarChapterHeading>
+ </SidebarChapters>
 </template>
 
 <style lang="scss" scoped>

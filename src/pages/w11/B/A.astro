@@ -1,0 +1,51 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import imageMemory from "../images/memory.png";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 11"
+ dir="w11/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="A">
+  <h1>Introducing the Heap</h1>
+ </Header><div>
+  <img src={imageMemory} class="right" alt="A memory diagram." />
+  <p class="firstLine">
+   The illustration on the right shows how memory is used when your program
+   runs. <strong>Global</strong> variables (and constants) are placed in the <mark
+    >static storage area</mark
+   > (along with the program's
+   <mark>code or text</mark>), when your program is loaded. These remain <strong
+    >in the same location</strong
+   >
+   while your program is running. This is called <mark>static allocation</mark>.
+  </p>
+  <p>
+   Local variables and parameters are created
+   <strong>when encountered</strong> during <mark>runtime</mark>. These are <mark
+    >allocated on the stack</mark
+   >. When you call a function, memory is allocated for the variable; when the
+   function returns, that memory is freed. This is known as <mark
+    >automatic allocation</mark
+   >.
+  </p>
+  <p>
+   Finally, <mark>explicitly requesting</mark> memory from the operating system as
+   the program runs is called <mark>dynamic allocation</mark>. The memory for
+   these dynamic variables is
+   <mark>allocated on the freestore or heap</mark>.
+  </p>
+  <p>
+   This makes it possible for data structures to expand as your program runs.
+   Classes like <tt>vector</tt> and <tt>string</tt> depend on this; when a <tt
+    >vector</tt
+   > needs more memory, for a
+   <tt>push_back()</tt> say, it requests it using dynamic allocation.
+  </p>
+ </div>
+</Layout>

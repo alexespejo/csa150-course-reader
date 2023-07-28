@@ -1,0 +1,51 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import imageBug from "../images/bug.png";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 11"
+ dir="w11/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="F">
+  <h1>Implementing Member Functions</h1>
+ </Header><div>
+  <p class="firstLine">
+   To define a member function, specify the name of the function <mark
+    >preceded by the name of the structure that it belongs to</mark
+   >. To implement write(), for instance, write:
+  </p>
+  <pre
+   class="language-cpp"><code>ostream&amp; Time::write(ostream&amp; out)
+&lbrace;
+    // format and print output here
+    return out;
+&rbrace;</code></pre>
+  <p>
+   The name of the member function is <tt>Time::write</tt>; the double-colon
+   operator (<tt>::</tt>) is called the
+   <strong>scope resolution operator</strong> and tells C++ where to look for the
+   function.
+  </p>
+  <p>
+   You can think of the syntax <tt>X::Y</tt> as meaning
+   <i>“look inside <b>X</b> for <b>Y</b>.”</i>
+   It is important to use the <mark>fully-qualified name</mark>
+   of the function when implementing it. The code shown below may compile, but C++
+   thinks you are implementing a regular (or
+   <mark>free</mark>) function named <tt>write()</tt> that has
+   <mark>no relationship whatsoever</mark> to the <tt>Time</tt> class.
+  </p>
+  <img src={imageBug} class="left" alt="A bug icon." />
+  <pre
+   class="language-cpp"><code>ostream&amp; write(ostream&amp; out)
+&lbrace;
+    // Error... not a member function
+    return out;
+&rbrace;</code></pre>
+ </div>
+</Layout>

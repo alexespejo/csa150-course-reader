@@ -1,0 +1,64 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import imageZeroOne from "../images/zero-one.png";
+import imageAssembly from "../images/assembly.png";
+import imageTypes from "../images/types.png";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 11"
+ dir="w11/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="A">
+  <h1>The Iron Age</h1>
+ </Header><div>
+  <img src={imageZeroOne} class="right" alt="A binary cartoon." />
+  <p class="firstLine">
+   Back in the computing "iron-age", when programmers wrote their code in
+  </p>
+  machine or assembly language, a programmer would manipulate a data element representing
+  quarterly sales or the velocity of a missile by using the data element's <mark
+   >memory address</mark
+  >, like the line below, which stores a value (from the CPU's
+  <tt>AX</tt> register) in the memory location <tt>A42C</tt>:
+  <img
+   src={imageAssembly}
+   class="inlineCenter"
+   alt="A fragment of assembly language."
+  />
+ </div>
+ <p>
+  When high-level languages, like <tt>FORTRAN</tt> and <tt>COBOL</tt>
+  were developed, they made things much easier. Now programmers could use <mark
+   >names</mark
+  > for the data elements like this:
+ </p>
+ <pre class="language-cpp"><code>int velocity = 125;</code></pre>
+ <p>
+  There is no more need to keep track of exactly <strong>where</strong>
+  the value <tt>125</tt> is stored, not what symbolic value it represents; the compiler
+  takes care of the minutia of associating the address <tt>A42C</tt> with the <tt
+   >velocity</tt
+  >.
+ </p>
+ <img src={imageTypes} class="left" alt="A data-types icon." />
+ <p>
+  Even better, though is the fact that the compiler can now keep track of <mark
+   >what kind of thing</mark
+  > you store in the memory location <tt>A42C</tt> and warn you if you make a mistake
+  when using it. Just like 7-11 has different kinds of containers for each of their
+  beverages, programmers now have
+  <strong>different kinds of variables</strong> for
+  <strong>different kinds of data</strong>.
+ </p>
+ <p>
+  With high-level languages, variables are no longer just chunks of arbitrary
+  bits; each variable now has a specific
+  <strong>data type</strong>, like <tt>char</tt>, <tt>boolean</tt>,
+  <tt>int</tt> or <tt>double</tt>.
+ </p>
+</Layout>

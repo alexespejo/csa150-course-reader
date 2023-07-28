@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-let letters = ref(["A", "B", "C", "D", "E", "F", "G", "H"]);
+let letters = ref(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"]);
 const props = defineProps(["sections"]);
 </script>
 <template>

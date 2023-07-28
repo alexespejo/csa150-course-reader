@@ -1,0 +1,48 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import imageClock from "../images/clock.png";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 11"
+ dir="w11/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="D">
+  <h1>Time as a Structure</h1>
+ </Header><div>
+  <img src={imageClock} class="right" alt="A picture of a clock face." />
+  <p class="firstLine">
+   <strong>
+    At the beginning of the semester (H01), you wrote a program to add and
+    subtract time.
+   </strong>
+   This was harder than expected, because you didn't have a Time type; you did everything
+   with integers. Let's rectify that now by creating a <tt>Time</tt> structure, with
+   hours and minutes. Assume a 24-hour clock, so you don't need an indicator for
+   AM/PM.
+  </p>
+  <pre
+   class="language-cpp"><code>struct Time
+&lbrace;
+    int hours;
+    int minutes;
+&rbrace;;</code></pre>
+  <p>
+   Now, you can create a <tt>Time</tt>
+   <strong>object</strong>
+   that bundles that data:
+  </p>
+  <pre
+   class="language-cpp"><code>int main()
+&lbrace;
+    Time lunch = = &lbrace;11, 15&rbrace;;
+    cout &lt;&lt; lunch.hours &lt;&lt; ":" &lt;&lt; lunch.minutes &lt;&lt; endl;
+
+    return 0;
+&rbrace;</code></pre>
+ </div>
+</Layout>

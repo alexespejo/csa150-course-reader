@@ -1,0 +1,58 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 11"
+ dir="w11/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="J">
+  <h1>Unique Pointers and Dynamic Arrays</h1>
+</Header>
+<div>
+  <p class='firstLine'>One version of <tt>unique_ptr</tt> can 
+    manage arrays allocated by <tt>new</tt>. To manage a
+    dynamic array, include a pair of empty brackets after the 
+    object type:
+  </p>
+<pre class='language-cpp'><code>// up points to the first of ten uninitialized ints
+unique_ptr&lt;int[]&gt; up(new int[10]);</code></pre>
+  <p>The brackets in the type specifier (<tt>&lt;int[]&gt;</tt>) 
+      say that <tt>up</tt> points not to an <tt>int</tt> but to an 
+      array of <tt>int</tt>. Because <tt>up</tt> points to an array, 
+      when <tt>up</tt> destroys the pointer it manages, it 
+      will automatically use <tt>delete[]</tt> rather than <tt>delete</tt>.
+  </p>
+<h2>Resizing a Dynamic Array</h2>
+  <p>To resize a dynamic array, you need to:</p>
+  <ol>
+    <li>Allocate a new, larger array on the heap</li>
+    <li>Copy the elements from the old array to the new</li>
+    <li>Free the old memory and assign the new memory to the
+        original pointer.
+    </li>
+  </ol>
+  <p>Here's a fragment of code that does this:</p>
+<pre class='language-cpp'><code>int capacity = 5;
+int size = 0;
+unique_ptr&lt;int {'>'} array(new int[capacity]);
+while (cin {'>>'} n)&lbrace; 
+   if (size == capacity) &lbrace; // let's resize;
+      capacity *= 2;
+      unique_ptr&lt;int{'>'} temp(new int[capacity]);
+      for (int i = 0; i &lt; size; ++i)&lbrace; 
+         temp[i] = array[i];
+     &rbrace; 
+      array.reset(temp.release());
+  &rbrace; 
+   array[size] = n;
+   size++;
+&rbrace;</code></pre>
+
+  
+</div>
+</Layout>
