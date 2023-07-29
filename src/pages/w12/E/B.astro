@@ -1,0 +1,77 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import imageMenu from "../images/menu.png";
+import imagePieBroccoli from "../images/pie-broccoli.png";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 12"
+ dir="w12/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="B">
+  <h1>Inheritance</h1>
+ </Header><div>
+  <img
+   src={imagePieBroccoli}
+   class="left width-25"
+   alt="A picture of pie and broccoli."
+  />
+  <p class="firstLine">
+   <strong>Inheritance</strong>
+   adds to encapsulation the ability to express
+   <mark>relationships between classes</mark>. Think back to the categories,
+   "desserts" and "vegetables." Cherry pie and broccoli are both, arguably,
+   edible items; for humans, they belong to the <strong>food</strong>class.
+  </p>
+  <p>
+   Yet, in addition to belonging to the food class, cherry pie is a
+   <strong>kind of dessert</strong>, but broccoli is a
+   <strong>kind of vegetable</strong>. Both <strong>desert</strong>
+   and <strong>vegetable</strong> represent
+   <strong>subcategories</strong> of foods. Both cherry pie and broccoli are kinds
+   of food, but, thankfully, the food class itself consists of <strong
+    >more</strong
+   >
+   than just these two items. Cherry pie and broccoli are just two small <strong
+    >subsets</strong
+   > of all possible food types.
+  </p>
+  <p>
+   Thus, the <strong>relationship</strong> between food and cherry pie class is one
+   of <mark>superset</mark> (food) and
+   <mark>subset</mark> (cherry pie). In classical object-oriented terms, we call
+   this the <mark>superclass-subclass</mark> relationship. C++, which has its own
+   terminology, calls it the
+   <mark>base class-derived class</mark> relationship.
+  </p>
+  <img src={imageMenu} class="right w-1/3" alt="The food pyramid." />
+  <p>
+   Base and derived classes are arranged in a
+   <strong>hierarchy</strong>, with one base class divided into numerous derived
+   classes, and each derived class divided into more specialized kinds of
+   derived classes. That’s what we find with the food class.
+  </p>
+  <p>
+   It can be divided into desserts, vegetables, soups, salads, and entrees. Each
+   category can be further divided into
+   <strong>more specialized</strong> kinds of food.
+  </p>
+  <p>
+   A classification hierarchy is based on
+   <mark>generalization and specialization</mark>. Base classes in such a
+   hierarchy are very general, and their attributes few; the only thing that a
+   class must do to qualify as food, for instance, is to provide nutrients.
+  </p>
+  <p>
+   As you move down the hierarchy, the derived classes become
+   <strong>more specialized</strong>, and their attributes and behavior become
+   more <strong>specific</strong>. Thus, although broccoli qualifies as food (it
+   is, after all, digestible), it lacks the necessary qualifications to make it
+   a dessert.
+  </p>
+ </div>
+</Layout>

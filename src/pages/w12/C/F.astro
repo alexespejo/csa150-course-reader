@@ -1,0 +1,77 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 12"
+ dir="w12/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="F">
+  <h1>Assignment vs. Initialization</h1>
+ </Header><div>
+  <p class="firstLine">
+   Before we talk about constructors, look at these two statements:
+  </p>
+  <pre
+   class="language-cpp line-numbers"><code>string a = "Bob", b;      // initialization
+b = "Bill";               // assignment</code></pre>
+  <p>
+   <ol>
+    <li>
+     Two <tt>string</tt> objects are created and initialized on line one;
+     <tt>a</tt> is initialized using the C-String <tt>"Bob"</tt>, and
+     <tt>b</tt> is initialized to the empty
+     <tt>string</tt> by running the default constructor.
+    </li>
+    <li>
+     The <tt>string</tt> object <tt>b</tt> is destroyed (its destructor is run),
+     a new <tt>string</tt> object is initialized with <tt>"Bill"</tt>, and that
+     new <tt>string</tt>
+     object replaces the <tt>string</tt>
+     object originally held by <tt>b</tt>.
+    </li>
+   </ol>
+   <p>
+    The variable <tt>b</tt>
+    is first initialized, then destroyed, then assigned. <mark
+     >This is inefficient</mark
+    >.
+   </p>
+   <h2>Assignment in a Constructor</h2>
+   <p>
+    The body of the constructor is executed <strong>after</strong>
+    the data members have been initialized. You may use <strong
+     >assignment</strong
+    > to place a new value into these data members. For primitive types, the cost
+    of doing this is negligible, but for object types, such assignments mean that
+    <strong>data members are constructed twice</strong>—once at initialization
+    and once at assignement. Here's an example. (The implementation is inline to
+    shorten the code.)
+   </p>
+   <pre
+    class="language-cpp"><code>class Person
+&lbrace;
+public:
+  Person(const string&amp; name) &lbrace; m_name = name;&rbrace; 
+private:
+    string m_name;
+&rbrace;;</code></pre>
+   <p>
+    When you write <tt>Person</tt>
+    <tt>p("Fred")</tt>, the <tt>m_name</tt>
+    data member first calls the default constructor to create an empty <tt
+     >string</tt
+    >
+    object. Then, in the body of the constructor, the default-constructed <tt
+     >string</tt
+    > is destroyed when assigning
+    <tt>name</tt> to <tt>m_name</tt>.
+    <mark>This is inefficient</mark>, and you want to avoid it.
+   </p>
+  </p>
+ </div>
+</Layout>

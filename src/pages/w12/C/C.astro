@@ -1,0 +1,65 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 12"
+ dir="w12/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="C">
+  <h1>Constructors</h1>
+ </Header><div>
+  <p class="firstLine">
+   Initializing object data is the responsibility of the
+   <mark>constructor</mark>, which always has <mark
+    >the same name as the class</mark
+   > and which <mark>never has a return type</mark>.
+  </p>
+  <pre
+   class="language-cpp"><code>class Time
+&lbrace;
+public:
+    Time();     // default constructor
+    ...
+&rbrace;;</code></pre>
+  <p>
+   A constructor is a member function which <strong
+    >initializes an object into a well-formed state</strong
+   > before clients start manipulating it. When C++ creates an object from a class:
+  </p>
+  <ol>
+   <li>
+    It <mark>allocates a block of memory</mark> large enough to store the data elements.
+   </li>
+   <li>
+    It passes <strong>the address of that block</strong> of memory to the constructor
+    function. The address is the this pointer inside the constructor function.
+   </li>
+  </ol>
+  <p>
+   The constructor <mark>is called automatically</mark>
+   whenever an object is created. If you have a class that defines a constructor,
+   that constructor is
+   <mark>guaranteed to execute</mark>
+   whenever you create an object of the class type.
+  </p>
+  <h2>Default Constructors</h2>
+  <p>
+   The <mark>default constructor</mark> is the constructor which takes
+   <strong>no arguments</strong> and which should initialize
+   <strong>all of its data members</strong> to an appropriate
+   <strong>default</strong> value. Alternatively, since C++11, you may <strong
+    >provide an initial value</strong
+   > when defining the data members, just as in Java.
+  </p>
+  <p>
+   If you do not provide a constructor, the compiler will "write" one for you.
+   This is called the <mark>synthesized default constructor</mark>. If you use
+   in-definition initializers, then this is perfect.
+  </p>
+ </div>
+</Layout>

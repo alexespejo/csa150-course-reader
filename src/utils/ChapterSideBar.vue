@@ -493,6 +493,50 @@ import SidebarChapterHeading from "./SidebarChapterHeading.vue";
    <a href="/w11/E#F"><span>Implementing Member Functions</span></a>
   </SidebarChapterHeading>
  </SidebarChapters>
+ <SidebarChapters heading="Object Based Programming with Classes">
+  <SidebarChapterHeading heading="A-Objects & Classes" :opened="true">
+   <a href="/w12/A#A"><span>Introducing OOP</span></a>
+   <a href="/w12/A#B"><span>What are Objects</span></a>
+   <a href="/w12/A#C"><span>State and Behavior</span></a>
+   <a href="/w12/A#D"><span>What are Classes</span></a>
+   <a href="/w12/A#E"><span>What is Encapsulation</span></a>
+   <a href="/w12/A#F"><span>Real World Encapsulation</span></a>
+  </SidebarChapterHeading>
+  <SidebarChapterHeading heading="B-Encapsulation" :opened="true">
+   <a href="/w12/B#A"><span>The Wall of Abstraction</span></a>
+   <a href="/w12/B#B"><span>Class Definition Syntax</span></a>
+   <a href="/w12/B#C"><span>Public and Private</span></a>
+   <a href="/w12/B#D"><span>The Implicit Parameter</span></a>
+   <a href="/w12/B#E"><span>The Pointer this</span></a>
+   <a href="/w12/B#F"><span>The sum Member Function</span></a>
+  </SidebarChapterHeading>
+  <SidebarChapterHeading heading="C-Mutators & Constructors" :opened="true">
+   <a href="/w12/C#A"><span>Setters</span></a>
+   <a href="/w12/C#B"><span>Getter & Setter Patterns</span></a>
+   <a href="/w12/C#C"><span>Constructors</span></a>
+   <a href="/w12/C#D"><span>Member Initialization</span></a>
+   <a href="/w12/C#E"><span>Working Constructor</span></a>
+   <a href="/w12/C#F"><span>Assignment vs. Initialization</span></a>
+   <a href="/w12/C#G"><span>The Initializer List</span></a>
+  </SidebarChapterHeading>
+  <SidebarChapterHeading heading="D-More on Classes" :opened="true">
+   <a href="/w12/D#A"><span>The Working Constructor</span></a>
+   <a href="/w12/D#B"><span>Conversion Constructors</span></a>
+   <a href="/w12/D#C"><span>Implicit vs. Explicit</span></a>
+   <a href="/w12/D#D"><span>Assign, Copy & Destroy</span></a>
+   <a href="/w12/D#E"><span>Static Data Members</span></a>
+   <a href="/w12/D#F"><span>Static Member Functions</span></a>
+   <a href="/w12/D#G"><span>static const Data Members</span></a>
+  </SidebarChapterHeading>
+  <SidebarChapterHeading heading="E-Inheritance" :opened="true">
+   <a href="/w12/E#A"><span>Classification</span></a>
+   <a href="/w12/E#B"><span>Inheritance</span></a>
+   <a href="/w12/E#C"><span>Person &lt;- Student</span></a>
+   <a href="/w12/E#D"><span>The UML Diagram</span></a>
+   <a href="/w12/E#E"><span>Inherited Members</span></a>
+   <a href="/w12/E#F"><span>Private Base-class Members</span></a>
+  </SidebarChapterHeading>
+ </SidebarChapters>
 </template>
 
 <style lang="scss" scoped>

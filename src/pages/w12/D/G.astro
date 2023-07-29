@@ -1,0 +1,67 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import imageBizaro from "../images/bizarro.png";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 12"
+ dir="w12/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="G">
+  <h1>static const Data Members</h1>
+ </Header><div>
+  <img src={imageBizaro} class="right width-128" alt="Bizarro superman." />
+  <p class="firstLine">
+   When you have a constant that only applies to the situation represented by
+   your class you can add it as a static const data member.
+  </p>
+  <pre
+   class="language-cpp"><code>class Bizarro
+&lbrace;
+public:
+    static const int kAnswer&lbrace;-42&rbrace;;
+    static constexpr double kE&lbrace;3.14159&rbrace;;
+    static const double kPi;
+&rbrace;;</code></pre>
+  <p>
+   <a target="_blank" href="https://onlinegdb.com/l3rXiBA4Y"
+    >In the Bizarro world</a
+   >, almost <mark>everything is backwards</mark>. The "answer to everything" is <tt
+    >-42</tt
+   >, not <tt>42</tt> as in our world. The mathematical constant <b><i>e</i></b>
+   is <tt>3.14159</tt>, and the constant <tt>PI</tt> is the square root of
+   <tt>PI</tt> in our own world.
+  </p>
+  <p>
+   For <strong>integral types</strong>, you may initialize
+   <tt>static</tt>
+   <tt>const</tt> data members inside the class (as with <tt>kAnswer</tt>); no
+   other initialization is required. Starting in C++11 you can also do this for
+   other types, using the keyword
+   <tt>constexpr</tt>, instead of <tt>const</tt> (as with <tt>kE</tt>), provided
+   that the value can be calculated at compile time.
+  </p>
+  <p>
+   However, if a type needs to calculate a value at runtime, (as <tt>kPi</tt> does),
+   you'll still need to provide a separate
+   <mark>definition</mark> in the <tt>.cpp</tt> file.
+  </p>
+  <pre
+   class="language-cpp"><code>const double Bizarro::kPi = sqrt(acos(-1.0));</code></pre>
+  <p>
+   The data members are <tt>static</tt> (there is
+   <mark>only one copy</mark>
+   stored), they are <tt>const</tt>, (they
+   <strong>cannot be changed</strong>), and they are <tt>public</tt> (you can use
+   them outside of the class.)
+  </p>
+  <pre
+   class="language-cpp"><code>cout &lt;&lt; Bizarro::kAnswer &lt;&lt; endl;
+cout &lt;&lt; Bizarro::kPi &lt;&lt; endl;
+cout &lt;&lt; Bizarro::kE &lt;&lt; endl;</code></pre>
+ </div>
+</Layout>

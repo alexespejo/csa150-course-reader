@@ -1,0 +1,66 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import imageRunningMan from "../images/running-man.png";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 12"
+ dir="w12/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="C">
+  <h1>Person<tt>&lt;-</tt>Student</h1>
+ </Header><div>
+  <p class="firstLine">
+   Inheritance introduces quite a few new possibilities into your programs. It
+   is easy to miss some of the details that you really <strong>must</strong> master
+   to make effective use of the object-oriented technique of inheritance.
+  </p>
+  <p>
+   So, instead of working with fun stuff, like card games and shooting down
+   aliens, we'll start by returning to the old, boring "finger-exercise" example
+   that lets you concentrate on one piece of the inheritance puzzle at a time.
+  </p>
+  <p>
+   <a target="_blank" href="https://replit.com/@stephengilbert/Inheritance?v=1">
+    <img
+     src={imageRunningMan}
+     class="left width-32"
+     alt="The running-man icon."
+    /></a
+   >
+   <strong>Click the Running Man</strong> to open the lab example in <strong
+    >Replit</strong
+   >. <strong>Fork</strong> the
+   <strong>Repl</strong> so you'll have your own copy to work on.
+  </p>
+  <h2>Extending Person</h2>
+  <p>
+   In Java, you use the <tt>extends</tt> keyword to specify the parent or <strong
+    >superclass</strong
+   > (called the
+   <mark>base class</mark> in C++) when you define the child or
+   <strong>subclass</strong> (called the
+   <mark>derived class</mark> in C++). Instead of using the
+   <tt>extends</tt>
+   keyword, as in Java, we <strong>use a colon</strong> in exactly the same position.
+   In addition, we specify that the
+   <strong>base class</strong> is <tt>public</tt>.
+  </p>
+  <pre
+   class="language-cpp"><code>class Student : public Person
+&lbrace;
+    // members of the derived class
+&rbrace;;</code></pre>
+  <p>
+   <tt>Student</tt> is the derived class, while <tt>Person</tt>
+   is the base class. Each of these class definitions is placed in its own header
+   file, with the implementation of the member functions in
+   <tt>person.cpp</tt> and <tt>student.cpp</tt>. You can open these in the
+   Replit editor.
+  </p>
+ </div>
+</Layout>

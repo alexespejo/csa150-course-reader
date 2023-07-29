@@ -1,0 +1,62 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 12"
+ dir="w12/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="F">
+  <h1>Private Base-Class Members</h1>
+ </Header><div>
+  <p class="firstLine">
+   Private base-class data members
+   <mark>are not directly accessible</mark> to the derived class object member functions.
+   To see how this works, in the editor, change the <tt>Student</tt> constructor
+   so that it attempts to set the <tt>private</tt>
+   <tt>name</tt> data member directly, (instead of using the <tt>setName()</tt> member
+   function).
+  </p>
+  <pre
+   class="language-cpp"><code>Student::Student(const string sname, long sid)
+&lbrace;
+    // setName(sname);  // comment this out
+    name = sname;       // add this;
+    studentID = sid;
+&rbrace;</code></pre>
+  <p>
+   Type <tt>make</tt> in the console. You'll see an error message that looks something
+   like this:
+  </p>
+  <div class="consoleDisplay">
+   student.cpp:8:3:<span class="r"> error:</span> string Person::name is private
+   here:<br />
+   &nbsp;&nbsp;<span class="r">name</span> = sname;<br />
+   &nbsp;&nbsp;<span class="r">^~~~</span>
+  </div>
+  <p>
+   Even though you can't access the <tt>private</tt>
+   <tt>name</tt>
+   data member from the derived <tt>Student</tt>
+   class, the data member <mark
+    >exists inside the <tt>Student</tt>
+    object nonetheless</mark
+   >. You know that is true, because the <strong>inherited</strong>
+   <tt>setName()</tt> and <tt>getName()</tt>
+   member functions work correctly, and without the existence of the
+   <tt>private</tt> data member, that would not be possible.
+  </p>
+  <div class="highlight alert alert-info">
+   <p>
+    Private data members <strong>are</strong> inherited, in the sense that each derived
+    class object contains a copy of each <tt>private</tt> variable defined in the
+    base class, even though the member functions in the derived object are not free
+    to directly access that variable.
+   </p>
+  </div>
+ </div>
+</Layout>

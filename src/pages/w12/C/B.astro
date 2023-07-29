@@ -1,0 +1,51 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 12"
+ dir="w12/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="B">
+  <h1>Getter &amp; Setter Patterns</h1>
+ </Header><div>
+  <p class="firstLine">
+   The pattern of pairing a "getter" along with a "setter" function is common,
+   and you will see it in any major C++ project you work on. Unlike Java, the
+   actual <tt>get*</tt> and <tt>set*</tt>
+   name pattern is not as common. Instead, what programmers often do is write <strong
+    >a pair of overloaded functions</strong
+   >.
+   <p>
+    Instead of the name <tt>getHours()</tt> or <tt>setHours()</tt>, use the name <tt
+     >hours()</tt
+    > for both of them.
+   </p>
+   <ul>
+    <li>
+     The accessor is <tt>const</tt> and returns a value.
+    </li>
+    <li>
+     The non-<tt>const</tt> mutator returns a reference, which can be assigned to.
+    </li>
+   </ul>
+   <pre
+    class="language-cpp"><code>Time Time::hours() const &lbrace; return m_hours; &rbrace;  // accessor
+Time&amp; Time::hours()                           // mutator
+&lbrace;
+    if (h &lt; 0 || h &gt; 23) throw out_of_range("...");
+    return m_hours;
+&rbrace;</code></pre>
+   <p>
+    In general, it is safer to allow clients to <mark>read the values</mark> of the
+    data members than it is allow them to <strong>change</strong> those values. As
+    a result, "setters" are far less common than "getters" in class design. Classes
+    with no mutators at all, are called <mark>immutable classes</mark>.
+   </p>
+  </p>
+ </div>
+</Layout>

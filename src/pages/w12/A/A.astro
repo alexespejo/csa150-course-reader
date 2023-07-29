@@ -1,0 +1,48 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import imageAssembly2 from "../images/assembly-line-2.png";
+import imageBrowser from "../images/browser.gif";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 12"
+ dir="w12/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="A">
+  <h1>Introducing OOP</h1>
+ </Header><div>
+  <p class="firstLine">
+   <mark>Procedural</mark>
+   (aka structured) programming <strong>works well</strong> when applied to <strong
+    >linear</strong
+   > problems like processing the monthly payroll or sending out a set of utility
+   bills. You feed a list of employees and their hours into one end of a program
+   and get a pile of paychecks out the other. You organize your programs as
+   <mark>assembly lines which processes data</mark>. This works very well.
+   <img
+    src={imageAssembly2}
+    class="inlineCenter width-60 shadow round"
+    alt="The Ford assembly line in 1913. Wikimedia Commons/public domain."
+   />
+  </p>
+  <p>
+   But how do you apply the assembly line model to your Web browser? Where is
+   the beginning? Where's the end?
+   <img src={imageBrowser} class="inlineCenter width-60" alt="A Web browser." />
+  </p>
+  <p>
+   When it comes to <mark>interactive</mark> software, a better method of organization
+   is needed, and that's where
+   <strong>OOP</strong> (<strong>O</strong>bject-<strong>O</strong>riented
+   <strong>P</strong>rogramming) comes in. In an object-oriented program, the
+   basic "building-block" is not the function, but the <mark>object</mark>. OOP
+   programs look <b>more like communities</b> than assembly lines. Each object has
+   its own attributes and behavior, and your program "runs" as the objects interact
+   with one another.
+  </p>
+ </div>
+</Layout>

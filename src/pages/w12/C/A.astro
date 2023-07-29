@@ -1,0 +1,53 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 12"
+ dir="w12/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="A">
+  <h1>Setters</h1>
+ </Header><div>
+  <p class="firstLine">
+   In Java, many classes have member functions that start with <tt>set</tt>.
+   These are called <mark>mutators</mark>, since they <strong
+    >change the state</strong
+   >
+   of the object. Mutators should <mark>validate data</mark>
+   written to the object to <mark>enforce the class invariants</mark>.
+  </p>
+  <p>
+   With properly written mutators, the errors described in earlier lessons
+   <strong>cannot occur</strong>. Consider your <tt>Time</tt> class. If you were
+   to add
+   <tt>setHours()</tt> and <tt>setMinutes()</tt>
+   members to the class, you would have to enforce these restrictions:
+  </p>
+  <ul>
+   <li>
+    <tt>m_hours</tt> must be between <tt>0</tt> and <tt>23</tt>
+    inclusive.
+   </li>
+   <li>
+    <tt>m_minutes</tt> must be between <tt>0</tt> and <tt>59</tt>
+    inclusive.
+   </li>
+  </ul>
+ </div>
+ <p>
+  Unlike the <tt>read()</tt> member function, where you could put the stream into
+  a failed state, if these conditions were not met, in a mutator you need to
+  <tt>throw</tt> an exception like this:
+ </p>
+ <pre
+  class="language-cpp"><code>void Time::setHours(int h)
+&lbrace;
+    if (h &lt; 0 || h &gt; 23) throw out_of_range("...");
+    m_hours = h;
+&rbrace;</code></pre>
+</Layout>

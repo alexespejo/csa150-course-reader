@@ -1,0 +1,87 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import imageBackButton from "../images/back-button-data.gif"
+import imageBackButtonFunction from "../images/back-button-functions.gif"
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 12"
+ dir="w12/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="C">
+  <h1>State and Behavior</h1>
+ </Header><div>
+  <img
+   src={imageBackButton}
+   class="right"
+   alt="A UML diagram of a button"
+  />
+  <p class="firstLine">
+   The second property is
+   <mark>object state</mark>. The state of an object includes all the
+   information about the object
+   <mark>at a particular time</mark>. Take a look at the "Back" button on your
+   Web browser. The <strong>UML</strong> (<strong>U</strong>nified
+   <strong>M</strong>odeling <strong>L</strong>anguage)
+   <mark>object diagram</mark> to the right displays a <tt>Button</tt>
+   object named <tt>backButton</tt>. A <tt>Button</tt> object might have attributes
+   like:
+  </p>
+  <ul>
+   <li>
+    <strong>Position</strong>: where the button is located on the screen
+   </li>
+   <li>
+    <strong>Size</strong>: the button's width and height
+   </li>
+   <li>
+    <strong>Caption</strong>: any text, such as the word "Back," that the button
+    displays
+   </li>
+   <li>
+    <strong>Image</strong>: any icon or image that is displayed on the button's
+    surface
+   </li>
+   <li>
+    <strong>Clicked</strong>: whether or not the button is currently selected
+    (pressed)
+   </li>
+  </ul>
+  <p>
+   The state of the object is represented by the
+   <mark>values of those attributes</mark>. The
+   <tt>backButton</tt> may display an arrow image but no text, and, if you click
+   on the button with your mouse, its
+   <tt>clicked</tt> state may change from <tt>false</tt> to <tt>true</tt>.
+  </p>
+  <h2>Object Behavior</h2>
+  <img
+   src={imageBackButtonFunction}
+   class="right"
+   alt="A UML diagram of a button"
+  />
+  <p>
+   The third property shared by all objects, and what differentiates them from
+   structure types, is
+   <mark>behavior</mark>. The behavior of an object consists of the messages
+   that it responds to.
+  </p>
+  <p>
+   In the UML diagram on the right, the behavior is implemented by the <b
+    >member functions</b
+   >
+   appearing in the bottom portion of the box. You ask the
+   <tt>backButton</tt> object to change its size, for instance, by sending it a message
+   with the desired size like this:
+  </p>
+  <pre class="language-cpp"><code>backButton.setSize(300, 100);</code></pre>
+  <p>
+   Since the <tt>backButton</tt> object has a <tt>setSize()</tt>
+   member function, (as shown in the UML diagram), it does as you've asked.
+  </p>
+ </div>
+</Layout>

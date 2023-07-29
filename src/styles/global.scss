@@ -112,7 +112,7 @@ img.inlineCenter {
  margin-right: auto;
  display: block;
  clear: both;
- @apply w-full md:w-4/5 lg:w-3/4 rounded-md;
+ @apply w-full md:w-4/5 lg:w-1/2 rounded-md;
 }
 div.caption {
  font-style: italic;
@@ -188,7 +188,18 @@ code {
  margin: 1em;
  background-image: url(images/bg.gif);
 }
-
+div.consoleDisplay {
+ margin: auto;
+ border: 1px solid gray;
+ background-color: ivory;
+ text-align: left;
+ color: navy;
+ font-size: 1.1em;
+ font-family: Consolas, Courier, "courier new", monospace;
+ font-weight: bold;
+ padding: 0.5em;
+ border-radius: 5px;
+}
 // .info {
 //  background-image: url(images/info.png);
 //  background-repeat: no-repeat;

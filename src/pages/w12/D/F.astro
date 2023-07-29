@@ -1,0 +1,44 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 12"
+ dir="w12/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="F">
+  <h1>Static Member Functions</h1>
+ </Header><div>
+  <p class="firstLine">
+   How do you use the <tt>numShips</tt> variable, since it's <tt>private</tt>?
+   That is, how do <strong>you</strong>
+   find out how many ships exist? With a
+   <mark><tt>static</tt> member function</mark>, like this:
+  </p>
+  <pre
+   class="language-cpp"><code>static int xFighters() &lbrace; return numShips; &rbrace;</code></pre>
+  <p>
+   A <tt>static</tt> member function can <mark>only</mark>
+   access <tt>static</tt> data members, or call other
+   <tt>static</tt> member functions. It <mark>cannot</mark>
+   access regular data members or call regular member functions. If the function
+   is defined
+   <mark>outside of the header</mark>, then you
+   <mark>do not</mark> repeat the keyword <tt>static</tt>
+   in the definition:
+  </p>
+  <pre
+   class="language-cpp"><code>int XFighter::xFighters() &lbrace; return numShips; &rbrace;</code></pre>
+  <p>
+   Place <tt>static</tt> member functions in the <tt>public</tt>
+   section of your class and call them using the <b>class name</b>
+   and the <b>scope operator</b>, <mark>not</mark> an instance and the dot operator:
+  </p>
+  <pre
+   class="language-cpp"><code>cout &lt;&lt; XFighter::xFighters() &lt;&lt; endl;</code></pre>
+ </div>
+</Layout>

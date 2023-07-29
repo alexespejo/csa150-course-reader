@@ -1,0 +1,64 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import imageStudent from "../images/student.png";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 12"
+ dir="w12/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="E">
+  <h1>Inherited Members</h1>
+ </Header><div>
+  <p class="firstLine">
+   Open <tt>main.cpp</tt> and look at the
+   <tt>main()</tt> function, which creates a <tt>Student</tt>
+   object (steve), and then call some of its member functions. Run the project by
+   typing <tt>make</tt>
+   <tt>run</tt>
+   in the terminal. You'll see something like this:
+  </p>
+  <div class="consoleDisplay">
+   ./inherit<br />
+   getName()-&gt;Stephen<br />
+   getID()-&gt;1007
+  </div>
+  <p>
+   Of course the <tt>Student</tt> object named <tt>steve</tt>
+   can call the <tt>getID()</tt> member function, which was defined in the <tt
+    >Student</tt
+   > class. No surprises there!
+  </p>
+  <p>
+   <mark>However, it can also call</mark>
+   the <tt>setName()</tt> and <tt>getName()</tt> member functions,
+   <mark>which were not defined</mark> in <tt>Student</tt>, but in <tt
+    >Person</tt
+   >. More importantly, those member functions can read and change the <tt
+    >name</tt
+   > data member in the <tt>Person</tt> class <mark>as if</mark>
+   <tt>name</tt> were declared inside the <tt>Student</tt> class. Why?
+  </p>
+  <img
+   src={imageStudent}
+   class="right"
+   style="margin-top:-1em;"
+   alt='A "logical" UML diagram of Student.'
+  />
+  <p>
+   When you create <tt>Student</tt> objects, each derived class object contains <strong
+    >all of the data members and member functions of its base class</strong
+   >. If you were to look at a "logical" diagram of the Student class, it would
+   look something like that shown here.
+  </p>
+  <p>
+   However, (very important), the data members
+   <mark>will not be directly accessible</mark> to the derived class object, because
+   they were declared <tt>private</tt> in the base class.
+  </p>
+ </div>
+</Layout>

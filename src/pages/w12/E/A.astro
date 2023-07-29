@@ -1,0 +1,63 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import imageClassify from "../images/classify.png";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 12"
+ dir="w12/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="A">
+  <h1>Classification</h1>
+ </Header><div>
+  <p class="firstLine">
+   Classification is a mechanism which we use to understand the natural world
+   around us. As infants we begin to recognize different <strong
+    >categories</strong
+   >, like food, toys, pets, and people. As we mature, we divide these general
+   classes into <strong>subcategories</strong>
+   like siblings and parents, vegetables and dessert.
+  </p>
+  <img
+   src={imageClassify}
+   class="right width-30"
+   style="margin-top:-.5em;"
+   alt="A little girl looking at a bird in a nest."
+  />
+  <p>
+   When faced with a <strong>new</strong> object, we
+   <mark>understand it</mark> by fitting it into the categories with which we’re
+   acquainted:
+  </p>
+  <ul>
+   <li>
+    <strong>Does it taste good?</strong>
+    Perhaps it’s dessert.
+   </li>
+   <li>
+    <strong>Is it soft and fuzzy?</strong>
+    Maybe it’s a pet.
+   </li>
+   <li>Otherwise, it’s most certainly a toy of some sort!</li>
+  </ul>
+  <p>
+   <mark>Encapsulation</mark>—the specification of attributes and behavior as a
+   single entity—allows us to build on this understanding of the natural world
+   as we create software. By creating classes and objects that <strong
+    >model categories</strong
+   > in the "real world," we have confidence that our software solutions closely
+   track the problems we are trying to solve.
+  </p>
+  <p>
+   Once we've designed our own classes, instead of using computer files and
+   variables, our programs can be expressed in terms of
+   <strong>Customers</strong>, <strong>Invoices</strong>, and <strong
+    >Products</strong
+   >.
+  </p>
+ </div>
+</Layout>

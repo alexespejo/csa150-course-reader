@@ -1,0 +1,64 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import imageStatic from "../images/static.png";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 12"
+ dir="w12/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="E">
+  <h1>Static Data Members</h1>
+ </Header><div>
+  <p class="firstLine">
+   Suppose you are creating a space-wars type video game, and one of your player
+   types is an <tt>XFighter</tt>
+   class. How do you easily keep track of <mark>how many</mark>
+   <tt>XFighter</tt> ships are currently available?
+   <img
+    src={imageStatic}
+    class="inlineCenter width-60"
+    alt="Static vs. instance variables."
+   />
+  </p>
+  <p>
+   That's easy: with a <tt>static</tt>, or
+   <mark>shared data member</mark> as so:
+  </p>
+  <pre
+   class="language-cpp"><code>class XFighter
+&lbrace;
+public:
+    XFighter(int vin) : m_VIN(vin) &lbrace; numShips++;&rbrace; 
+    ~XFighter &lbrace; numShips--;&rbrace; 
+private:
+    static int numShips;
+    int m_VIN;
+&rbrace;;</code></pre>
+
+  <p>
+   The <tt>static</tt> data member <tt>numShips</tt> is
+   <tt>private</tt> to the <tt>XFighter</tt> class, but there is
+   <strong>only one copy</strong> of the member, <mark
+    >not one for each ship</mark
+   >, like the vehicle identification number (<tt>m_VIN</tt>). When an <tt
+    >XFighter</tt
+   > is constructed, the constructor increments the shared <tt>numShips</tt>,
+   and, when a ship is destroyed, the destructor decrements it.
+  </p>
+  <p>
+   There is one wrinkle with this. In C++, you must <mark
+    >initialize the static member</mark
+   >
+   as a global object in your <tt>.cpp</tt> file with something like this:
+  </p>
+  <pre class="language-cpp"><code>int XFighter::numShips = 0;</code></pre>
+  <p>
+   This <mark>cannot</mark> go in the header file.
+  </p>
+ </div>
+</Layout>

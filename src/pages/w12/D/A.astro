@@ -1,0 +1,46 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 12"
+ dir="w12/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="A">
+  <h1>The Working Constructor</h1>
+ </Header><div>
+  <p class="firstLine">
+   As you saw in the last lesson,
+   <mark>working constructor</mark>
+   is the short-hand description of a constructor that takes as many user-supplied
+   arguments as possible. In the <tt>Time</tt> class the working constructor looks
+   like this:
+  </p>
+  <pre class="language-cpp"><code>Time(int hours, int minutes);</code></pre>
+  <p>
+   In the <tt>.cpp</tt> file, you might have code that looks something like this,
+   using the initializer list, also from the last lesson:
+  </p>
+  <pre
+   class="language-cpp"><code>Time::Time(int hours, int minutes)
+  : m_hours(hours), m_minutes(minutes)
+&lbrace;
+    // validate the constructor arguments
+    assert(hours &gt;= 0 &amp;&amp; hours &lt; 24);
+    assert(minutes &gt;= 0 &amp;&amp; minutes &lt; 60);
+&rbrace;</code></pre>
+  <p>
+   It is important that your constructor intitializes your object so that it is <mark
+    >in a valid state</mark
+   >. In the example shown here, we've used <tt>assert()</tt> on the assumption that
+   it is a programming error if an invalid <tt>Time</tt> is constructed. If, however,
+   you were constructing <tt>Time</tt> objects using external data, it is possible
+   you would want to <tt>throw</tt> and <tt>catch</tt>
+   an exception instead.
+  </p>
+ </div>
+</Layout>

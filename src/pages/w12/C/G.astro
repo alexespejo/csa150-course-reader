@@ -1,0 +1,49 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 12"
+ dir="w12/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="G">
+  <h1>The Initializer List</h1>
+ </Header><div>
+  <p class="firstLine">
+   We can instruct the compiler to
+   <strong>initialize the individual data members</strong>
+   before the body of the constructor is entered instead. This is called the <mark
+    >initializer list</mark
+   >:
+  </p>
+  <ul>
+   <li>
+    It follows the parameter list and is preceded by a colon (<tt>:</tt>)
+   </li>
+   <li>It is followed by a list of member names and their initializers.</li>
+   <li>
+    Initialization occurs <strong
+     >in the order the members are declared in the class</strong
+    >.
+   </li>
+  </ul>
+  <p>
+   In C++98 the initializers are placed in parentheses; in C++11 use either
+   parentheses or braces. You cannot use the assignment operator. Here is the
+   same class using the initializer list. In this case, the <tt>name</tt> data member
+   is <strong>only constructed once</strong>:
+  </p>
+  <pre
+   class="language-cpp"><code>class Person
+&lbrace;
+public:
+  Person(const string&amp; name) : m_name(name) &lbrace; &rbrace; // empty body
+private:
+    string m_name;
+&rbrace;;</code></pre>
+ </div>
+</Layout>
