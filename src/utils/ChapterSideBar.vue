@@ -537,6 +537,56 @@ import SidebarChapterHeading from "./SidebarChapterHeading.vue";
    <a href="/w12/E#F"><span>Private Base-class Members</span></a>
   </SidebarChapterHeading>
  </SidebarChapters>
+ <SidebarChapters heading="Inheritance & Polymorphism">
+  <SidebarChapterHeading heading="A-Derived Constructors" :opened="true">
+   <a href="/w13/A#A"><span>Base-class Constructors</span></a>
+   <a href="/w13/A#B"><span>Derived-class Constructors</span></a>
+   <a href="/w13/A#C"><span>Constructor Chaining</span></a>
+   <a href="/w13/A#D"><span>Default Constructors</span></a>
+   <a href="/w13/A#E"><span>Calling the Base Constructor</span></a>
+   <a href="/w13/A#F"><span>Protected Members</span></a>
+  </SidebarChapterHeading>
+  <SidebarChapterHeading heading="B-Overriding Functions" :opened="true">
+   <a href="/w13/B#A"><span>Virtual Member Functions</span></a>
+   <a href="/w13/B#B"><span>Implementing toString()</span></a>
+   <a href="/w13/B#C"><span>Overriding toString()</span></a>
+   <a href="/w13/B#D"><span>Implementing Student::toString()</span></a>
+   <a href="/w13/B#E"><span>Combining toString()</span></a>
+   <a href="/w13/B#F"><span>The override Keyword</span></a>
+   <a href="/w13/B#G"><span>The Stream Class Hierarchy</span></a>
+   <a href="/w13/B#H"><span>Stream Substitutability</span></a>
+   <a href="/w13/B#I"><span>Substitution vs. Conversion</span></a>
+  </SidebarChapterHeading>
+  <SidebarChapterHeading heading="C-Polymorphism" :opened="true">
+   <a href="/w13/C#A"><span>Class Relationships</span></a>
+   <a href="/w13/C#B"><span>Polymorphic Inheritance</span></a>
+   <a href="/w13/C#C"><span>Static Polymorphism</span></a>
+   <a href="/w13/C#D"><span>A Perplexing Problem</span></a>
+   <a href="/w13/C#E"><span>The Slicing Problem</span></a>
+   <a href="/w13/C#F"><span>References & Pointers</span></a>
+   <a href="/w13/C#G"><span>Polymorphic Functions</span></a>
+   <a href="/w13/C#H"><span>Polymorphic Lists</span></a>
+   <a href="/w13/C#I"><span>Pointers to the Rescue?</span></a>
+   <a href="/w13/C#J"><span>Maybe Smart Pointers</span></a>
+  </SidebarChapterHeading>
+  <SidebarChapterHeading heading="D-Class Relationships" :opened="true">
+   <a href="/w13/D#A"><span>Early & Late Binding</span></a>
+   <a href="/w13/D#B"><span>How Late Binding Works</span></a>
+   <a href="/w13/D#C"><span>Multiple Inheritance</span></a>
+   <a href="/w13/D#D"><span>Contraction</span></a>
+   <a href="/w13/D#E"><span>Private Inheritance</span></a>
+   <a href="/w13/D#F"><span>Composition</span></a>
+  </SidebarChapterHeading>
+  <SidebarChapterHeading heading="E-Specification Inheritance" :opened="true">
+   <a href="/w13/E#A"><span>Specification Inheritance</span></a>
+   <a href="/w13/E#B"><span>Abstract Classes</span></a>
+   <a href="/w13/E#C"><span>Creating an Abstract Class</span></a>
+   <a href="/w13/E#D"><span>Using an Abstract Class</span></a>
+   <a href="/w13/E#E"><span>A Triangle Example</span></a>
+   <a href="/w13/E#F"><span>Redefining Functions</span></a>
+   <a href="/w13/E#G"><span>Final Classes</span></a>
+  </SidebarChapterHeading>
+ </SidebarChapters>
 </template>
 
 <style lang="scss" scoped>

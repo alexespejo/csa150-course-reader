@@ -1,0 +1,49 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import imageUsingToString2 from "../images/using-toString2.png";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 13"
+ dir="w13/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="D">
+  <h1>Implementing Student::toString()</h1>
+ </Header><div>
+  <p class="firstLine">
+   Here's one possible implementation of
+   <tt>Student::toString()</tt>:
+  </p>
+  <pre
+   class="language-cpp"><code>string Student::toString() const
+&lbrace;
+    return "Name: " + getName() // inherited member
+        + ", ID: " + to_string(studentID);
+&rbrace;</code></pre>
+  <img
+   src={imageUsingToString2}
+   class="right"
+   alt="Using the overridden toString member function."
+  />
+  <p>
+   While this works, it <strong>doesn't</strong> take advantage of the of the already-written
+   <tt>toString()</tt> member function in the
+   <tt>Person</tt> class; in the <tt>Student</tt> version of
+   <tt>toString()</tt>, you're <mark>duplicating exactly the same code</mark>.
+  </p>
+  <p>
+   Is there some way to run the original version of <tt>toString()</tt>, and
+   just <strong>add on</strong> the new parts you want, like the <tt
+    >studentID</tt
+   >? Is there some way you can
+   <strong>combine</strong> inherited and overridden member functions?
+  </p>
+  <p>
+   <mark>Yes, there is.</mark>
+  </p>
+ </div>
+</Layout>

@@ -1,0 +1,58 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 13"
+ dir="w13/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="C">
+  <h1>Overriding toString()</h1>
+ </Header><div>
+  <p class="firstLine">
+   When another class (like <tt>Student</tt>) wants to provide a different
+   implementation for a <tt>virtual</tt> member function, like <tt
+    >toString()</tt
+   >, it must:
+  </p>
+  <ol>
+   <li>
+    Use <mark>exactly the same signature</mark> (number and type of parameters) as
+    the original <tt>virtual</tt> function in the base class. There are no conversions
+    between <tt>int</tt> and <tt>double</tt> for instance as with overloading.
+   </li>
+   <li>
+    Return <strong>exactly</strong> the same type as the original member functions.
+   </li>
+  </ol>
+  <p>
+   Let's override <tt>toString()</tt> in the <tt>Student</tt>
+   class. Here's the header:
+  </p>
+  <pre
+   class="language-cpp"><code>class Student : public Person
+&lbrace;
+public:
+    Student(const std::string name, long sid);
+    long getID() const;
+    std::string toString() const;
+private:
+    long studentID;
+&rbrace;;</code></pre>
+  <p>
+   Note that the prototype is copied <b>exactly</b> from
+   <tt>Person::toString()</tt>, except for the keyword <tt>virtual</tt>. You <mark
+    >do not need to repeat</mark
+   > the word <tt>virtual</tt> in the derived class definition, (although you <strong
+    >may</strong
+   > for documentation purposes). A
+   <tt>virtual</tt> function is always
+   <tt>virtual</tt>, and a non-virtual function
+   <strong>cannot</strong> be made <tt>virtual</tt> in one of its subclasses.
+  </p>
+ </div>
+</Layout>

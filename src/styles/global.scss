@@ -199,6 +199,10 @@ div.consoleDisplay {
  font-weight: bold;
  padding: 0.5em;
  border-radius: 5px;
+ mark {
+  color: navy;
+  @apply bg-yellow-300;
+ }
 }
 // .info {
 //  background-image: url(images/info.png);

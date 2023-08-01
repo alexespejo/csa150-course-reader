@@ -1,0 +1,63 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 13"
+ dir="w13/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="C">
+  <h1>Creating an Abstract Class</h1>
+ </Header><div>
+  <p class="firstLine">
+   Unlike Java and Python, C++ has no
+   <tt>abstract</tt> keyword. Instead, in C++, an
+   <mark>Abstract Base Class</mark> (or <strong>ABC</strong>) is any class that
+   has one, or more,
+   <mark>pure virtual member functions</mark>, created using the following
+   syntax in the prototype:
+  </p>
+  <pre
+   class="language-cpp"><code>class Shape     // abstract class
+&lbrace;
+public:
+    ...
+    // Pure virtual function (abstract method)
+    virtual void draw() const = 0;
+    ...
+&rbrace;;</code></pre>
+  <img
+   src="../images/shape-uml.png"
+   class="right width-30"
+   alt="The Shape UML diagram."
+  />
+  <p>
+   Think of the <mark><tt>= 0;</tt></mark> part of syntax as a
+   <strong>replacement</strong> for the <tt>abstract</tt>
+   keyword in Java and Python.
+  </p><p>
+   Abstract classes are
+   <strong>not restricted</strong> to abstract member functions like <tt
+    >draw()</tt
+   >; you can have as many regular (concrete) member functions as you'd like,
+   freely mixed with your abstract methods.
+  </p><p>
+   The <tt>Shape</tt> class in the UML diagram at the right has a <tt
+    >setLocation()</tt
+   > member function. In UML, abstract methods, such as <tt>draw()</tt>, are
+   drawn using italics.
+  </p>
+  <p>
+   Your concrete methods may <strong>call</strong> abstract methods as part of their
+   definition, even though the member function is never implemented in the base class.
+   Unlike Java, C++ pure virtual functions <mark
+    >may have an optional implementation</mark
+   >. Since you cannot create an instance of an abstract base class, you could
+   only call this implementation from a derived class.
+  </p>
+ </div>
+</Layout>

@@ -1,0 +1,71 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import imageRunningMan from "../images/running-man.png";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 13"
+ dir="w13/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="A">
+  <h1>Base-class Constructors</h1>
+ </Header><div>
+  <a target="_blank" href="https://replit.com/@stephengilbert/Inheritance?v=1">
+   <img
+    src={imageRunningMan}
+    class="left width-32 dark:bg-white rounded-full"
+    alt="The running-man icon."
+   /></a
+  >
+  <p class="firstLine">
+   Now that you've learned about inheritance and inherited members, let's look
+   at how <mark>derived-class constructors</mark> are written. We'll with our simple
+   "finger-exercise" example that lets you concentrate on one piece of the inheritance
+   puzzle at a time. You can re-open it directly from
+   <a target="_blank" href="https://replit.com"><b>Replit</b></a>, or you can <strong
+    >click the Running Man</strong
+   > to open my copy, and <b>Fork</b> it again.
+  </p>
+  <p>
+   A constructor <strong>must</strong> have the same name as the class, so, when
+   you create a new class, it
+   <strong>cannot inherit any of the base class constructors</strong>. Instead,
+   it defines new ones.
+  </p>
+  <p>
+   To see how that works, modify the <tt>Person</tt> class, which now uses only the
+   <strong>synthesized default constructor</strong> that is automatically written
+   by your compiler, when you don't supply any explicit constructors. In <tt
+    >person.h</tt
+   > add this code:
+  </p>
+  <pre
+   class="language-cpp"><code>class Person
+&lbrace;
+public:
+    Person();
+    Person(const std::string&amp; pname);
+   . . .
+&rbrace;;</code></pre>
+  <p>
+   In <tt>person.cpp</tt> add an implementation that prints a message so you can
+   keep track of which constructor is called. The working constructor should use
+   its <tt>string</tt>
+   parameter to initialize the <tt>m_name</tt> data member in addition to <strong
+    >printing a diagnostic message</strong
+   >.
+  </p>
+  <pre
+   class="language-cpp"><code>Person::Person() &lbrace; cout &lt;&lt; "Calling Person()" &lt;&lt; endl;&rbrace; 
+
+Person::Person(const string&amp; pname)
+&lbrace;
+    cout &lt;&lt; "Calling Person(" &lt;&lt; pname &lt;&lt; ")" &lt;&lt; endl;
+    name = pname;
+&rbrace;</code></pre>
+ </div>
+</Layout>

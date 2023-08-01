@@ -1,6 +1,7 @@
 <script setup>
 import DropDownNavigation from "./DropDownNavigation.vue";
 import ChapterSidebar from "./ChapterSideBar.vue";
+import IconGithub from "../icons/IconGithub.vue";
 import { ref } from "vue";
 const showNavbar = ref(false);
 const changeShowNavbar = () => {
@@ -43,7 +44,12 @@ const props = defineProps(["sections"]);
    <div class="bg-black dark:bg-white w-10 h-1 rounded-xl"></div>
   </button>
 
-  <div class="flex items-center ml-auto">
+  <div class="flex items-center ml-auto space-x-5">
+   <div class="tooltip tooltip-bottom" data-tip="Github">
+    <a href="">
+     <IconGithub />
+    </a>
+   </div>
    <DropDownNavigation :sections="props.sections" />
    <h1 class="text-3xl font-bold ml-3">
     <span class="text-blue-700 dark:text-orange-400">CSA</span>150

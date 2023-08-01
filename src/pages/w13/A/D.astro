@@ -1,0 +1,57 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import imageRemoveDefault from "../images/remove-default.png";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 13"
+ dir="w13/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="D">
+  <h1>Default Constructors</h1>
+ </Header><div>
+  <p class="firstLine">
+   What happens if you <strong>remove</strong>
+   the default constructor from the <tt>Person</tt> class? Comment it out and you'll
+   see that the <tt>Student</tt>
+   constructor <mark>stops working</mark>:
+   <img
+    src={imageRemoveDefault}
+    class="inlineCenter"
+    alt="Removing the Person() constructor."
+   />
+  </p>
+  <p>
+   As the error message shows, every time you extend a class, the superclass <strong
+    >must</strong
+   >:
+  </p>
+  <ol>
+   <li>
+    have an <strong>explicit default constructor</strong> like
+    <tt>Person()</tt>, <mark><em>or</em></mark>
+   </li>
+   <li>
+    have a <strong>synthesized default</strong><strong> constructor</strong>
+    which is automatically written if the base class has
+    <strong>no</strong>
+    explicit constructors, <mark><em>or</em></mark>
+   </li>
+   <li>
+    the <strong>derived class</strong> (<tt>Student</tt> in this case) must <strong
+     >explicitly</strong
+    > call
+    <strong>another</strong> constructor in the base class.
+   </li>
+  </ol>
+  <p>
+   <mark>
+    So, how exactly do you explicitly call a superclass constructor?
+   </mark>
+  </p>
+ </div>
+</Layout>

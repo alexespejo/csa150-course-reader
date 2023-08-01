@@ -1,0 +1,47 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 13"
+ dir="w13/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="J">
+  <h1>Maybe Smart Pointers?</h1>
+ </Header>
+ <div>
+  <p class="firstLine">
+   You can eliminate the need to reclaim memory by using the two C++11 smart
+   pointers, <tt>shared_ptr</tt> and
+   <tt>unique_ptr</tt>, which are declared in the header <tt>&lt;memory&gt;</tt
+   >.
+  </p>
+  <p>
+   Here is a version of the program that uses
+   <tt>unique_ptr</tt>, which doesn't require the <tt>delete</tt> loop at the end.
+  </p>
+  <pre
+   class="language-cpp"><code>using up = unique_ptr&lt;Person&gt;;
+vector&lt;up&gt; people;
+people.push_back(up&lbrace;new Student("Sam", 201795)&rbrace;);
+people.push_back(up&lbrace;new Person("Pam B.")&rbrace;);
+for (const auto&amp; p : people) cout &lt;&lt; p-{'>'}toString() &lt;&lt; endl;</code></pre>
+  <p>
+   The <tt>unique_ptr</tt> constructor is <tt>explicit</tt>, so a
+   <mark>type alias</mark>
+   helps to shorten the name. Also, <tt>unique_ptr</tt>
+   objects cannot be copied, so the range-based
+   <tt class="i">for</tt> loop accesses each element by
+   <tt>const</tt> reference, which is what you need anyway.
+  </p>
+  <p>
+   Because the <tt>vector</tt> now stores
+   <strong>only smart pointers,</strong> you can't inadvertently add a stack-based
+   pointer to the list.
+  </p>
+ </div>
+</Layout>

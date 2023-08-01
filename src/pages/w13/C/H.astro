@@ -1,0 +1,47 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 13"
+ dir="w13/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="H">
+  <h1>Polymorphic Lists</h1>
+ </Header><div>
+  <p class="firstLine">
+   Creating a list (<tt>vector</tt> or array) of different kinds of object also leads
+   to slicing:
+  </p>
+  <pre
+   class="language-cpp"><code>vector&lt;Person&gt; v;
+v.push_back(Student("Sam", 201795));    // OOPS!!!
+v.push_back(Person("Pam B."));</code></pre>
+  <p>
+   When you <tt>push_back</tt> a <tt>Student</tt> or
+   <tt>Employee</tt> object, <mark>the object is sliced</mark>
+   when it is copied into the <tt>vector</tt>. The <tt>vector</tt>
+   <tt>v</tt>
+   <mark>does not</mark> contain a <tt>Student</tt>
+   and a <tt>Person</tt>; it contains two <tt>Person</tt>
+   objects. Sam has been stripped of everything that makes him a
+   <tt>Student</tt>; he has been <mark>effectively lobotomized</mark>; he no
+   longer knows who he is.
+  </p>
+  <p>
+   You also cannot fall back on using references, like you did with polymorphic
+   functions, since you cannot create a
+   <tt>vector&lt;Person&amp;&gt;</tt>
+   <tt>v</tt> or an array,
+   <tt>Person&amp;</tt>
+   <tt>a[3]</tt>.
+   <mark> Both of these declarations are illegal.</mark> A reference is not a variable
+   or object (<b><em>lvalue</em></b>), but an <strong>alias</strong>
+   for an existing <b><em>lvalue</em></b>.
+  </p>
+ </div>
+</Layout>

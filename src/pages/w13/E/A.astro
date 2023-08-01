@@ -1,0 +1,60 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import imageToDo from "../images/to-do.png";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 13"
+ dir="w13/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="A">
+  <h1>Specification Inheritance</h1>
+ </Header><div>
+  <p class="firstLine">
+   In English, the word "inheritance" has several meanings. There is biological
+   inheritance, where you inherit you eye color from your parents, but there is
+   also cultural inheritance and legal inheritance.
+  </p>
+  <img src={imageToDo} class="right width-25" alt="A to-do list." />
+  <p>
+   Similarly, in C++ you've seen <b>specialization</b> inheritance,
+   <b>polymorphic</b> inheritance and <b>implementation</b>
+   inheritance. In this lesson, we'll look at another form of inheritance, called
+   <mark>specification inheritance</mark>.
+  </p>
+  <p>
+   With specification inheritance, a base class may <mark
+    >specify a set of responsibilities</mark
+   >
+   that a derived <mark>must fulfill</mark>, but not provide any actual
+   implementation. <strong>The interface</strong> (method signatures) are inherited.
+   This is similar to legal inheritance, where your grandparents may leave you some
+   money to be used only for college.
+  </p>
+  <p>
+   The specification relationship is used <strong>in combination</strong> with regular
+   specialization:
+  </p>
+  <ul>
+   <li>
+    the derived class <mark>inherits the interface</mark> of the base class, as in
+    specification
+   </li>
+   <li>
+    it also inherits a <mark>default implementation</mark> of, at least, some of
+    its methods
+   </li>
+  </ul>
+  <p>
+   A derived class <mark>may</mark> override a
+   <tt>virtual</tt> member function to add specialized behavior, as we did with
+   <tt>Student::toString()</tt>, <strong>or</strong>, it may be
+   <mark>required</mark> to implement a particular member function, which could not
+   be provided in the base class.
+  </p>
+ </div>
+</Layout>

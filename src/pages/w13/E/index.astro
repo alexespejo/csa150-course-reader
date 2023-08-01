@@ -1,0 +1,33 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import A from "./A.astro";
+import B from "./B.astro";
+import C from "./C.astro";
+import D from "./D.astro";
+import E from "./E.astro";
+import F from "./F.astro";
+import G from "./G.astro";
+---
+
+<Layout
+ title="CSA150 Course Reader"
+ dir=""
+ displayLayout={true}
+ chapterSubSections={[
+  "Specification Inheritance",
+  "Abstract Classes",
+  "Creating an Abstract Class",
+  "Using an Abstract Class",
+  "A Triangle Example",
+  "Redefining Functions",
+  "Final Classes",
+ ]}
+>
+ <A displayLayout={false} />
+ <B displayLayout={false} />
+ <C displayLayout={false} />
+ <D displayLayout={false} />
+ <E displayLayout={false} />
+ <F displayLayout={false} />
+ <G displayLayout={false} />
+</Layout>

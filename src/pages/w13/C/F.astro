@@ -1,0 +1,45 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 13"
+ dir="w13/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="F">
+  <h1>References &amp; Pointers</h1>
+ </Header><div>
+  <p class="firstLine">
+   While slicing is a problem it is not the only culprit here. Even without
+   slicing, the code would still not work because in C++ <mark
+    >polymorphism only works with references or pointers</mark
+   >.
+  </p>
+  <p>To see, this, make the following changes to <tt>main.cpp</tt>:</p>
+  <pre
+   class="language-cpp"><code>Student sam = Student("Sam", 201795);
+Person pam = Person("Pam B.");
+Person&amp; samRef = sam;
+Person* samPtr = &amp;sam;
+cout &lt;&lt; "sam says-{'>'}" &lt;&lt; samRef.toString() &lt;&lt; endl;
+cout &lt;&lt; "sam says-{'>'}" &lt;&lt; samPtr-&gt;toString() &lt;&lt; endl;
+cout &lt;&lt; "pam says-{'>'}" &lt;&lt; pam.toString() &lt;&lt; endl;</code></pre>
+  <p>
+   Now, the <tt>Person&amp;</tt> reference <tt>samRef</tt>
+   refers to the Student object <tt>sam</tt>, and when we call <tt
+    >samRef.toString()</tt
+   > it calls
+   <tt>Student::toString()</tt>, not
+   <tt>Person::toString()</tt>
+   like our previous examples did.
+  </p>
+  <p>
+   The same thing happens if we use the <tt>Person*</tt>
+   <tt>samPtr</tt>. It is also polymorphic.
+  </p>
+ </div>
+</Layout>

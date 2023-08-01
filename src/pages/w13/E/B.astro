@@ -1,0 +1,53 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import imageShape from "../images/shapes.png";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 13"
+ dir="w13/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="B">
+  <h1>Abstract Classes</h1>
+ </Header><div>
+  <p class="firstLine">
+   The classes used in specification inheritance are called <mark
+    >abstract classes</mark
+   >. The classes we've used so far are called <b>concrete</b> classes. An abstract
+   class is usually an <strong>incomplete</strong> class, a class that contains certain
+   methods that are
+   <strong>specified</strong>, but not
+   <strong>implemented</strong> in the definition of the class.
+  </p>
+  <p>
+   Because the abstract class contains these incomplete methods,
+   <strong>it cannot be used to create objects</strong>—it can only be used as a
+   base class when defining other classes. That is, it <strong>only</strong> makes
+   sense in the context of <mark>polymorphic inheritance</mark>.
+  </p>
+  <p>
+   Suppose you have an <strong>abstract</strong>
+   <tt>Shape</tt> base class that doesn't have the faintest notion of how to implement
+   its abstract <tt>draw()</tt> method, yet it knows that each of its
+   <strong>concrete</strong> derived classes will need to do so.
+  </p>
+  <p>
+   Only the <strong>concrete</strong> classes derived from <tt>Shape</tt>—<tt
+    >Circle</tt
+   >,
+   <tt>Square</tt>, and <tt>Star</tt>—possess the necessary knowledge to
+   actually <tt>draw()</tt>
+   themselves. You, only need to program in terms of
+   <tt>Shape</tt> objects; the actual shapes will take care of their own behavior.
+   <img
+    src={imageShape}
+    class="inlineCenter width-40"
+    alt="A Shape class hierarchy."
+   />
+  </p>
+ </div>
+</Layout>

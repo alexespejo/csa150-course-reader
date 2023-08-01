@@ -1,0 +1,55 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import imageUsingToString from "../images/using-toString.png";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 13"
+ dir="w13/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="B">
+  <h1>Implementing toString()</h1>
+ </Header><div>
+  <p class="firstLine">
+   The implementation of <tt>toString()</tt>, in <tt>person.cpp</tt>
+   <mark>does not</mark> repeat the keyword
+   <tt>virtual</tt>. Let's have it display the person's name, like this:
+  </p>
+  <pre
+   class="language-cpp"><code>string Person::toString() const
+&lbrace;
+    return "Name: " + name;
+&rbrace;</code></pre>
+  <p>
+   The <tt>Student</tt> class inherits <tt>Person::toString()</tt>. If the <tt
+    >Student</tt
+   > class does nothing else, then there is no difference between a
+   <tt>virtual</tt> member function and a regular member function. To see this, modify
+   <tt>main()</tt>
+   to add the following two lines:
+  </p>
+  <pre
+   class="language-cpp"><code>cout &lt;&lt; "pete-{'>'}" &lt;&lt; pete.toString() &lt;&lt; endl;
+cout &lt;&lt; "steve-{'>'}" &lt;&lt; steve.toString() &lt;&lt; endl;</code></pre>
+  <img
+   src={imageUsingToString}
+   class="right"
+   alt="Exercising the toString member function."
+  />
+  <p>When you run the sample program it looks like this.</p>
+  <p>
+   The variable <tt>pete</tt> prints out the name as you'd expect (since <tt
+    >pete</tt
+   > is a
+   <tt>Person</tt> object). The variable <tt>steve</tt>
+   <strong>also</strong>
+   uses the new <tt>toString()</tt> member function defined in <tt>Person</tt>.
+   To <tt>steve</tt>, it is just another <mark> inherited</mark>
+   member.
+  </p>
+ </div>
+</Layout>

@@ -1,0 +1,60 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import imageFridge from "../images/fridge.jpg";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 13"
+ dir="w13/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="F">
+  <h1>Protected Members</h1>
+ </Header><div>
+  <p class="firstLine">
+   The member functions and data members which are not declared <tt>private</tt>
+   in the base class are called <strong>inherited</strong> members. An object may
+   use its inherited members without any further qualification, exactly as if they
+   were defined inside the object's own class.
+  </p>
+  <p>
+   A base class <strong>may allow</strong> a derived class access to a data member
+   by using the keyword <tt>protected</tt>
+   instead of <tt>private</tt>. Protected members are half-way between <tt
+    >public</tt
+   > and <tt>private</tt>; the derived (child) classes can directly access them,
+   but the general public cannot.
+  </p>
+  <img
+   src={imageFridge}
+   class="right w-1/4 round shadow ml-2"
+   style="margin-top:-1em;"
+   alt="Child opening a refridgerator."
+  />
+  <p>
+   These access specifiers work the same way most of us manage our own
+   households. My grandchildren are free to open my refrigerator, getting a
+   glass of orange juice <strong>without asking me</strong>; you, on the other
+   hand, would have to knock at the front door, and ask first. <strong
+    >My refrigerator has something similar to <tt>protected</tt> access.</strong
+   >
+  </p>
+  <p>
+   On the other hand, even my grandchildren
+   <strong>aren't permitted to grab my credit card</strong>and charge up a storm
+   on the Internet; my credit card is
+   <tt>private</tt>.
+  </p>
+  <div class="highlight alert alert-info">
+   <p>
+    In general, avoid using <tt>protected</tt> access to grant derived classes access
+    to data members. This unnecessarily exposes the implementation of the base class
+    and prevents easy modification. Add some <tt>protected</tt> member functions
+    instead.
+   </p>
+  </div>
+ </div>
+</Layout>

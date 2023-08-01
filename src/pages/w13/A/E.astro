@@ -1,0 +1,48 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 13"
+ dir="w13/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="E">
+  <h1>Calling the Base Constructor</h1>
+ </Header><div>
+  <p class="firstLine">
+   Just as you can initialize data members before the constructor runs, you can
+   initialize your object's "base part" by
+   <mark> calling the base class constructor in the initializer list</mark>.
+  </p>
+  <p>
+   When you do this, the <tt>Student</tt> constructor invokes the <tt
+    >Person(String)</tt
+   >
+   constructor, instead of using the <tt>setName()</tt> member function, as you've
+   done up until now. This is the <mark
+    >normal way to write derived class constructors</mark
+   >.
+  </p>
+  <pre
+   class="language-cpp"><code>Student::Student(const string sname, long sid)
+    : Person(sname)   // this initializes name
+&lbrace;
+    // setName(sname); // Remove this!!!
+    studentID = sid;  
+    cout &lt;&lt; "Calling Student(" &lt;&lt; name &lt;&lt; ", "
+        &lt;&lt; sid &lt;&lt; ")\n";
+&rbrace;</code></pre>
+
+  <p>
+   Now, when you run the sample program, instead of
+   <strong>implicitly</strong> calling the <tt>Person</tt> default constructor (which
+   no longer exists), you <mark>explicitly</mark>
+   chain to the <tt>Person(string)</tt> constructor to initialize the
+   <tt>name</tt> data member.
+  </p>
+ </div>
+</Layout>

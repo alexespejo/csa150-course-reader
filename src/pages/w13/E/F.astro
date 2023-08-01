@@ -1,0 +1,49 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 13"
+ dir="w13/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="F">
+  <h1>Redefining Functions</h1>
+ </Header><div>
+  <p class="firstLine">
+   A derived class may <strong>replace</strong>
+   an inherited member function, which the class designer wanted left alone. In the
+   <tt>Person</tt> class, <tt>getName()</tt>
+   returns the name of the person. <strong>This works fine as is</strong>;
+   there's no reason for a derived class to change it.
+  </p>
+  <p>
+   However, <mark>nothing prevents a derived class from redefining it</mark> like
+   this:
+  </p>
+  <pre
+   class="language-cpp"><code>class Imposter : public Person
+&lbrace;
+public:
+    string getName() const 
+   &lbrace; 
+        return "Emperor " + Person::getName();
+   &rbrace; 
+&rbrace;;</code></pre>
+  <p>
+   The derived class has no access to the <tt>private</tt>
+   member <tt>name</tt>. However, because the <tt>getName()</tt> member function
+   can be
+   <mark>redefined</mark>, the derived class was able to effectively gain access
+   to this field. And, because of the <strong
+    >principle of substitutability</strong
+   >, the <tt>Person</tt>
+   that your function receives as a parameter may actually be an <tt
+    >Imposter</tt
+   >.
+  </p>
+ </div>
+</Layout>

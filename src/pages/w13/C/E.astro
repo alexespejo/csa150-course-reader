@@ -1,0 +1,53 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import imageSlicing from "../images/slicing.png";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 13"
+ dir="w13/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="E">
+  <h1>The Slicing Problem</h1>
+ </Header><div>
+  <p class="firstLine">
+   Here's why this happens. First, objects in C++ are <strong
+    >value types</strong
+   >, unlike the reference types in Java. When you assign a derived class object
+   to a base class variable, <mark>only the base class portion</mark>
+   of the object is copied.
+   <mark>This is called the slicing problem.</mark>
+   <img
+    src={imageSlicing}
+    class="inlineCenter shadow round width-75"
+    alt="Illustrating the slicing problem."
+   />
+  </p>
+  <p>
+   If you pass a derived class object <strong>by value</strong> to a function that
+   expects a base class object, the same slicing will occur as well. This is easy
+   to fix. Just <mark>always</mark> follow this rule:
+  </p>
+  <div
+   style="margin:auto;text-align:center;
+    font-family:Pangolin;
+    font-weight:bold;
+    font-size:24pt;width:90%;
+    border:3px solid blue;
+    padding:.25em;
+    line-height:115%;
+   	border-radius: 5px;
+    box-shadow: 5px 5px 10px 5px #CCC;
+    color:#e858d5;
+    text-shadow: 1px 1px 2px silver;
+"
+  >
+   Never ever ever ever assign a derived class object to a base class variable.
+   Ever!
+  </div>
+ </div>
+</Layout>

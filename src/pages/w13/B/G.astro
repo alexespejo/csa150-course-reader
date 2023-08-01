@@ -1,0 +1,44 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import imageHierarchy from "../images/hierarchy.png";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 13"
+ dir="w13/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="G">
+  <h1>Class Hierarchy</h1>
+ </Header><div>
+  <p class="firstLine">
+   You first met a class hierarchy when we looked at the related stream classes.
+   The class <tt>ios</tt> represents a <strong>general</strong> stream type, used
+   for any kind of I/O. The classes <tt>istream</tt> and <tt>ostream</tt> generalize
+   the notions of input and output streams. The C++ file and string-stream classes
+   fall naturally into their appropriate position.
+   <img
+    src={imageHierarchy}
+    class="inlineCenter width-80"
+    alt="A stream hierarchy."
+   />
+  </p>
+  <p>
+   Each class shown here is a <mark>derived class</mark> (subclass) of the class
+   that appears above it in the hierarchy. <tt>istream</tt> and
+   <tt>ostream</tt> are both derived classes of <tt>ios</tt>, while <tt>ios</tt>
+   is a <strong>base class</strong>
+   (superclass) of both <tt>istream</tt> and <tt>ostream</tt>. Similar
+   relationships exist at all different levels of this diagram. For example, <tt
+    >ifstream</tt
+   > is
+   <strong>derived from</strong>
+   <tt>istream</tt>, and <tt>ostream</tt>
+   is the base class of
+   <tt>ofstream</tt>.
+  </p>
+ </div>
+</Layout>

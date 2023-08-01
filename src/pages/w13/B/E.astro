@@ -1,0 +1,57 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 13"
+ dir="w13/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="E">
+  <h1>Combining toString()</h1>
+ </Header><div>
+  <p class="firstLine">
+   <tt>Student</tt>
+   <strong>inherits</strong>
+   both <tt>getName()</tt>
+   and <tt>toString()</tt> from <tt>Person</tt>. When you create a <tt
+    >Student</tt
+   >, you can use both of those members if they were defined in <tt>Student</tt
+   >.
+  </p>
+  <p>
+   Put that to work by <mark>calling</mark> the
+   <strong>inherited</strong> version of <tt>toString()</tt>
+   <mark>from inside</mark> the new overridden
+   <tt>toString()</tt> member function. Use the
+   <mark>scope resolution operator</mark> to specify that you wish to call the base
+   class version of <tt>toString()</tt>.
+  </p>
+  <pre
+   class="language-cpp"><code>string Student::toString() const
+&lbracel;
+    return Person::toString() // base-class member
+        + ", ID: " + to_string(studentID);
+&rbrace;</code></pre>
+
+  <p>
+   If you forget to use the scope-resolution operator, your program <mark
+    >blows up the stack and crashes</mark
+   >. At least in Java it is polite enough to give you a StackOverflowError when
+   you try to run it. In C++, you'll just see a seg-fault message.
+  </p>
+  <div class="highlight alert alert-info">
+   <p>
+    Don't confuse method <strong>overriding</strong> (which is what we're doing here),
+    with method <strong>overloading</strong>. With overloading, two or more
+    methods have the same name, but different parameter lists. Overloaded
+    methods are in the same class but overridden methods are in a subclass and
+    they must have exactly the same parameters and return type as the method
+    that they are overriding.
+   </p>
+  </div>
+ </div>
+</Layout>

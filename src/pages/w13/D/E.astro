@@ -1,0 +1,55 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import imageGipods from "../images/gipod.png";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 13"
+ dir="w13/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="E">
+  <h1>Private Inheritance</h1>
+ </Header><div>
+  <img src={imageGipods} class="right" alt="The GiPod class" />
+  <p class="firstLine">
+   Private inheritance is one way to solve this problem. Private inheritance
+   means you want to <mark
+    >inherit the implementation of a class, not the interface.</mark
+   > Use this when a class has some functionality that you want to exploit, but you
+   don't want to use the interface of the base class.
+  </p>
+  <p>
+   To use private inheritance,replace the keyword <tt>public</tt>
+   with <tt>private</tt>, or, simply omit it altogether. I'd recommend that you
+   explictly specify <tt>private</tt>to prevent subsequent maintenance
+   programmers from "fixing" your code inadvertently.
+  </p>
+  <pre
+   class="language-cpp"><code>class GiPod : private Cadillac
+&lbrace;
+    // ...
+&rbrace;;</code></pre>
+  <p>
+   <tt>GiPod</tt> objects are not, in the <mark>is-a</mark> sense,
+   <tt>Cadillac</tt>. Calling any "inherited" member functions will fail. To
+   call any of the inherited member functions, you must add those member
+   functions to the new interface, with a <mark><tt>using</tt></mark> declaration
+   like this:
+  </p>
+  <pre
+   class="language-cpp"><code>class GiPod : private Cadillac 
+&lbrace;
+public:
+    using Cadillac::playMusic;
+&rbrace;;</code></pre>
+  <p>
+   When you "import" a member function like this, you don't need to specify the
+   arguments or supply an argument list. You do need the <tt>public:</tt> if you
+   want the name moved into the <tt>public</tt> section.
+  </p>
+ </div>
+</Layout>

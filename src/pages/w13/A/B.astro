@@ -1,0 +1,57 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import imageExtraConstruct from "../images/extra-constructor-call.png";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 13"
+ dir="w13/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="B">
+  <h1>Derived-class Constructors</h1>
+ </Header><div>
+  <p class="firstLine">
+   The derived <tt>Student</tt> class already has a constructor. Go ahead and modify
+   it as well, so it prints a message like this:
+  </p>
+  <pre
+   class="language-cpp"><code>Student::Student(const string sname, long sid)
+&lbrace;
+    setName(sname);
+    studentID = sid;  
+    cout &lt;&lt; "Calling Student(" &lt;&lt; name &lt;&lt; ", "
+        &lt;&lt; sid &lt;&lt; ")\n";
+&rbrace;</code></pre>
+  <p>
+   Modify <tt>main</tt> inside <tt>client.cpp</tt> to create two objects, one <tt
+    >Person</tt
+   > and one
+   <tt>Student</tt>, and to print out their info, just like the existing
+   example.
+  </p>
+  <pre
+   class="language-cpp"><code>Person pete("Pete the Pirate");
+Student steve("Steve", 1007);
+cout &lt;&lt; "pete-{'>'}" &lt;&lt; pete.getName() &lt;&lt; endl;
+cout &lt;&lt; "steve-{'>'}" &lt;&lt; steve.getName() &lt;&lt; endl;</code></pre>
+  <p>
+   Type <tt>make</tt>
+   <tt>run</tt> to compile and run the modified program. You'll see that instead
+   of only two constructor calls, which you'd expect,
+   <strong>both</strong>
+   <tt>Person</tt> constructors have been called, along with the <tt>Student</tt
+   > constructor, for a total of three, even though <mark
+    >only two objects are created</mark
+   >. Why?
+   <img
+    src={imageExtraConstruct}
+    class="inlineCenter"
+    alt="Running the sample program."
+   />
+  </p>
+ </div>
+</Layout>

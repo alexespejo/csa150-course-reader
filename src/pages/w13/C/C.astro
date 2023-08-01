@@ -1,0 +1,47 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import imageStaticPoly from "../images/static-polymorphism.png";
+const { useLayout } = Astro.props;
+---
+
+<Layout
+ title="Week 13"
+ dir="w13/"
+ displayLayout={useLayout}
+ chapterSubSections={[]}
+>
+ <Header id="C">
+  <h1>Static Polymorphism</h1>
+ </Header><div>
+  <p class="firstLine">
+   Use <tt>make</tt>
+   <tt>run</tt> to see the main program running. This is a <strong
+    >kind of "polymorphism"</strong
+   >, known as
+   <mark>static polymorphism</mark>. You send the same message to different
+   objects and each <mark
+    >responds to the same message according to its nature</mark
+   >, just like the duck, dog and cat in the picture.
+   <img
+    src={imageStaticPoly}
+    class="inlineCenter"
+    alt="Animals speaking polymorphically."
+   />
+   <p>
+    <mark>This is not what we mean when we talk about polymorphism.</mark>
+    This would work exactly the same even if <tt>Person</tt> and
+    <tt>Student</tt> were completely unrelated classes.
+   </p>
+   <p>
+    What we mean by polymorphism is an inheritance relationship where the
+    request can be sent to <mark
+     >any kind of
+     <tt>Person</tt> object</mark
+    >, and the specialized <tt>Person</tt>, such as a <tt>Student</tt> or an <tt
+     >Employee</tt
+    > responds appropriately.
+   </p>
+  </p>
+ </div>
+</Layout>
