@@ -2,6 +2,8 @@
 import DropDownNavigation from "./DropDownNavigation.vue";
 import ChapterSidebar from "./ChapterSideBar.vue";
 import IconGithub from "../icons/IconGithub.vue";
+import IconLegacyBook from "../icons/IconLegacyBook.vue";
+import Modal from "../utils/Modal.vue";
 import { ref } from "vue";
 const showNavbar = ref(false);
 const changeShowNavbar = () => {
@@ -19,13 +21,30 @@ const props = defineProps(["sections"]);
   <div
    class="w-full h-full md:w-1/2 overflow-auto bg-slate-200 dark:bg-slate-900"
   >
-   <div class="flex p-2">
+   <div class="flex p-2 items-center space-x-5">
     <button
      class="btn text-white bg-blue-400 hover:bg-blue-400"
      @click="changeShowNavbar"
     >
      &#8676; Close
     </button>
+
+    <div class="tooltip tooltip-bottom" data-tip="View Original Book">
+     <a
+      class="dark:hover:text-white lg:hidden"
+      href="https://www.occ-cs.com/book-23/"
+     >
+      <IconLegacyBook />
+     </a>
+    </div>
+    <div class="tooltip tooltip-bottom lg:hidden" data-tip="Github">
+     <a
+      class="dark:hover:text-white"
+      href="https://github.com/alexespejo/csa150-course-reader"
+     >
+      <IconGithub />
+     </a>
+    </div>
    </div>
    <ChapterSidebar />
   </div>
@@ -44,9 +63,21 @@ const props = defineProps(["sections"]);
    <div class="bg-black dark:bg-white w-10 h-1 rounded-xl"></div>
   </button>
 
-  <div class="flex items-center ml-auto space-x-5">
-   <div class="tooltip tooltip-bottom" data-tip="Github">
-    <a href="">
+  <div class="flex items-center ml-auto">
+   <Modal client:load />
+   <div
+    class="tooltip tooltip-bottom mx-5 hidden lg:block"
+    data-tip="View Original Book"
+   >
+    <a class="dark:hover:text-white" href="https://www.occ-cs.com/book-23/">
+     <IconLegacyBook />
+    </a>
+   </div>
+   <div class="tooltip tooltip-bottom hidden lg:block mr-5" data-tip="Github">
+    <a
+     class="dark:hover:text-white"
+     href="https://github.com/alexespejo/csa150-course-reader"
+    >
      <IconGithub />
     </a>
    </div>

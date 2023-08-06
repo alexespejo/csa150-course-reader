@@ -3,7 +3,7 @@ import SidebarChapters from "./SidebarChapters.vue";
 import SidebarChapterHeading from "./SidebarChapterHeading.vue";
 </script>
 <template>
- <SidebarChapters heading="Introduction to C++">
+ <SidebarChapters heading="1. Introduction to C++">
   <SidebarChapterHeading heading="A-An Overview of C++" :opened="true">
    <a href="/w01/A#A"><span>An Overview of C++</span></a>
    <a href="/w01/A#B"><span>The C++ Programming Language</span></a>
@@ -46,7 +46,7 @@ import SidebarChapterHeading from "./SidebarChapterHeading.vue";
    <a href="/w01/E#G"><span>Expression Evaluation</span></a>
   </SidebarChapterHeading>
  </SidebarChapters>
- <SidebarChapters heading="Functions, Decisions & Strings">
+ <SidebarChapters heading="2. Functions, Decisions & Strings">
   <SidebarChapterHeading heading="A-Side-Effect Operators" :opened="true">
    <a href="/w02/A#A"><span>Integer Division & Remainders</span></a>
    <a href="/w02/A#B"><span>Assignment Operators</span></a>
@@ -87,7 +87,7 @@ import SidebarChapterHeading from "./SidebarChapterHeading.vue";
    <a href="/w02/E#E"><span>Searching a String</span></a>
   </SidebarChapterHeading>
  </SidebarChapters>
- <SidebarChapters heading="Programming with Loops">
+ <SidebarChapters heading="3. Programming with Loops">
   <SidebarChapterHeading heading="A-Reference Types" :opened="true">
    <a href="/w03/A#A"><span>References</span></a>
    <a href="/w03/A#B"><span>Conversions & Const-ref</span></a>
@@ -132,7 +132,7 @@ import SidebarChapterHeading from "./SidebarChapterHeading.vue";
    <a href="/w03/E#E"><span>Validating Data</span></a>
   </SidebarChapterHeading>
  </SidebarChapters>
- <SidebarChapters heading="Function Libraries">
+ <SidebarChapters heading="4. Function Libraries">
   <SidebarChapterHeading heading="A-Library Mechanics" :opened="true">
    <a href="/w04/A#A"><span>Library Mechanics</span></a>
    <a href="/w04/A#B"><span>Separate Compilation</span></a>
@@ -179,7 +179,7 @@ import SidebarChapterHeading from "./SidebarChapterHeading.vue";
    <a href="/w04/E#F"><span>Confirmation Loops</span></a>
   </SidebarChapterHeading>
  </SidebarChapters>
- <SidebarChapters heading="Recursion, Streams & Filters">
+ <SidebarChapters heading="5. Recursion, Streams & Filters">
   <SidebarChapterHeading heading="A-Introducing Recursion" :opened="true">
    <a href="/w05/A#A"><span>Introducing Recursion</span></a>
    <a href="/w05/A#B"><span>The Factorial Function</span></a>
@@ -218,7 +218,7 @@ import SidebarChapterHeading from "./SidebarChapterHeading.vue";
    <a href="/w05/E#E"><span>More on Streams</span></a>
   </SidebarChapterHeading>
  </SidebarChapters>
- <SidebarChapters heading="Files, String Streams & Errors">
+ <SidebarChapters heading="6. Files, String Streams & Errors">
   <SidebarChapterHeading heading="A-Processing Files" :opened="true">
    <a href="/w06/A#A"><span>The Stream Classes</span></a>
    <a href="/w06/A#B"><span>UML Diagrams</span></a>
@@ -260,7 +260,7 @@ import SidebarChapterHeading from "./SidebarChapterHeading.vue";
    <a href="/w06/E#F"><span>Error Flags</span></a>
   </SidebarChapterHeading>
  </SidebarChapters>
- <SidebarChapters heading="Exceptions, Templates & Structures">
+ <SidebarChapters heading="7. Exceptions, Templates & Structures">
   <SidebarChapterHeading heading="A-Exception Handling" :opened="true">
    <a href="/w07/A#A"><span>Exception Handling</span></a>
    <a href="/w07/A#B"><span>Throwing Exceptions</span></a>
@@ -301,7 +301,7 @@ import SidebarChapterHeading from "./SidebarChapterHeading.vue";
    <a href="/w07/E#E"><span>Enumerated Input</span></a>
   </SidebarChapterHeading>
  </SidebarChapters>
- <SidebarChapters heading="Vectors, Memory, Pointers & Graphics">
+ <SidebarChapters heading="8. Vectors, Memory, Pointers & Graphics">
   <SidebarChapterHeading heading="A-The vector Type" :opened="true">
    <a href="/w08/A#A"><span>Why Vectors?</span></a>
    <a href="/w08/A#B"><span>Meet the vector</span></a>
@@ -349,7 +349,7 @@ import SidebarChapterHeading from "./SidebarChapterHeading.vue";
    <a href="/w08/E#H"><span>Changing the Format</span></a>
   </SidebarChapterHeading>
  </SidebarChapters>
- <SidebarChapters heading="Pointers, Arrays & Algorithms">
+ <SidebarChapters heading="9. Pointers, Arrays & Algorithms">
   <SidebarChapterHeading heading="A-Image Filters" :opened="true">
    <a href="/w09/A#A"><span>Digital Filters</span></a>
    <a href="/w09/A#B"><span>Address Arithmetic</span></a>
@@ -398,7 +398,7 @@ import SidebarChapterHeading from "./SidebarChapterHeading.vue";
    <a href="/w09/E#H"><span>A Reverse Fencepost</span></a>
   </SidebarChapterHeading>
  </SidebarChapters>
- <SidebarChapters heading="C-Strings, Partially-Filled & 2D Arrays">
+ <SidebarChapters heading="10. C-Strings, Partially-Filled & 2D Arrays">
   <SidebarChapterHeading heading="A-Searching Algorithms" :opened="true">
    <a href="/w10/A#A"><span>Searching Algorithms</span></a>
    <a href="/w10/A#B"><span>The Starter Code</span></a>
@@ -446,7 +446,7 @@ import SidebarChapterHeading from "./SidebarChapterHeading.vue";
    <a href="/w10/E#H"><span>Finding Substrings</span></a>
   </SidebarChapterHeading>
  </SidebarChapters>
- <SidebarChapters heading="Dynamic Memory & Smart Pointers">
+ <SidebarChapters heading="11. Dynamic Memory & Smart Pointers">
   <SidebarChapterHeading heading="A-The Command Line" :opened="true">
    <a href="/w11/A#A"><span>The Shell</span></a>
    <a href="/w11/A#B"><span>The Command Line</span></a>
@@ -493,7 +493,7 @@ import SidebarChapterHeading from "./SidebarChapterHeading.vue";
    <a href="/w11/E#F"><span>Implementing Member Functions</span></a>
   </SidebarChapterHeading>
  </SidebarChapters>
- <SidebarChapters heading="Object Based Programming with Classes">
+ <SidebarChapters heading="12. Object Based Programming with Classes">
   <SidebarChapterHeading heading="A-Objects & Classes" :opened="true">
    <a href="/w12/A#A"><span>Introducing OOP</span></a>
    <a href="/w12/A#B"><span>What are Objects</span></a>
@@ -537,7 +537,7 @@ import SidebarChapterHeading from "./SidebarChapterHeading.vue";
    <a href="/w12/E#F"><span>Private Base-class Members</span></a>
   </SidebarChapterHeading>
  </SidebarChapters>
- <SidebarChapters heading="Inheritance & Polymorphism">
+ <SidebarChapters heading="13. Inheritance & Polymorphism">
   <SidebarChapterHeading heading="A-Derived Constructors" :opened="true">
    <a href="/w13/A#A"><span>Base-class Constructors</span></a>
    <a href="/w13/A#B"><span>Derived-class Constructors</span></a>
@@ -595,7 +595,7 @@ h2 {
 }
 .collapse-content {
  div {
-  @apply text-sm px-0.5 py-1 ml-2;
+  @apply text-sm  py-1;
   a {
    @apply no-underline hover:underline hover:text-blue-500 hover:dark:text-blue-300 hover:bg-blue-800;
   }

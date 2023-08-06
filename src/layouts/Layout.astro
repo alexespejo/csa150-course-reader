@@ -40,7 +40,7 @@ hamburger_menue.addEventListener('click', function() {
    displayLayout ? (
     <div class="flex w-screen h-screen">
      <!--Side bar -->
-    <nav class="hidden lg:block bg-slate-200 dark:bg-slate-800 lg:w-2/6 xl:w-1/5 h-screen overflow-auto border-r-2 border-r-slate-300 " id="side-bar-mobile">
+ <nav class="hidden lg:block bg-slate-200 dark:bg-slate-800 lg:w-2/6 xl:w-1/5 h-screen overflow-auto border-r-2 border-r-slate-300 " id="side-bar-mobile">
       <ChapterSideBar />
      </nav> 
  
@@ -65,7 +65,7 @@ hamburger_menue.addEventListener('click', function() {
      </div>
     </div>
    ) : (
-    <div class="border-b-2 border-b-slate-300 py-5 relative">
+    <div class="border-b-2 border-b-slate-300 p-5 relative">
      <slot />
     </div>
    )

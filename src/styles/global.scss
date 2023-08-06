@@ -8,7 +8,7 @@ body {
 }
 mark {
  //  font-weight: bold;
- @apply py-0.5 px-1 bg-blue-300/50 text-slate-700 dark:bg-slate-500/50 rounded-sm dark:text-slate-300 font-semibold;
+ @apply py-0.5 px-1 bg-blue-300/50 text-black dark:bg-slate-500/50 rounded-sm dark:text-slate-300 font-semibold;
  tt {
   @apply text-black dark:text-blue-300 font-bold;
  }
@@ -289,7 +289,7 @@ details summary {
 pre.pcode {
  background-image: url(../../public/images/chalkboard.jpg);
  background-repeat: no-repeat;
- width: 90%;
+ width: 100%;
  font-family: "Courier New", Courier, monospace;
  font-weight: normal;
  font-style: italic;
@@ -302,6 +302,7 @@ pre.pcode {
  border-radius: 5px;
  line-height: 123%;
  border: 1px solid white;
+ overflow-x: auto;
 }
 
 pre.pcode em {
