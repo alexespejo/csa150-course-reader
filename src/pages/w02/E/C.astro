@@ -1,6 +1,7 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import Header from "../../../components/Header.astro";
+import imageStringLayout from "../images/string-layout.png";
 const { useLayout } = Astro.props;
 ---
 
@@ -11,13 +12,12 @@ const { useLayout } = Astro.props;
  chapterSubSections={[]}
 >
  <Header id="C">Selecting Characters</Header><div>
-  <h1>Selecting Characters</h1>
   <p class="firstLine">
    Positions in a string are <strong>subscripted</strong>
    (or indexed) starting at <tt>0</tt>. The characters in the
    <tt>string</tt> "<i>hello, world</i>" are index like this:
    <img
-    src="../images/string-layout.png"
+    src={imageStringLayout}
     class="inlineCenter"
     alt="The memory layout of the string hello, world."
    />

@@ -43,21 +43,18 @@ hamburger_menue.addEventListener('click', function() {
  <nav class="hidden lg:block bg-slate-200 dark:bg-slate-800 lg:w-2/6 xl:w-1/5 h-screen overflow-auto border-r-2 border-r-slate-300 " id="side-bar-mobile">
       <ChapterSideBar />
      </nav> 
- 
      <div class="h-full w-full lg:w-4/6 xl:w-4/5 relative ">
     <!--Top bar navigation -->
       <nav class="w-100  border-b-2 border-slate-300" id="top-navbar">
        <TopNavbar sections={chapterSubSections} client:load />
-    
       </nav>
      <!--Main content -->
-      <div class="absolute right-1/2 w-10 h-10 bg-white sm:bg-green-500 md:bg-blue-500 lg:bg-red-500 xl:bg-orange-500 2xl:bg-purple-500 hidden"></div>
-      
       <div class="flex relative" id="main-content">
-       <main class="px-3 sm:p-5 h-full w-full  xl:w-4/5 overflow-auto">
-       
-         <slot />
+       <main class="px-3 sm:p-5 h-full w-full xl:w-4/5 overflow-auto">
+          <slot />
+          hello world
        </main>
+       <!--Asidebar -->
       <aside class="hidden xl:block  xl:w-1/5 h-full border-l-2 border-slate-300">
         <SectionAside sections={chapterSubSections} />
        </aside>
@@ -66,6 +63,7 @@ hamburger_menue.addEventListener('click', function() {
     </div>
    ) : (
     <div class="border-b-2 border-b-slate-300 p-5 relative">
+    <!--no layout option -->
      <slot />
     </div>
    )

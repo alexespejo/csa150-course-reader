@@ -107,9 +107,10 @@ img.inline {
 }
 
 img.inlineCenter {
- margin: 1em;
+ //  margin: 1em;
  margin-left: auto;
  margin-right: auto;
+ margin-bottom: 1em;
  display: block;
  clear: both;
  @apply w-full md:w-4/5 lg:w-1/2 rounded-md;
@@ -283,7 +284,7 @@ div.redbox {
 
 details summary {
  font-style: italic;
- @apply bg-slate-100 dark:bg-slate-800 overflow-auto;
+ @apply bg-slate-100 dark:bg-slate-800 overflow-auto px-5 w-full cursor-pointer rounded-lg p-1;
 }
 
 pre.pcode {

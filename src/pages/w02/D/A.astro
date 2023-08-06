@@ -1,6 +1,7 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import Header from "../../../components/Header.astro";
+import imageStrings from "../images/strings.png";
 const { useLayout } = Astro.props;
 ---
 
@@ -12,9 +13,8 @@ const { useLayout } = Astro.props;
 >
  <Header id="A">Creating <i>string</i> Objects</Header>
  <div>
-  <h1>Creating <i>string</i> Objects</h1>
   <img
-   src="../images/strings.png"
+   src={imageStrings}
    class="right width-128"
    alt="A decorative image of a fist pulling strings.>
   <p class="

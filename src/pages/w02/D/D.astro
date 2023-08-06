@@ -1,6 +1,7 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import Header from "../../../components/Header.astro";
+import imageJavaAssignment from "../images/java-assignment.png";
 const { useLayout } = Astro.props;
 ---
 
@@ -12,7 +13,6 @@ const { useLayout } = Astro.props;
 >
  <Header id="D">Mutability &amp; Value Assignment</Header>
  <div>
-  <h1>Mutability &amp; Value Assignment</h1>
   <p class="firstLine">
    In C++ <tt>string</tt> objects <mark>are mutable</mark>;
    <strong>you may</strong> change the individual characters inside a
@@ -24,7 +24,7 @@ const { useLayout } = Astro.props;
 str[0] = 'j';
 cout &lt;&lt; str &lt;&lt; endl;    // prints jello</code></pre>
   <img
-   src="../images/java-assignment.png"
+   src={imageJavaAssignment}
    class="right"
    alt="Illustration of Java assignment."
   />

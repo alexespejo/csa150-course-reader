@@ -1,6 +1,7 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import Header from "../../../components/Header.astro";
+import imageStringInput from "../images/string-input.png";
 const { useLayout } = Astro.props;
 ---
 
@@ -12,7 +13,6 @@ const { useLayout } = Astro.props;
 >
  <Header id="B">String Input and Output</Header>
  <div>
-  <h1>String Input and Output</h1>
   <p class="firstLine">
    You may use <tt>&gt;&gt;</tt> and <tt>&lt;&lt;</tt> to read and write <tt
     >string</tt
@@ -28,7 +28,7 @@ cout &lt;&lt; "Hello, " &lt;&lt; name &lt;&lt; "!" &lt;&lt; endl;</code></pre>
    variable <tt>name</tt> and then includes
    <tt>name</tt> as part of the greeting, as shown in the screenshots below:
    <img
-    src="../images/string-input.png"
+    src={imageStringInput}
     class="inlineCenter width-90"
     alt="Three sample runs of the program."
    />

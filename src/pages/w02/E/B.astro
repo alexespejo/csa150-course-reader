@@ -1,6 +1,7 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import Header from "../../../components/Header.astro";
+import imageTypeWriter from "../images/typewriter.png";
 const { useLayout } = Astro.props;
 ---
 
@@ -11,9 +12,8 @@ const { useLayout } = Astro.props;
  chapterSubSections={[]}
 >
  <Header id="B">Characters</Header><div>
-  <h1>Characters</h1>
   <img
-   src="../images/typewriter.png"
+   src={imageTypeWriter}
    class="right width-25"
    alt="Decorative image of a typewriter."
   />
