@@ -22,6 +22,10 @@ This new design features a responsive layout optimized for mobile devices and sm
 
 ![Responsive Layout sm-md](./public/images/ResponsiveLayout.png)
 
+# New Dark Mode!!
+
+![Dark Mode](./public/images/lightvsdark.png)
+
 # Full Text Search
 
 A new full-text search feature allows you quickly jump to any topic or chapter.
