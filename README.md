@@ -10,13 +10,19 @@ This new version aims to include various features:
 
 ---
 
+# New Layout
+
+A new design featuring new layout and new features for intuitive functionality
+
+![New Layout](./public/images/ResponsiveDesign-lg.png)
+
 # Responsive Design
 
 This new design features a responsive layout optimized for mobile devices and smaller screens.
 
 ![Responsive Layout sm-md](./public/images/ResponsiveLayout.png)
 
-### Full Text Search
+# Full Text Search
 
 A new full-text search feature allows you quickly jump to any topic or chapter.
 
