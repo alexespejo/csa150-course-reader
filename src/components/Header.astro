@@ -2,12 +2,14 @@
 const { id } = Astro.props;
 ---
 
-<div id={id}></div>
-<header
- class="text-blue-800 dark:text-blue-400 py-3 sm:py-5 text-xl sm:text-4xl"
->
- <slot />
-</header>
+<div>
+ <div id={id}></div>
+ <header
+  class="text-blue-800 dark:text-blue-400 py-3 sm:py-5 text-xl sm:text-4xl"
+ >
+  <slot />
+ </header>
+</div>
 <style scoped>
  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&&display=swap");
  header {
