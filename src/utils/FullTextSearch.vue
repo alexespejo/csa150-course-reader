@@ -45,7 +45,7 @@ const computedList = computed(() => {
      <div class="absolute bottom-1 left-1 text-xs">
       Chapter {{ item.href.slice(2, 4) }}
      </div>
-     <div class="text-xs absolute bottom-1 right-1">
+     <div class="text-xs absolute bottom-1 right-2">
       {{ item.heading }}
      </div>
     </div>

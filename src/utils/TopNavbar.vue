@@ -65,21 +65,24 @@ const props = defineProps(["sections"]);
    <div class="bg-black dark:bg-white w-10 h-1 rounded-xl"></div>
   </button>
 
-  <div class="flex items-center ml-auto">
-   <div class="mr-4">
+  <div class="flex items-center ml-auto space-x-3">
+   <div class="">
     <Modal client:load>
      <FullTextSearch />
     </Modal>
    </div>
+   <div class="">
+    <DropDownNavigation :sections="props.sections" />
+   </div>
    <div
-    class="tooltip tooltip-bottom mx-4 hidden lg:block"
+    class="tooltip tooltip-bottom hidden lg:block"
     data-tip="View Original Book"
    >
     <a class="dark:hover:text-white" href="https://www.occ-cs.com/book-23/">
      <IconLegacyBook />
     </a>
    </div>
-   <div class="tooltip tooltip-bottom hidden lg:block mr-5" data-tip="Github">
+   <div class="tooltip tooltip-bottom hidden lg:block" data-tip="Github">
     <a
      class="dark:hover:text-white"
      href="https://github.com/alexespejo/csa150-course-reader"
@@ -87,10 +90,8 @@ const props = defineProps(["sections"]);
      <IconGithub />
     </a>
    </div>
-   <div class="mr-4">
-    <DropDownNavigation :sections="props.sections" />
-   </div>
-   <h1 class="text-3xl font-bold ml-3">
+
+   <h1 class="text-3xl font-bold">
     <span class="text-blue-700 dark:text-orange-400">CSA</span>150
    </h1>
   </div>
