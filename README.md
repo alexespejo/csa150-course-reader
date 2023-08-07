@@ -18,5 +18,5 @@ Astro allows us to implement new interactive features with javascript without sa
 
 For our styling, I've chosen TailwindCSS which provides a faster and "creative" developer experience especially when working with the existing css of the legacy course reader. However, when writing our own CSS I have included the SASS/SCSS preprocesser (mainly for nested styling).
 
-![Responsive Layout sm-md](./public/images/responsive%20layout%20sm-md.png)
+![Responsive Layout sm-md](./public/images/ResponsiveLayout.png)
 ![Responsive Layout large](./public/images/ResponsiveDesign-lg.png)
