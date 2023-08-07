@@ -17,3 +17,5 @@ One major benefit of the old course reader was it's blazingly fast loading time.
 Astro allows us to implement new interactive features with javascript without sacrificing speed. Additionally, Astro allows us to implement interactivity using any javascript framework we choose (ex. React, Svelete, Solid, Vue). I have chosen to use the [Vue](https://vuejs.org/) framework.
 
 For our styling, I've chosen TailwindCSS which provides a faster and "creative" developer experience especially when working with the existing css of the legacy course reader. However, when writing our own CSS I have included the SASS/SCSS preprocesser (mainly for nested styling).
+
+![Responsive Layout small](./public/images/ResponsiveDesign-sm.png)
