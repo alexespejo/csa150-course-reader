@@ -8,7 +8,7 @@ This project is intended to build upon the existing [CS150 Course Reader](https:
 
 A new design featuring new layout and new features for intuitive functionality
 
-![New Layout](./public/images/ResponsiveDesign-lg.png)
+![New Layout](./public/images/NewLayout.png)
 
 # Responsive Design
 
