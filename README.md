@@ -1,12 +1,6 @@
 # CS150 Course reader project
 
-This project is intended to improve upon the existing [CS150 Course Reader](https://www.occ-cs.com/book-23/)
-
-This new version aims to include various features:
-
-1. Responsive Design (supporting an intuitive layout for small (mobile) and large (desktop) devices)
-2. Improved navigation: Full page chapters for faster readings, sidebar navigation to jump between sections, searchable content so users can jump between chapters without having to traverse the glossary
-3. Most importantly... DARK MODE!
+This project is intended to build upon the existing [CS150 Course Reader](https://www.occ-cs.com/book-23/) bringing upon new features and designs!
 
 ---
 
