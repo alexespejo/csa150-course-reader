@@ -1,5 +1,6 @@
 <script setup>
 import IconSearch from "../icons/IconSearch.vue";
+import IconClose from "../icons/IconClose.vue";
 import { onMounted } from "vue";
 
 onMounted(() => {
@@ -45,16 +46,25 @@ onMounted(() => {
  <!-- A modal dialog containing a form -->
  <dialog
   id="favDialog"
-  class="mt-5 w-3/4 lg:w-1/2 rounded-xl bg-slate-200 dark:bg-slate-900 dark:text-slate-300 text-black text-sm md:text-base;"
+  class="mt-5 w-full h-1/2 lg:w-1/2 rounded-xl bg-slate-200 dark:bg-slate-900 dark:text-slate-300 text-black text-sm md:text-base overflow-hidden py-3 border-2 border-slate-900 relative"
  >
   <form>
-   <div>
-    <button value="cancel" formmethod="dialog">Cancel</button>
+   <div class="flex-col flex">
+    <button
+     value="cancel"
+     formmethod="dialog"
+     class="dark:border-slate-900 dark:hover:border-slate-200 border-2 rounded-full self-end absolute top-0 right-0"
+    >
+     <IconClose />
+    </button>
+    <div class="">
+     <slot />
+    </div>
    </div>
   </form>
  </dialog>
  <button id="showDialog" class="btn bg-blue-600 dark:bg-orange-400 text-white">
-  <IconSearch />
+  <span class="mr-2 hidden lg:block">Search</span><IconSearch />
  </button>
  <output></output>
 </template>

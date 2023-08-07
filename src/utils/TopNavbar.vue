@@ -1,8 +1,10 @@
 <script setup>
 import DropDownNavigation from "./DropDownNavigation.vue";
 import ChapterSidebar from "./ChapterSideBar.vue";
+import FullTextSearch from "../utils/FullTextSearch.vue";
 import IconGithub from "../icons/IconGithub.vue";
 import IconLegacyBook from "../icons/IconLegacyBook.vue";
+import IconSearch from "../icons/IconSearch.vue";
 import Modal from "../utils/Modal.vue";
 import { ref } from "vue";
 const showNavbar = ref(false);
@@ -64,9 +66,13 @@ const props = defineProps(["sections"]);
   </button>
 
   <div class="flex items-center ml-auto">
-   <Modal client:load />
+   <div class="mr-4">
+    <Modal client:load>
+     <FullTextSearch />
+    </Modal>
+   </div>
    <div
-    class="tooltip tooltip-bottom mx-5 hidden lg:block"
+    class="tooltip tooltip-bottom mx-4 hidden lg:block"
     data-tip="View Original Book"
    >
     <a class="dark:hover:text-white" href="https://www.occ-cs.com/book-23/">
@@ -81,7 +87,9 @@ const props = defineProps(["sections"]);
      <IconGithub />
     </a>
    </div>
-   <DropDownNavigation :sections="props.sections" />
+   <div class="mr-4">
+    <DropDownNavigation :sections="props.sections" />
+   </div>
    <h1 class="text-3xl font-bold ml-3">
     <span class="text-blue-700 dark:text-orange-400">CSA</span>150
    </h1>

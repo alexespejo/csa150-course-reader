@@ -20,7 +20,7 @@ const props = defineProps(["sections"]);
 ul {
  @apply leading-none space-y-0;
  li {
-  @apply list-none m-0 text-base p-3 py-3 xl:text-sm hover:underline  hover:text-blue-500 hover:dark:text-blue-300 w-full;
+  @apply list-none m-0 text-base  p-3 py-3  hover:underline  hover:text-blue-500 hover:dark:text-blue-300 w-full;
  }
 
  @media (min-width: 640px) {
