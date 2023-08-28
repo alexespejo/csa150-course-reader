@@ -4,16 +4,21 @@ let letters = ref(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"]);
 const props = defineProps(["sections"]);
 </script>
 <template>
- <ul class="py-5">
-  <a
-   class="no-underline"
-   v-for="(sec, index) in props.sections"
-   :key="index"
-   :href="`#${letters[index]}`"
-  >
-   <li>{{ sec }}</li>
-  </a>
- </ul>
+ <div class="px-3 pt-2">
+  <h1 class="hidden lg:block border-b-2 border-slate-200 text-lg font-bold">
+   Index
+  </h1>
+  <ul class="">
+   <a
+    class="no-underline"
+    v-for="(sec, index) in props.sections"
+    :key="index"
+    :href="`#${letters[index]}`"
+   >
+    <li>{{ sec }}</li>
+   </a>
+  </ul>
+ </div>
 </template>
 
 <style lang="scss" scoped>

@@ -1,6 +1,8 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import Header from "../../../components/Header.astro";
+import imageQuadraticEquation from "../images/quadratic-equation.png";
+import imageQE2 from "../images/quadratic-formula2.png";
 const { useLayout } = Astro.props;
 ---
 
@@ -13,7 +15,7 @@ const { useLayout } = Astro.props;
  <Header id="F">Expressions</Header>
  <div>
   <img
-   src="../images/quadratic-equation.png"
+   src={imageQuadraticEquation}
    class="right width-30"
    alt="The quadratic equation ax<sup>2</sup> + bx + c = 0."
   />
@@ -23,11 +25,7 @@ const { useLayout } = Astro.props;
    <mark>write expressions</mark> to calculate the answer in a form similar to that
    used in mathematics. Consider the quadratic equation:
   </p>
-  <img
-   src="../images/quadratic-formula2.png"
-   class="right width-30"
-   alt="The quadratic formula."
-  />
+  <img src={imageQE2} class="right width-30" alt="The quadratic formula." />
   <p>This equation has two solutions given by the quadratic formula:</p>
   <p>
    To solve this in C++, you write an <mark>expression</mark> which uses <tt

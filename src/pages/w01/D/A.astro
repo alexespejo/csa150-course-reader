@@ -1,6 +1,7 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import Header from "../../../components/Header.astro";
+import imageBox from "../images/box.png";
 const { useLayout } = Astro.props;
 ---
 
@@ -22,7 +23,7 @@ const { useLayout } = Astro.props;
   </p>
   <p>
    <img
-    src="../images/box.png"
+    src={imageBox}
     class="right"
     alt="Decorative image that illustrates a variable as a box."
    />

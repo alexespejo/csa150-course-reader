@@ -1,6 +1,7 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import Header from "../../../components/Header.astro";
+import imageBeavers from "../images/beaver.png";
 const { useLayout } = Astro.props;
 ---
 
@@ -16,7 +17,7 @@ const { useLayout } = Astro.props;
 
  <div>
   <img
-   src="../images/beaver.png"
+   src={imageBeavers}
    class="right width-128"
    alt="A beaver with a chain saw."
   />

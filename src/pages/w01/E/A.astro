@@ -1,6 +1,7 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import Header from "../../../components/Header.astro";
+import imageSizes from "../images/sizes.jpg";
 const { useLayout } = Astro.props;
 ---
 
@@ -22,7 +23,7 @@ const { useLayout } = Astro.props;
   </p>
   <p>
    <img
-    src="../images/sizes.jpg"
+    src={imageSizes}
     class="right"
     alt="Decorative image with different popcorn sizes."
    />

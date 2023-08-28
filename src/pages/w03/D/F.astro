@@ -1,6 +1,7 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import Header from "../../../components/Header.astro";
+import imageGoal from "../images/goal.png";
 const { useLayout } = Astro.props;
 ---
 
@@ -13,11 +14,7 @@ const { useLayout } = Astro.props;
  <Header id="F">
   <h1>The Loop Goal</h1>
  </Header><div>
-  <img
-   src="../images/goal.png"
-   class="right width-25"
-   alt="Illustrating a loop goal."
-  />
+  <img src={imageGoal} class="right width-25" alt="Illustrating a loop goal." />
   <p class="firstLine">
    The whole purpose of a loop is to get some
    <strong>real work done</strong>, to accomplish the

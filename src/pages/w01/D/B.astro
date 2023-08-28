@@ -1,6 +1,7 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import Header from "../../../components/Header.astro";
+import imageDataTypes from "../images/data-types.png";
 const { useLayout } = Astro.props;
 ---
 
@@ -47,7 +48,7 @@ Star rigel;         // Star is a user-defined type</code></pre>
    it can store. As an analogy, think of your local convenience store, where different
    product containers are specialized for a particular kind of beverage or snack.
    <img
-    src="../images/data-types.png"
+    src={imageDataTypes}
     class="inlineCenter width-75"
     alt="Different fast-food containers."
    />

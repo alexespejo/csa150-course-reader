@@ -21,7 +21,7 @@ const { useLayout } = Astro.props;
    class="language-cpp line-numbers"><code>int sides = 7;   // initialization (not assignment)
 . . .
 sides = 10;       // non-range-checked assignment
-sides = {3.5};    // range-checked assignment (<mark>error</mark>)</code></pre>
+sides = {'{3.5}'};    // range-checked assignment (<mark>error</mark>)</code></pre>
   <ul>
    <li>
     Line 1 is <strong>initialization</strong>; it <mark>may</mark> appear

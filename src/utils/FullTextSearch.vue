@@ -27,7 +27,7 @@ const computedList = computed(() => {
   />
  </div>
 
- <ol class="h-80 overflow-auto space-y-0 space-x-0 mt-0.5 w-full">
+ <ol class="h-80 overflow-auto space-y-0 space-x-0 mt-0.5 w-full mt-2">
   <li
    v-for="(item, index) in computedList"
    :key="item.msg"

@@ -1,6 +1,7 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import Header from "../../../components/Header.astro";
+import imageTopDown from "../images/top-down-design.png";
 const { useLayout } = Astro.props;
 ---
 
@@ -47,7 +48,7 @@ const { useLayout } = Astro.props;
    smaller and smaller functions, is called
    <mark>top down design</mark> or <mark>procedural decomposition</mark>.
    <img
-    src="../images/top-down-design.png"
+    src={imageTopDown}
     class="inlineCenter"
     alt="A hierarchy chart for Homework 00."
    />

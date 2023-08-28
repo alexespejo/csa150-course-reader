@@ -1,6 +1,7 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import Header from "../../../components/Header.astro";
+import imageInputErrors from "../images/input-error.jpg";
 const { useLayout } = Astro.props;
 ---
 
@@ -55,7 +56,7 @@ cin &gt;&gt; limit;             // read, convert and store</code></pre>
    the system <mark>prints an error message on the console</mark>, and
    terminates the program.
    <img
-    src="../images/input-error.jpg"
+    src={imageInputErrors}
     class="inlineCenter"
     alt="An input-error message in a Java IDE."
     title="An input-error message in a Java IDE."

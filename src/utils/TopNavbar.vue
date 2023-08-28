@@ -5,6 +5,7 @@ import FullTextSearch from "../utils/FullTextSearch.vue";
 import IconGithub from "../icons/IconGithub.vue";
 import IconLegacyBook from "../icons/IconLegacyBook.vue";
 import IconSearch from "../icons/IconSearch.vue";
+import IconBug from "../icons/IconBug.vue";
 import Modal from "../utils/Modal.vue";
 import { ref } from "vue";
 const showNavbar = ref(false);
@@ -47,6 +48,24 @@ const props = defineProps(["sections"]);
       <IconGithub />
      </a>
     </div>
+    <div class="tooltip tooltip-bottom lg:hidden" data-tip="Find any issues?">
+     <a
+      class="dark:hover:text-white"
+      href="https://github.com/alexespejo/csa150-course-reader#issues"
+     >
+      <IconBug />
+     </a>
+    </div>
+    <!-- <div
+     class="tooltip tooltip-bottom hidden lg:block"
+     data-tip="Find any issues?"
+    >
+     <a
+      class="dark:hover:text-white"
+     >
+      <IconBug />
+     </a>
+    </div> -->
    </div>
    <ChapterSidebar />
   </div>
@@ -88,6 +107,17 @@ const props = defineProps(["sections"]);
      href="https://github.com/alexespejo/csa150-course-reader"
     >
      <IconGithub />
+    </a>
+   </div>
+   <div
+    class="tooltip tooltip-bottom hidden lg:block"
+    data-tip="Find any issues?"
+   >
+    <a
+     class="dark:hover:text-white"
+     href="https://github.com/alexespejo/csa150-course-reader#issues"
+    >
+     <IconBug />
     </a>
    </div>
 

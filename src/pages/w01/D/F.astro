@@ -1,6 +1,7 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import Header from "../../../components/Header.astro";
+import imageTerminal from "../images/terminal.png";
 const { useLayout } = Astro.props;
 ---
 
@@ -13,7 +14,7 @@ const { useLayout } = Astro.props;
  <Header id="F">Console Output</Header>
  <div>
   <img
-   src="../images/terminal.png"
+   src={imageTerminal}
    class="right"
    alt="A decorative old-fashioned terminal."
   />
