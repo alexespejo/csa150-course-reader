@@ -3,16 +3,6 @@
 This project is intended to build upon the existing [CS150 Course Reader](https://www.occ-cs.com/book-23/), bringing upon new features and designs!
 
 ---
-## Issues?
-
-Email me directly if you've encountered any issues (i.e., missing images, typos, layout discrepancies).
-
-Subject: CSA150 Course Reader 
-
-Please provide the URL, description, and/or images.
-
-Email: aespejo@student.cccd.edu
----
 
 ## Issues?
 
