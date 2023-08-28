@@ -8,7 +8,7 @@ const props = defineProps(["heading", "opened"]);
   <div class="collapse-title text-sm md:text-base font-bold">
    {{ props.heading }}
   </div>
-  <div class="collapse-content">
+  <div class="collapse-content p-0">
    <slot />
   </div>
  </div>

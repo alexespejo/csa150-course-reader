@@ -3,10 +3,12 @@ const props = defineProps(["heading"]);
 </script>
 
 <template>
- <header class="text-sm p-1 font-bold border-b-2 border-slate-200 my-1">
-  {{ props.heading }}
- </header>
- <div class="text-sm"><slot /></div>
+ <div class="bg-slate-800 p-1">
+  <header class="text-sm p-1 font-bold border-b-2 border-slate-200 my-1">
+   {{ props.heading }}
+  </header>
+  <div class="text-sm"><slot /></div>
+ </div>
 </template>
 
 <style lang="scss">
