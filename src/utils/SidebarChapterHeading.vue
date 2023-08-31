@@ -3,8 +3,10 @@ const props = defineProps(["heading"]);
 </script>
 
 <template>
- <div class="bg-slate-800 p-1">
-  <header class="text-sm p-1 font-bold border-b-2 border-slate-200 my-1">
+ <div class="bg-slate-200 dark:bg-slate-800 p-1">
+  <header
+   class="text-sm p-1 font-bold border-b-2 border-slate-900 dark:border-slate-200 my-1"
+  >
    {{ props.heading }}
   </header>
   <div class="text-sm"><slot /></div>
